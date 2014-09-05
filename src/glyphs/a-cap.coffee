@@ -39,7 +39,9 @@ exports.glyph['A'] =
 					angle: '90deg'
 
 # a =
-# 	x: nodes[2].y
+# 	y: nodes[0]
+# 	x: width
+
 # 	y: width * height
 	# y:
 	# 	a: width
