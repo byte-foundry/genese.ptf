@@ -1,15 +1,18 @@
 'use strict';
 
 var gulp = require('gulp'),
-	expr2str = require('./operationalyzer');
+	operation = require('./operationalyzer'),
+	jsufon = require('./jsufonify');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*']
 });
 
 gulp.task('build', function() {
-	return gulp.src('src/glyphs/*.coffee')
+	return gulp.src('src/**/*.coffee')
 		.pipe($.coffee({bare: true}).on('error', $.util.log))
-		.pipe(expr2str())
-		.pipe(gulp.dest('dist/glyphs/'));
+		.pipe(operation())
+		.pipe($.concat('font.json'))
+		.pipe(jsufon())
+		.pipe(gulp.dest('dist/'));
 });

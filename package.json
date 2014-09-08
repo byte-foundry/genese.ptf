@@ -1,5 +1,5 @@
 {
-  "name": "genese.ptf",
+  "name": "Genese",
   "version": "0.1.0",
   "description": "Genese Parametric Typeface",
   "main": "dist/typeface.js",
@@ -30,6 +30,7 @@
     "esprima": "~1.2.2",
     "escodegen": "~1.4.1",
     "estraverse": "~1.5.1",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "sandbox": "~0.8.6"
   }
 }

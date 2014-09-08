@@ -1,4 +1,4 @@
-exports.glyph['A'] =
+exports.glyphs['A'] =
 	contours:
 		0:
 			classes: 'skeleton'
@@ -13,7 +13,7 @@ exports.glyph['A'] =
 					width: thickness * contrast
 					angle: 10
 				2:
-					x: nodes[3].x / 2
+					x: nodes[3].x / width
 					y: xHeight
 					width: thickness * contrast * 0.8
 					angle: '-90deg'
@@ -37,14 +37,3 @@ exports.glyph['A'] =
 					onLine: [ nodes[2], nodes[3] ],
 					width: -thickness
 					angle: '90deg'
-
-# a =
-# 	y: nodes[0]
-# 	x: width
-
-# 	y: width * height
-	# y:
-	# 	a: width
-	# 				# x: thickness
-	# 				# y: nodes[2].y
-	# 				# width: nodes[1].x * 0.8 + thickness
