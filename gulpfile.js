@@ -9,7 +9,12 @@ var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*']
 });
 
-gulp.task('build', ['copy'], function() {
+gulp.task('clean-dist', function() {
+	return gulp.src('dist', { read: false })
+		.pipe($.rimraf());
+});
+
+gulp.task('build', ['clean-dist', 'copy'], function() {
 	return gulp.src('src/**/*.coffee')
 		.pipe($.coffee({bare: true}).on('error', $.util.log))
 		.pipe(operation())
