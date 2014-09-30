@@ -24,7 +24,7 @@ module.exports = function(config) {
 		// list of files / patterns to load in the browser
 		files: [
 			'bower_components/prototypo/dist/prototypo.js',
-			'dist/hobby.js',
+			//'dist/hobby.js',
 			'dist/utils.js',
 			{pattern: 'dist/font.json', included: false},
 			{pattern: 'dist/*.spec.js', included: true},

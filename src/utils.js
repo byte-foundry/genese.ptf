@@ -28,16 +28,16 @@
 
 				rib = skeleton.expanded[0].addNode();
 				rib.tags.add('rib');
-				rib.type = node.type || 'open';
-				rib.lType = node.src.lType || 'open';
-				rib.rType = node.src.rType || 'open';
+				rib.type = node.type || 'smooth';
+				rib.lType = node.src.lType || 'smooth';
+				rib.rType = node.src.rType || 'smooth';
 				node.expanded.push( rib );
 
 				rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
 				rib.tags.add('rib');
-				rib.type = node.type || 'open';
-				rib.lType = node.src.rType || 'open';
-				rib.rType = node.src.lType || 'open';
+				rib.type = node.type || 'smooth';
+				rib.lType = node.src.rType || 'smooth';
+				rib.rType = node.src.lType || 'smooth';
 				node.expanded.push( rib );
 			}
 
@@ -75,18 +75,18 @@
 			width = node.width !== undefined ? node.width : params.width,
 			distr = node.distr !== undefined ? node.distr : 0.5,
 			angle = ( node.angle !== undefined ? node.angle : ( params.angle || 0 ) ) * ( Math.PI * 2 / 360 ),
-			tension = node.tension || 1;
+			curviness = node.curviness || 1;
 
 		left.x = node.x + ( width * ( distr ) * Math.cos( angle + Math.PI ) );
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
 		right.x = node.x + ( width * ( 1 - distr ) * Math.cos( angle ) );
 		right.y = node.y + ( width * ( 1 - distr ) * Math.sin( angle ) );
 
-		left.lTension = node.lTension || tension;
-		left.rTension = node.rTension || tension;
-		// use opposite tension
-		right.lTension = node.rTension || tension;
-		right.rTension = node.lTension || tension;
+		// left.lCurviness = node.lCurviness || curviness;
+		// left.rCurviness = node.rCurviness || curviness;
+		// // use opposite tension
+		// right.lCurviness = node.rCurviness || curviness;
+		// right.rCurviness = node.lCurviness || curviness;
 	}
 
 	// - link nodes in the contour
@@ -115,19 +115,84 @@
 			}
 		}
 
-		firstNode.lType = firstNode.lType === 'line' ?
-			'lineendcycle':
-			'endcycle';
-		lastNode.rType = lastNode.rType === 'line' ?
-			'lineendcycle':
-			'endcycle';
+		// firstNode.lType = firstNode.lType === 'line' ?
+		// 	'lineendcycle':
+		// 	'endcycle';
+		// lastNode.rType = lastNode.rType === 'line' ?
+		// 	'lineendcycle':
+		// 	'endcycle';
 
 	}
 
-	if ( !P.hobby ) {
-		P.hobby = {};
+	function makeChoices( contour, params ) {
+		var nodes = contour.nodes,
+			i = 0,
+			length = nodes.length,
+			dxPrev,
+			dyPrev,
+			dxNext,
+			dyNext;
+
+		// special cases
+		if ( length === 0 ) {
+			return;
+		}
+		if ( length < 3 ) {
+			nodes[0].rCtrl.x = nodes[0].lCtrl.x = nodes[0].x;
+			nodes[0].rCtrl.y = nodes[0].lCtrl.y = nodes[0].y;
+
+			if ( length === 2 ) {
+				nodes[1].rCtrl.x = nodes[1].lCtrl.x = nodes[1].x;
+				nodes[1].rCtrl.y = nodes[1].lCtrl.y = nodes[1].y;
+			}
+
+			return;
+		}
+
+		// loop starts at node 1 and stops at node
+		while ( ++i < length -1 ) {
+			dxPrev = nodes[i].x - nodes[i-1].x;
+			dyPrev = nodes[i].y - nodes[i-1].y;
+			dxNext = nodes[i+1].x - nodes[i].x;
+			dyNext = nodes[i+1].y - nodes[i].y;
+
+			// horizontal controls
+			if (	( ( dxPrev * dyPrev > 0 ) && ( dxNext * dyNext > 0 ) ) ||
+					( ( dxPrev * dyPrev < 0 ) && ( dxNext * dyNext < 0 ) ) ) {
+				//node.tags.remove('vertical');
+				node.tags.add('horizontal');
+
+				node.lCtrl.y = node.rCtrl.y = node.y;
+				node.lCtrl.x = node.x - ( params.curviness * dxPrev );
+				node.rCtrl.x = node.x + ( params.curviness * dxNext );
+
+			} else {
+				//node.tags.remove('horizontal');
+				node.tags.add('vertical');
+
+				node.lCtrl.x = node.rCtrl.x = node.x;
+				node.lCtrl.y = node.y - ( params.curviness * dxPrev );
+				node.rCtrl.y = node.y + ( params.curviness * dxNext );
+			}
+		}
+
+		if ( nodes[1].tags.has('horizontal') ) {
+			nodes[0].rCtrl.x = nodes[0].x;
+			nodes[0].rCtrl.y = nodes[0].y + ( nodes[1].y - nodes[0].y ) * params.curviness;
+		}
 	}
-	Object.mixin( P.hobby, {
+
+	function straightLines( contour ) {
+		contour.nodes.forEach(function(node) {
+			node.lCtrl.x = node.rCtrl.x;
+			node.lCtrl.y = node.rCtrl.y;
+		});
+	}
+
+	if ( !P.naive ) {
+		P.naive = {};
+	}
+	Object.mixin( P.naive, {
 		expand: expand,
 		updateRibs: updateRibs,
 		prepareContour: prepareContour
@@ -143,7 +208,7 @@
 				return;
 			}
 
-			hobby.expand( skeleton, params );
+			naive.expand( skeleton, params );
 		});
 
 		glyph.contours.forEach(function( contour ) {
@@ -151,7 +216,8 @@
 				return;
 			}
 
-			hobby.prepareContour( contour );
+			//naive.prepareContour( contour );
+			naive.straightLines(contour);
 		});
 	};
 
