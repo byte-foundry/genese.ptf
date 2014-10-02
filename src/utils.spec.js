@@ -16,7 +16,7 @@ describe('font utils', function() {
 	it('can expand an open skeleton', function() {
 		expect( test0.contours.length ).to.be.equal(2);
 
-		prototypo.hobby.expand( test0.contours[0], test0, params );
+		prototypo.naive.expand( test0.contours[0], test0, params );
 
 		expect( test0.contours.length ).to.be.equal(3);
 		expect( test0.contours[0].expanded.length ).to.be.equal(1);

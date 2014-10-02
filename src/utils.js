@@ -15,6 +15,11 @@
 				skin.type = 'closed';
 				skeleton.expanded.push( skin );
 			}
+
+			if ( !isOpen ) {
+				skeleton.expanded[0].next = skeleton.expanded[1];
+				skeleton.expanded[1].prev = skeleton.expanded[0];
+			}
 		}
 
 		// the nodes of all expanded are re-linked on each update
@@ -74,8 +79,8 @@
 			right = node.expanded[1],
 			width = node.width !== undefined ? node.width : params.width,
 			distr = node.distr !== undefined ? node.distr : 0.5,
-			angle = ( node.angle !== undefined ? node.angle : ( params.angle || 0 ) ) * ( Math.PI * 2 / 360 ),
-			curviness = node.curviness || 1;
+			angle = ( node.angle !== undefined ? node.angle : ( params.angle || 0 ) ) * ( Math.PI * 2 / 360 )/*,
+			curviness = node.curviness || 1*/;
 
 		left.x = node.x + ( width * ( distr ) * Math.cos( angle + Math.PI ) );
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
@@ -128,6 +133,7 @@
 		var nodes = contour.nodes,
 			i = 0,
 			length = nodes.length,
+			node,
 			dxPrev,
 			dyPrev,
 			dxNext,
@@ -151,6 +157,7 @@
 
 		// loop starts at node 1 and stops at node
 		while ( ++i < length -1 ) {
+			node = node[i];
 			dxPrev = nodes[i].x - nodes[i-1].x;
 			dyPrev = nodes[i].y - nodes[i-1].y;
 			dxNext = nodes[i+1].x - nodes[i].x;
@@ -195,30 +202,48 @@
 	Object.mixin( P.naive, {
 		expand: expand,
 		updateRibs: updateRibs,
-		prepareContour: prepareContour
+		prepareContour: prepareContour,
+		makeChoices: makeChoices,
+		straightLines: straightLines
 	});
 
 	// extend built-in objects types
 	P.Glyph.prototype._update = P.Glyph.prototype.update;
 	P.Glyph.prototype.update = function( font, params ) {
-		glyph._update( font, params );
+		this._update( font, params );
 
-		glyph.contours.forEach(function( skeleton ) {
+		this.contours.forEach(function( skeleton ) {
 			if ( !skeleton.tags.has('skeleton') ) {
 				return;
 			}
 
-			naive.expand( skeleton, params );
-		});
+			P.naive.expand( skeleton, this, params );
+		}, this);
 
-		glyph.contours.forEach(function( contour ) {
-			if ( skeleton.tags.has('skeleton') ) {
+		this.contours.forEach(function( contour ) {
+			if ( contour.tags.has('skeleton') ) {
 				return;
 			}
 
 			//naive.prepareContour( contour );
-			naive.straightLines(contour);
+			P.naive.straightLines(contour);
+
+			// only the first contour of linked list of contours must be converted
+			if ( !contour.prev ) {
+				contour.toSVG();
+			}
 		});
+
+		this.gatherNodes();
+
+		return this;
 	};
+
+	// contour.update() shouldn't update the SVG dataPath attr,
+	// as control points are only ready much later
+	P.Contour.prototype.update = function( params, contours, anchors ) {
+		this.nodes.forEach(node => node.update( params, contours, anchors, this.nodes ));
+	};
+
 
 })( prototypo );

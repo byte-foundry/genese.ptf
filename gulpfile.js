@@ -42,3 +42,7 @@ gulp.task('test', ['lint', 'build'], function(done) {
 			singleRun: true
 		}, done);
 });
+
+gulp.task('watch', function() {
+	gulp.watch(['src/**/*'], ['build']);
+});

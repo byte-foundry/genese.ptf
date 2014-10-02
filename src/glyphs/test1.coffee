@@ -12,12 +12,12 @@ exports.glyphs['test1'] =
 					rType: 'line'
 				1:
 					x: 50
-					y: 100
+					y: xHeight
 					width: 10
 					angle: -90
 					distr: 0
 				2:
-					x: 100
+					x: 100 + thickness
 					y: 0
 					width: 20
 					angle: -180
