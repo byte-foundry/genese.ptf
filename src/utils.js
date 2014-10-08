@@ -366,7 +366,6 @@
 			if ( !contour.prev ) {
 				contour.toSVG();
 			}
-			console.log('STOOOOOOOOOOOOOOOOOOOOOOOOOOOOP');
 		});
 
 		this.gatherNodes();
@@ -376,9 +375,9 @@
 
 	// contour.update() shouldn't update the SVG dataPath attr,
 	// as control points are only ready much later
-	P.Contour.prototype.update = function( params, contours, anchors ) {
+	P.Contour.prototype.update = function( params, glyph ) {
 		this.nodes.forEach(function(node) {
-			node.update( params, contours, anchors, this.nodes );
+			node.update( params, glyph, this );
 		}, this);
 	};
 
