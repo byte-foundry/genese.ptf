@@ -27,17 +27,17 @@ exports.glyphs['test0'] =
 					y: 0
 					width: thickness * contrast
 					angle: -180
-		# 1:
-		# 	tags: 'skeleton'
-		# 	type: 'open'
-		# 	nodes:
-		# 		0:
-		# 			y: xHeight / 2
-		# 			onLine: [ nodes[0], nodes[2] ]
-		# 			width: thickness
-		# 			angle: '90deg'
-		# 		1:
-		# 			y: xHeight / 2
-		# 			onLine: [ nodes[2], nodes[3] ]
-		# 			width: -thickness
-		# 			angle: '90deg'
+		1:
+			tags: 'skeleton'
+			type: 'open'
+			nodes:
+				0:
+					y: xHeight / 2
+					onLine: [ nodes[0], nodes[2] ]
+					width: thickness
+					angle: 90
+				1:
+					y: xHeight / 2
+					onLine: [ nodes[2], nodes[3] ]
+					width: -thickness
+					angle: 90

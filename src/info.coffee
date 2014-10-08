@@ -5,5 +5,8 @@ exports.info =
 	'cap-height': 720
 	'descendent-height': 210
 	'glyph-order':
-		'A': 'test0'
-		'O': 'test1'
+		'0': 'test0'
+		'1': 'test1'
+		'2': 'test2'
+		'O': 'O'
+		'A': 'A'

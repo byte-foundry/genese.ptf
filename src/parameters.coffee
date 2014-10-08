@@ -116,9 +116,9 @@ exports.parameters = [
 		minAdvised: 1
 		maxAdvised: 2
 	,
-		name: 'roundness'
-		label: 'Roundness'
-		min: 1
+		name: 'curviness'
+		label: 'Curviness'
+		min: 0
 		max: 4
 		step: 0.1
 		init: 1

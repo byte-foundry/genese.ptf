@@ -11,13 +11,13 @@ exports.glyphs['test1'] =
 					width: thickness * contrast
 					rType: 'line'
 				1:
-					x: 50
+					x: thickness
 					y: xHeight
 					width: 10
 					angle: -90
 					distr: 0
 				2:
-					x: 100 + thickness
+					x: 2 * thickness
 					y: 0
 					width: 20
 					angle: -180
