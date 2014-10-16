@@ -20,10 +20,14 @@ function jsufonify(prefixText) {
 		font = sandbox.exports;
 
 		// WIP: convert ptf object to jsufon
-		_(font.glyphs).forEach(function( glyph,  name) {
+		_(font.glyphs).forEach(function( glyph ) {
 			// glyph.anchors -> glyph.anchor
 			if ( glyph.anchors ) {
-				glyph.anchor = glyph.anchors;
+				glyph.anchor = [];
+
+				_(glyph.anchors).forEach(function( anchor, i ) {
+					glyph.anchor[i] = anchor;
+				});
 			}
 
 			if ( !glyph.outline ) {
@@ -66,7 +70,7 @@ function jsufonify(prefixText) {
 
 	// returning the file stream
 	return stream;
-};
+}
 
 // exporting the plugin main function
 module.exports = jsufonify;

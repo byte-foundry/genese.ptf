@@ -19,7 +19,7 @@ function isOperation( node, parent ) {
 }
 
 // plugin level function (dealing with files)
-function operationalyzer(prefixText) {
+function operationalyzer() {
 	// prepare a generic operation object that we'll reuse to replace each operation
 	var operation = esprima.parse('_ = {operation: \'\', parameters: [], dependencies: []}')
 			.body[0].expression.right.properties;
@@ -60,7 +60,9 @@ function operationalyzer(prefixText) {
 
 					if ( node.type === 'MemberExpression' ) {
 						inMember = node;
-						dependencies.push( escodegen.generate( node ) );
+						if ( node.object.name !== 'Math' && node.object.name !== 'Utils' ) {
+							dependencies.push( escodegen.generate( node ) );
+						}
 						return;
 					}
 
@@ -69,7 +71,7 @@ function operationalyzer(prefixText) {
 					}
 				}
 			},
-			leave: function( node, parent ) {
+			leave: function( node ) {
 				if ( node === inMember ) {
 					inMember = false;
 				}
@@ -83,7 +85,7 @@ function operationalyzer(prefixText) {
 					node.type = 'ObjectExpression';
 					node.properties = _.cloneDeep( operation );
 
-					node.properties[0].value.value = tmp
+					node.properties[0].value.value = tmp;
 
 					node.properties[0].value.raw = '\'' + node.properties[0].value + '\'';
 
@@ -96,6 +98,10 @@ function operationalyzer(prefixText) {
 					});
 
 					node.properties[2].value.elements = dependencies.map(function( dep ) {
+						// transform contours[0].nodes[1].x into contours.0.nodes.1.x
+						// which is invalid javascript but easier to use
+						dep = dep.replace( /\[\s*(\d+)\s*\]/g, '.$1' );
+
 						return {
 							type: 'Literal',
 							value: dep,
@@ -117,7 +123,7 @@ function operationalyzer(prefixText) {
 
 	// returning the file stream
 	return stream;
-};
+}
 
 // exporting the plugin main function
 module.exports = operationalyzer;

@@ -31,39 +31,72 @@
 			if ( !node.expanded ) {
 				node.expanded = [];
 
-				rib = skeleton.expanded[0].addNode();
-				rib.tags.add('rib');
-				rib.type = node.type || 'smooth';
-				rib.lType = node.src.lType || 'smooth';
-				rib.rType = node.src.rType || 'smooth';
-				rib.direction = node.angle + Math.PI / 2;
-				if ( node.rDirection !== undefined ) {
-					rib.rDirection = node.rDirection;
-				}
-				if ( node.lDirection !== undefined ) {
-					rib.lDirection = node.lDirection;
-				}
-				node.expanded.push( rib );
+				if ( node.type === 'summit' ) {
+					rib = skeleton.expanded[0].addNode();
+					rib.type = 'corner';
+					rib.lType = rib.rType = 'line';
+					node.expanded.push( rib );
 
-				rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
-				rib.tags.add('rib');
-				rib.type = node.type || 'smooth';
-				rib.lType = node.src.rType || 'smooth';
-				rib.rType = node.src.lType || 'smooth';
-				rib.direction = node.angle - Math.PI / 2;
-				if ( node.rDirection !== undefined ) {
-					rib.lDirection = node.rDirection;
+					rib = skeleton.expanded[0].addNode();
+					rib.type = 'corner';
+					rib.lType = rib.rType = 'line';
+					node.expanded.push( rib );
+
+					rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+					rib.type = 'corner';
+					rib.lType = rib.rType = 'line';
+					node.expanded.push( rib );
+
+					rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+					rib.type = 'corner';
+					rib.lType = rib.rType = 'line';
+					node.expanded.push( rib );
+
+				} else {
+					rib = skeleton.expanded[0].addNode();
+					rib.tags.add('rib');
+					rib.type = node.type || 'smooth';
+					rib.lType = node.src.lType || 'smooth';
+					rib.rType = node.src.rType || 'smooth';
+					rib.direction = node.angle + Math.PI / 2;
+					if ( node.rDirection !== undefined ) {
+						rib.rDirection = node.rDirection;
+					}
+					if ( node.lDirection !== undefined ) {
+						rib.lDirection = node.lDirection;
+					}
+					node.expanded.push( rib );
+
+					rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+					rib.tags.add('rib');
+					rib.type = node.type || 'smooth';
+					rib.lType = node.src.rType || 'smooth';
+					rib.rType = node.src.lType || 'smooth';
+					rib.direction = node.angle - Math.PI / 2;
+					if ( node.rDirection !== undefined ) {
+						rib.lDirection = node.rDirection;
+					}
+					if ( node.lDirection !== undefined ) {
+						rib.rDirection = node.lDirection;
+					}
+					node.expanded.push( rib );
 				}
-				if ( node.lDirection !== undefined ) {
-					rib.rDirection = node.lDirection;
-				}
-				node.expanded.push( rib );
 			}
 
-			skins[0].push( node.expanded[0] );
-			skins[1].push( node.expanded[1] );
+			if ( node.type === 'summit' ) {
+				skins[0].push( node.expanded[0] );
+				skins[0].push( node.expanded[1] );
+				skins[1].push( node.expanded[2] );
+				skins[1].push( node.expanded[3] );
 
-			updateRibs( node, params );
+				updateSummitRibs( node, params );
+
+			} else {
+				skins[0].push( node.expanded[0] );
+				skins[1].push( node.expanded[1] );
+
+				updateNodeRibs( node, params );
+			}
 		});
 
 		if ( isOpen ) {
@@ -90,24 +123,21 @@
 		}
 	}
 
-	function updateRibs( node, params ) {
+	function updateNodeRibs( node, params ) {
 		var left = node.expanded[0],
 			right = node.expanded[1],
 			width = node.width !== undefined ? node.width : params.width,
 			distr = node.distr !== undefined ? node.distr : 0.5,
-			angle = ( node.angle !== undefined ? node.angle : ( params.angle || 0 ) )/*,
-			curviness = node.curviness || 1*/;
+			angle = ( node.angle !== undefined ? node.angle : ( params.angle || 0 ) );
 
 		left.x = node.x + ( width * ( distr ) * Math.cos( angle + Math.PI ) );
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
 		right.x = node.x + ( width * ( 1 - distr ) * Math.cos( angle ) );
 		right.y = node.y + ( width * ( 1 - distr ) * Math.sin( angle ) );
+	}
 
-		// left.lCurviness = node.lCurviness || curviness;
-		// left.rCurviness = node.rCurviness || curviness;
-		// // use opposite tension
-		// right.lCurviness = node.rCurviness || curviness;
-		// right.rCurviness = node.lCurviness || curviness;
+	function updateSummitRibs(/* node, params */) {
+		// TODO
 	}
 
 	// - link nodes in the contour
@@ -135,14 +165,6 @@
 				node.prev.lType = 'line';
 			}
 		}
-
-		// firstNode.lType = firstNode.lType === 'line' ?
-		// 	'lineendcycle':
-		// 	'endcycle';
-		// lastNode.rType = lastNode.rType === 'line' ?
-		// 	'lineendcycle':
-		// 	'endcycle';
-
 	}
 
 	function notomatic( contour, params ) {
@@ -334,7 +356,7 @@
 	Object.mixin( P.naive, {
 		findAngle: findAngle,
 		expand: expand,
-		updateRibs: updateRibs,
+		updateNodeRibs: updateNodeRibs,
 		prepareContour: prepareContour,
 		makeChoices: makeChoices,
 		straightLines: straightLines,
@@ -342,9 +364,13 @@
 	});
 
 	// extend built-in objects types
-	P.Glyph.prototype._update = P.Glyph.prototype.update;
-	P.Glyph.prototype.update = function( font, params ) {
-		this._update( font, params );
+	P.Glyph.prototype.update = function( params ) {
+		this.anchors.forEach(function(anchor) {
+			anchor.update( params, this );
+		}, this);
+		this.contours.forEach(function(contour) {
+			contour.update( params, this );
+		}, this);
 
 		this.contours.forEach(function( skeleton ) {
 			if ( !skeleton.tags.has('skeleton') ) {
@@ -367,6 +393,13 @@
 				contour.toSVG();
 			}
 		});
+
+		this.components.forEach(function(component) {
+			component.parentAnchors.forEach(function(anchor) {
+				anchor.update( params, this );
+			}, this);
+			component.update( params );
+		}, this);
 
 		this.gatherNodes();
 

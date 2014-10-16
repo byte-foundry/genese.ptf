@@ -1,46 +1,70 @@
 exports.glyphs['test2'] =
 	type: 'test'
+	anchors:
+		0:
+			x: width * 400 / 2
+			y: 400
+		1:
+			x: width * 400
+			y: 0
 	contours:
 		0:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					tags: '0'
 					x: 0
 					y: 0
-					width: 20
+					width: thickness
 					angle: 0
+					distr: 0
 					lType: 'line'
 				1:
-					tags: '1'
-					x: 50
-					y: 400
 					type: 'corner'
-					width: 20
-					angle: '-90deg'
+					x: anchors[0].x
+					y: anchors[0].y
+					width: thickness
+					angle: 0
+					distr: 0
 					lType: 'line'
 				2:
-					tags: '2'
-					x: 100
-					y: 0
-					width: 20
+					type: 'corner'
+					x: anchors[0].x
+					y: anchors[0].y
+					width: thickness * 2
 					angle: '180deg'
+					distr: 1
+					lType: 'line'
+				3:
+					x: anchors[1].x
+					y: anchors[1].y
+					width: thickness * 2
+					angle: '180deg'
+					distr: 1
 		1:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					tags: 'zob'
 					y: xHeight / 2
 					lType: 'line'
-					width: 20
-					angle: '90deg'
+					width: thickness
+					angle: Utils.lineAngle( contours[0].nodes[0], contours[0].nodes[1] )
 					onLine: [ contours[0].nodes[0], contours[0].nodes[1] ]
 				1:
-					tags: 'zab'
 					y: xHeight / 2
 					lType: 'line'
-					width: 20
-					angle: '90deg'
-					onLine: [ contours[0].nodes[1], contours[0].nodes[2] ]
+					width: thickness
+					angle: Utils.lineAngle( contours[0].nodes[3], contours[0].nodes[2] )
+					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
+					transform: [1, 0, 0, 1, 1, 0]
+	# components:
+	# 	0:
+	# 		base: 'serif-br'
+	# 		anchors:
+	# 			0:
+	# 				y: xHeight / 4
+	# 				onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
+	# 			1:
+	# 				x: anchors[1].x
+	# 				y: anchors[1].y
