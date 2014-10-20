@@ -58,13 +58,13 @@ exports.glyphs['test2'] =
 					angle: Utils.lineAngle( contours[0].nodes[3], contours[0].nodes[2] )
 					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
 					transform: [1, 0, 0, 1, 1, 0]
-	# components:
-	# 	0:
-	# 		base: 'serif-br'
-	# 		anchors:
-	# 			0:
-	# 				y: xHeight / 4
-	# 				onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
-	# 			1:
-	# 				x: anchors[1].x
-	# 				y: anchors[1].y
+	components:
+		0:
+			base: 'serif-br'
+			anchors:
+				0:
+					y: xHeight / 4
+					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
+				1:
+					x: anchors[1].x
+					y: anchors[1].y

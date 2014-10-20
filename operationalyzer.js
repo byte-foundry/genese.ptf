@@ -11,11 +11,12 @@ var through = require('through2'),
 const PLUGIN_NAME = 'gulp-operationalyzer';
 
 function isOperation( node, parent ) {
-	return node && parent
-		&& node.type !== 'ObjectExpression'
-		&& node.type !== 'ArrayExpression'
-		&& node.type !== 'Literal'
-		&& ( parent.type === 'Property' || parent.type === 'ArrayExpression' );
+	return node && parent &&
+		node.type !== 'ObjectExpression' &&
+		node.type !== 'ArrayExpression' &&
+		node.type !== 'Literal' &&
+		( node.type !== 'UnaryExpression' || node.argument.type === 'Identifier' ) &&
+		( parent.type === 'Property' || parent.type === 'ArrayExpression' );
 }
 
 // plugin level function (dealing with files)
