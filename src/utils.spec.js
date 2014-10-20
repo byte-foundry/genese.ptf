@@ -9,6 +9,7 @@ describe('font utils', function() {
 	var font = prototypo( fontSrc ),
 		test0 = font.glyphs.test0,
 		test2 = font.glyphs.test2,
+		test3 = font.glyphs.test3,
 		params = {
 			thickness: 2,
 			contrast: 3
@@ -100,6 +101,14 @@ describe('font utils', function() {
 			expect( node.rCtrl.coords ).to.be.deep.equal( node.coords );
 			expect( node.lCtrl.coords ).to.be.deep.equal( node.coords );
 		});
+	});
+
+	it('can import the contours and nodes of a component into a glyph', function() {
+		prototypo.naive.expand( test3.contours[0], test3, {} );
+		test3.gatherNodes();
+
+		expect( test3.allContours.length ).to.be.equal(3);
+		expect( test3.allNodes.length ).to.be.equal(12);
 	});
 
 	// it('can find appropriate control angles for the middle node of three nodes', function() {

@@ -387,11 +387,6 @@
 
 			P.naive.prepareContour( contour );
 			P.naive.notomatic(contour, params);
-
-			// only the first contour of linked list of contours must be converted
-			if ( !contour.prev ) {
-				contour.toSVG();
-			}
 		});
 
 		this.components.forEach(function(component) {
@@ -400,6 +395,19 @@
 			}, this);
 			component.update( params );
 		}, this);
+
+		this.transform( null, true );
+
+		this.contours.forEach(function( contour ) {
+			if ( contour.tags.has('skeleton') ) {
+				return;
+			}
+
+			// only the first contour of linked list of contours must be converted
+			if ( !contour.prev ) {
+				contour.toSVG();
+			}
+		});
 
 		this.gatherNodes();
 
@@ -412,6 +420,10 @@
 		this.nodes.forEach(function(node) {
 			node.update( params, glyph, this );
 		}, this);
+
+		if ( this.src && this.src.transform ) {console.log('here', this.src.transform);
+			this.transform( this.src.transform, true );
+		}
 	};
 
 	P.Contour.prototype._toSVG = P.Contour.prototype.toSVG;

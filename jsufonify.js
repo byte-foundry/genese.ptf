@@ -29,6 +29,7 @@ function jsufonify(prefixText) {
 					glyph.anchor[i] = anchor;
 				});
 			}
+			delete glyph.anchors;
 
 			if ( !glyph.outline ) {
 				glyph.outline = {};
@@ -57,6 +58,16 @@ function jsufonify(prefixText) {
 			}
 			_(glyph.components).forEach(function( component, i ) {
 				glyph.outline.component[i] = component;
+
+				component.anchor = [];
+
+				if ( !component.anchor ) {
+					component.anchor = [];
+				}
+				_(component.anchors).forEach(function( anchor, i ) {
+					component.anchor[i] = anchor;
+				});
+				delete component.anchors;
 			});
 			delete glyph.components;
 		});

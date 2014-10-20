@@ -1,4 +1,4 @@
-exports.glyphs['test2'] =
+exports.glyphs['test3'] =
 	type: 'test'
 	anchors:
 		0:
@@ -41,20 +41,24 @@ exports.glyphs['test2'] =
 					width: thickness * 2
 					angle: '180deg'
 					distr: 1
-		1:
-			tags: 'skeleton'
-			type: 'open'
-			nodes:
+	components:
+		0:
+			base: 'test4'
+			anchors:
 				0:
-					y: xHeight / 2
-					lType: 'line'
-					width: thickness
-					angle: Utils.lineAngle( contours[0].nodes[0], contours[0].nodes[1] )
-					onLine: [ contours[0].nodes[0], contours[0].nodes[1] ]
+					y: serifHeight / 4
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
 				1:
-					y: xHeight / 2
-					lType: 'line'
-					width: thickness
-					angle: Utils.lineAngle( contours[0].nodes[3], contours[0].nodes[2] )
-					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
-					transform: [1, 0, 0, 1, 1, 0]
+					x: contours[0].expanded[0].nodes[3].x
+					y: contours[0].expanded[0].nodes[3].y
+			transform: [1, 0, 0, 1, -2, 0]
+		1:
+			base: 'test4'
+			anchors:
+				0:
+					y: serifHeight / 4
+					onLine: [ contours[0].expanded[0].nodes[6], contours[0].expanded[0].nodes[7] ]
+				1:
+					x: contours[0].expanded[0].nodes[7].x
+					y: contours[0].expanded[0].nodes[7].y
+			transform: [1, 0, 0, 1, -2, 0]
