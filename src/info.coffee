@@ -11,3 +11,4 @@ exports.info =
 		'3': 'test3'
 		'O': 'O'
 		'A': 'A'
+		'h': 'h'
