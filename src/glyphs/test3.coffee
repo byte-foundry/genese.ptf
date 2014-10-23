@@ -16,7 +16,7 @@ exports.glyphs['test3'] =
 					x: 0
 					y: 0
 					width: thickness
-					angle: 0
+					lDir: '90deg'
 					distr: 0
 					lType: 'line'
 				1:
@@ -24,7 +24,7 @@ exports.glyphs['test3'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					width: thickness
-					angle: 0
+					lDir: '90deg'
 					distr: 0
 					lType: 'line'
 				2:
@@ -32,14 +32,14 @@ exports.glyphs['test3'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					width: thickness * 2
-					angle: '180deg'
+					lDir: '-90deg'
 					distr: 1
 					lType: 'line'
 				3:
 					x: anchors[1].x
 					y: anchors[1].y
 					width: thickness * 2
-					angle: '180deg'
+					lDir: '-90deg'
 					distr: 1
 	components:
 		0:

@@ -16,7 +16,7 @@ exports.glyphs['test2'] =
 					x: 0
 					y: 0
 					width: thickness
-					angle: 0
+					lDir: '90deg'
 					distr: 0
 					lType: 'line'
 				1:
@@ -24,7 +24,7 @@ exports.glyphs['test2'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					width: thickness
-					angle: 0
+					lDir: '90deg'
 					distr: 0
 					lType: 'line'
 				2:
@@ -32,14 +32,14 @@ exports.glyphs['test2'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					width: thickness * 2
-					angle: '180deg'
+					lDir: '-90deg'
 					distr: 1
 					lType: 'line'
 				3:
 					x: anchors[1].x
 					y: anchors[1].y
 					width: thickness * 2
-					angle: '180deg'
+					lDir: '-90deg'
 					distr: 1
 		1:
 			tags: 'skeleton'
@@ -49,12 +49,12 @@ exports.glyphs['test2'] =
 					y: xHeight / 2
 					lType: 'line'
 					width: thickness
-					angle: Utils.lineAngle( contours[0].nodes[0], contours[0].nodes[1] )
+					lDir: Utils.lineAngle( contours[0].nodes[0], contours[0].nodes[1] ) + Math.PI / 2
 					onLine: [ contours[0].nodes[0], contours[0].nodes[1] ]
 				1:
 					y: xHeight / 2
 					lType: 'line'
 					width: thickness
-					angle: Utils.lineAngle( contours[0].nodes[3], contours[0].nodes[2] )
+					lDir: Utils.lineAngle( contours[0].nodes[3], contours[0].nodes[2] ) + Math.PI / 2
 					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
 					transform: [1, 0, 0, 1, 1, 0]

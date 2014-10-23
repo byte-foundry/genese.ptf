@@ -21,7 +21,6 @@ exports.glyphs['test0'] =
 					width: thickness * contrast * 0.8
 					angle: '-90deg'
 					distr: 0
-					oType: 'line'
 				3:
 					x: width * 400
 					y: 0
@@ -33,11 +32,11 @@ exports.glyphs['test0'] =
 			nodes:
 				0:
 					y: xHeight / 2
-					onLine: [ nodes[0], nodes[2] ]
+					onLine: [ contours[0].nodes[0], contours[0].nodes[2] ]
 					width: thickness
 					angle: 90
 				1:
 					y: xHeight / 2
-					onLine: [ nodes[2], nodes[3] ]
+					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
 					width: -thickness
 					angle: 90

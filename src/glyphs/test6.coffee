@@ -1,4 +1,4 @@
-exports.glyphs['test1'] =
+exports.glyphs['test6'] =
 	type: 'test'
 	contours:
 		0:
@@ -7,17 +7,16 @@ exports.glyphs['test1'] =
 			nodes:
 				0:
 					x: 0
-					y: 0
+					y: xHeight - 50
 					width: thickness * contrast
-					lDir: '90deg'
+					lDir: '60deg'
 				1:
-					x: thickness
+					x: 300
 					y: xHeight
-					width: 10
+					width: thickness * contrast
 					lDir: 0
-					distr: 0
 				2:
-					x: 2 * thickness
+					x: 600
 					y: 0
-					width: 20
+					width: thickness
 					lDir: '-90deg'

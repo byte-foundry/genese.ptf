@@ -31,72 +31,38 @@
 			if ( !node.expanded ) {
 				node.expanded = [];
 
-				if ( node.type === 'summit' ) {
-					rib = skeleton.expanded[0].addNode();
-					rib.type = 'corner';
-					rib.lType = rib.rType = 'line';
-					node.expanded.push( rib );
-
-					rib = skeleton.expanded[0].addNode();
-					rib.type = 'corner';
-					rib.lType = rib.rType = 'line';
-					node.expanded.push( rib );
-
-					rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
-					rib.type = 'corner';
-					rib.lType = rib.rType = 'line';
-					node.expanded.push( rib );
-
-					rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
-					rib.type = 'corner';
-					rib.lType = rib.rType = 'line';
-					node.expanded.push( rib );
-
-				} else {
-					rib = skeleton.expanded[0].addNode();
-					rib.tags.add('rib');
-					rib.type = node.type || 'smooth';
-					rib.lType = node.src.lType || 'smooth';
-					rib.rType = node.src.rType || 'smooth';
-					rib.direction = node.angle + Math.PI / 2;
-					if ( node.rDirection !== undefined ) {
-						rib.rDirection = node.rDirection;
-					}
-					if ( node.lDirection !== undefined ) {
-						rib.lDirection = node.lDirection;
-					}
-					node.expanded.push( rib );
-
-					rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
-					rib.tags.add('rib');
-					rib.type = node.type || 'smooth';
-					rib.lType = node.src.rType || 'smooth';
-					rib.rType = node.src.lType || 'smooth';
-					rib.direction = node.angle - Math.PI / 2;
-					if ( node.rDirection !== undefined ) {
-						rib.lDirection = node.rDirection;
-					}
-					if ( node.lDirection !== undefined ) {
-						rib.rDirection = node.lDirection;
-					}
-					node.expanded.push( rib );
+				if ( node.src.rDir === undefined && node.src.lDir !== undefined ) {
+					node.rDir = node.lDir - Math.PI;
 				}
+				if ( node.src.lDir === undefined && node.src.rDir !== undefined ) {
+					node.lDir = node.rDir - Math.PI;
+				}
+
+				rib = skeleton.expanded[0].addNode();
+				rib.tags.add('rib');
+				rib.type = node.type || 'smooth';
+				rib.lType = node.src.lType || 'smooth';
+				rib.rType = node.src.rType || 'smooth';
+				rib.lDir = node.lDir;
+				rib.rDir = node.rDir;
+
+				node.expanded.push( rib );
+
+				rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+				rib.tags.add('rib');
+				rib.type = node.type || 'smooth';
+				rib.lType = node.src.rType || 'smooth';
+				rib.rType = node.src.lType || 'smooth';
+				rib.lDir = node.rDir;
+				rib.rDir = node.lDir;
+
+				node.expanded.push( rib );
 			}
 
-			if ( node.type === 'summit' ) {
-				skins[0].push( node.expanded[0] );
-				skins[0].push( node.expanded[1] );
-				skins[1].push( node.expanded[2] );
-				skins[1].push( node.expanded[3] );
+			skins[0].push( node.expanded[0] );
+			skins[1].push( node.expanded[1] );
 
-				updateSummitRibs( node, params );
-
-			} else {
-				skins[0].push( node.expanded[0] );
-				skins[1].push( node.expanded[1] );
-
-				updateNodeRibs( node, params );
-			}
+			updateNodeRibs( node, params );
 		});
 
 		if ( isOpen ) {
@@ -128,16 +94,12 @@
 			right = node.expanded[1],
 			width = node.width !== undefined ? node.width : params.width,
 			distr = node.distr !== undefined ? node.distr : 0.5,
-			angle = ( node.angle !== undefined ? node.angle : ( params.angle || 0 ) );
+			angle = node.lDir - Math.PI / 2;
 
 		left.x = node.x + ( width * ( distr ) * Math.cos( angle + Math.PI ) );
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
 		right.x = node.x + ( width * ( 1 - distr ) * Math.cos( angle ) );
 		right.y = node.y + ( width * ( 1 - distr ) * Math.sin( angle ) );
-	}
-
-	function updateSummitRibs(/* node, params */) {
-		// TODO
 	}
 
 	// - link nodes in the contour
@@ -175,8 +137,7 @@
 				dxPrev = node.x - prev.x,
 				dyPrev = node.y - prev.y,
 				dxNext = next.x - node.x,
-				dyNext = next.y - node.y,
-				direction;
+				dyNext = next.y - node.y;
 
 			if ( node.lType === 'line' ) {
 				node.lCtrl.x = node.x;
@@ -189,164 +150,33 @@
 
 			if ( node.type === 'smooth' ) {
 				if ( node.lType === 'line' ) {
-					direction = Math.PI + Math.atan2( dyPrev, dxPrev );
+					//direction = Math.PI + Math.atan2( dyPrev, dxPrev );
 
-					node.rCtrl.x = node.x + Math.cos( direction ) * ( curviness * Math.abs( dxNext ) );
-					node.rCtrl.y = node.y + Math.sin( direction ) * ( curviness * Math.abs( dyNext ) );
+					node.rCtrl.x = node.x + Math.cos( node.lDir ) * ( curviness * Math.abs( dxNext ) );
+					node.rCtrl.y = node.y + Math.sin( node.lDir ) * ( curviness * Math.abs( dyNext ) );
 
 				} else if ( node.rType === 'line' ) {
-					node.lCtrl.x = node.x - Math.cos( direction ) * ( curviness * Math.abs( dxPrev ) );
-					node.lCtrl.y = node.y - Math.sin( direction ) * ( curviness * Math.abs( dyPrev ) );
+					node.lCtrl.x = node.x - Math.cos( node.lDir ) * ( curviness * Math.abs( dxPrev ) );
+					node.lCtrl.y = node.y - Math.sin( node.lDir ) * ( curviness * Math.abs( dyPrev ) );
 
 				} else {
-					node.lCtrl.x = node.x - Math.cos( node.direction ) * ( curviness * Math.abs( dxPrev ) );
-					node.lCtrl.y = node.y - Math.sin( node.direction ) * ( curviness * Math.abs( dyPrev ) );
+					node.lCtrl.x = node.x - Math.cos( node.lDir ) * ( curviness * Math.abs( dxPrev ) );
+					node.lCtrl.y = node.y - Math.sin( node.lDir ) * ( curviness * Math.abs( dyPrev ) );
 
-					node.rCtrl.x = node.x + Math.cos( node.direction ) * ( curviness * Math.abs( dxNext ) );
-					node.rCtrl.y = node.y + Math.sin( node.direction ) * ( curviness * Math.abs( dyNext ) );
+					node.rCtrl.x = node.x + Math.cos( node.lDir ) * ( curviness * Math.abs( dxNext ) );
+					node.rCtrl.y = node.y + Math.sin( node.lDir ) * ( curviness * Math.abs( dyNext ) );
 				}
 
 			} else {
 				if ( node.lType !== 'line' ) {
-					node.lCtrl.x = node.x + Math.cos( node.lDirection ) * ( curviness * Math.abs( dxPrev ) );
-					node.lCtrl.y = node.y + Math.sin( node.lDirection ) * ( curviness * Math.abs( dyPrev ) );
+					node.lCtrl.x = node.x + Math.cos( node.lDir ) * ( curviness * Math.abs( dxPrev ) );
+					node.lCtrl.y = node.y + Math.sin( node.lDir ) * ( curviness * Math.abs( dyPrev ) );
 				}
 				if ( node.rType !== 'line' ) {
-					node.rCtrl.x = node.x + Math.cos( node.rDirection ) * ( curviness * Math.abs( dxNext ) );
-					node.rCtrl.y = node.y + Math.sin( node.rDirection ) * ( curviness * Math.abs( dyNext ) );
+					node.rCtrl.x = node.x + Math.cos( node.rDir ) * ( curviness * Math.abs( dxNext ) );
+					node.rCtrl.y = node.y + Math.sin( node.rDir ) * ( curviness * Math.abs( dyNext ) );
 				}
 			}
-		});
-	}
-
-	function makeChoices( contour, params ) {
-		var nodes = contour.nodes,
-			i = -1,
-			length = nodes.length,
-			node,
-			angle;
-
-		// special cases
-		if ( length === 0 ) {
-			return;
-		}
-		if ( length < 3 ) {
-			nodes[0].rCtrl.x = nodes[0].lCtrl.x = nodes[0].x;
-			nodes[0].rCtrl.y = nodes[0].lCtrl.y = nodes[0].y;
-
-			if ( length === 2 ) {
-				nodes[1].rCtrl.x = nodes[1].lCtrl.x = nodes[1].x;
-				nodes[1].rCtrl.y = nodes[1].lCtrl.y = nodes[1].y;
-			}
-
-			return;
-		}
-
-		while ( ++i < length ) {
-			// in an open contour, we can't find the angle for the first and last point directly
-			if ( ( i === 0 || i === length -1 ) && contour.type !== 'closed' ) {
-				continue;
-			}
-
-			node = nodes[i];
-
-			angle = findAngle( node.prev, node, node.next, params );
-		}
-
-		if ( contour.type === 'open' ) {
-			node[0].lCtrl.x = node[0].x;
-			node[0].lCtrl.y = node[0].y;
-			node[length -1].rCtrl.x = node[length -1].x;
-			node[length -1].rCtrl.y = node[length -1].y;
-		}
-	}
-
-	function findAngle(prev, node, next, params) {
-		var prod,
-			curviness = params && params.curviness || 2/3,
-			dxPrev = node.x - prev.x,
-			dyPrev = node.y - prev.y,
-			dxNext = next.x - node.x,
-			dyNext = next.y - node.y,
-			direction;
-
-		if ( node.type === 'auto' ) {
-			if ( node.lType === 'line' ) {
-				direction = Math.PI + Math.atan2( dyPrev, dxPrev );
-
-			} else if ( node.rType === 'line' ) {
-				direction = Math.PI + Math.atan2( dyNext, dxNext );
-
-			// next and prev are in opposed quadrants
-			// => the line joining both control points will be parallel to the line joining next and prev
-			} else if ( ( prod = dxPrev * dyPrev * dxNext * dyNext ) > 0 ) {
-				direction = Math.atan2( dyNext, dxNext );
-
-			// next and prev are in contiguous quadrants
-			} else {
-				// horizontally contiguous
-				if ( dxPrev * dxNext > 0 ) {
-					direction = dxPrev > 0 ? 0 : -Math.PI;
-
-				// vertically contiguous
-				} else {
-					direction = dyPrev > 0 ? Math.PI / 2 : -Math.PI / 2;
-				}
-			}
-
-			node.lCtrl.x = node.x - Math.cos( node.direction ) * ( curviness * Math.abs( dxPrev ) );
-			node.lCtrl.y = node.y - Math.sin( node.direction ) * ( curviness * Math.abs( dyPrev ) );
-
-			node.rCtrl.x = node.x + Math.cos( node.direction ) * ( curviness * Math.abs( dxNext ) );
-			node.rCtrl.y = node.y + Math.sin( node.direction ) * ( curviness * Math.abs( dyNext ) );
-
-		} else if ( node.type === 'corner' && node.lType === 'line' || node.rType === 'line' ) {
-			// horizontally contiguous
-			if ( dxPrev * dxNext > 0 ) {
-				direction = dxPrev > 0 ? 0 : -Math.PI;
-
-			// vertically contiguous
-			} else {
-				direction = dyPrev > 0 ? Math.PI / 2 : -Math.PI / 2;
-			}
-
-			if ( node.lType === 'line' ) {
-				node.rCtrl.x = node.x + Math.cos( node.direction ) * ( curviness * Math.abs( dxNext ) );
-				node.rCtrl.y = node.y + Math.sin( node.direction ) * ( curviness * Math.abs( dyNext ) );
-
-			} else {
-				node.lCtrl.x = node.x - Math.cos( node.direction ) * ( curviness * Math.abs( dxPrev ) );
-				node.lCtrl.y = node.y - Math.sin( node.direction ) * ( curviness * Math.abs( dyPrev ) );
-
-			}
-
-		}
-	}
-
-	// function placeControls( node, angle, curviness ) {
-	// 	if ( node.lType === 'line' ) {
-	// 		node.lCtrl.x = node.x;
-	// 		node.lCtrl.y = node.y;
-
-	// 	} else {
-	// 		node.lCtrl.x = node.x + Math.cos( angle ) * curviness;
-	// 		node.lCtrl.y = node.y + Math.sin( angle ) * curviness;
-	// 	}
-
-	// 	if ( node.rType === 'line' ) {
-	// 		node.rCtrl.x = node.x;
-	// 		node.rCtrl.y = node.y;
-
-	// 	} else {
-	// 		node.rCtrl.x = node.x + Math.cos( angle ) * curviness;
-	// 		node.rCtrl.y = node.y + Math.sin( angle ) * curviness;
-	// 	}
-	// }
-
-	function straightLines( contour ) {
-		contour.nodes.forEach(function(node) {
-			node.lCtrl.x = node.rCtrl.x = node.x;
-			node.lCtrl.y = node.rCtrl.y = node.y;
 		});
 	}
 
@@ -354,12 +184,9 @@
 		P.naive = {};
 	}
 	Object.mixin( P.naive, {
-		findAngle: findAngle,
 		expand: expand,
 		updateNodeRibs: updateNodeRibs,
 		prepareContour: prepareContour,
-		makeChoices: makeChoices,
-		straightLines: straightLines,
 		notomatic: notomatic
 	});
 
@@ -421,7 +248,7 @@
 			node.update( params, glyph, this );
 		}, this);
 
-		if ( this.src && this.src.transform ) {console.log('here', this.src.transform);
+		if ( this.src && this.src.transform ) {
 			this.transform( this.src.transform, true );
 		}
 	};
@@ -440,25 +267,181 @@
 		return ( this.pathData = pathData.join(' ') );
 	};
 
-	Object.defineProperty(P.Node.prototype, 'direction', {
-		get: function() { return this._direction; },
+	Object.defineProperty(P.Node.prototype, 'lDir', {
+		get: function() { return this._lDir; },
 		set: function( dir ) {
 			if ( typeof dir === 'string' && /deg$/.test( dir ) ) {
-				this._direction = parseFloat( dir ) * ( Math.PI * 2 / 360 );
+				this._lDir = parseFloat( dir ) * ( Math.PI * 2 / 360 );
 			} else {
-				this._direction = dir;
+				this._lDir = dir;
 			}
 		}
 	});
-	Object.defineProperty(P.Node.prototype, 'angle', {
-		get: function() { return this._angle; },
-		set: function( angle ) {
-			if ( typeof angle === 'string' && /deg$/.test( angle ) ) {
-				this._angle = parseFloat( angle ) * ( Math.PI * 2 / 360 );
+	Object.defineProperty(P.Node.prototype, 'rDir', {
+		get: function() { return this._rDir; },
+		set: function( dir ) {
+			if ( typeof dir === 'string' && /deg$/.test( dir ) ) {
+				this._rDir = parseFloat( dir ) * ( Math.PI * 2 / 360 );
 			} else {
-				this._angle = angle;
+				this._rDir = dir;
 			}
 		}
 	});
 
 })( prototypo );
+
+// function makeChoices( contour, params ) {
+	// 	var nodes = contour.nodes,
+	// 		i = -1,
+	// 		length = nodes.length,
+	// 		node,
+	// 		angle;
+
+	// 	// special cases
+	// 	if ( length === 0 ) {
+	// 		return;
+	// 	}
+	// 	if ( length < 3 ) {
+	// 		nodes[0].rCtrl.x = nodes[0].lCtrl.x = nodes[0].x;
+	// 		nodes[0].rCtrl.y = nodes[0].lCtrl.y = nodes[0].y;
+
+	// 		if ( length === 2 ) {
+	// 			nodes[1].rCtrl.x = nodes[1].lCtrl.x = nodes[1].x;
+	// 			nodes[1].rCtrl.y = nodes[1].lCtrl.y = nodes[1].y;
+	// 		}
+
+	// 		return;
+	// 	}
+
+	// 	while ( ++i < length ) {
+	// 		// in an open contour, we can't find the angle for the first and last point directly
+	// 		if ( ( i === 0 || i === length -1 ) && contour.type !== 'closed' ) {
+	// 			continue;
+	// 		}
+
+	// 		node = nodes[i];
+
+	// 		angle = findAngle( node.prev, node, node.next, params );
+	// 	}
+
+	// 	if ( contour.type === 'open' ) {
+	// 		node[0].lCtrl.x = node[0].x;
+	// 		node[0].lCtrl.y = node[0].y;
+	// 		node[length -1].rCtrl.x = node[length -1].x;
+	// 		node[length -1].rCtrl.y = node[length -1].y;
+	// 	}
+	// }
+
+	// function findAngle(prev, node, next, params) {
+	// 	var prod,
+	// 		curviness = params && params.curviness || 2/3,
+	// 		dxPrev = node.x - prev.x,
+	// 		dyPrev = node.y - prev.y,
+	// 		dxNext = next.x - node.x,
+	// 		dyNext = next.y - node.y,
+	// 		direction;
+
+	// 	if ( node.type === 'auto' ) {
+	// 		if ( node.lType === 'line' ) {
+	// 			direction = Math.PI + Math.atan2( dyPrev, dxPrev );
+
+	// 		} else if ( node.rType === 'line' ) {
+	// 			direction = Math.PI + Math.atan2( dyNext, dxNext );
+
+	// 		// next and prev are in opposed quadrants
+	// 		// => the line joining both control points will be parallel to the line joining next and prev
+	// 		} else if ( ( prod = dxPrev * dyPrev * dxNext * dyNext ) > 0 ) {
+	// 			direction = Math.atan2( dyNext, dxNext );
+
+	// 		// next and prev are in contiguous quadrants
+	// 		} else {
+	// 			// horizontally contiguous
+	// 			if ( dxPrev * dxNext > 0 ) {
+	// 				direction = dxPrev > 0 ? 0 : -Math.PI;
+
+	// 			// vertically contiguous
+	// 			} else {
+	// 				direction = dyPrev > 0 ? Math.PI / 2 : -Math.PI / 2;
+	// 			}
+	// 		}
+
+	// 		node.lCtrl.x = node.x - Math.cos( node.direction ) * ( curviness * Math.abs( dxPrev ) );
+	// 		node.lCtrl.y = node.y - Math.sin( node.direction ) * ( curviness * Math.abs( dyPrev ) );
+
+	// 		node.rCtrl.x = node.x + Math.cos( node.direction ) * ( curviness * Math.abs( dxNext ) );
+	// 		node.rCtrl.y = node.y + Math.sin( node.direction ) * ( curviness * Math.abs( dyNext ) );
+
+	// 	} else if ( node.type === 'corner' && node.lType === 'line' || node.rType === 'line' ) {
+	// 		// horizontally contiguous
+	// 		if ( dxPrev * dxNext > 0 ) {
+	// 			direction = dxPrev > 0 ? 0 : -Math.PI;
+
+	// 		// vertically contiguous
+	// 		} else {
+	// 			direction = dyPrev > 0 ? Math.PI / 2 : -Math.PI / 2;
+	// 		}
+
+	// 		if ( node.lType === 'line' ) {
+	// 			node.rCtrl.x = node.x + Math.cos( node.direction ) * ( curviness * Math.abs( dxNext ) );
+	// 			node.rCtrl.y = node.y + Math.sin( node.direction ) * ( curviness * Math.abs( dyNext ) );
+
+	// 		} else {
+	// 			node.lCtrl.x = node.x - Math.cos( node.direction ) * ( curviness * Math.abs( dxPrev ) );
+	// 			node.lCtrl.y = node.y - Math.sin( node.direction ) * ( curviness * Math.abs( dyPrev ) );
+
+	// 		}
+
+	// 	}
+	// }
+
+	// function placeControls( node, angle, curviness ) {
+	// 	if ( node.lType === 'line' ) {
+	// 		node.lCtrl.x = node.x;
+	// 		node.lCtrl.y = node.y;
+
+	// 	} else {
+	// 		node.lCtrl.x = node.x + Math.cos( angle ) * curviness;
+	// 		node.lCtrl.y = node.y + Math.sin( angle ) * curviness;
+	// 	}
+
+	// 	if ( node.rType === 'line' ) {
+	// 		node.rCtrl.x = node.x;
+	// 		node.rCtrl.y = node.y;
+
+	// 	} else {
+	// 		node.rCtrl.x = node.x + Math.cos( angle ) * curviness;
+	// 		node.rCtrl.y = node.y + Math.sin( angle ) * curviness;
+	// 	}
+	// }
+
+	// function straightLines( contour ) {
+	// 	contour.nodes.forEach(function(node) {
+	// 		node.lCtrl.x = node.rCtrl.x = node.x;
+	// 		node.lCtrl.y = node.rCtrl.y = node.y;
+	// 	});
+	// }
+
+
+
+	// if ( node.type === 'summit' ) {
+	// 				rib = skeleton.expanded[0].addNode();
+	// 				rib.type = 'corner';
+	// 				rib.lType = rib.rType = 'line';
+	// 				node.expanded.push( rib );
+
+	// 				rib = skeleton.expanded[0].addNode();
+	// 				rib.type = 'corner';
+	// 				rib.lType = rib.rType = 'line';
+	// 				node.expanded.push( rib );
+
+	// 				rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+	// 				rib.type = 'corner';
+	// 				rib.lType = rib.rType = 'line';
+	// 				node.expanded.push( rib );
+
+	// 				rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+	// 				rib.type = 'corner';
+	// 				rib.lType = rib.rType = 'line';
+	// 				node.expanded.push( rib );
+
+	// 			} else {

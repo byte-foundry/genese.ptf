@@ -1,5 +1,4 @@
 exports.glyphs['h'] =
-	type: 'test'
 	contours:
 		0:
 			tags: 'skeleton'
@@ -15,7 +14,7 @@ exports.glyphs['h'] =
 					x: 0
 					y: ascenderHeight
 					width: thickness
-					angle: O
+					angle: 0
 		1:
 			tags: 'skeleton'
 			type: 'open'
@@ -29,9 +28,9 @@ exports.glyphs['h'] =
 					x: 300
 					y: xHeight
 					width: thickness * contrast
-					angle: '90deg'
+					angle: '-90deg'
 				2:
 					x: 600
 					y: 0
 					width: thickness
-					angle: 0
+					angle: '180deg'

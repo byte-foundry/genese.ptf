@@ -9,6 +9,8 @@ exports.info =
 		'1': 'test1'
 		'2': 'test2'
 		'3': 'test3'
+		'5': 'test5'
+		'6': 'test6'
 		'O': 'O'
 		'A': 'A'
 		'h': 'h'
