@@ -152,17 +152,12 @@
 				return;
 			}
 
-			// we need arbitrary position for control points before we can intersect them
-			if ( isNaN(segment.lCtrl.x) || isNaN(segment.lCtrl.y) ) {
-				segment.lCtrl.x = segment.start.x + Math.cos( segment.start.lDir ) * 10;
-				segment.lCtrl.y = segment.start.y + Math.sin( segment.start.lDir ) * 10;
-			}
-			if ( isNaN(segment.rCtrl.x) || isNaN(segment.rCtrl.y) ) {
-				segment.rCtrl.x = segment.end.x + Math.cos( segment.end.rDir ) * 10;
-				segment.rCtrl.y = segment.end.y + Math.sin( segment.end.rDir ) * 10;
-			}
-
-			var lli = P.Utils.lineLineIntersection( segment.start, segment.lCtrl, segment.end, segment.rCtrl );
+			var lli = P.Utils.lineLineIntersection(
+					segment.start,
+					{x: 0, y: segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x },
+					segment.end,
+					{x: 0, y: segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x }
+				);
 
 			segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness;
 			segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness;
