@@ -28,36 +28,35 @@
 		skeleton.nodes.forEach(function( node ) {
 			var rib;
 
+			if ( node.src.rDir === undefined && node.src.lDir !== undefined ) {
+				node.rDir = node.lDir - Math.PI;
+			}
+			if ( node.src.lDir === undefined && node.src.rDir !== undefined ) {
+				node.lDir = node.rDir - Math.PI;
+			}
+
 			if ( !node.expanded ) {
 				node.expanded = [];
 
-				if ( node.src.rDir === undefined && node.src.lDir !== undefined ) {
-					node.rDir = node.lDir - Math.PI;
-				}
-				if ( node.src.lDir === undefined && node.src.rDir !== undefined ) {
-					node.lDir = node.rDir - Math.PI;
-				}
-
-				rib = skeleton.expanded[0].addNode();
+				rib = new P.Node();
 				rib.tags.add('rib');
 				rib.type = node.type || 'smooth';
 				rib.lType = node.src.lType || 'smooth';
 				rib.rType = node.src.rType || 'smooth';
-				rib.lDir = node.lDir;
-				rib.rDir = node.rDir;
 
 				node.expanded.push( rib );
 
-				rib = skeleton.expanded[ isOpen ? 0: 1 ].addNode();
+				rib = new P.Node();
 				rib.tags.add('rib');
 				rib.type = node.type || 'smooth';
 				rib.lType = node.src.rType || 'smooth';
 				rib.rType = node.src.lType || 'smooth';
-				rib.lDir = node.rDir;
-				rib.rDir = node.lDir;
 
 				node.expanded.push( rib );
 			}
+
+			node.expanded[0].lDir = node.expanded[1].rDir = node.lDir;
+			node.expanded[0].rDir = node.expanded[1].lDir = node.rDir;
 
 			skins[0].push( node.expanded[0] );
 			skins[1].push( node.expanded[1] );
@@ -65,28 +64,7 @@
 			updateNodeRibs( node, params );
 		});
 
-		if ( isOpen ) {
-			var firstNode = skeleton.nodes[0],
-				lastNode = skeleton.nodes[skeleton.nodes.length -1];
-
-			skeleton.expanded[0].nodes = skins[0].concat( skins[1].reverse() );
-			skeleton.expanded[0].type = 'closed';
-
-			firstNode.expanded[0].type = firstNode.expanded[1].type = 'corner';
-			firstNode.expanded[0].rType = 'line';
-			firstNode.expanded[1].lType = 'line';
-
-			lastNode.expanded[0].type = lastNode.expanded[1].type = 'corner';
-			lastNode.expanded[0].lType = 'line';
-			lastNode.expanded[1].rType = 'line';
-
-		} else {
-			skeleton.expanded[0].nodes = skins[0];
-			skeleton.expanded[0].type = 'closed';
-
-			skeleton.expanded[1].nodes = skins[1].reverse();
-			skeleton.expanded[1].type = 'closed';
-		}
+		outline( skeleton, skins );
 	}
 
 	function updateNodeRibs( node, params ) {
@@ -100,6 +78,31 @@
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
 		right.x = node.x + ( width * ( 1 - distr ) * Math.cos( angle ) );
 		right.y = node.y + ( width * ( 1 - distr ) * Math.sin( angle ) );
+	}
+
+	function outline( skeleton, skins ) {
+		if ( skeleton.type === 'open' ) {
+			var firstNode = skeleton.nodes[0],
+				lastNode = skeleton.nodes[skeleton.nodes.length -1];
+
+			skeleton.expanded[0].type = 'closed';
+			skeleton.expanded[0].nodes = skins[0].concat( skins[1].reverse() );
+
+			firstNode.expanded[0].type = firstNode.expanded[1].type = 'corner';
+			firstNode.expanded[0].rType = 'line';
+			firstNode.expanded[1].lType = 'line';
+
+			lastNode.expanded[0].type = lastNode.expanded[1].type = 'corner';
+			lastNode.expanded[0].lType = 'line';
+			lastNode.expanded[1].rType = 'line';
+
+		} else {
+			skeleton.expanded[0].type = 'closed';
+			skeleton.expanded[0].nodes = skins[0];
+
+			skeleton.expanded[1].type = 'closed';
+			skeleton.expanded[1].nodes = skins[1].reverse();
+		}
 	}
 
 	// - link nodes in the contour
@@ -121,12 +124,51 @@
 
 			if ( node.lType === 'line' ) {
 				node.next.rType = 'line';
+				if ( node.type === 'smooth' ) {
+					node.lDir = P.Utils.lineAngle( node, node.next );
+					node.rDir = node.lDir + Math.PI;
+				}
 			}
-			// and vice versa
 			if ( node.rType === 'line' ) {
 				node.prev.lType = 'line';
+				if ( node.type === 'smooth' ) {
+					node.rDir = P.Utils.lineAngle( node, node.prev );
+					node.lDir = node.rDir + Math.PI;
+				}
 			}
 		}
+	}
+
+	function notomaticSegments( contour, params ) {
+		var curviness = params.curviness || 2/3;
+
+		contour.segments.forEach(function(segment) {
+			if ( segment.start.lType === 'line' || segment.end.rType === 'line' ) {
+				segment.lCtrl.x = segment.start.x;
+				segment.lCtrl.y = segment.start.y;
+				segment.rCtrl.x = segment.end.x;
+				segment.rCtrl.y = segment.end.y;
+
+				return;
+			}
+
+			// we need arbitrary position for control points before we can intersect them
+			if ( isNaN(segment.lCtrl.x) || isNaN(segment.lCtrl.y) ) {
+				segment.lCtrl.x = segment.start.x + Math.cos( segment.start.lDir ) * 10;
+				segment.lCtrl.y = segment.start.y + Math.sin( segment.start.lDir ) * 10;
+			}
+			if ( isNaN(segment.rCtrl.x) || isNaN(segment.rCtrl.y) ) {
+				segment.rCtrl.x = segment.end.x + Math.cos( segment.end.rDir ) * 10;
+				segment.rCtrl.y = segment.end.y + Math.sin( segment.end.rDir ) * 10;
+			}
+
+			var lli = P.Utils.lineLineIntersection( segment.start, segment.lCtrl, segment.end, segment.rCtrl );
+
+			segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness;
+			segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness;
+			segment.rCtrl.x = segment.end.x + ( lli[0] - segment.end.x ) * curviness;
+			segment.rCtrl.y = segment.end.y + ( lli[1] - segment.end.y ) * curviness;
+		});
 	}
 
 	function notomatic( contour, params ) {
@@ -177,6 +219,7 @@
 					node.rCtrl.y = node.y + Math.sin( node.rDir ) * ( curviness * Math.abs( dyNext ) );
 				}
 			}
+
 		});
 	}
 
@@ -187,6 +230,7 @@
 		expand: expand,
 		updateNodeRibs: updateNodeRibs,
 		prepareContour: prepareContour,
+		notomaticSegments: notomaticSegments,
 		notomatic: notomatic
 	});
 
@@ -213,7 +257,7 @@
 			}
 
 			P.naive.prepareContour( contour );
-			P.naive.notomatic(contour, params);
+			P.naive.notomaticSegments(contour, params);
 		});
 
 		this.components.forEach(function(component) {

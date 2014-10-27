@@ -9,7 +9,7 @@ exports.glyphs['test5'] =
 					x: 0
 					y: 0
 					width: 30
-					lDir: '135deg'
+					lDir: ( 60 * aperture ) + 'deg'
 				1:
 					x: 0
 					y: xHeight
