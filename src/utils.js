@@ -306,25 +306,18 @@
 		return ( this.pathData = pathData.join(' ') );
 	};
 
-	Object.defineProperty(P.Node.prototype, 'lDir', {
-		get: function() { return this._lDir; },
-		set: function( dir ) {
-			if ( typeof dir === 'string' && /deg$/.test( dir ) ) {
-				this._lDir = parseFloat( dir ) * ( Math.PI * 2 / 360 );
-			} else {
-				this._lDir = dir;
+
+	['lDir', 'rDir', 'angle'].forEach(function(name) {
+		Object.defineProperty(P.Node.prototype, name, {
+			get: function() { return this['_' + name]; },
+			set: function( dir ) {
+				if ( typeof dir === 'string' && /deg$/.test( dir ) ) {
+					this['_' + name] = parseFloat( dir ) * ( Math.PI * 2 / 360 );
+				} else {
+					this['_' + name] = dir;
+				}
 			}
-		}
-	});
-	Object.defineProperty(P.Node.prototype, 'rDir', {
-		get: function() { return this._rDir; },
-		set: function( dir ) {
-			if ( typeof dir === 'string' && /deg$/.test( dir ) ) {
-				this._rDir = parseFloat( dir ) * ( Math.PI * 2 / 360 );
-			} else {
-				this._rDir = dir;
-			}
-		}
+		});
 	});
 
 })( prototypo );
