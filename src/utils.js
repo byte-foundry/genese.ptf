@@ -72,7 +72,7 @@
 			right = node.expanded[1],
 			width = node.width !== undefined ? node.width : params.width,
 			distr = node.distr !== undefined ? node.distr : 0.5,
-			angle = node.lDir - Math.PI / 2;
+			angle = node.angle !== undefined ? node.angle : node.lDir - Math.PI / 2;
 
 		left.x = node.x + ( width * ( distr ) * Math.cos( angle + Math.PI ) );
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
