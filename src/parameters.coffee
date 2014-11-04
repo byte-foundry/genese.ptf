@@ -82,7 +82,7 @@ exports.parameters = [
 	parameters: [
 		name: 'thickness'
 		label: 'Thickness'
-		min: 10
+		min: 4
 		max: 300
 		step: 1
 		init: 80
@@ -100,12 +100,12 @@ exports.parameters = [
 	,
 		name: 'aperture'
 		label: 'Aperture'
-		min: 0
-		max: 2.2
+		min: 0.2
+		max: 1.6
 		step: 0.01
 		init: 1
-		minAdvised: 0
-		maxAdvised: 2.2
+		minAdvised: 0.4
+		maxAdvised: 1.2
 	,
 		name: 'opticThickness'
 		label: 'Optic thickness'
@@ -118,12 +118,12 @@ exports.parameters = [
 	,
 		name: 'curviness'
 		label: 'Curviness'
-		min: 0
+		min: 0.1
 		max: 4
 		step: 0.1
-		init: 1
-		minAdvised: 1
-		maxAdvised: 1.5
+		init: .6
+		minAdvised: 0
+		maxAdvised: 1.2
 	,
 		name: 'breakPath'
 		label: 'Break Path'
@@ -136,12 +136,12 @@ exports.parameters = [
 	,
 		name: 'axis'
 		label: 'axis'
-		min: -90
-		max: 90
+		min: - 35
+		max: 35
 		step: 1
 		init: 0
-		minAdvised: -30
-		maxAdvised: 30
+		minAdvised: -15
+		maxAdvised: 15
 	]
 ,
 	tab: true
