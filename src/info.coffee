@@ -1,5 +1,5 @@
 exports.info =
-	name: 'default'
+	familyName: 'genese'
 	version: '0.1.0'
 	description: 'The first parametric typeface'
 	'cap-height': 720

@@ -20,7 +20,9 @@ function jsufonify(prefixText) {
 		font = sandbox.exports;
 
 		// WIP: convert ptf object to jsufon
-		_(font.glyphs).forEach(function( glyph ) {
+		_(font.glyphs).forEach(function( glyph, name ) {
+			glyph.name = name;
+
 			// glyph.anchors -> glyph.anchor
 			if ( glyph.anchors ) {
 				glyph.anchor = [];
