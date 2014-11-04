@@ -1,9 +1,9 @@
-exports.glyphs['o_cap'] =
+exports.glyphs['o'] =
 	type: 'test'
 	anchors:
 		0:
-			x: 600 * width
-			y: capHeight / 2
+			x: 400 * width
+			y: xHeight / 2
 	contours:
 		0:
 			tags: 'skeleton'
@@ -11,13 +11,13 @@ exports.glyphs['o_cap'] =
 			nodes:
 				0:
 					x: 0
-					y: capHeight / 2
-					width: thickness * opticThickness
+					y: xHeight / 2
+					width: thickness
 					lDir: '90deg'
 				1:
 					x: anchors[0].x / 2
-					y: capHeight + overshoot
-					width: thickness * opticThickness * contrast * .9
+					y: xHeight + overshoot
+					width: thickness * contrast * .9
 					lDir: '0deg'
 					distr: 0
 					angle: -105 + 'deg'
@@ -25,12 +25,12 @@ exports.glyphs['o_cap'] =
 				2:
 					x: anchors[0].x 
 					y: anchors[0].y
-					width: thickness * opticThickness
+					width: thickness
 					lDir: '-90deg'
 				3:
 					x: contours[0].nodes[1].x
 					y: 0 - overshoot
-					width: thickness * opticThickness * contrast * .9
+					width: thickness * contrast * .9
 					lDir: '180deg'
 					distr: 0
 					## Need to find a way to reproduce axis like the top curve

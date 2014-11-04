@@ -1,4 +1,4 @@
-exports.glyphs['h'] =
+exports.glyphs['one'] =
 	contours:
 		0:
 			tags: 'skeleton'
@@ -8,29 +8,25 @@ exports.glyphs['h'] =
 					x: 0
 					y: 0
 					width: thickness
-					angle: 0
+					lDir: '90deg'
 					lType: 'line'
 				1:
 					x: 0
-					y: ascenderHeight
+					y: capHeight
 					width: thickness
-					angle: 0
+					lDir: '90deg'
 		1:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					x: 0
-					y: xHeight - 50
+					x: - thickness / 2
+					y: capHeight
 					width: thickness * contrast
-					angle: '-30deg'
+					lDir: '90deg'
+					distr: 0
 				1:
-					x: 300
-					y: xHeight
+					x: - thickness / 2 - 50
+					y: capHeight - 100
 					width: thickness * contrast
-					angle: '-90deg'
-				2:
-					x: 600
-					y: 0
-					width: thickness
-					angle: '180deg'
+					lDir: '360deg'

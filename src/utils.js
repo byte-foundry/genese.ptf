@@ -58,6 +58,9 @@
 			node.expanded[0].lDir = node.expanded[1].rDir = node.lDir;
 			node.expanded[0].rDir = node.expanded[1].lDir = node.rDir;
 
+			node.expanded[0].lTension = node.expanded[1].rTension = node.lTension;
+			node.expanded[0].rTension = node.expanded[1].lTension = node.rTension;
+
 			skins[0].push( node.expanded[0] );
 			skins[1].push( node.expanded[1] );
 
@@ -157,12 +160,14 @@
 					{x: 0, y: segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x },
 					segment.end,
 					{x: 0, y: segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x }
-				);
+				),
+				lTension = segment.start.lTension !== undefined ? segment.start.lTension : 1,
+				rTension = segment.end.rTension !== undefined ? segment.end.rTension : 1;
 
-			segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness;
-			segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness;
-			segment.rCtrl.x = segment.end.x + ( lli[0] - segment.end.x ) * curviness;
-			segment.rCtrl.y = segment.end.y + ( lli[1] - segment.end.y ) * curviness;
+			segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness * lTension;
+			segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness * lTension;
+			segment.rCtrl.x = segment.end.x + ( lli[0] - segment.end.x ) * curviness * rTension;
+			segment.rCtrl.y = segment.end.y + ( lli[1] - segment.end.y ) * curviness * rTension;
 		});
 	}
 
