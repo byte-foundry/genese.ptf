@@ -1,4 +1,4 @@
-exports.glyphs['C'] =
+exports.glyphs['c_cap'] =
 	contours:
 		0:
 			tags: 'skeleton'

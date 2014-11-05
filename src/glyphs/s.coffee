@@ -3,7 +3,7 @@ exports.glyphs['s'] =
 	anchors:
 		0:
 			x: width * 320 + thickness - 80
-			y: xHeight - xHeight * 70/465
+			y: xHeight - 70
 	contours:
 		0:
 			tags: 'skeleton'
@@ -11,7 +11,7 @@ exports.glyphs['s'] =
 			nodes:
 				0:
 					x: 0
-					y: xHeight * 75/465
+					y: 75
 					width: thickness * contrast * .85
 					lDir: '-45deg'
 					distr: .7
