@@ -1,5 +1,5 @@
 exports.glyphs['eight'] =
-	type: 'test'
+	unicode: '8'
 	anchors:
 		0:
 			x: width * 360 - 30
@@ -54,4 +54,3 @@ exports.glyphs['eight'] =
 					width: thickness *.85 * contrast
 					lDir: '180deg'
 					distr: 0
-				

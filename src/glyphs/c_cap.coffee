@@ -1,4 +1,5 @@
 exports.glyphs['c_cap'] =
+	unicode: 'C'
 	contours:
 		0:
 			tags: 'skeleton'

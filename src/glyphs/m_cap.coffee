@@ -1,5 +1,5 @@
 exports.glyphs['m_cap'] =
-	type: 'test'
+	unicode: 'M'
 	anchors:
 		0:
 			x: width * 600 + thickness

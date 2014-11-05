@@ -1,4 +1,5 @@
 exports.glyphs['d_cap'] =
+	unicode: 'D'
 	anchors:
 		0:
 			x: width * 500
@@ -56,7 +57,3 @@ exports.glyphs['d_cap'] =
 					width: thickness * opticThickness * contrast
 					lDir: '-180deg'
 					distr: 0
-
-
-
-					

@@ -1,5 +1,5 @@
 exports.glyphs['k'] =
-	type: 'test'
+	unicode: 'k'
 	contours:
 		0:
 			tags: 'skeleton'

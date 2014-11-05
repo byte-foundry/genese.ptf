@@ -1,5 +1,5 @@
 exports.glyphs['o_cap'] =
-	type: 'test'
+	unicode: 'O'
 	anchors:
 		0:
 			x: 600 * width

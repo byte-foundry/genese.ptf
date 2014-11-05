@@ -22,6 +22,9 @@ function jsufonify(prefixText) {
 		// WIP: convert ptf object to jsufon
 		_(font.glyphs).forEach(function( glyph, name ) {
 			glyph.name = name;
+			if ( glyph.name.length === 1 || typeof glyph.unicode === 'string' ) {
+				glyph.unicode = glyph.unicode.charCodeAt(0);
+			}
 
 			// glyph.anchors -> glyph.anchor
 			if ( glyph.anchors ) {

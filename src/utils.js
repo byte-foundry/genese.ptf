@@ -311,6 +311,18 @@
 		return ( this.pathData = pathData.join(' ') );
 	};
 
+	P.Contour.prototype._toOT = P.Contour.prototype.toOT;
+	P.Contour.prototype.toOT = function( path ) {
+		if ( this.tags.has('skeleton') ) {
+			return;
+		}
+
+		// only the first contour of linked list of contours must be converted
+		if ( !this.prev ) {
+			this._toOT( path );
+		}
+	};
+
 
 	['lDir', 'rDir', 'angle'].forEach(function(name) {
 		Object.defineProperty(P.Node.prototype, name, {

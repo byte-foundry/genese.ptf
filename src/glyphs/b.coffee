@@ -1,4 +1,5 @@
 exports.glyphs['b'] =
+	unicode: 'b'
 	anchors:
 		0:
 			x: width * 350 + thickness - 80

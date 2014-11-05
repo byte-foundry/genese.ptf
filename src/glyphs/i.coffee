@@ -1,4 +1,5 @@
 exports.glyphs['i'] =
+	unicode: 'i'
 	contours:
 		0:
 			tags: 'skeleton'
