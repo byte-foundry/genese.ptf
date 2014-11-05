@@ -1,5 +1,5 @@
 exports.glyphs['p'] =
-	type: 'test'
+	unicode: 'p'
 	anchors:
 		0:
 			x: width * 350 + thickness - 80

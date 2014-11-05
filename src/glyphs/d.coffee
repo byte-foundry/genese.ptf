@@ -1,5 +1,5 @@
 exports.glyphs['d'] =
-	type: 'test'
+	unicode: 'd'
 	anchors:
 		0:
 			x: contours[0].nodes[0].x - thickness / 2
