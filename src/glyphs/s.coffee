@@ -24,7 +24,7 @@ exports.glyphs['s'] =
 				2:
 					x: anchors[0].x
 					y: xHeight * 120/465
-					width: thickness
+					width: thickness * contrast * .4 + thickness * .5
 					lDir: '90deg'
 				3:
 					x: anchors[0].x / 2 + 45
@@ -43,7 +43,7 @@ exports.glyphs['s'] =
 				5:
 					x: width * 15
 					y: xHeight * 345/465
-					width: thickness
+					width: thickness * contrast * .4 + thickness * .5
 					lDir: 90 + 'deg'
 					distr: .4
 					rTension: 1.4
