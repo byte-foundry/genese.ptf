@@ -279,6 +279,7 @@
 
 		this.transform( null, true );
 
+		var path = [];
 		this.contours.forEach(function( contour ) {
 			if ( contour.tags.has('skeleton') ) {
 				return;
@@ -286,9 +287,10 @@
 
 			// only the first contour of linked list of contours must be converted
 			if ( !contour.prev ) {
-				contour.toSVG();
+				path.push( contour.toSVG() );
 			}
 		});
+		this.pathData = path.join(' ');
 
 		this.gatherNodes();
 
