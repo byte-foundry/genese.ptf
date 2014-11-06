@@ -1,5 +1,6 @@
 exports.glyphs['b_cap'] =
 	unicode: 'B'
+	advanceWidth: width * 650
 	anchors:
 		0:
 			x: width * 450

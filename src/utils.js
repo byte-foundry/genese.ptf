@@ -267,6 +267,16 @@
 			component.update( params );
 		}, this);
 
+		if ( this.src.advanceWidth ) {
+			var attr = this.src.advanceWidth,
+				args = [ this.contours, this.anchors, this.parentAnchors, null, P.Utils ];
+
+			attr.parameters.forEach(function( name ) {
+				args.push( params[name] );
+			});
+			this.advanceWidth = attr.updater.apply( {}, args );
+		}
+
 		this.transform( null, true );
 
 		this.contours.forEach(function( contour ) {
