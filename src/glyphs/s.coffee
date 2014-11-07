@@ -2,8 +2,8 @@ exports.glyphs['s'] =
 	unicode: 's'
 	anchors:
 		0:
-			x: width * 320 + thickness - 80
-			y: xHeight - 70
+			x: width * 325 + thickness - 80
+			y: xHeight - 70 * aperture
 	contours:
 		0:
 			tags: 'skeleton'
@@ -11,21 +11,22 @@ exports.glyphs['s'] =
 			nodes:
 				0:
 					x: 0
-					y: 75
-					width: thickness * contrast * .85
-					lDir: '-45deg'
+					y: 70 * aperture
+					width: thickness * contrast * .9
+					lDir: - 45 * aperture + 'deg'
 					distr: .7
 				1:
 					x: anchors[0].x / 2
 					y: - overshoot
-					width: thickness * contrast * .9
+					width: thickness * contrast * .85
 					lDir: '0deg'
 					distr: 1
 				2:
 					x: anchors[0].x
 					y: xHeight * 120/465
-					width: thickness
+					width: thickness * contrast * .4 + thickness * .5
 					lDir: '90deg'
+					angle: Math.min( 25, thickness / 3 - 25 * contrast ) + breakPath + 'deg'
 				3:
 					x: anchors[0].x / 2 + 45
 					y: xHeight * 230/465
@@ -43,19 +44,20 @@ exports.glyphs['s'] =
 				5:
 					x: width * 15
 					y: xHeight * 345/465
-					width: thickness
+					width: thickness * contrast * .4 + thickness * .5
 					lDir: 90 + 'deg'
+					angle: Math.min( 25, thickness / 3 - 25 * contrast ) + breakPath + 'deg'
 					distr: .4
 					rTension: 1.4
 				6:
 					x: anchors[0].x / 2
 					y: xHeight + overshoot
-					width: thickness * contrast * .9
+					width: thickness * contrast * .85
 					lDir: '0deg'
 					distr: 0
 				7:
 					x: anchors[0].x
 					y: anchors[0].y
-					width: thickness * contrast * .85
-					lDir: 180 + 130 +'deg'
+					width: thickness * contrast * .9
+					lDir: - 45 * aperture + 'deg'
 					distr: .3

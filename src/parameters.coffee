@@ -101,7 +101,7 @@ exports.parameters = [
 		name: 'aperture'
 		label: 'Aperture'
 		min: 0.2
-		max: 1.6
+		max: 1.9
 		step: 0.01
 		init: 1
 		minAdvised: 0.4
