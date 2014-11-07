@@ -279,22 +279,42 @@
 
 		this.transform( null, true );
 
-		var path = [];
-		this.contours.forEach(function( contour ) {
-			if ( contour.tags.has('skeleton') ) {
-				return;
-			}
-
-			// only the first contour of linked list of contours must be converted
-			if ( !contour.prev ) {
-				path.push( contour.toSVG() );
-			}
-		});
-		this.pathData = path.join(' ');
-
 		this.gatherNodes();
 
 		return this;
+	};
+
+	P.Glyph.prototype.toSVG = function() {
+		var path = [];
+
+		this.contours.forEach(function( contour ) {
+			if ( contour.prev || contour.tags.has('skeleton') ) {
+				return;
+			}
+
+			path.push( contour.toSVG() );
+		});
+
+		return ( this.pathData = path.join(' ') );
+	};
+
+	P.Glyph.prototype.toOT = function() {
+		var path = new P.opentype.Path();
+
+		this.allContours.forEach(function( contour ) {
+			if ( contour.prev || contour.tags.has('skeleton') ) {
+				return;
+			}
+
+			contour.toOT( path );
+		});
+
+		return new P.opentype.Glyph({
+			name: this.name,
+			unicode: this.unicode,
+			path: path,
+			advanceWidth: this.advanceWidth || 512
+		});
 	};
 
 	// contour.update() shouldn't update the SVG dataPath attr,
@@ -325,14 +345,12 @@
 
 	P.Contour.prototype._toOT = P.Contour.prototype.toOT;
 	P.Contour.prototype.toOT = function( path ) {
-		if ( this.tags.has('skeleton') ) {
-			return;
-		}
+		var contour = this;
 
-		// only the first contour of linked list of contours must be converted
-		if ( !this.prev ) {
-			this._toOT( path );
-		}
+		do {
+			contour._toOT( path );
+
+		} while ( ( contour = contour.next ) );
 	};
 
 
