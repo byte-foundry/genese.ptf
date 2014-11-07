@@ -1,5 +1,9 @@
 exports.glyphs['A'] =
 	unicode: 'A'
+	anchors:
+		0:
+			x: width * 500 + thickness - 80
+			y: 0
 	contours:
 		0:
 			tags: 'skeleton'
@@ -8,19 +12,48 @@ exports.glyphs['A'] =
 				0:
 					x: 0
 					y: 0
-					width: 20
-					lDir: '90deg'
+					width: thickness * opticThickness
+					lDir: 90 + 'deg'
 					lType: 'line'
+					distr: 1
 				1:
-					x: 50
-					y: 400
-					type: 'corner'
-					width: 20
-					lDir: 0
+					x: ( anchors[0].x + thickness * opticThickness ) / 2
+					y: capHeight
+					width: thickness * opticThickness
+					lDir: 90 + 'deg'
 					lType: 'line'
+					distr: 1
 				2:
-					x: 100
-					y: 0
-					width: 20
-					lDir: '-90deg'
+					x: ( anchors[0].x + thickness * opticThickness ) / 2
+					y: capHeight
+					width: thickness * opticThickness * contrast
+					lDir: - 90 + 'deg'
 					lType: 'line'
+					distr: 0
+				3:
+					x: anchors[0].x + thickness * opticThickness
+					y: 0
+					width: thickness * opticThickness * contrast
+					lDir: - 90 + 'deg'
+					distr: 0
+		1:
+			tags: 'skeleton'
+			type: 'open'
+			nodes:
+				0:
+					onLine: [ contours[0].nodes[0], contours[0].nodes[1] ]
+					y: capHeight / 2 * crossbar
+					width: thickness * opticThickness * contrast * .9
+					lDir: Utils.lineAngle( contours[0].nodes[0], contours[0].nodes[1] ) + Math.PI / 2
+					lType: 'line'
+					distr: 1
+					## transform: [1, 0, 0, 1, -10, 0]
+				1:
+					onLine: [ contours[0].nodes[2], contours[0].nodes[3] ]
+					y: capHeight / 2 * crossbar
+					width: thickness * opticThickness * contrast * .9
+					lDir: Utils.lineAngle( contours[0].nodes[2], contours[0].nodes[3] ) + Math.PI / 2 - Math.PI
+					distr: 1
+
+
+
