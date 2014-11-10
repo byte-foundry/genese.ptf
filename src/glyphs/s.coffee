@@ -1,5 +1,6 @@
 exports.glyphs['s'] =
 	unicode: 's'
+	advanceWidth: width * 390 + thickness
 	anchors:
 		0:
 			x: width * 325 + thickness - 80

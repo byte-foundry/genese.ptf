@@ -1,5 +1,6 @@
 exports.glyphs['h_cap'] =
 	unicode: 'H'
+	advanceWidth: width * 590 + thickness
 	contours:
 		0:
 			tags: 'skeleton'

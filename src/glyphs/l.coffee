@@ -1,5 +1,6 @@
 exports.glyphs['l'] =
 	unicode: 'l'
+	advanceWidth: width * 110 + thickness
 	contours:
 		0:
 			tags: 'skeleton'

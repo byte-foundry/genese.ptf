@@ -1,9 +1,10 @@
 exports.glyphs['b'] =
 	unicode: 'b'
+	advanceWidth: width * 390 + thickness * 2
 	anchors:
 		0:
 			x: width * 350 + thickness - 80
-			y: xHeight / 2
+			y: Math.max( thickness * contrast + 20 , 150 * aperture )
 	contours:
 		0:
 			tags: 'skeleton'
@@ -12,10 +13,17 @@ exports.glyphs['b'] =
 				0:
 					x: 0
 					y: 0
+					width: thickness * .8
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0.6
+				1:
+					x: 0
+					y: anchors[0].y
 					width: thickness
 					lDir: '90deg'
 					lType: 'line'
-				1:
+				2:
 					x: 0
 					y: ascenderHeight
 					width: thickness
@@ -26,9 +34,10 @@ exports.glyphs['b'] =
 			nodes:
 				0:
 					x: thickness / 2
-					y: xHeight - thickness / 3 * aperture - 140 * contrast
+					y: xHeight - Math.max( thickness * contrast + 80 , 150 * aperture )
 					width: thickness * contrast
-					lDir: 60 * aperture + 'deg'
+					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
+					angle: -60 + 'deg'
 					distr: 1
 				1:
 					x: anchors[0].x / 2
@@ -51,7 +60,9 @@ exports.glyphs['b'] =
 					angle: '85deg'
 				4:
 					x: thickness / 2
-					y: thickness  / 3 * aperture + 140 * contrast
+					y: Math.max( thickness * contrast + 20 , 150 * aperture )
 					width: thickness * contrast * .85
-					lDir: 180 - 60 * aperture + 'deg'
+					## lDir: 180 - 60 * aperture + 'deg'
+					lDir: Math.min( 90, 90 + 10 * aperture ) + 'deg'
+					angle: 60 + 'deg'
 					distr: 1

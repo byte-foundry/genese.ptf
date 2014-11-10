@@ -1,5 +1,6 @@
 exports.glyphs['a'] =
 	unicode: 'a'
+	advanceWidth: width * 370 + thickness
 	contours:
 		0:
 			tags: 'skeleton'
@@ -19,7 +20,7 @@ exports.glyphs['a'] =
 					angle: '-80deg'
 					distr: 0
 				2:
-					x:  width * 250
+					x:  width * 280
 					y: xHeight * 300/465
 					width: thickness
 					lDir: '-90deg'

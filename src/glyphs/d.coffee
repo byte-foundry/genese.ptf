@@ -1,5 +1,6 @@
 exports.glyphs['d'] =
 	unicode: 'd'
+	advanceWidth: width * 380 + thickness * 2
 	anchors:
 		0:
 			x: contours[0].nodes[0].x - thickness / 2
@@ -10,7 +11,7 @@ exports.glyphs['d'] =
 			type: 'open'
 			nodes:
 				0:
-					x: width * 365
+					x: width * 365 + thickness - 80
 					y: 0
 					width: thickness * .8
 					lDir: 90 + 'deg'

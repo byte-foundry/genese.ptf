@@ -1,5 +1,6 @@
 exports.glyphs['n'] =
 	unicode: 'n'
+	advanceWidth: width * 380 + thickness
 	contours:
 		0:
 			tags: 'skeleton'
