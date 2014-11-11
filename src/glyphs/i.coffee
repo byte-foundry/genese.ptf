@@ -21,18 +21,18 @@ exports.glyphs['i'] =
 			type: 'closed'
 			nodes:
 				0:
-					x: 25
+					x: 1
 					y: capHeight
 					lDir: 0 + 'deg'
 				1:
-					x: 50
-					y: capHeight - 25
+					x: thickness / 2 * 1.1
+					y: capHeight - thickness / 2 * 1.1
 					lDir: -90 + 'deg'
 				2:
-					x: 25
-					y: capHeight - 50
+					x: 1
+					y: capHeight - thickness * 1.1
 					lDir: 180 + 'deg'
 				3:
-					x: 0
-					y: capHeight - 25
+					x: - thickness / 2 * 1.1
+					y: capHeight - thickness / 2 * 1.1
 					lDir: 90 + 'deg'
