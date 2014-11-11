@@ -19,6 +19,7 @@ exports.info =
 		'n': 'n'
 		'o': 'o'
 		'p': 'p'
+		'q': 'q'
 		'r': 'r'
 		's': 's'
 		't': 't'
@@ -40,3 +41,4 @@ exports.info =
 		'1': 'one'
 		'8': 'eight'
 		'0': 'test2'
+		

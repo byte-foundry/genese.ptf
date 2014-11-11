@@ -168,11 +168,11 @@ exports.parameters = [
 	,
 		name: 'serifMedian'
 		label: 'Serif Median'
-		min: -1
+		min: 0
 		max: 2
 		step: 0.1
-		init: 0
-		minAdvised: -1
+		init: 1
+		minAdvised: 0
 		maxAdvised: 2
 	,
 		name: 'serifCurve'
