@@ -1,5 +1,6 @@
 exports.glyphs['w'] =
 	unicode: 'w'
+	advanceWidth: width * 680 + ( thickness * 3 ) - 160
 	anchors:
 		0:
 			x: width * 325 + thickness - 80 

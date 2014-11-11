@@ -1,5 +1,6 @@
 exports.glyphs['o_cap'] =
 	unicode: 'O'
+	advanceWidth: width * 650 + thickness
 	anchors:
 		0:
 			x: 600 * width

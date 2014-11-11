@@ -41,8 +41,8 @@ exports.glyphs['r'] =
 					distr: 0
 				2:
 					x: anchors[0].x + 80
-					y: Math.min( xHeight, xHeight * 460/465 * aperture )
+					y: xHeight - Math.max( 100 , 10 * aperture )
 					width: thickness * contrast * .8 + thickness * .1
-					lDir: ( 90 + 50 ) * aperture + 'deg'
-					angle: Math.max( - 90, ( 90 + 180 - 10 ) * aperture ) + 'deg'
+					lDir: Math.max( - 30 - 90, - 90 - 10 * aperture ) + 'deg'
+					# angle: Math.max( - 90, ( 90 + 180 - 10 ) * aperture ) + 'deg'
 					distr: 0

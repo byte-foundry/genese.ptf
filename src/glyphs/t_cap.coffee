@@ -49,6 +49,16 @@ exports.glyphs['t_cap'] =
 					x: contours[0].nodes[0].expanded[1].x
 					y: contours[0].nodes[0].expanded[1].y
 			transform: [1, 0, 0, 1, -2, 0]
+		1:
+			base: 'serif_BL'
+			anchors:
+				0:
+					x: contours[0].nodes[0].expanded[0].x
+					y: serifHeight / 4
+				1:
+					x: contours[0].nodes[0].expanded[0].x
+					y: contours[0].nodes[0].expanded[0].y
+			transform: [1, 0, 0, 1, 1, 0]
 
 
 

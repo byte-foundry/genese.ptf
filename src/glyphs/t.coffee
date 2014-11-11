@@ -7,7 +7,7 @@ exports.glyphs['t'] =
 			type: 'open'
 			nodes:
 				0:
-					x: width * 290 + thickness * contrast - 80
+					x: width * 290 + thickness - 80
 					y: 20
 					width: thickness * contrast * .85
 					lDir: 50 + 'deg'
