@@ -41,4 +41,3 @@ exports.info =
 		'1': 'one'
 		'8': 'eight'
 		'0': 'test2'
-		

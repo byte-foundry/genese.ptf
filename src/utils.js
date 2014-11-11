@@ -28,10 +28,10 @@
 		skeleton.nodes.forEach(function( node ) {
 			var rib;
 
-			if ( node.src.rDir === undefined && node.src.lDir !== undefined ) {
+			if ( node.src && node.src.rDir === undefined && node.src.lDir !== undefined ) {
 				node.rDir = node.lDir - Math.PI;
 			}
-			if ( node.src.lDir === undefined && node.src.rDir !== undefined ) {
+			if ( node.src && node.src.lDir === undefined && node.src.rDir !== undefined ) {
 				node.lDir = node.rDir - Math.PI;
 			}
 
@@ -75,7 +75,11 @@
 			right = node.expanded[1],
 			width = node.width !== undefined ? node.width : params.width,
 			distr = node.distr !== undefined ? node.distr : 0.5,
-			angle = node.angle !== undefined ? node.angle : node.lDir - Math.PI / 2;
+			angle = node.angle !== undefined ? node.angle : (
+				node.lDir !== undefined ?
+					node.lDir - Math.PI / 2:
+					node.rDir + Math.PI / 2
+			);
 
 		left.x = node.x + ( width * ( distr ) * Math.cos( angle + Math.PI ) );
 		left.y = node.y + ( width * ( distr ) * Math.sin( angle + Math.PI ) );
@@ -110,8 +114,8 @@
 
 	// - link nodes in the contour
 	// - make sure lines are set on both endpoints of a segment
-	// - make types of endpoints are correctly set
-	function prepareContour( contour ) {
+	// - make sure types of endpoints are correctly set
+	function prepareContour( contour ) {console.log(contour);
 		var length = contour.nodes.length,
 			i = -1,
 			node,
@@ -120,6 +124,13 @@
 
 		while ( ++i < length ) {
 			node = contour.nodes[i];
+
+			if ( node.src && node.src.rDir === undefined && node.src.lDir !== undefined ) {
+				node.rDir = node.lDir - Math.PI;
+			}
+			if ( node.src && node.src.lDir === undefined && node.src.rDir !== undefined ) {
+				node.lDir = node.rDir - Math.PI;
+			}
 
 			// hobby requires that the last point always links to the start point
 			node.prev = contour.nodes[i-1] || lastNode;
@@ -155,71 +166,29 @@
 				return;
 			}
 
-			var lli = P.Utils.lineLineIntersection(
+			var lli,
+				lTension = segment.start.lTension !== undefined ? segment.start.lTension : 1,
+				rTension = segment.end.rTension !== undefined ? segment.end.rTension : 1;
+
+			if ( segment.start.x === 0 ) {
+				lli = [ 0, segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x ];
+
+			} else if ( segment.end.x === 0 ) {
+				lli = [ 0, segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x ];
+
+			} else {
+				lli = P.Utils.lineLineIntersection(
 					segment.start,
 					{x: 0, y: segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x },
 					segment.end,
 					{x: 0, y: segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x }
-				),
-				lTension = segment.start.lTension !== undefined ? segment.start.lTension : 1,
-				rTension = segment.end.rTension !== undefined ? segment.end.rTension : 1;
+				);
+			}
 
 			segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness * lTension;
 			segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness * lTension;
 			segment.rCtrl.x = segment.end.x + ( lli[0] - segment.end.x ) * curviness * rTension;
 			segment.rCtrl.y = segment.end.y + ( lli[1] - segment.end.y ) * curviness * rTension;
-		});
-	}
-
-	function notomatic( contour, params ) {
-		contour.nodes.forEach(function( node ) {
-			var curviness = params.curviness || 2/3,
-				prev = node.prev,
-				next = node.next,
-				dxPrev = node.x - prev.x,
-				dyPrev = node.y - prev.y,
-				dxNext = next.x - node.x,
-				dyNext = next.y - node.y;
-
-			if ( node.lType === 'line' ) {
-				node.lCtrl.x = node.x;
-				node.lCtrl.y = node.y;
-			}
-			if ( node.rType === 'line' ) {
-				node.rCtrl.x = node.x;
-				node.rCtrl.y = node.y;
-			}
-
-			if ( node.type === 'smooth' ) {
-				if ( node.lType === 'line' ) {
-					//direction = Math.PI + Math.atan2( dyPrev, dxPrev );
-
-					node.rCtrl.x = node.x + Math.cos( node.lDir ) * ( curviness * Math.abs( dxNext ) );
-					node.rCtrl.y = node.y + Math.sin( node.lDir ) * ( curviness * Math.abs( dyNext ) );
-
-				} else if ( node.rType === 'line' ) {
-					node.lCtrl.x = node.x - Math.cos( node.lDir ) * ( curviness * Math.abs( dxPrev ) );
-					node.lCtrl.y = node.y - Math.sin( node.lDir ) * ( curviness * Math.abs( dyPrev ) );
-
-				} else {
-					node.lCtrl.x = node.x - Math.cos( node.lDir ) * ( curviness * Math.abs( dxPrev ) );
-					node.lCtrl.y = node.y - Math.sin( node.lDir ) * ( curviness * Math.abs( dyPrev ) );
-
-					node.rCtrl.x = node.x + Math.cos( node.lDir ) * ( curviness * Math.abs( dxNext ) );
-					node.rCtrl.y = node.y + Math.sin( node.lDir ) * ( curviness * Math.abs( dyNext ) );
-				}
-
-			} else {
-				if ( node.lType !== 'line' ) {
-					node.lCtrl.x = node.x + Math.cos( node.lDir ) * ( curviness * Math.abs( dxPrev ) );
-					node.lCtrl.y = node.y + Math.sin( node.lDir ) * ( curviness * Math.abs( dyPrev ) );
-				}
-				if ( node.rType !== 'line' ) {
-					node.rCtrl.x = node.x + Math.cos( node.rDir ) * ( curviness * Math.abs( dxNext ) );
-					node.rCtrl.y = node.y + Math.sin( node.rDir ) * ( curviness * Math.abs( dyNext ) );
-				}
-			}
-
 		});
 	}
 
@@ -230,8 +199,7 @@
 		expand: expand,
 		updateNodeRibs: updateNodeRibs,
 		prepareContour: prepareContour,
-		notomaticSegments: notomaticSegments,
-		notomatic: notomatic
+		notomaticSegments: notomaticSegments
 	});
 
 	// extend built-in objects types

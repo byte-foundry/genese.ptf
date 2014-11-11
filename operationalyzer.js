@@ -19,6 +19,10 @@ function isOperation( node, parent ) {
 		( parent.type === 'Property' || parent.type === 'ArrayExpression' );
 }
 
+function unique(e, i, arr) {
+	return arr.lastIndexOf(e) === i;
+}
+
 // plugin level function (dealing with files)
 function operationalyzer() {
 	// prepare a generic operation object that we'll reuse to replace each operation
@@ -90,25 +94,31 @@ function operationalyzer() {
 
 					node.properties[0].value.raw = '\'' + node.properties[0].value + '\'';
 
-					node.properties[1].value.elements = parameters.map(function( param ) {
-						return {
-							type: 'Literal',
-							value: param,
-							raw: '\'' + param + '\''
-						};
-					});
+					node.properties[1].value.elements =
+						parameters
+							.map(function( param ) {
+								return {
+									type: 'Literal',
+									value: param,
+									raw: '\'' + param + '\''
+								};
+							})
+							.filter(unique);
 
-					node.properties[2].value.elements = dependencies.map(function( dep ) {
-						// transform contours[0].nodes[1].x into contours.0.nodes.1.x
-						// which is invalid javascript but easier to use
-						dep = dep.replace( /\[\s*(\d+)\s*\]/g, '.$1' );
+					node.properties[2].value.elements =
+						dependencies
+							.map(function( dep ) {
+								// transform contours[0].nodes[1].x into contours.0.nodes.1.x
+								// which is invalid javascript but easier to use
+								dep = dep.replace( /\[\s*(\d+)\s*\]/g, '.$1' );
 
-						return {
-							type: 'Literal',
-							value: dep,
-							raw: '\'' + dep + '\''
-						};
-					});
+								return {
+									type: 'Literal',
+									value: dep,
+									raw: '\'' + dep + '\''
+								};
+							})
+							.filter(unique);
 
 					return node;
 				}
