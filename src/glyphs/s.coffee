@@ -4,7 +4,7 @@ exports.glyphs['s'] =
 	anchors:
 		0:
 			x: width * 325 + thickness - 80
-			y: xHeight - 70 * aperture
+			y: xHeight - Math.max( 30 , 70 * aperture )
 	contours:
 		0:
 			tags: 'skeleton'

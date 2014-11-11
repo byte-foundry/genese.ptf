@@ -1,8 +1,9 @@
 exports.glyphs['v'] =
 	unicode: 'v'
+	advanceWidth: width * 440 + ( thickness * 2 ) - 80
 	anchors:
 		0:
-			x: width * 325 + thickness - 80
+			x: width * 365 + thickness - 80
 			y: xHeight
 	contours:
 		0:

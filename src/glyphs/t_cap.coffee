@@ -38,3 +38,22 @@ exports.glyphs['t_cap'] =
 					width: thickness * opticThickness * .9 * contrast
 					lDir: 0 + 'deg'
 					distr: 0
+	components:
+		0:
+			base: 'serif_BR'
+			anchors:
+				0:
+					x: contours[0].nodes[0].expanded[1].x
+					y: serifHeight / 4
+				1:
+					x: contours[0].nodes[0].expanded[1].x
+					y: contours[0].nodes[0].expanded[1].y
+			transform: [1, 0, 0, 1, -2, 0]
+
+
+
+
+
+
+
+

@@ -284,8 +284,10 @@
 		return this;
 	};
 
-	P.Glyph.prototype.toSVG = function() {
-		var path = [];
+	P.Glyph.prototype.toSVG = function( path ) {
+		if ( !path ) {
+			path = [];
+		};
 
 		this.contours.forEach(function( contour ) {
 			if ( contour.prev || contour.tags.has('skeleton') ) {
@@ -295,11 +297,17 @@
 			path.push( contour.toSVG() );
 		});
 
+		this.components.forEach(function( component ) {
+			component.toSVG( path );
+		});
+
 		return ( this.pathData = path.join(' ') );
 	};
 
-	P.Glyph.prototype.toOT = function() {
-		var path = new P.opentype.Path();
+	P.Glyph.prototype.toOT = function( path ) {
+		if ( !path ) {
+			path = new P.opentype.Path();
+		};
 
 		this.allContours.forEach(function( contour ) {
 			if ( contour.prev || contour.tags.has('skeleton') ) {
@@ -307,6 +315,10 @@
 			}
 
 			contour.toOT( path );
+		});
+
+		this.components.forEach(function( component ) {
+			component.toOT( path );
 		});
 
 		return new P.opentype.Glyph({

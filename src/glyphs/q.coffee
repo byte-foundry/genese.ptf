@@ -1,10 +1,10 @@
-exports.glyphs['d'] =
-	unicode: 'd'
+exports.glyphs['q'] =
+	unicode: 'q'
 	advanceWidth: width * 380 + thickness * 2
 	anchors:
 		0:
 			x: width * 365 + thickness - 80 - thickness / 2
-			y: Math.max( thickness * contrast + 20 , 150 * aperture )
+			y: xHeight - Math.max( thickness * contrast + 20 , 150 * aperture )
 	contours:
 		0:
 			tags: 'skeleton'
@@ -12,7 +12,7 @@ exports.glyphs['d'] =
 			nodes:
 				0:
 					x: width * 365 + thickness - 80
-					y: 0
+					y: xHeight
 					width: thickness * .8
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -25,7 +25,7 @@ exports.glyphs['d'] =
 					lType: 'line'
 				2:
 					x: contours[0].nodes[0].x
-					y: ascenderHeight
+					y: descender
 					width: thickness
 					lDir: 90 + 'deg'
 		1:
@@ -34,10 +34,10 @@ exports.glyphs['d'] =
 			nodes:
 				0:
 					x: anchors[0].x
-					y: anchors[0].y
+					y: Math.max( thickness * contrast + 80 , 150 * aperture )
 					width: Math.max( thickness * .7 * contrast , thickness * .7 * contrast * aperture )
 					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
-					angle: -60 + 'deg'
+					angle: - 60 + 'deg'
 					distr: 0
 				1:
 					x: contours[0].nodes[0].x / 2
