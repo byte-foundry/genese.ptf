@@ -20,8 +20,8 @@ exports.glyphs['eight'] =
 				1:
 					x: width * 180
 					y: capHeight * (370/700)
-					width: thickness * contrast
-					lDir: '20deg'
+					width: thickness * contrast * .85
+					lDir: 20 * contrast + 'deg'
 				2:
 					x: width * 360 - 30
 					y: contours[0].nodes[1].y + (anchors[1].y - contours[0].nodes[1].y) * 1/2 

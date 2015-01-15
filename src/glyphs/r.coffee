@@ -1,9 +1,9 @@
 exports.glyphs['r'] =
 	unicode: 'r'
-	advanceWidth: width * 260 + thickness
+	advanceWidth: width * 250 + thickness * 1.3
 	anchors:
 		0:
-			x: width * 150 + thickness - 80
+			x: width * 150 + 60 + Math.max( 40, 20 * aperture ) + thickness - 80
 			y: xHeight + overshoot
 	contours:
 		0:
@@ -26,23 +26,23 @@ exports.glyphs['r'] =
 			type: 'open'
 			nodes:
 				0:
-					x: 0 + thickness / 2
-					y: xHeight - 180 - thickness / 2 + 40
-					width: thickness * contrast * .6 + thickness * .3
+					x: thickness / 2
+					y: xHeight - 20 - Math.min( 50, thickness / 2 + 40 )
+					width: thickness * contrast * .8 + thickness * .1
 					lDir: 80 + 'deg'
-					angle: 180 + 105 + 'deg'
-					distr: 1
+					angle: 180 + 90 + 'deg'
+					distr: 0
 				1:
-					x: anchors[0].x
+					x: anchors[0].x * .6
 					y: anchors[0].y
 					width: thickness * contrast * .9
-					lDir: 0 + 'deg'
+					lDir: 180 + 'deg'
 					angle: - 105 + 'deg'
 					distr: 0
 				2:
-					x: anchors[0].x + 80
-					y: xHeight - Math.max( 100 , 10 * aperture )
-					width: thickness * contrast * .8 + thickness * .1
-					lDir: Math.max( - 30 - 90, - 90 - 10 * aperture ) + 'deg'
-					# angle: Math.max( - 90, ( 90 + 180 - 10 ) * aperture ) + 'deg'
+					x: anchors[0].x
+					y: xHeight - Math.max( 20 , 60 * aperture ) - thickness / 2 
+					width: thickness * contrast * .2 + thickness * .7
+					lDir: - 80 - 10 * aperture + 'deg'
+					angle: 235 - 30 * aperture + 'deg'
 					distr: 0

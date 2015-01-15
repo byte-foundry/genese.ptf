@@ -27,7 +27,7 @@ exports.glyphs['p'] =
 			nodes:
 				0:
 					x: thickness / 2
-					y: xHeight - Math.max( thickness * contrast + 80 , 150 * aperture )
+					y: xHeight - Math.max( thickness * contrast + 80 , 120 * aperture )
 					width: thickness * contrast * .7
 					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
 					angle: -60 + 'deg'
@@ -53,7 +53,7 @@ exports.glyphs['p'] =
 					angle: '85deg'
 				4:
 					x: thickness / 2
-					y: Math.max( thickness * contrast + 20 , 150 * aperture )
+					y: Math.max( thickness * contrast + 20 , 120 * aperture )
 					width: thickness * contrast * .6
 					## lDir: 180 - 60 * aperture + 'deg'
 					lDir: Math.min( 90, 90 + 10 * aperture ) + 'deg'

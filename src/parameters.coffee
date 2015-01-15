@@ -119,20 +119,29 @@ exports.parameters = [
 		name: 'curviness'
 		label: 'Curviness'
 		min: 0.1
-		max: 4
+		max: 1.4
 		step: 0.1
-		init: .6
-		minAdvised: 0
-		maxAdvised: 1.2
+		init: 0.6
+		minAdvised: 0.4
+		maxAdvised: 0.8
 	,
 		name: 'breakPath'
 		label: 'Break Path'
 		min: 0
-		max: 35
+		max: 1
 		step: 0.1
 		init: 0
 		minAdvised: 0
-		maxAdvised: 35
+		maxAdvised: 0.5
+	# ,
+	# 	name: 'term'
+	# 	label: 'Term'
+	# 	min: 0.5
+	# 	max: 1.4
+	# 	step: 0.1
+	# 	init: 1
+	# 	minAdvised: 0.8
+	# 	maxAdvised: 1.1
 	,
 		name: 'axis'
 		label: 'axis'
@@ -157,10 +166,19 @@ exports.parameters = [
 		minAdvised: 0
 		maxAdvised: 80
 	,
+		name: 'midWidth'
+		label: 'Middle Width'
+		min: 0.8
+		max: 1.2
+		step: 0.01
+		init: 1
+		minAdvised: 0.9
+		maxAdvised: 1
+	,
 		name: 'serifHeight'
 		label: 'Serif Height'
 		min: 0
-		max: 200
+		max: 150
 		step: 1
 		init: 0
 		minAdvised: 0
@@ -168,7 +186,7 @@ exports.parameters = [
 	,
 		name: 'serifMedian'
 		label: 'Serif Median'
-		min: 0
+		min: 0.2
 		max: 2
 		step: 0.1
 		init: 1
@@ -178,11 +196,11 @@ exports.parameters = [
 		name: 'serifCurve'
 		label: 'Serif Curve'
 		min: 0
-		max: 3
+		max: 1
 		step: 0.01
 		init: 0
 		minAdvised: 0
-		maxAdvised: 3
+		maxAdvised: 1
 	,
 		name: 'serifRoundness'
 		label: 'Serif Curve Roundness'
@@ -204,12 +222,12 @@ exports.parameters = [
 	,
 		name: 'serifTerminal'
 		label: 'Serif Terminal'
-		min: -0.2
+		min: -0.5
 		max: 1
 		step: 0.01
 		init: 0
 		minAdvised: -0.2
-		maxAdvised: 1
+		maxAdvised: 0.8
 	,
 		name: 'serifTerminalCurve'
 		label: 'Serif Terminal Curve'

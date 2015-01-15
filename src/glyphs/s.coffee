@@ -1,6 +1,6 @@
 exports.glyphs['s'] =
 	unicode: 's'
-	advanceWidth: width * 390 + thickness
+	advanceWidth: width * 380 + thickness
 	anchors:
 		0:
 			x: width * 325 + thickness - 80
@@ -13,7 +13,7 @@ exports.glyphs['s'] =
 				0:
 					x: 0
 					y: 70 * aperture
-					width: thickness * contrast * .9
+					width: thickness * .5 + thickness * contrast * .35 # * term
 					lDir: - 45 * aperture + 'deg'
 					distr: .7
 				1:
@@ -59,6 +59,9 @@ exports.glyphs['s'] =
 				7:
 					x: anchors[0].x
 					y: anchors[0].y
-					width: thickness * contrast * .9
+					width: thickness * .5 + thickness * contrast * .35 # * term
 					lDir: - 45 * aperture + 'deg'
 					distr: .3
+
+
+

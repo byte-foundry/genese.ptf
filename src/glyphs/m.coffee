@@ -19,7 +19,7 @@ exports.glyphs['m'] =
 					lDir: '90deg'
 					lType: 'line'
 				2:
-					x: contours[0].nodes[0].x - Math.max(thickness / 2, thickness / 2 * aperture)
+					x: contours[0].nodes[0].x - thickness / 2
 					y: xHeight
 					width: Math.min( thickness * .9, thickness * .85 + thickness * .15 * width ) 
 					lDir: '90deg'
@@ -42,6 +42,7 @@ exports.glyphs['m'] =
 					lDir: '0deg'
 					distr: 0
 					rTension: Math.min( 1 / contrast, 1 )
+					rDir: 30 * breakPath + 'deg'
 				2:
 					x: width * 300
 					y: xHeight - 165
@@ -69,6 +70,7 @@ exports.glyphs['m'] =
 					width: thickness * contrast * .9
 					lDir: '0deg'
 					distr: 0
+					rDir: 30 * breakPath + 'deg'
 				2:
 					x: contours[1].nodes[3].x + width * 310
 					y: xHeight - 165

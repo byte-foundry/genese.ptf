@@ -115,7 +115,7 @@
 	// - link nodes in the contour
 	// - make sure lines are set on both endpoints of a segment
 	// - make sure types of endpoints are correctly set
-	function prepareContour( contour ) {console.log(contour);
+	function prepareContour( contour ) {
 		var length = contour.nodes.length,
 			i = -1,
 			node,

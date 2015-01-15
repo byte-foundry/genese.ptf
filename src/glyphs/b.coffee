@@ -1,6 +1,6 @@
 exports.glyphs['b'] =
 	unicode: 'b'
-	advanceWidth: width * 390 + thickness * 2
+	advanceWidth: width * 350 + thickness * 2
 	anchors:
 		0:
 			x: width * 350 + thickness - 80

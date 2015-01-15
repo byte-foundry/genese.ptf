@@ -9,7 +9,7 @@ exports.glyphs['t'] =
 				0:
 					x: width * 290 + thickness - 80
 					y: 20
-					width: thickness * contrast * .85
+					width: thickness * contrast * .65 + thickness * .20
 					lDir: 50 + 'deg'
 					angle: - 50 + 'deg'
 					distr: 1

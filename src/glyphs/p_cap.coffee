@@ -1,10 +1,10 @@
 exports.glyphs['p_cap'] =
 	unicode: 'P'
-	advanceWidth: width * 500 + ( thickness * 2 ) - 80
+	advanceWidth: width * 480 + ( thickness * 2 ) - 80
 	anchors:
 		0:
-			x: width * 400 + thickness - 80
-			y: capHeight * 250/688
+			x: width * 380 + thickness - 80
+			y: capHeight * 280/688
 	contours:
 		0:
 			tags: 'skeleton'

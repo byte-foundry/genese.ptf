@@ -1,9 +1,9 @@
 exports.glyphs['y'] =
 	unicode: 'y'
-	advanceWidth: width * 460 + ( thickness * 2 ) - 80
+	advanceWidth: width * 440 + ( thickness * 2 ) - 80
 	anchors:
 		0:
-			x: width * 380 + thickness - 80
+			x: width * 360 + thickness - 80
 			y: xHeight
 	contours:
 		0:
@@ -49,7 +49,7 @@ exports.glyphs['y'] =
 				1:
 					x: contours[0].nodes[0].x + thickness * terminalBall / 2 + 30
 					y: descender - overshoot / 2
-					width: thickness * contrast * .7
+					width: thickness * contrast * .3 + thickness * .4
 					lDir: 0 + 'deg'
 					distr: .99 ##### should be 1
 					angle: - Utils.lineAngle( contours[0].nodes[2], contours[0].nodes[3] ) + Math.PI * 2
