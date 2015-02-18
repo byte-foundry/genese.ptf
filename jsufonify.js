@@ -79,6 +79,17 @@ function jsufonify(prefixText) {
 				delete component.anchors;
 			});
 			delete glyph.components;
+
+			if ( !glyph.lib ) {
+				glyph.lib = {};
+			}
+			// glyph.transform -> glyph.outline.transform
+			if ( glyph.transformList ) {
+				glyph.lib = {
+					transformList: glyph.transformList
+				};
+				delete glyph.transformList;
+			}
 		});
 
 		file.contents = new Buffer( JSON.stringify( sandbox.exports ) );

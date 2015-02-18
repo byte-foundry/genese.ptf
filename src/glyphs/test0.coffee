@@ -32,7 +32,7 @@ exports.glyphs['test0'] =
 			nodes:
 				0:
 					y: xHeight / 2
-					onLine: [ contours[0].nodes[0], contours[0].nodes[2] ]
+					onLine: Array( contours[0].nodes[0], contours[0].nodes[2] )
 					width: thickness
 					angle: 90
 				1:
