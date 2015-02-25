@@ -166,29 +166,62 @@
 				return;
 			}
 
-			var lli,
-				lTension = segment.start.lTension !== undefined ? segment.start.lTension : 1,
+			// var lli,
+			var	lTension = segment.start.lTension !== undefined ? segment.start.lTension : 1,
 				rTension = segment.end.rTension !== undefined ? segment.end.rTension : 1;
 
-			if ( segment.start.x === 0 ) {
-				lli = [ 0, segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x ];
+			// if ( segment.start.x === 0 ) {
+			// 	lli = [ 0, segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x ];
 
-			} else if ( segment.end.x === 0 ) {
-				lli = [ 0, segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x ];
+			// } else if ( segment.end.x === 0 ) {
+			// 	lli = [ 0, segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x ];
 
-			} else {
-				lli = P.Utils.lineLineIntersection(
-					segment.start,
-					{x: 0, y: segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x },
-					segment.end,
-					{x: 0, y: segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x }
-				);
+			// } else {
+			// 	lli = P.Utils.lineLineIntersection(
+			// 		segment.start,
+			// 		{x: 0, y: segment.start.y - Math.tan( segment.start.lDir ) * segment.start.x },
+			// 		segment.end,
+			// 		{x: 0, y: segment.end.y - Math.tan( segment.end.rDir ) * segment.end.x }
+			// 	);
+			// }
+
+			// segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness * lTension;
+			// segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness * lTension;
+			// segment.rCtrl.x = segment.end.x + ( lli[0] - segment.end.x ) * curviness * rTension;
+			// segment.rCtrl.y = segment.end.y + ( lli[1] - segment.end.y ) * curviness * rTension;
+
+			var rri = P.Utils.rayRayIntersection(
+				segment.start,
+				segment.start.lDir,
+				segment.end,
+				segment.end.rDir
+			);
+
+			// direction of handles is parallel
+			if ( rri === null ) {
+				// startCtrl.x = 0;
+				// startCtrl.y = 0;
+				// endCtrl.x = 0;
+				// endCtrl.y = 0;
+
+				segment.lCtrl.x = segment.start.x;
+				segment.lCtrl.y = segment.start.y;
+				segment.rCtrl.x = segment.end.x;
+				segment.rCtrl.y = segment.end.y;
+
+				return;
 			}
 
-			segment.lCtrl.x = segment.start.x + ( lli[0] - segment.start.x ) * curviness * lTension;
-			segment.lCtrl.y = segment.start.y + ( lli[1] - segment.start.y ) * curviness * lTension;
-			segment.rCtrl.x = segment.end.x + ( lli[0] - segment.end.x ) * curviness * rTension;
-			segment.rCtrl.y = segment.end.y + ( lli[1] - segment.end.y ) * curviness * rTension;
+			// startCtrl.x = ( Math.round(rri[0]) - start.point.x ) * curviness * startTension;
+			// startCtrl.y = ( Math.round(rri[1]) - start.point.y ) * curviness * startTension;
+			// endCtrl.x = ( Math.round(rri[0]) - end.point.x ) * curviness * endTension;
+			// endCtrl.y = ( Math.round(rri[1]) - end.point.y ) * curviness * endTension;
+
+			segment.lCtrl.x = segment.start.x + ( Math.round(rri[0]) - segment.start.x ) * curviness * lTension;
+			segment.lCtrl.y = segment.start.y + ( Math.round(rri[1]) - segment.start.y ) * curviness * lTension;
+			segment.rCtrl.x = segment.end.x + ( Math.round(rri[0]) - segment.end.x ) * curviness * rTension;
+			segment.rCtrl.y = segment.end.y + ( Math.round(rri[1]) - segment.end.y ) * curviness * rTension;
+
 		});
 	}
 
@@ -346,5 +379,74 @@
 			}
 		});
 	});
+
+	// Find the intersection of two rays.
+	// A ray is defined by a point and an angle.
+	P.Utils.rayRayIntersection = function( p1, a1, p2, a2 ) {
+		// line equations
+		var a = Math.tan(a1),
+			b = Math.tan(a2),
+			c = p1.y - a * p1.x,
+			d = p2.y - b * p2.x,
+			x,
+			y;
+
+		// When searching for lines intersection,
+		// angles can be normalized to 0 < a < PI
+		// This will be helpful in detecting special cases below.
+		a1 = a1 % Math.PI;
+		if ( a1 < 0 ) {
+			a1 += Math.PI;
+		}
+		a2 = a2 % Math.PI;
+		if ( a2 < 0 ) {
+			a2 += Math.PI;
+		}
+
+		// no intersection
+		if ( a1 === a2 ) {
+			return null;
+		}
+
+		// Optimize frequent and easy special cases.
+		// Without optimization, results would be incorrect when cos(a) === 0
+		if ( a1 === 0 ) {
+			y = p1.y;
+		} else if ( a1 === Math.PI / 2 ) {
+			x = p1.x;
+		}
+		if ( a2 === 0 ) {
+			y = p2.y;
+		} else if ( a2 === Math.PI / 2 ) {
+			x = p2.x;
+		}
+
+		// easiest case
+		if ( x !== undefined && y !== undefined ) {
+			return new Float32Array([ x, y ]);
+		}
+
+		// other cases that can be optimized
+		if ( a1 === 0 ) {
+			return new Float32Array([ ( y - d ) / b, y ]);
+		}
+		if ( a1 === Math.PI / 2 ) {
+			return new Float32Array([ x, b * x + d ]);
+		}
+		if ( a2 === 0 ) {
+			return new Float32Array([ ( y - c ) / a, y ]);
+		}
+		if ( a2 === Math.PI / 2 ) {
+			return new Float32Array([ x, a * x + c ]);
+		}
+
+		// intersection from two line equations
+		// algo: http://en.wikipedia.org/wiki/Line–line_intersection#Given_the_equations_of_the_lines
+		return new Float32Array([
+			x = (d - c) / (a - b),
+			// this should work equally well with ax+c or bx+d
+			a * x + c
+		]);
+	};
 
 })( prototypo );

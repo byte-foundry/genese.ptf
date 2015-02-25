@@ -8,7 +8,7 @@ exports.parameters = [
 		min: 300
 		max: 900
 		step: 1
-		init: 465
+		init: 500
 		minAdvised: 300
 		maxAdvised: 800
 	,
@@ -17,7 +17,7 @@ exports.parameters = [
 		min: 0
 		max: 400
 		step: 1
-		init: 233
+		init: 250
 		minAdvised: 0
 		maxAdvised: 350
 	,
@@ -35,7 +35,7 @@ exports.parameters = [
 		min: -450
 		max: -50
 		step: 1
-		init: -210
+		init: -250
 		minAdvised: -350
 		maxAdvised: -100
 	,
@@ -50,12 +50,12 @@ exports.parameters = [
 	,
 		name: 'width'
 		label: 'Width'
-		min: 0.5
+		min: 0.6
 		max: 2
 		step: 0.01
 		init: 1
 		minAdvised: 0.85
-		maxAdvised: 2
+		maxAdvised: 1.4
 	,
 		name: 'slant'
 		label: 'Slant'
@@ -85,14 +85,14 @@ exports.parameters = [
 		min: 4
 		max: 300
 		step: 1
-		init: 80
+		init: 85
 		minAdvised: 60
 		maxAdvised: 180
 	,
 		name: '_contrast'
 		label: 'Contrast'
-		min: -1
-		max: -0.1
+		min: -4
+		max: -0.05
 		step: 0.01
 		init: -1
 		minAdvised: -1
@@ -112,7 +112,7 @@ exports.parameters = [
 		min: 1
 		max: 2
 		step: 0.1
-		init: 1.1
+		init: 1.16
 		minAdvised: 1
 		maxAdvised: 2
 	,
@@ -162,25 +162,25 @@ exports.parameters = [
 		min: 0
 		max: 200
 		step: 1
-		init: 0
+		init: 65
 		minAdvised: 0
 		maxAdvised: 80
 	,
 		name: 'midWidth'
 		label: 'Middle Width'
-		min: 0.8
-		max: 1.2
+		min: -1
+		max: 1
 		step: 0.01
-		init: 1
-		minAdvised: 0.9
-		maxAdvised: 1
+		init: 0
+		minAdvised: -0.5
+		maxAdvised: 0.5
 	,
 		name: 'serifHeight'
 		label: 'Serif Height'
 		min: 0
 		max: 150
 		step: 1
-		init: 0
+		init: 20
 		minAdvised: 0
 		maxAdvised: 80
 	,
@@ -188,7 +188,7 @@ exports.parameters = [
 		label: 'Serif Median'
 		min: 0.2
 		max: 2
-		step: 0.1
+		step: 0.01
 		init: 1
 		minAdvised: 0
 		maxAdvised: 2
@@ -196,34 +196,34 @@ exports.parameters = [
 		name: 'serifCurve'
 		label: 'Serif Curve'
 		min: 0
-		max: 1
+		max: 2
 		step: 0.01
-		init: 0
+		init: 0.75
 		minAdvised: 0
-		maxAdvised: 1
+		maxAdvised: 1.1
 	,
 		name: 'serifRoundness'
 		label: 'Serif Curve Roundness'
 		min: 0
-		max: 2
+		max: 1.8
 		step: 0.01
-		init: 0.55
+		init: 1
 		minAdvised: 0
-		maxAdvised: 2
+		maxAdvised: 1.5
 	,
 		name: 'serifArc'
 		label: 'Serif Arc'
-		min: -0.5
-		max: 0.5
+		min: -1.5
+		max: 0.6
 		step: 0.01
 		init: 0
-		minAdvised: -0.5
+		minAdvised: -0.2
 		maxAdvised: 0.5
 	,
 		name: 'serifTerminal'
 		label: 'Serif Terminal'
 		min: -0.5
-		max: 1
+		max: 2
 		step: 0.01
 		init: 0
 		minAdvised: -0.2
@@ -232,9 +232,9 @@ exports.parameters = [
 		name: 'serifTerminalCurve'
 		label: 'Serif Terminal Curve'
 		min: 0
-		max: 1.5
+		max: 2
 		step: 0.01
-		init: 0.55
+		init: 1
 		minAdvised: 0
 		maxAdvised: 1.5
 	,

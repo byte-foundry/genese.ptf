@@ -1,66 +1,56 @@
 exports.glyphs['u'] =
 	unicode: 'u'
-	advanceWidth: width * 420 + thickness * 2 - 80
+	advanceWidth: width * 500 + thickness * 2 - ( 86 * 2 )
 	anchors:
 		0:
-			x: width * 325 + thickness - 80
-			y: xHeight
-		1:
-			x: contours[0].nodes[0].x - thickness / 2
-			y: Math.max( thickness * contrast + 20 , 150 * aperture )
+			x: 0
+			y: 0
 	contours:
 		0:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					x: 0
+					x: 90
 					y: xHeight
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
+					distr: 0
 				1:
-					x: 0
-					y: 200
+					x: contours[0].nodes[0].x
+					y: xHeight * ( 160 / 500 )
 					width: thickness
-					lDir: - 90 + 'deg'
-					angle: 10 + 'deg'
+					lDir: 90 + 'deg'
+					distr: 0
 				2:
-					x: anchors[0].x / 2
+					x: 231
 					y: - overshoot
-					width: thickness * .9 * contrast
+					width: thickness * ( 72 / 86 )
 					lDir: 0 + 'deg'
-					angle: 105 + 'deg'
+					angle: 56 + 'deg'
 					distr: 0
 				3:
-					x: anchors[0].x - thickness / 2
-					y: anchors[1].y
-					width: Math.max( thickness * .85 * contrast , thickness * .85 * contrast * aperture )
-					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
-					angle: 180 - 80 + 'deg'
-					distr: 1
+					x: 411
+					y: xHeight * ( 130 / 500 )
+					width: thickness * ( 25 / 86 )
+					lDir: - 120 + 'deg'
+					angle: 90 + 'deg'
+					distr: 0
 		1:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					x: anchors[0].x
-					y: anchors[0].y 
+					x: contours[0].nodes[3].x - 6
+					y: xHeight
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
+					distr: 0
 				1:
-					x: anchors[0].x
-					y: anchors[1].y
+					x: contours[1].nodes[0].x
+					y: 0
 					width: thickness
 					lDir: 90 + 'deg'
-					lType: 'line'
-				2:
-					x: anchors[0].x
-					y: 0
-					width: thickness * .8
-					lDir: 90 + 'deg'
-					distr: 0.4
-
-
-
+					distr: 0

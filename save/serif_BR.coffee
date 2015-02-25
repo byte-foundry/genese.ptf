@@ -26,7 +26,6 @@ exports.glyphs['serif_BR'] =
 				2:
 					x: parentAnchors[0].x + serifWidth 
 					y: parentAnchors[0].y * serifMedian
-					y: parentAnchors[0].y 
 					lDir: Utils.lineAngle( contours[0].nodes[1], contours[0].nodes[2] ) 
 					# rtension: 0
 					# lDir: 90 + 'deg'

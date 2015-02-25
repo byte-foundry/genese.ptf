@@ -66,26 +66,26 @@ exports.presets =
 		serifRoundness : 0.55
 
 	'Sans-serif':
-		xHeight: 465
-		capDelta: 233
+		xHeight: 500
+		capDelta: 250
 		ascender: 250
 		descender: -210
 		crossbar: 1
 		width: 1
 		roundness: 0.65
-		thickness: 80
+		thickness: 86
 		_contrast: -1
 		breakPath: 0
 		aperture: 1
 		axis: 0
 		serifMedian: 0
-		serifWidth: 0
+		serifWidth: 65
 		serifHeight: 0
-		serifCurve: 0
+		serifCurve: .75
 		serifArc: 0
 		serifTerminal: 0
 		serifRotate: 0
-		serifRoundness : 0.55
+		serifRoundness : 1
 
 	'Blackletter':
 		xHeight: 517

@@ -1,61 +1,82 @@
 exports.glyphs['p'] =
 	unicode: 'p'
-	advanceWidth: width * 430 + ( thickness * 2 ) - 80
+	advanceWidth: width * 600 + thickness * 2 - ( 86 * 2 )
 	anchors:
 		0:
-			x: width * 350 + thickness - 80
-			y: xHeight / 2
+			x: 475 - 86 + thickness
+			y: xHeight * ( 250 / 500 )
 	contours:
 		0:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					x: 0
-					y: xHeight
-					width: thickness
-					lDir: '90deg'
-					lType: 'line'
-				1:
-					x: 0
+					x: 115
 					y: descender
 					width: thickness
-					lDir: '90deg'
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0
+				1:
+					x: contours[0].nodes[0].x
+					y: xHeight - 160 - ( thickness + 86 ) / 4 
+					width: thickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0
 		1:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					x: thickness / 2
-					y: xHeight - Math.max( thickness * contrast + 80 , 120 * aperture )
-					width: thickness * contrast * .7
-					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
-					angle: -60 + 'deg'
+					x: contours[0].nodes[0].x + contours[0].nodes[0].width - ( 10 / 86 ) * thickness
+					y: xHeight * ( 435 / 500 )
+					width: thickness * ( 45 / 86 )
+					lDir: 60 + 'deg'
+					angle: 90 + 'deg'
 					distr: 1
 				1:
-					x: anchors[0].x / 2
+					x: anchors[0].x * ( 345 / 475 )
 					y: xHeight + overshoot
-					width: thickness * contrast
-					lDir: '0deg'
-					distr: 0
-					angle: '-85deg'
+					width: thickness * ( 53 / 86 )
+					lDir: 0 + 'deg'
+					angle: 180 + 222 + 'deg'
+					distr: 1
 				2:
 					x: anchors[0].x
-					y: xHeight / 2
-					width: thickness
-					lDir: '-90deg'
-				3:
-					x: anchors[0].x / 2
-					y: 0 - overshoot
-					width: thickness * contrast
-					lDir: '180deg'
+					y: anchors[0].y
+					width: thickness * ( 97 / 86 )
+					lDir: 90 + 'deg'
+					angle: 12 + 'deg'
 					distr: 0
-					angle: '85deg'
-				4:
-					x: thickness / 2
-					y: Math.max( thickness * contrast + 20 , 120 * aperture )
-					width: thickness * contrast * .6
-					## lDir: 180 - 60 * aperture + 'deg'
-					lDir: Math.min( 90, 90 + 10 * aperture ) + 'deg'
-					angle: 60 + 'deg'
+					lTension: 0.9
+				3:
+					x: contours[1].nodes[1].x
+					y: - overshoot / 2
+					width: thickness * contrast * ( 27 / 86 )
+					lDir: 0 + 'deg'
+					angle: 180 + 112 + 'deg'
 					distr: 1
+				4:
+					x: contours[1].nodes[0].x
+					y: xHeight * ( 145 / 500 )
+					width: thickness * ( 51 / 86 ) * contrast
+					lDir: - 64 + 'deg'
+					angle: 180 + 29 + 'deg'
+					distr: 0
+	components:
+		0:
+			base: 'term_TL'
+			anchors:
+				0:
+					x: contours[0].expanded[0].nodes[1].x
+					y: contours[0].expanded[0].nodes[1].y
+				1:
+					x: contours[0].expanded[0].nodes[2].x
+					y: contours[0].expanded[0].nodes[2].y
+				2:
+					x: 5 # optical correction
+					y: xHeight
+
+
+
