@@ -5,6 +5,7 @@ exports.info =
 	'cap-height': 1750
 	'descendent-height': 210
 	'glyph-order':
+		'a': 'a'
 		'b': 'b'
 		'e': 'e'
 		'h': 'h'

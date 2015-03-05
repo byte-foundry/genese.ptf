@@ -36,7 +36,7 @@ exports.glyphs['term_TL'] =
 					lTension: 0
 					rTension: Math.min(serifRoundness * 1.6, 1.8 )
 				3:
-					x: parentAnchors[0].x - ( serifWidth + serifHeight * serifCurve ) 
+					x: parentAnchors[0].x - ( serifWidth + serifHeight * serifCurve ) ## - ( serifWidth + serifHeight * serifCurve ) * midWidth
 					y: parentAnchors[2].y - Math.min( thickness * ( 60 / 85 ), 60 )
 					# lType: 'line'
 					lDir: 90 + 'deg'

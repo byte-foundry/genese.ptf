@@ -50,7 +50,7 @@ exports.parameters = [
 	,
 		name: 'width'
 		label: 'Width'
-		min: 0.6
+		min: 0.75
 		max: 2
 		step: 0.01
 		init: 1
@@ -83,11 +83,11 @@ exports.parameters = [
 		name: 'thickness'
 		label: 'Thickness'
 		min: 4
-		max: 300
+		max: 180
 		step: 1
 		init: 85
 		minAdvised: 60
-		maxAdvised: 180
+		maxAdvised: 130
 	,
 		name: '_contrast'
 		label: 'Contrast'
