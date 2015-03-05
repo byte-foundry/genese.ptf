@@ -42,6 +42,7 @@ exports.glyphs['n'] =
 					lDir: '0deg'
 					distr: 0
 					rTension: Math.min( 1 / contrast, 1 )
+					rDir: 30 * breakPath + 'deg'
 				2:
 					x: width * 300
 					y: xHeight - 165

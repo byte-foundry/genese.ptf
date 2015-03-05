@@ -1,6 +1,6 @@
 exports.glyphs['o'] =
 	unicode: 'o'
-	advanceWidth: width * 450 + thickness
+	advanceWidth: width * 440 + thickness
 	anchors:
 		0:
 			x: width * 380
@@ -21,7 +21,7 @@ exports.glyphs['o'] =
 					width: thickness * contrast * .9
 					lDir: 0 + 'deg'
 					distr: 0
-					angle: - 85 + 'deg'
+					angle: - 85 + axis + 'deg'
 					## angle: -105 * axis + 'deg'
 				2:
 					x: anchors[0].x 
@@ -35,5 +35,5 @@ exports.glyphs['o'] =
 					lDir: 180 + 'deg'
 					distr: 0
 					## Need to find a way to reproduce axis like the top curve
-					angle: 95 + 'deg'
+					angle: 95 + axis + 'deg'
 					##

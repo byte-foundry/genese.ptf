@@ -1,8 +1,9 @@
 exports.glyphs['f'] =
 	unicode: 'f'
+	advanceWidth: width * 280 + thickness
 	anchors:
 		0:
-			x: width * 260 + thickness ######
+			x: width * 240 + thickness ######
 			y: ascenderHeight + overshoot - 30 * aperture
 	contours:
 		0:

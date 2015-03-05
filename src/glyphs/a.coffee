@@ -12,16 +12,17 @@ exports.glyphs['a'] =
 			nodes:
 				0:
 					x: 80 / thickness
-					y: xHeight - Math.max( 70 , 50 * aperture )
-					width: thickness * contrast * .85
-					lDir: Math.min( 90, 40 * aperture ) + 'deg'
+					y: xHeight - Math.max( 50 , 80 * aperture )
+					width: thickness * contrast * .3 + thickness * .55 
+					lDir: Math.min( 90, 50 * aperture ) + 'deg'
 				1:
 					x: anchors[0].x / 2
 					y: xHeight + overshoot
 					width: thickness * contrast * .9
 					lDir: 0 + 'deg'
-					angle: - 80 + 'deg'
+					angle: - 80 + axis + 'deg'
 					distr: 0
+					rDir: 30 * breakPath + 'deg'
 				2:
 					x: anchors[0].x
 					y: anchors[0].y
@@ -30,23 +31,25 @@ exports.glyphs['a'] =
 					lType: 'line'
 				3:
 					x: contours[0].nodes[2].x
-					y: xHeight * 50/465
+					y: xHeight * 90/465
 					width: thickness
 					lDir: - 90 + 'deg'
-					lType: 'line'
+					lTension: 1.95
+					# lType: 'line'
 				4:
-					x: contours[0].nodes[2].x + 10
+					x: contours[0].nodes[2].x + thickness / 2
 					y: 0
-					width: thickness
-					lDir: - 90 + 'deg'
+					width: thickness * contrast * .3 + thickness * .55
+					lDir: 0 + 'deg'
+					distr: 1
 		1:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
 					x: contours[0].nodes[2].x - thickness / 2
-					y: xHeight * 130/465
-					width: thickness * contrast * .9
+					y: xHeight * 160/465
+					width: thickness * .15 + thickness * contrast * .75
 					lDir: 90 + 'deg'
 					angle: 20 + 'deg'
 					distr: 0
@@ -55,7 +58,7 @@ exports.glyphs['a'] =
 					y: - overshoot
 					width: thickness * contrast * .8 + thickness * .1
 					lDir: 0 + 'deg'
-					angle: - 90 - 10 + 'deg'
+					angle: - 90 - 10 + axis + 'deg'
 					distr: 1
 				2:
 					x: 0
@@ -67,12 +70,12 @@ exports.glyphs['a'] =
 					y: xHeight * 310/465
 					width: thickness * contrast * .8 + thickness * .1
 					lDir: 180 + 'deg'
-					angle: 90 + 15 + 'deg'
+					angle: 90 + 15 + axis + 'deg'
 					distr: 1
 				4:
-					x: contours[1].nodes[0].x + thickness / 2 * contrast
-					y: contours[1].nodes[3].y - xHeight * 70/465
-					width: thickness * contrast * .8
+					x: contours[1].nodes[0].x + thickness / 2
+					y: contours[1].nodes[3].y - xHeight * 80/465
+					width: thickness * .15 + thickness * contrast * .75
 					lDir: 90 + 30 + 'deg'
 					angle: 60 + 'deg'
 					distr: 1

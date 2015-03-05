@@ -26,7 +26,7 @@ function unique(e, i, arr) {
 // plugin level function (dealing with files)
 function operationalyzer() {
 	// prepare a generic operation object that we'll reuse to replace each operation
-	var operation = esprima.parse('_ = {_operation: \'\', _parameters: [], _dependencies: []}')
+	var operation = esprima.parse('_ = {operation: \'\', parameters: [], dependencies: []}')
 			.body[0].expression.right.properties;
 
 	// creating a stream through which each file will pass
