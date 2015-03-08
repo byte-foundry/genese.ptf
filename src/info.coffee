@@ -54,10 +54,4 @@ exports.info =
 		'X': 'x_cap'
 		'Y': 'y_cap'
 		'Z': 'z_cap'
-		'1': 'one'
-		'8': 'eight'
-		'0': 'test2'
-		'2': 'two'
-		'.': 'dot'
-		'&': 'ampersand'
-		'é': 'eacute'
+

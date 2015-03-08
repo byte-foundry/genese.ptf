@@ -7,16 +7,17 @@ exports.glyphs['c'] =
 			type: 'open'
 			nodes:
 				0:
-					x: width * 280 + thickness
-					y: 70 + 50 * contrast
+					x: width * 290 + thickness
+					y: 70 + 50 * contrast * aperture
 					width: thickness * contrast * .3 + thickness * .6 
-					lDir: - 120 + 'deg'
+					lDir: - 110 - 20 + 20 * aperture + 20 - 20 * width + 'deg'
 					distr: 0
 				1:
 					x: contours[0].nodes[0].x / 2
 					y: - overshoot
 					width: thickness * contrast * .9
 					lDir: 180 + 'deg'
+					angle: 85 + 'deg'
 					distr: 0
 				2:
 					x: 0
@@ -28,12 +29,13 @@ exports.glyphs['c'] =
 					y: xHeight + overshoot
 					width: thickness * contrast * .9
 					lDir: 0 + 'deg'
+					angle: - 95 + 'deg'
 					distr: 0
 				4:
 					x: contours[0].nodes[0].x 
-					y: xHeight - 70 - 50 * contrast
+					y: xHeight - 70 - 50 * contrast * aperture
 					width: thickness * contrast * .3 + thickness * .6 
-					lDir: - 60 + 'deg'
+					lDir: - 70 + 20 - 20 * aperture - 20 + 20 * width + 'deg'
 					distr: 0
 # exports.glyphs['c'] =
 # 	unicode: 'c'

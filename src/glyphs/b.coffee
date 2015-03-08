@@ -25,7 +25,7 @@ exports.glyphs['b'] =
 					lType: 'line'
 				2:
 					x: 0
-					y: ascenderHeight
+					y: ascenderHeight - serifHeight * serifCurve + 20 - 40 * serifCurve - ( thickness + 80 ) / 4
 					width: thickness
 					lDir: '90deg'
 		1:
@@ -36,16 +36,16 @@ exports.glyphs['b'] =
 					x: thickness / 2
 					y: xHeight - Math.max( thickness * contrast + 80 , 150 * aperture )
 					width: thickness * contrast * .7
-					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
-					angle: -60 + 'deg'
+					lDir: Math.min( 90, Math.max( 45, 75 * aperture / width )) + 'deg'
+					angle: - 60 + 'deg'
 					distr: 1
 				1:
 					x: anchors[0].x / 2
 					y: xHeight + overshoot
-					width: thickness * contrast
+					width: thickness * contrast * .9
 					lDir: '0deg'
 					distr: 0
-					angle: '-85deg'
+					angle: - 85 + axis + 'deg'
 				2:
 					x: anchors[0].x
 					y: xHeight / 2
@@ -54,15 +54,29 @@ exports.glyphs['b'] =
 				3:
 					x: anchors[0].x / 2
 					y: 0 - overshoot
-					width: thickness * contrast
+					width: thickness * contrast * .9
 					lDir: '180deg'
 					distr: 0
-					angle: '85deg'
+					angle: 85 + axis + 'deg'
 				4:
 					x: thickness / 2
 					y: Math.max( thickness * contrast + 20 , 150 * aperture )
 					width: thickness * contrast * .75
 					## lDir: 180 - 60 * aperture + 'deg'
 					lDir: Math.min( 90, 90 + 10 * aperture ) + 'deg'
+					# lDir: Math.min( 160, Math.max( 100, 100 * aperture / width )) + 'deg'
 					angle: 60 + 'deg'
 					distr: 1
+	components:
+		0:
+			base: 'term_TL'
+			anchors:
+				0:
+					x: contours[0].expanded[0].nodes[1].x
+					y: contours[0].expanded[0].nodes[1].y
+				1:
+					x: contours[0].expanded[0].nodes[3].x
+					y: contours[0].expanded[0].nodes[3].y
+				2:
+					x: 0
+					y: ascenderHeight

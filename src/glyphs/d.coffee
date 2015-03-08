@@ -25,7 +25,7 @@ exports.glyphs['d'] =
 					lType: 'line'
 				2:
 					x: contours[0].nodes[0].x
-					y: ascenderHeight
+					y: ascenderHeight - serifHeight * serifCurve + 20 - 40 * serifCurve - ( thickness + 80 ) / 4
 					width: thickness
 					lDir: 90 + 'deg'
 		1:
@@ -62,6 +62,19 @@ exports.glyphs['d'] =
 					x: contours[0].nodes[0].x - thickness / 2
 					y: xHeight - Math.max( thickness * contrast + 80 , 150 * aperture )
 					width: thickness * .7 * contrast
-					lDir: Math.min( 90, 90 + 10 * aperture ) + 'deg'
+					lDir: Math.min( 110, 90 + 10 * aperture ) + 'deg'
 					angle: 60 + 'deg'
 					distr: 0
+	components:
+		0:
+			base: 'term_TL'
+			anchors:
+				0:
+					x: contours[0].expanded[0].nodes[1].x
+					y: contours[0].expanded[0].nodes[1].y
+				1:
+					x: contours[0].expanded[0].nodes[3].x
+					y: contours[0].expanded[0].nodes[3].y
+				2:
+					x: 0
+					y: ascenderHeight

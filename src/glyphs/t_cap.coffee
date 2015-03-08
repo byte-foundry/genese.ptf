@@ -40,27 +40,14 @@ exports.glyphs['t_cap'] =
 					distr: 0
 	components:
 		0:
-			base: 'serif_BR'
+			base: 'serif_Bottom'
 			anchors:
 				0:
-					x: contours[0].nodes[0].expanded[1].x
-					y: serifHeight / 4
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
 				1:
-					x: contours[0].nodes[0].expanded[1].x
-					y: contours[0].nodes[0].expanded[1].y
-			transform: [1, 0, 0, 1, -2, 0]
-		1:
-			base: 'serif_BL'
-			anchors:
-				0:
-					x: contours[0].nodes[0].expanded[0].x
-					y: serifHeight / 4
-				1:
-					x: contours[0].nodes[0].expanded[0].x
-					y: contours[0].nodes[0].expanded[0].y
-			transform: [1, 0, 0, 1, 1, 0]
-
-
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
 
 
 

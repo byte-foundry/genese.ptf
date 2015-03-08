@@ -12,7 +12,7 @@ exports.glyphs['f'] =
 			nodes:
 				0:
 					x: width * 80
-					y: 0
+					y: 0 + serifHeight * serifCurve
 					width: thickness
 					lDir: '90deg'
 					lType: 'line'
@@ -54,7 +54,14 @@ exports.glyphs['f'] =
 					width: thickness * contrast * .9
 					lDir: '0deg'
 					distr: 0
-
-
-
-				
+	components:
+		0:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					# onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
+					x: width * 80 + thickness
