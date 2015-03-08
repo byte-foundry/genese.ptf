@@ -1,6 +1,6 @@
 exports.glyphs['s_cap'] =
 	unicode: 'S'
-	advanceWidth: width * 550 + thickness * opticThickness
+	advanceWidth: width * 520 + thickness * opticThickness
 	anchors:
 		0:
 			x: width * 450 + thickness * opticThickness - 80

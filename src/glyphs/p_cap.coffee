@@ -1,9 +1,9 @@
 exports.glyphs['p_cap'] =
 	unicode: 'P'
-	advanceWidth: width * 480 + ( thickness * 2 ) - 80
+	advanceWidth: width * 580 + ( thickness * 2 ) - 80
 	anchors:
 		0:
-			x: width * 380 + thickness - 80
+			x: width * 520 + thickness - 80
 			y: capHeight * 280/688
 	contours:
 		0:

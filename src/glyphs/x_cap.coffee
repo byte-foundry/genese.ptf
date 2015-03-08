@@ -30,25 +30,6 @@ exports.glyphs['x_cap'] =
 					lType: 'line'
 					distr: 0
 				1:
-					onLine: [ contours[0].nodes[0], contours[0].nodes[1] ]
-					y: capHeight / 2
-					width: thickness * opticThickness * contrast * .9
-					lDir: 90 + 'deg'
-					lType: 'line'
-					distr: -0.1
-		2:
-			tags: 'skeleton'
-			type: 'open'
-			nodes:
-				0:
-					onLine: [ contours[0].nodes[0], contours[0].nodes[1] ]
-					transform: [1, 0, 0, 1, 1, 0]
-					y: capHeight / 2
-					width: thickness * opticThickness * contrast * .9
-					lDir: 90 + 'deg'
-					lType: 'line'
-					distr: 0
-				1:
 					x: width * 600 + thickness
 					y: capHeight
 					width: thickness * opticThickness * contrast * .9

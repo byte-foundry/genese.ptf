@@ -1,9 +1,9 @@
 exports.glyphs['p'] =
 	unicode: 'p'
-	advanceWidth: width * 430 + ( thickness * 2 ) - 80
+	advanceWidth: width * 430 + ( thickness * 2 ) - 80 + serifWidth
 	anchors:
 		0:
-			x: width * 350 + thickness - 80
+			x: width * 350 + thickness - 80 + serifWidth
 			y: xHeight / 2
 	contours:
 		0:
@@ -11,13 +11,13 @@ exports.glyphs['p'] =
 			type: 'open'
 			nodes:
 				0:
-					x: 0
+					x: 0 + serifWidth
 					y: xHeight - serifHeight * serifCurve + 20 - 40 * serifCurve - ( thickness + 80 ) / 4
 					width: thickness
 					lDir: '90deg'
 					lType: 'line'
 				1:
-					x: 0
+					x: contours[0].nodes[0].x
 					y: descender + serifHeight * serifCurve
 					width: thickness
 					lDir: '90deg'
@@ -26,7 +26,7 @@ exports.glyphs['p'] =
 			type: 'open'
 			nodes:
 				0:
-					x: thickness / 2
+					x: contours[0].nodes[0].x + thickness / 2
 					y: xHeight - Math.max( thickness * contrast + 80 , 120 * aperture )
 					width: thickness * contrast * .7
 					lDir: Math.min( 90, Math.max( 45, 85 * aperture )) + 'deg'
@@ -52,7 +52,7 @@ exports.glyphs['p'] =
 					distr: 0
 					angle: '85deg'
 				4:
-					x: thickness / 2
+					x: contours[1].nodes[0].x
 					y: Math.max( thickness * contrast + 20 , 120 * aperture )
 					width: thickness * contrast * .6
 					## lDir: 180 - 60 * aperture + 'deg'

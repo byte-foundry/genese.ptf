@@ -3,7 +3,7 @@ exports.glyphs['n'] =
 	advanceWidth: width * 380 + thickness
 	anchors:
 		0:
-			x: width * 260 + ( thickness - 80 ) / 4
+			x: serifWidth + width * 260 + ( thickness - 80 ) / 4
 			y: xHeight - 165 - ( thickness - 80 ) / 2 
 	contours:
 		0:
@@ -11,8 +11,8 @@ exports.glyphs['n'] =
 			type: 'open'
 			nodes:
 				0:
-					x: 0
-					y: 0
+					x: 0 + serifWidth
+					y: 0 + serifHeight * serifCurve
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -34,14 +34,14 @@ exports.glyphs['n'] =
 			type: 'open'
 			nodes:
 				0:
-					x: 0 + thickness / 2
+					x: contours[0].nodes[0].x + thickness / 2
 					y: contours[0].nodes[1].y - ( thickness - 80 ) / 2 * contrast
 					width: thickness * .6 * contrast
 					lDir: Math.min( 10 * width + 80, 90 ) + 'deg'
 					distr: 1
 					angle: - 60 + 'deg'
 				1:
-					x: width * 160 + ( thickness - 80 ) / 4
+					x: contours[0].nodes[0].x + width * 160 + ( thickness - 80 ) / 4
 					# x: contours[1].nodes[0].x + ( (anchors[0].x + 0.75 * thickness ) - contours[1].nodes[0].x ) / 2
 					y: xHeight + overshoot
 					width: thickness * contrast * .8
@@ -60,7 +60,7 @@ exports.glyphs['n'] =
 					distr: .75
 				3:
 					x: contours[1].nodes[2].x
-					y: 0
+					y: 0 + serifHeight * serifCurve
 					width: thickness
 					lDir: - 90 + 'deg'
 					distr: .75

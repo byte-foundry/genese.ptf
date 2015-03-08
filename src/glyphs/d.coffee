@@ -60,9 +60,9 @@ exports.glyphs['d'] =
 					distr: 1
 				4:
 					x: contours[0].nodes[0].x - thickness / 2
-					y: xHeight - Math.max( thickness * contrast + 80 , 150 * aperture )
+					y: xHeight - Math.max( thickness * contrast + 80 , 100 * aperture )
 					width: thickness * .7 * contrast
-					lDir: Math.min( 110, 90 + 10 * aperture ) + 'deg'
+					lDir: Math.min( 110, 95 + 5 * aperture ) + 'deg'
 					angle: 60 + 'deg'
 					distr: 0
 	components:

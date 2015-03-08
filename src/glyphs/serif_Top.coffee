@@ -15,10 +15,10 @@ exports.glyphs['serif_Top'] =
 			y: parentAnchors[0].y + serifHeight	
 		4:
 			x: parentAnchors[0].x - serifHeight * serifCurve - serifWidth
-			y: parentAnchors[0].y * serifMedian
+			y: parentAnchors[0].y - serifHeight * serifMedian + serifHeight
 		5:
 			x: anchors[2].x + serifWidth 
-			y: parentAnchors[1].y * serifMedian
+			y: parentAnchors[0].y - serifHeight * serifMedian + serifHeight
 	contours:
 		0:
 			type: 'closed'
@@ -38,7 +38,7 @@ exports.glyphs['serif_Top'] =
 					rTension: serifRoundness
 				2:
 					x: contours[0].nodes[1].x - serifWidth
-					y: parentAnchors[0].y * serifMedian
+					y: anchors[4].y
 					lDir: 0 + 'deg'
 					lDir: Utils.lineAngle( contours[0].nodes[1], anchors[4] ) 
 					lTension: serifTerminalCurve
@@ -70,15 +70,16 @@ exports.glyphs['serif_Top'] =
 					lTension: serifTerminalCurve
 					# rTension: 0
 				7:
-					x: anchors[2].x + serifWidth + serifWidth * serifTerminal
+					# x: anchors[2].x + serifWidth + serifWidth * serifTerminal
 					x: contours[0].nodes[6].x - ( contours[0].nodes[6].x - ( anchors[2].x + serifWidth ) ) / 2 + serifWidth * serifTerminal
 					y: capHeight - ( capHeight - parentAnchors[1].y * serifMedian ) / 2
+					y: contours[0].nodes[3].y
 					# lDir: 90 + 'deg'
 					rDir: Utils.lineAngle( contours[0].nodes[6], anchors[5] ) 
 					lTension: serifTerminalCurve
 					rTension: serifTerminalCurve
 				8:
-					x: anchors[5].x 
+					x: anchors[5].x
 					y: anchors[5].y
 					lDir: 0 + 'deg'
 					lDir: Utils.lineAngle( anchors[2], contours[0].nodes[8] ) 

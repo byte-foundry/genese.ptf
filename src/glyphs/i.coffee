@@ -1,9 +1,9 @@
 exports.glyphs['i'] =
 	unicode: 'i'
-	advanceWidth: width * 250 + thickness * 2 - ( 86 * 2 ) + serifWidth
+	advanceWidth: width * 300 + thickness * 2 - ( 86 * 2 ) + serifWidth
 	anchors:
 		0:
-			x: 115 + ( 21 )
+			x: 20 + ( 21 )
 			y: xHeight - ( 160 / 500 ) * xHeight
 	contours:
 		0:

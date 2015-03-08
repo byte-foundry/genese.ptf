@@ -50,14 +50,14 @@ exports.glyphs['e'] =
 				0:
 					x: contours[0].nodes[4].x - ( thickness / 2 + thickness / 2 * contrast ) / 2 + 1 ## dirty hack
 					y: contours[0].nodes[4].y
-					width: thickness * contrast * .9
+					width: thickness * .1 + thickness * contrast * .9
 					lDir: 0 + 'deg'
 					distr: 1
 					lType: 'line'
 				1:
 					x: thickness / 2
 					y: contours[0].nodes[4].y
-					width: thickness * contrast * .9
+					width: contours[1].nodes[0].width
 					lDir: 0 + 'deg'
 					distr: 1
 					

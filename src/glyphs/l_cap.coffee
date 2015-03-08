@@ -40,3 +40,4 @@ exports.glyphs['l_cap'] =
 					width: thickness * opticThickness
 					lDir: 90 + 'deg'
 					lType: 'line'
+	

@@ -1,5 +1,6 @@
 exports.glyphs['x'] =
 	unicode: 'x'
+	advanceWidth: width * 440 + ( thickness * 2 ) - 80
 	contours:
 		0:
 			tags: 'skeleton'
@@ -30,12 +31,6 @@ exports.glyphs['x'] =
 					lType: 'line'
 					distr: 0
 				1:
-					x: contours[0].nodes[0].x / 2
-					y: xHeight / 2
-					width: thickness * contrast
-					lDir: 90 + 'deg'
-					lType: 'line'
-				2:
 					x: contours[0].nodes[0].x + thickness
 					y: xHeight
 					width: thickness * contrast

@@ -8,7 +8,7 @@ exports.glyphs['h'] =
 			nodes:
 				0:
 					x: 0
-					y: 0
+					y: 0 + serifHeight * serifCurve
 					width: thickness
 					lDir: '90deg'
 					lType: 'line'
@@ -43,7 +43,7 @@ exports.glyphs['h'] =
 					lType: 'line'
 				3:
 					x: contours[1].nodes[2].x
-					y: 0
+					y: 0 + serifHeight * serifCurve
 					width: thickness
 					lDir: '-90deg'
 	components:

@@ -1,13 +1,13 @@
-exports.glyphs['w'] =
-	unicode: 'w'
-	advanceWidth: width * 750 + ( thickness * 3 ) - 160
+exports.glyphs['w_cap'] =
+	unicode: 'W'
+	advanceWidth: width * 950 + ( thickness * 3 ) - 160
 	anchors:
 		0:
-			x: width * 325 + thickness - 80 
-			y: xHeight
+			x: width * 450 + thickness - 80 
+			y: capHeight
 		1:
-			x: anchors[0].x + width * 325 + 2 * ( thickness - 80 ) + 40
-			y: xHeight
+			x: anchors[0].x + width * 450 + 2 * ( thickness - 80 ) + 40
+			y: capHeight
 	contours:
 		0:
 			tags: 'skeleton'
@@ -15,7 +15,7 @@ exports.glyphs['w'] =
 			nodes:
 				0:
 					x: 0
-					y: xHeight
+					y: capHeight
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -34,20 +34,20 @@ exports.glyphs['w'] =
 					distr: 0
 				3:
 					x: anchors[0].x + thickness / 2
-					y: xHeight
+					y: capHeight
 					width: thickness * contrast
 					lDir: - 90 + 'deg'
 					distr: 0
 					lType: 'line'
 				4:
 					x: anchors[0].x + thickness - thickness * contrast
-					y: xHeight
+					y: capHeight
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
 				5:
 					x: anchors[0].x + thickness - thickness * contrast
-					y: xHeight
+					y: capHeight
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -66,7 +66,7 @@ exports.glyphs['w'] =
 					distr: 0
 				8:
 					x: anchors[1].x
-					y: xHeight
+					y: capHeight
 					width: thickness * contrast
 					lDir: - 90 + 'deg'
 					distr: 0
