@@ -1,6 +1,6 @@
 exports.glyphs['o'] =
 	unicode: 'o'
-	advanceWidth: width * 440 + thickness
+	advanceWidth: width * 480 + thickness + serifWidth / 2
 	anchors:
 		0:
 			x: width * 380

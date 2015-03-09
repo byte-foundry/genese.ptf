@@ -1,9 +1,6 @@
 exports.glyphs['m_cap'] =
 	unicode: 'M'
-	anchors:
-		0:
-			x: width * 600 + thickness
-			y: 0
+	advanceWidth: width * 720 + thickness + serifWidth
 	contours:
 		0:
 			tags: 'skeleton'
@@ -11,63 +8,82 @@ exports.glyphs['m_cap'] =
 			nodes:
 				0:
 					x: 0
-					y: 0
+					y: serifHeight * serifCurve
 					width: thickness * opticThickness * contrast
-					lDir: '90deg'
+					lDir: 90 + 'deg'
 					lType: 'line'
 					distr: 0
 				1:
 					x: contours[0].nodes[0].x
-					y: capHeight
+					y: capHeight 
 					width: thickness * opticThickness * contrast
-					lDir: '90deg'
+					lDir: 90 + 'deg'
 					lType: 'line'
 					distr: 0
-				2:
-					x: contours[0].nodes[0].x + thickness * opticThickness * contrast
+		1:
+			tags: 'skeleton'
+			type: 'open'
+			nodes:
+				0:
+					x: width * 600
+					y: serifHeight * serifCurve
+					width: thickness * opticThickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0
+				1:
+					x: contours[1].nodes[0].x
+					y: capHeight 
+					width: thickness * opticThickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0
+		2:
+			tags: 'skeleton'
+			type: 'open'
+			nodes:
+				0:
+					x: 0
 					y: capHeight
-					width: thickness * opticThickness * 2 ############## 
-					lDir: '0deg'
+					width: thickness * opticThickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0
+				1:
+					x: contours[1].nodes[0].x / 2 + thickness * opticThickness / 2 * contrast
+					y: 0 + Math.max( crossbar * 1000 - 1000, 0 )
+					width: thickness * opticThickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+				2:
+					x: contours[2].nodes[1].x + thickness * opticThickness / 2
+					y: 0 + Math.max( crossbar * 1000 - 1000, 0 )
+					width: thickness * opticThickness * contrast
+					lDir: - 90 + 'deg'
 					lType: 'line'
 					distr: 0
 				3:
-					x: anchors[0].x / 2
-					y: 150
-					width: thickness * opticThickness
-					lDir: Utils.lineAngle( contours[0].nodes[5], contours[0].nodes[6] ) - Math.PI / 2
-					lType: 'line'
-					distr: 0
-				4:
-					x: anchors[0].x / 2
-					y: 150
-					width: 0
-					lDir: Utils.lineAngle( contours[0].nodes[5], contours[0].nodes[6] ) - Math.PI / 2
-					lType: 'line'
-
-				5:
-					x: anchors[0].x / 2
-					y: 150
-					width: thickness * opticThickness * contrast
-					lDir: Utils.lineAngle( contours[0].nodes[2], contours[0].nodes[3] ) - Math.PI / 2
-					lType: 'line'
-					distr: 0
-				6:
-					x: anchors[0].x - thickness * 2
+					x: contours[1].nodes[0].x + thickness * opticThickness * contrast
 					y: capHeight
 					width: thickness * opticThickness * contrast
-					lDir: '-90deg'
-					lType: 'line'
-				7:
-					x: anchors[0].x - thickness * 2
-					y: capHeight
-					width: thickness * opticThickness 
-					lDir: '90deg'
-					lType: 'line'
+					lDir: - 90 + 'deg'
 					distr: 0
-				8:
-					x: anchors[0].x - thickness * 2
-					y: 0
-					width: thickness * opticThickness 
-					lDir: '90deg'
-					lType: 'line'
-					distr: 0
+	components:
+		0:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
+		1:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[1].expanded[0].nodes[0], contours[1].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]

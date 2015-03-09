@@ -12,7 +12,7 @@ exports.glyphs['v'] =
 			nodes:
 				0:
 					x: 0
-					y: xHeight
+					y: xHeight - serifHeight * serifCurve
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -31,8 +31,19 @@ exports.glyphs['v'] =
 					distr: 0
 				3:
 					x: anchors[0].x + thickness / 2
-					y: xHeight
+					y: xHeight - serifHeight * serifCurve
 					width: thickness * contrast
 					lDir: - 90 + 'deg'
 					distr: 0
-				
+	# components:
+	# 	0:
+	# 		base: 'serif_Top'
+	# 		anchors:
+	# 			0:
+	# 				# x: contours[0].nodes[3].expanded[0].x
+	# 				y: xHeight - serifHeight
+	# 				onLine: [ contours[0].nodes[2].expanded[0], contours[0].nodes[3].expanded[0] ]
+	# 			1:
+	# 				# x: contours[0].nodes[3].expanded[1].x
+	# 				y: xHeight - serifHeight
+	# 				onLine: [ contours[0].nodes[3].expanded[0], contours[0].nodes[2].expanded[0] ]

@@ -25,7 +25,7 @@ exports.glyphs['q'] =
 					lType: 'line'
 				2:
 					x: contours[0].nodes[0].x
-					y: descender
+					y: descender + serifHeight * serifCurve
 					width: thickness
 					lDir: 90 + 'deg'
 		1:
@@ -65,3 +65,14 @@ exports.glyphs['q'] =
 					lDir: Math.min( 90, 90 + 10 * aperture ) + 'deg'
 					angle: 60 + 'deg'
 					distr: 0
+	components:
+		0:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					x: contours[0].nodes[2].x - thickness / 2
+					y: descender + serifHeight
+				1:
+					x: contours[0].nodes[2].x + thickness / 2
+					y: descender + serifHeight
+		

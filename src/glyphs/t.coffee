@@ -51,7 +51,7 @@ exports.glyphs['t'] =
 					lType: 'line'
 					distr: 0
 				1:
-					x: contours[0].nodes[4].x + 100
+					x: contours[0].nodes[0].x - 50
 					y: xHeight
 					width: thickness * contrast * .85
 					lDir: '0deg'

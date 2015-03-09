@@ -1,6 +1,6 @@
 exports.glyphs['h_cap'] =
 	unicode: 'H'
-	advanceWidth: width * 590 + thickness
+	advanceWidth: width * 590 + thickness + serifWidth
 	contours:
 		0:
 			tags: 'skeleton'
@@ -8,15 +8,15 @@ exports.glyphs['h_cap'] =
 			nodes:
 				0:
 					x: 0
-					y: 0
+					y: serifHeight * serifCurve
 					width: thickness * opticThickness
-					lDir: '90deg'
+					lDir: 90 + 'deg'
 					lType: 'line'
 				1:
 					x: contours[0].nodes[0].x
-					y: capHeight
+					y: capHeight - serifHeight * serifCurve
 					width: thickness * opticThickness
-					lDir: '90deg'
+					lDir: 90 + 'deg'
 					lType: 'line'
 		1:
 			tags: 'skeleton'
@@ -24,15 +24,15 @@ exports.glyphs['h_cap'] =
 			nodes:
 				0:
 					x: width * 500
-					y: 0
+					y: serifHeight * serifCurve
 					width: thickness * opticThickness
-					lDir: '90deg'
+					lDir: 90 + 'deg'
 					lType: 'line'
 				1:
 					x: contours[1].nodes[0].x
-					y: capHeight
+					y: capHeight - serifHeight * serifCurve
 					width: thickness * opticThickness
-					lDir: '90deg'
+					lDir: 90 + 'deg'
 					lType: 'line'
 		2:
 			tags: 'skeleton'
@@ -50,3 +50,40 @@ exports.glyphs['h_cap'] =
 					width: thickness * opticThickness * .85 * contrast
 					lDir: '0deg'
 					lType: 'line'
+	components:
+		0:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
+		1:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[1].expanded[0].nodes[0], contours[1].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]
+		2:
+			base: 'serif_Top'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
+		3:
+			base: 'serif_Top'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[1].expanded[0].nodes[0], contours[1].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]

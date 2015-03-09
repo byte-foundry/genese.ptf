@@ -168,12 +168,12 @@ exports.parameters = [
 	,
 		name: 'midWidth'
 		label: 'Middle Width'
-		min: 0.8
-		max: 1.2
+		min: -1
+		max: 1
 		step: 0.01
-		init: 1
-		minAdvised: 0.9
-		maxAdvised: 1
+		init: 0
+		minAdvised: -0.5
+		maxAdvised: 0.5
 	,
 		name: 'serifHeight'
 		label: 'Serif Height'
