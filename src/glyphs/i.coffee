@@ -1,9 +1,9 @@
 exports.glyphs['i'] =
 	unicode: 'i'
-	advanceWidth: width * 300 + thickness * 2 - ( 86 * 2 ) + serifWidth
+	advanceWidth: 180 + thickness * 2 - ( 86 * 2 ) + serifWidth
 	anchors:
 		0:
-			x: 20 + ( 21 )
+			x: serifWidth
 			y: xHeight - ( 160 / 500 ) * xHeight
 	contours:
 		0:
@@ -39,7 +39,7 @@ exports.glyphs['i'] =
 			anchors:
 				0:
 					x: contours[0].expanded[0].nodes[1].x + thickness / 2
-					y: capHeight + overshoot
+					y: capHeight + overshoot + thickness - 80
 		2:
 			base: 'term_TL'
 			anchors:

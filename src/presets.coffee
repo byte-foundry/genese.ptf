@@ -85,7 +85,7 @@ exports.presets =
 		serifArc: 0
 		serifTerminal: 0
 		serifRotate: 0
-		serifRoundness : 0.55
+		serifRoundness : 1
 
 	'Blackletter':
 		xHeight: 517

@@ -46,3 +46,13 @@ exports.glyphs['y_cap'] =
 					lDir: 90 + 'deg'
 					lType: 'line'
 					distr: 1
+	components:
+		0:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[1], contours[0].expanded[0].nodes[2] ]
+				1:
+					y: serifHeight
+					x: contours[0].nodes[2].x + thickness * opticThickness / 2

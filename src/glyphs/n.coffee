@@ -1,6 +1,6 @@
 exports.glyphs['n'] =
 	unicode: 'n'
-	advanceWidth: width * 380 + thickness
+	advanceWidth: width * 420 + thickness + serifWidth
 	anchors:
 		0:
 			x: serifWidth + width * 260 + ( thickness - 80 ) / 4

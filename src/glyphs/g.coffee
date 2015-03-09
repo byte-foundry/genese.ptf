@@ -12,7 +12,7 @@ exports.glyphs['g'] =
 			nodes:
 				0:
 					x: width * 365 + thickness - 80
-					y: xHeight
+					y: xHeight - serifHeight * serifCurve
 					width: thickness * .8
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -38,7 +38,7 @@ exports.glyphs['g'] =
 				4:
 					x: 1 ## Should be 0 but create an issue with left offcurve
 					y: descender + 100 * aperture
-					width: thickness * contrast * .7 + thickness * .1
+					width: thickness * contrast * .3 + thickness * .55
 					lDir: - 60 + 60 * width - 60 * aperture + 'deg'
 					distr: 1
 					angle: 180 + 30 + 'deg'

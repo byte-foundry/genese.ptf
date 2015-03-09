@@ -1,6 +1,6 @@
 exports.glyphs['t_cap'] =
 	unicode: 'T'
-	advanceWidth: width * 580 + thickness
+	advanceWidth: width * 650 + thickness
 	anchors:
 		0:
 			x: width * 550 + thickness

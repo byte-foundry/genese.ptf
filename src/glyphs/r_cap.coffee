@@ -97,12 +97,11 @@ exports.glyphs['r_cap'] =
 					y: serifHeight
 					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]	
 		1:
-			base: 'serif_BR'
-			# transform: [1, 0, 0, 1, 0, 0]
+			base: 'serif_TopLeft'
 			anchors:
 				0:
-					y: serifHeight
-					onLine: [ contours[2].expanded[0].nodes[1], contours[2].expanded[0].nodes[2] ]
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
 				1:
-					x: contours[2].expanded[0].nodes[2].x
-					y: contours[2].expanded[0].nodes[2].y
+					y: capHeight - serifHeight
+					x: contours[0].nodes[0].x + thickness * opticThickness * contrast

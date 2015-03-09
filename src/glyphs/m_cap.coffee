@@ -87,3 +87,30 @@ exports.glyphs['m_cap'] =
 				1:
 					y: serifHeight
 					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]
+		2:
+			base: 'serif_TopLeft'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
+		3:
+			base: 'serif_TopLeft'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
+		4:
+			base: 'serif_TopRight'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[1].expanded[0].nodes[0], contours[1].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]

@@ -1,9 +1,9 @@
 exports.glyphs['p_cap'] =
 	unicode: 'P'
-	advanceWidth: width * 580 + ( thickness * 2 ) - 80
+	advanceWidth: width * 570 + ( thickness * 2 ) - 80
 	anchors:
 		0:
-			x: width * 520 + thickness - 80
+			x: width * 465 + thickness - 80
 			y: capHeight * 280/688
 	contours:
 		0:
@@ -69,4 +69,13 @@ exports.glyphs['p_cap'] =
 				1:
 					y: serifHeight
 					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]
-		
+		1:
+			base: 'serif_TopLeft'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					x: contours[0].nodes[0].x + thickness * opticThickness / 2
+

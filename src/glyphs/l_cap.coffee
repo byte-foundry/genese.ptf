@@ -13,7 +13,7 @@ exports.glyphs['l_cap'] =
 				0:
 					x: anchors[0].x
 					y: 0
-					width: thickness * contrast * .85 * opticThickness
+					width: thickness * .5 * opticThickness + thickness * contrast * .35
 					lDir: 0 + 'deg'
 					distr: 1
 					lType: 'line'
@@ -36,8 +36,17 @@ exports.glyphs['l_cap'] =
 					lType: 'line'
 				1:
 					x: 0
-					y: capHeight
+					y: capHeight - serifHeight * serifCurve
 					width: thickness * opticThickness
 					lDir: 90 + 'deg'
 					lType: 'line'
-	
+	components:
+		0:
+			base: 'serif_Top'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[1].expanded[0].nodes[0], contours[1].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]

@@ -12,7 +12,7 @@ exports.glyphs['v'] =
 			nodes:
 				0:
 					x: 0
-					y: xHeight - serifHeight * serifCurve
+					y: xHeight
 					width: thickness
 					lDir: 90 + 'deg'
 					lType: 'line'
@@ -31,7 +31,7 @@ exports.glyphs['v'] =
 					distr: 0
 				3:
 					x: anchors[0].x + thickness / 2
-					y: xHeight - serifHeight * serifCurve
+					y: xHeight
 					width: thickness * contrast
 					lDir: - 90 + 'deg'
 					distr: 0

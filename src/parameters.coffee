@@ -207,7 +207,7 @@ exports.parameters = [
 		min: 0
 		max: 2
 		step: 0.01
-		init: 0.55
+		init: 1
 		minAdvised: 0
 		maxAdvised: 2
 	,
