@@ -145,7 +145,7 @@ exports.parameters = [
 	,
 		name: 'axis'
 		label: 'axis'
-		min: - 35
+		min: -35
 		max: 35
 		step: 1
 		init: 0
