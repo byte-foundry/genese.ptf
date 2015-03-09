@@ -1,5 +1,6 @@
 exports.glyphs['x_cap'] =
 	unicode: 'X'
+	advanceWidth: width * 640 + ( thickness * 2 ) - 80
 	contours:
 		0:
 			tags: 'skeleton'

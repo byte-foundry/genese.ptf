@@ -58,3 +58,23 @@ exports.glyphs['d_cap'] =
 					width: thickness * opticThickness * contrast
 					lDir: '-180deg'
 					distr: 0
+	components:
+		0:
+			base: 'serif_TopLeft'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					x: contours[0].nodes[0].x + thickness * opticThickness * contrast				
+		1:
+			base: 'serif_BottomLeft'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					x: contours[0].nodes[0].x + thickness * opticThickness * contrast				
+		

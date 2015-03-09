@@ -1,6 +1,6 @@
 exports.glyphs['j_cap'] =
 	unicode: 'J'
-	advanceWidth: width * 500 + thickness
+	advanceWidth: width * 500 + thickness + serifWidth
 	anchors:
 		0:
 			x: 400 * width
@@ -12,7 +12,7 @@ exports.glyphs['j_cap'] =
 			nodes:
 				0:
 					x: anchors[0].x
-					y: capHeight
+					y: capHeight - serifHeight * serifCurve
 					width: thickness * opticThickness
 					lDir: '90deg'
 					lType: 'line'

@@ -80,3 +80,12 @@ exports.glyphs['b'] =
 				2:
 					x: 0
 					y: ascenderHeight
+		1:
+			base: 'serif_BottomLeft'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					x: contours[0].nodes[0].x + thickness * contrast				

@@ -3,7 +3,7 @@ exports.glyphs['f'] =
 	advanceWidth: width * 280 + thickness
 	anchors:
 		0:
-			x: width * 240 + thickness ######
+			x: width * 300 + thickness ######
 			y: ascenderHeight + overshoot - 30 * aperture
 	contours:
 		0:
@@ -34,7 +34,8 @@ exports.glyphs['f'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					width: thickness * .85 * contrast
-					lDir: Math.max( 90 + 40, - thickness / 3 ) + 'deg'
+					width: thickness * .5 + thickness * contrast * .35 # * term
+					lDir: Math.max( 90 + 60, - thickness / 3 ) + 'deg'
 					angle: 180 + 60 + 'deg'
 					distr: 0
 		1:

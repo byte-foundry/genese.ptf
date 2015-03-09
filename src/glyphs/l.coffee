@@ -1,19 +1,19 @@
 exports.glyphs['l'] =
 	unicode: 'l'
-	advanceWidth: width * 110 + thickness
+	advanceWidth: width * 120 + thickness + serifWidth
 	contours:
 		0:
 			tags: 'skeleton'
 			type: 'open'
 			nodes:
 				0:
-					x: 0
+					x: 20 + 0 + serifWidth
 					y: 0 + serifHeight * serifCurve
 					width: thickness
 					lDir: '90deg'
 					lType: 'line'
 				1:
-					x: 0
+					x: 20 + 0 + serifWidth
 					y: ascenderHeight - serifHeight * serifCurve + 20 - 40 * serifCurve - ( thickness + 80 ) / 4
 					width: thickness
 					lDir: '90deg'

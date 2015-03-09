@@ -76,7 +76,7 @@
 
 exports.glyphs['n_cap'] =
 	unicode: 'N'
-	advanceWidth: width * 650 + thickness * opticThickness * 2 * contrast
+	advanceWidth: width * 850 + thickness * opticThickness * 2 * contrast
 	contours:
 		0:
 			tags: 'skeleton'
@@ -138,3 +138,31 @@ exports.glyphs['n_cap'] =
 					lDir: 90 + 'deg'
 					lType: 'line'
 					distr: 1
+	components:
+		0:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					x: contours[0].nodes[0].x + thickness * opticThickness * contrast
+		1:
+			base: 'serif_Top'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					x: contours[0].nodes[6].x - thickness * opticThickness * contrast
+				1:
+					y: capHeight - serifHeight
+					x: contours[0].nodes[6].x 
+		2:
+			base: 'serif_TopLeft'
+			anchors:
+				0:
+					y: capHeight - serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: capHeight - serifHeight
+					x: contours[0].nodes[0].x + thickness * opticThickness * contrast

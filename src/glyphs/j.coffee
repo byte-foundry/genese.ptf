@@ -1,9 +1,9 @@
 exports.glyphs['j'] =
 	unicode: 'j'
-	advanceWidth: width * 150 + thickness
+	advanceWidth: 260 + thickness
 	anchors:
 		0:
-			x: 40
+			x: 120
 			y: xHeight - Math.max( thickness * contrast + 20 , 150 * aperture )
 	contours:
 		0:
@@ -12,7 +12,7 @@ exports.glyphs['j'] =
 			nodes:
 				0:
 					x: anchors[0].x
-					y: xHeight
+					y: xHeight - serifHeight * serifCurve + 20 - 40 * serifCurve - ( thickness + 80 ) / 4
 					width: thickness
 					lDir: '90deg'
 					lType: 'line'
@@ -40,22 +40,22 @@ exports.glyphs['j'] =
 					lDir: - 50 * aperture + 'deg'
 					distr: 1
 					angle: 180 + 50 + 'deg'
-		1:
-			type: 'closed'
-			nodes:
+	components:
+		0:
+			base: 'title'
+			anchors:
 				0:
-					x: anchors[0].x
-					y: capHeight
-					lDir: 0 + 'deg'
+					x: contours[0].expanded[0].nodes[1].x + thickness / 2
+					y: capHeight + overshoot + thickness - 80
+		1:
+			base: 'term_TL'
+			anchors:
+				0:
+					x: contours[0].nodes[0].x - thickness / 2
+					y: contours[0].nodes[0].y 
 				1:
-					x: anchors[0].x + thickness / 2 * 1.1
-					y: capHeight - thickness / 2 * 1.1
-					lDir: -90 + 'deg'
+					x: contours[0].nodes[0].x + thickness / 2
+					y: contours[0].nodes[0].y 
 				2:
-					x: anchors[0].x
-					y: capHeight - thickness * 1.1
-					lDir: 180 + 'deg'
-				3:
-					x: anchors[0].x - thickness / 2 * 1.1
-					y: capHeight - thickness / 2 * 1.1
-					lDir: 90 + 'deg'
+					x: 0
+					y: xHeight 

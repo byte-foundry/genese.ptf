@@ -3,7 +3,7 @@ exports.glyphs['g_cap'] =
 	advanceWidth: width * 600 + ( thickness * 2 ) - 80
 	anchors:
 		0:
-			x: width * 550 + thickness - 80
+			x: width * 600 + thickness - 80
 			y: capHeight - 150
 	contours:
 		0:
@@ -13,15 +13,15 @@ exports.glyphs['g_cap'] =
 				0:
 					x: anchors[0].x
 					y: capHeight - ( thickness / 2 + 105 ) * aperture
-					width: thickness * opticThickness * .75 * contrast + thickness * opticThickness * .1
+					width: thickness * opticThickness * .35 * contrast + thickness * opticThickness * .5
 					lDir: - 60 + 60 * width - 60 * aperture + 'deg'
 					distr: .1
 				1:
 					x: anchors[0].x / 2
 					y: capHeight + overshoot
-					width: thickness * opticThickness * .9 * contrast
+					width: thickness * opticThickness * .8 * contrast
 					lDir: 0 + 'deg'
-					angle: - 90 + 5 + 'deg'
+					angle: - 90 + 10 + axis + 'deg'
 					distr: 0
 				2:
 					x: 0
@@ -32,9 +32,9 @@ exports.glyphs['g_cap'] =
 				3:
 					x: anchors[0].x / 2
 					y: - overshoot
-					width: thickness * opticThickness * .9 * contrast
+					width: thickness * opticThickness * .8 * contrast
 					lDir: 180 + 'deg'
-					angle: 90 - 5 + 'deg'
+					angle: 90 - 10 + axis + 'deg'
 					distr: 0
 				4:
 					x: anchors[0].x - thickness * opticThickness + 10
