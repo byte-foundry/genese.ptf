@@ -11,120 +11,91 @@ exports.glyphs['n'] =
 			y: xHeight - 160 - ( thickness + 85 ) / 4 
 	contours:
 		0:
-			skeleton: true
-			closed: false
+			tags: 'skeleton'
+			type: 'open'
 			nodes:
 				0:
 					x: anchors[0].x
 					y: 0 + serifHeight * serifCurve
-					dirOut: 90 + 'deg'
-					expand: Object({
-						width: thickness
-						distr: 0.25
-					})
+					width: thickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0.25
 				1:
 					x: anchors[0].x
 					y: anchors[0].y
-					dirOut: 90 + 'deg'
-					expand: Object({
-						width: thickness
-						distr: 0.25
-					})
+					width: thickness
+					lDir: 90 + 'deg'
+					lType: 'line'
+					distr: 0.25
 		1:
-			skeleton: true
-			closed: false
+			tags: 'skeleton'
+			type: 'open'
 			nodes:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
+					x: contours[0].nodes[0].x + contours[0].nodes[0].width * 0.75 - thickness * ( 5 / 85 ) ## + Math.min( axis, 0)
 					# y: xHeight * ( 370 / 500 )
 					y: xHeight - 130 + ( thickness - 85 ) / 4
-					dirOut: if width <= 1.2 then 65 - 65 * width + 65 + 'deg' else 65 - 15 * width + 'deg'
+					width: thickness * ( 25 / 85 ) * contrast * width
+					lDir: if width <= 1.2 then 65 - 65 * width + 65 + 'deg' else 65 - 15 * width + 'deg'
 					# angle: - 90 + axis + 'deg'
-					type: 'smooth'
-					expand: Object({
-						width: thickness * ( 25 / 85 ) * contrast * width
-						angle: - 90 + 'deg'
-						distr: 0
-					})
+					angle: - 90 + 'deg'
+					distr: 0
+					debug: console.log( contours[1].nodes[0].lDir * (180/Math.PI) )
 				1:
 					x: anchors[1].x * ( ( 390 - 200 ) / ( 445 - 200 ) )
 					y: xHeight + overshoot
-					dirOut: 0 + 'deg'
+					width: thickness * contrast * ( 77 / 85 )
+					lDir: 0 + 'deg'
 					# angle: Math.max( - thickness - 77 * contrast, Math.max( - 129 * width, - 129 ) ) + 'deg'
 					# angle: - 129 + axis + 'deg'
-					tensionOut: 1.1
-					type: 'smooth'
-					expand: Object({
-						width: thickness * contrast * ( 77 / 85 )
-						angle: - 129 + 'deg'
-						distr: 0
-					})
+					angle: - 129 + 'deg'
+					distr: 0
+					lTension: 1.1
 				2:
 					x: anchors[1].x
 					y: anchors[1].y
-					dirOut: - 90 + 'deg'
-					expand: Object({
-						width: thickness
-						distr: 0.25
-					})
+					width: thickness
+					lDir: - 90 + 'deg'
+					distr: 0.25
+					lType: 'line'
 				3:
 					x: contours[1].nodes[2].x
 					y: 0 + serifHeight * serifCurve
-					dirOut: - 90 + 'deg'
-					expand: Object({
-						width: thickness
-						distr: 0.25
-					})
+					width: thickness
+					lDir: - 90 + 'deg'
+					distr: 0.25
 	components:
 		0:
 			base: 'serif_Bottom'
 			anchors:
 				0:
-					y: 10
-					# x: Utils.onLine({ 
-					# 	y: serifHeight
-					# 	on: [ contours[0].nodes[0].expanded[0], contours[0].nodes[1].expanded[0] ]
-					# })
-					# x: contours[0].nodes[0].expandedTo[0].x
-					x: 10
-				# 1:
-				# 	y: serifHeight
-				# 	# x: Utils.onLine({ 
-				# 	# 	y: serifHeight
-				# 	# 	on: [ contours[0].nodes[0].expanded[1], contours[0].nodes[1].expanded[1] ]
-				# 	# })
-				# 	# x: contours[0].nodes[0].expandedTo[1].x
-				# 	x: 10
-		# 1:
-		# 	base: 'serif_Bottom'
-		# 	anchors:
-		# 		0:
-		# 			y: serifHeight
-		# 			onLine: [ contours[1].expanded[0].nodes[4], contours[1].expanded[0].nodes[5] ]
-		# 		1:
-		# 			y: serifHeight
-		# 			onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]
-		# 2:
-		# 	base: 'term_TL'
-		# 	anchors:
-		# 		0:
-		# 			x: contours[0].expanded[0].nodes[1].x
-		# 			y: contours[0].expanded[0].nodes[1].y
-		# 		1:
-		# 			x: contours[0].expanded[0].nodes[2].x
-		# 			y: contours[0].expanded[0].nodes[2].y
-		# 		2:
-		# 			x: 0
-		# 			y: xHeight
-
-
-
-
-
-
-
-
-
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[0], contours[0].expanded[0].nodes[1] ]
+				1:
+					y: serifHeight
+					onLine: [ contours[0].expanded[0].nodes[2], contours[0].expanded[0].nodes[3] ]		
+		1:
+			base: 'serif_Bottom'
+			anchors:
+				0:
+					y: serifHeight
+					onLine: [ contours[1].expanded[0].nodes[4], contours[1].expanded[0].nodes[5] ]
+				1:
+					y: serifHeight
+					onLine: [ contours[1].expanded[0].nodes[2], contours[1].expanded[0].nodes[3] ]
+		2:
+			base: 'term_TL'
+			anchors:
+				0:
+					x: contours[0].expanded[0].nodes[1].x
+					y: contours[0].expanded[0].nodes[1].y
+				1:
+					x: contours[0].expanded[0].nodes[2].x
+					y: contours[0].expanded[0].nodes[2].y
+				2:
+					x: 0
+					y: xHeight
 
 
 		# 0:

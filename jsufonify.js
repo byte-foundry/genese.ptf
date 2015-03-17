@@ -70,13 +70,10 @@ function jsufonify(prefixText) {
 
 				component.anchor = [];
 
-				if ( !component.anchor ) {
-					component.anchor = [];
-				}
-				_(component.anchors).forEach(function( anchor, i ) {
+				_(component.parentAnchors).forEach(function( anchor, i ) {
 					component.anchor[i] = anchor;
 				});
-				delete component.anchors;
+				delete component.parentAnchors;
 			});
 			delete glyph.components;
 		});
