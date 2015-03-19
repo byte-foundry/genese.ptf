@@ -55,7 +55,7 @@ exports.glyphs['n'] =
 					tensionOut: 1.1
 					type: 'smooth'
 					expand: Object({
-						width: thickness * contrast * ( 77 / 85 )
+						width: thickness * ( 77 / 85 )
 						angle: - 129 + 'deg'
 						distr: 0
 					})
@@ -78,14 +78,13 @@ exports.glyphs['n'] =
 	components:
 		0:
 			base: 'serif_Bottom'
-			anchors:
+			parentAnchors:
 				0:
-					y: 10
+					y: - 100
 					# x: Utils.onLine({ 
 					# 	y: serifHeight
 					# 	on: [ contours[0].nodes[0].expanded[0], contours[0].nodes[1].expanded[0] ]
 					# })
-					# x: contours[0].nodes[0].expandedTo[0].x
 					x: 10
 				# 1:
 				# 	y: serifHeight
