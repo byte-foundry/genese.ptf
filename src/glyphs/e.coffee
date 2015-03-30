@@ -1,6 +1,7 @@
 exports.glyphs['e'] =
 	unicode: 'e'
-	advanceWidth: width * 480 + thickness * 2 - ( 86 * 2 )
+	ot:
+		advanceWidth: width * 480 + thickness * 2 - ( 86 * 2 )
 	anchors:
 		0:
 			x: 0

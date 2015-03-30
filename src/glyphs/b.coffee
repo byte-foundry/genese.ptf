@@ -1,6 +1,7 @@
 exports.glyphs['b'] =
 	unicode: 'b'
-	advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
+	ot:
+		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
 	anchors:
 		0:
 			x: 550 - 86 + thickness
@@ -40,7 +41,7 @@ exports.glyphs['b'] =
 					})
 				3:
 					x: contours[0].nodes[0].x
-					y: ascenderHeight - 160 - ( thickness + 86 ) / 4 
+					y: ascenderHeight - 160 - ( thickness + 86 ) / 4
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -64,6 +65,7 @@ exports.glyphs['b'] =
 					x: anchors[0].x * ( 330 / 455 ) - 69
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
+					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 58 / 86 )
 						angle: 180 + 240 + 'deg'
@@ -73,6 +75,7 @@ exports.glyphs['b'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					dirOut: 90 + 'deg'
+					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 97 / 86 )
 						angle: 22 + 'deg'
@@ -82,6 +85,7 @@ exports.glyphs['b'] =
 					x: anchors[0].x * ( 310 / 455 ) - 65
 					y: - overshoot
 					dirOut: 0 + 'deg'
+					type: 'smooth'
 					expand: Object({
 						width: thickness * contrast * ( 20 / 86 )
 						angle: 180 + 76 + 'deg'
@@ -105,21 +109,23 @@ exports.glyphs['b'] =
 						width: thickness * ( 50 / 86 ) * contrast
 						distr: 0
 					})
-	# components:
-	# 	0:
-	# 		base: 'term_TL'
-	# 		anchors:
-	# 			0:
-	# 				x: contours[0].expanded[0].nodes[3].x
-	# 				y: contours[0].expanded[0].nodes[3].y
-	# 			1:
-	# 				x: contours[0].expanded[0].nodes[4].x
-	# 				y: contours[0].expanded[0].nodes[4].y
-	# 			2:
-	# 				x: 0
-	# 				y: ascenderHeight
-
-
-
-
-
+	components:
+		0:
+			base: 'term_TL'
+			parentAnchors:
+				0:
+					x: Utils.onLine({
+						y: anchors[0].y
+						on: [ contours[0].nodes[2].expandedTo[0].point, contours[0].nodes[3].expandedTo[0].point ]
+					})
+					y: anchors[0].y
+					serifWidth: 1
+				1:
+					x: Utils.onLine({
+						y: anchors[0].y
+						on: [ contours[0].nodes[2].expandedTo[1].point, contours[0].nodes[3].expandedTo[1].point ]
+					})
+					y: anchors[0].y
+				2:
+					x: 0
+					y: ascenderHeight

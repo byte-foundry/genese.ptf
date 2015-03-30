@@ -109,12 +109,12 @@ exports.parameters = [
 	,
 		name: 'opticThickness'
 		label: 'Optic thickness'
-		min: 1
-		max: 2
-		step: 0.1
-		init: 1.16
+		min: 0.8
+		max: 1.5
+		step: 0.01
+		init: 1
 		minAdvised: 1
-		maxAdvised: 2
+		maxAdvised: 1.2
 	,
 		name: 'curviness'
 		label: 'Curviness'
@@ -194,7 +194,7 @@ exports.parameters = [
 		maxAdvised: 2
 	,
 		name: 'serifCurve'
-		label: 'Serif Curve'
+		label: 'Bracket Curve'
 		min: 0
 		max: 2
 		step: 0.01
@@ -238,6 +238,15 @@ exports.parameters = [
 		minAdvised: 0
 		maxAdvised: 1.5
 	,
+		name: 'spurHeight'
+		label: 'Spur Height'
+		min: 0
+		max: 3
+		step: 0.1
+		init: 1
+		minAdvised: 0
+		maxAdvised: 1.5
+	,
 		name: 'serifRotate'
 		label: 'Serif Rotation'
 		min: -35
@@ -246,15 +255,6 @@ exports.parameters = [
 		init: 0
 		minAdvised: -35
 		maxAdvised: 15
-	,
-		name: 'terminalBall'
-		label: 'Terminal Ball'
-		min: 0
-		max: 1
-		step: 0.01
-		init: 0
-		minAdvised: 0
-		maxAdvised: 1
 	]
 ];
 
@@ -262,3 +262,4 @@ exports.calculated =
 	capHeight: 'xHeight + capDelta'
 	contrast: '_contrast * -1'
 	ascenderHeight: 'xHeight + ascender'
+	spacing: '1'

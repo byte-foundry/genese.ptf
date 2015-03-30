@@ -1,6 +1,7 @@
 exports.glyphs['a'] =
 	unicode: 'a'
-	advanceWidth: width * 470 + thickness - 85
+	ot:
+		advanceWidth: width * 470 + thickness - 85
 	anchors:
 		0:
 			x: ( 295 + 21 ) * width
@@ -34,7 +35,7 @@ exports.glyphs['a'] =
 						distr: 0
 					})
 				2:
-					x: anchors[0].x 
+					x: anchors[0].x
 					y: Math.min( 102, ( 102 / 500 ) * xHeight )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -63,7 +64,6 @@ exports.glyphs['a'] =
 		1:
 			skeleton: true
 			closed: false
-			reverse: true
 			nodes:
 				0:
 					x: contours[0].nodes[2].expandedTo[0].x + thickness * (8/86)
@@ -76,8 +76,9 @@ exports.glyphs['a'] =
 				1:
 					x: ( 135 + 16 )
 					y: ( 220 / 500 ) * xHeight + ( thickness * ( 10 / 85 ) - 10 )
-					dirOut: 64 + 'deg'
-					type: 'smooth'
+					# dirOut: - 157 + 'deg'
+					dirOut: Utils.lineAngle( contours[1].nodes[0].expandedTo[1], contours[1].nodes[1].expandedTo[1] )
+					# type: 'smooth'
 					expand: Object({
 						width: thickness * ( 63 / 85 )
 						angle: Math.min( thickness , 4.5 ) + 'deg'
@@ -123,9 +124,9 @@ exports.glyphs['a'] =
 					y: contours[0].nodes[4].expandedTo[1].y
 				1:
 					x: 73
-					y: xHeight - ( 500 - 430 ) 
+					y: xHeight - ( 500 - 430 )
 					type: 'smooth'
-					dirOut: Utils.lineAngle( contours[2].nodes[0].point, anchors[1].point ) 
+					dirOut: Utils.lineAngle( contours[2].nodes[0].point, anchors[1].point )
 				2:
 					x: 38
 					y: xHeight - ( 500 - 365 )
@@ -134,7 +135,7 @@ exports.glyphs['a'] =
 					tensionOut: .7
 				3:
 					x: contours[2].nodes[2].x + ( contours[2].nodes[5].x - contours[2].nodes[2].x ) * ( 40 / 105 )
-					y: xHeight - ( 500 - 295 ) 
+					y: xHeight - ( 500 - 295 )
 					dirOut: 0 + 'deg'
 					tensionOut: .3
 					tensionIn: .3
@@ -155,7 +156,3 @@ exports.glyphs['a'] =
 					y: contours[0].nodes[4].expandedTo[0].y
 					dirOut: 0 + 'deg'
 					tensionIn: 0.5 + thickness / 85 / 2
-
-
-
-

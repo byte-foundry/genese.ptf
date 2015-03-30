@@ -73,7 +73,7 @@ exports.presets =
 		crossbar: 1
 		width: 1
 		roundness: 0.65
-		thickness: 86
+		thickness: 85
 		_contrast: -1
 		breakPath: 0
 		aperture: 1
