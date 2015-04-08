@@ -27,6 +27,7 @@ exports.info =
 		'u': 'u'
 		'v': 'v'
 		'w': 'w'
+		'y': 'y'
 		'A': 'A_cap'
 		'B': 'B_cap'
 		'C': 'C_cap'

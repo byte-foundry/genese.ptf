@@ -12,22 +12,22 @@ exports.glyphs['p'] =
 			closed: false
 			nodes:
 				0:
-					x: 115
-					y: descender + serifHeight * serifCurve
+					x: 115 + (26)
+					y: xHeight - spurHeight * ( 60 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 40 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
-						distr: 0
+						distr: 0.25
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: xHeight - 160 - ( thickness + 86 ) / 4
+					y: descender + serifHeight + serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
-						distr: 0
+						distr: 0.25
 					})
 		1:
 			skeleton: true
@@ -85,36 +85,27 @@ exports.glyphs['p'] =
 					})
 	components:
 		0:
-			base: 'serif_Bottom'
+			base: 'serif'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: descender + serifHeight
-						on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
-					})
-					y: descender + serifHeight
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].y
 				1:
-					x: Utils.onLine({
-						y: descender + serifHeight
-						on: [ contours[0].nodes[1].expandedTo[1].point, contours[0].nodes[0].expandedTo[1].point ]
-					})
-					y: descender + serifHeight
-		1:
-			base: 'term_TL'
-			parentAnchors:
-				0:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: anchors[0].y
-					serifWidth: 1
-				1:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: anchors[0].y
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].y
 				2:
-					x: 5
-					y: xHeight
+					anchorLine: descender
+					leftWidth: 1
+					rightWidth: 1
+		1:
+			base: 't_top'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
+				1:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
+				2:
+					topLine: xHeight
+					leftWidth: 1.25

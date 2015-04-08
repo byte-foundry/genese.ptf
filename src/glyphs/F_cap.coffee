@@ -12,13 +12,13 @@ exports.glyphs['F_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 145
-					y: 0
+					x: 145 + (25)
+					y: 0 + serifHeight + serifCurve * ( 60 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
-						distr: 0
+						width: thickness * ( 100 / 85 ) * opticThickness
+						distr: 0.25
 					})
 				1:
 					x: contours[0].nodes[0].x
@@ -26,8 +26,8 @@ exports.glyphs['F_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
-						distr: 0
+						width: thickness * ( 100 / 85 ) * opticThickness
+						distr: 0.25
 					})
 		1:
 			skeleton: true
@@ -73,3 +73,17 @@ exports.glyphs['F_cap'] =
 						width: contours[2].nodes[0].expand.width
 						distr: 0
 					})
+	components:
+		0:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
+				2:
+					anchorLine: 0
+					leftWidth: 1.6
+					rightWidth: 1.6

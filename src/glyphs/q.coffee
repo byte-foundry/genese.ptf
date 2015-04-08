@@ -13,7 +13,7 @@ exports.glyphs['q'] =
 			nodes:
 				0:
 					x: 415 + 20
-					y: descender + serifHeight * serifCurve
+					y: descender + serifHeight + serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -106,17 +106,15 @@ exports.glyphs['q'] =
 					})
 	components:
 		0:
-			base: 'serif_Bottom'
+			base: 'serif'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: descender + serifHeight
-						on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
-					})
-					y: descender + serifHeight
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
 				1:
-					x: Utils.onLine({
-						y: descender + serifHeight
-						on: [ contours[0].nodes[1].expandedTo[1].point, contours[0].nodes[0].expandedTo[1].point ]
-					})
-					y: descender + serifHeight				
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
+				2:
+					anchorLine: descender
+					leftWidth: 1
+					rightWidth: 1

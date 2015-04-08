@@ -1,7 +1,7 @@
 exports.glyphs['A_cap'] =
 	unicode: 'A'
 	ot:
-		advanceWidth: contours[0].nodes[0].expandedTo[1].x + serifWidth + 25 * spacing
+		advanceWidth: contours[0].nodes[1].expandedTo[1].x + serifWidth * 1.6 + 25 * spacing
 	anchors:
 		0:
 			x: ( 495 + 20 ) * width
@@ -11,18 +11,18 @@ exports.glyphs['A_cap'] =
 			skeleton: true
 			closed: false
 			nodes:
-				0:
+				1:
 					x: anchors[0].x * ( ( 295 + 10 ) / 495 )
-					y: capHeight - capHeight * ( 30 / 750 ) * thickness / 85
+					y: capHeight - capHeight * ( 30 / 750 ) * thickness / 85 * ( serifCurve / 15 )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
-				1:
+				0:
 					x: anchors[0].x
-					y: anchors[0].y
+					y: 0
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 105 / 85 ) * opticThickness
@@ -44,10 +44,10 @@ exports.glyphs['A_cap'] =
 					})
 				1:
 					x: Utils.onLine({
-						y: contours[0].nodes[0].y - 10
-						on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
+						y: contours[0].nodes[1].y - 10
+						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
 					})
-					y: contours[0].nodes[0].y - 10
+					y: contours[0].nodes[1].y - 10
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 20 / 85 ) * opticThickness
@@ -61,7 +61,7 @@ exports.glyphs['A_cap'] =
 				0:
 					x: Utils.onLine({
 						y: capHeight * ( 280 / 750 ) * crossbar
-						on: [ contours[0].nodes[1].point, contours[0].nodes[0].point ]
+						on: [ contours[0].nodes[0].point, contours[0].nodes[1].point ]
 					})
 					y: capHeight * ( 280 / 750 ) * crossbar
 					typeOut: 'line'
@@ -87,21 +87,62 @@ exports.glyphs['A_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].expandedTo[1].y
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].expandedTo[1].y
 					typeOut: 'line'
 				1:
 					x: Utils.onLine({
 						y: capHeight + overshoot * 2
-						on: [ contours[0].nodes[1].expandedTo[1].point, contours[0].nodes[0].expandedTo[1].point ]
+						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
 					})
 					y: capHeight + overshoot * 2
 					typeOut: 'line'
 				2:
-					x: contours[3].nodes[1].x - thickness * ( 10 / 85 )
+					x: contours[3].nodes[1].x - thickness * ( 10 / 85 ) * ( serifCurve / 15 )
 					y: contours[3].nodes[1].y
 					dirOut: - 116 + 'deg'
 				3:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].expandedTo[0].y
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].expandedTo[0].y
 					dirIn: 8 + 'deg'
+	components:
+		0:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: Utils.onLine({
+						y: serifHeight + serifCurve * ( 65 / 15 )
+						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
+					})
+					y: serifHeight + serifCurve * ( 65 / 15 )
+				1:
+					x: Utils.onLine({
+						y: serifHeight + serifCurve * ( 65 / 15 )
+						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+					})
+					y: serifHeight + serifCurve * ( 65 / 15 )
+				2:
+					anchorLine: 0
+					leftWidth: 1.6
+					rightWidth: 1.6
+					angle: Utils.lineAngle( contours[0].nodes[0].point ,contours[0].nodes[1].point )
+		1:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: Utils.onLine({
+						y: serifHeight + serifCurve * ( 65 / 15 )
+						on: [ contours[1].nodes[1].expandedTo[1].point, contours[1].nodes[0].expandedTo[1].point ]
+					})
+					y: serifHeight + serifCurve * ( 65 / 15 )
+				1:
+					x: Utils.onLine({
+						y: serifHeight + serifCurve * ( 65 / 15 )
+						on: [ contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point ]
+					})
+					y: serifHeight + serifCurve * ( 65 / 15 )
+				2:
+					anchorLine: 0
+					leftWidth: 1.6
+					rightWidth: 1.6
+					angle: Utils.lineAngle( contours[1].nodes[1].point ,contours[1].nodes[0].point )

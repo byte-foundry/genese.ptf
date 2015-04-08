@@ -107,7 +107,7 @@ exports.glyphs['G_cap'] =
 			nodes:
 				0:
 					x: 485 + 25
-					y: 325
+					y: 325 - serifHeight - serifCurve * ( 60 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -123,3 +123,18 @@ exports.glyphs['G_cap'] =
 						angle: Utils.lineAngle( contours[0].nodes[3].point, contours[0].nodes[4].point )
 						distr: 0.25
 					})
+	components:
+		0:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: contours[2].nodes[0].expandedTo[1].x
+					y: contours[2].nodes[0].y
+				1:
+					x: contours[2].nodes[0].expandedTo[0].x
+					y: contours[2].nodes[0].y
+				2:
+					anchorLine: 325
+					leftWidth: 1.6
+					rightWidth: 1.6
+					direction: -1

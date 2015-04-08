@@ -80,7 +80,7 @@ exports.glyphs['D_cap'] =
 					# typeOut: 'line'
 				1:
 					x: contours[0].nodes[0].expandedTo[1].x
-					y: ( serifHeight / 20 ) * 80 * serifCurve
+					y: ( serifHeight + serifCurve ) * ( 80 / 35 )
 					dirIn: - 90 + 'deg'
 					typeOut: 'line'
 				2:

@@ -9,11 +9,11 @@ exports.glyphs['Q_cap'] =
 			nodes:
 				0:
 					x: 410 + (0)
-					y: - overshoot
+					y: - overshoot + 0
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 16 / 85 ) * opticThickness
+						width: thickness * ( 16 / 85 ) * opticThickness * contrast
 						angle: 108 + 'deg'
 						distr: 0
 					})
@@ -33,7 +33,7 @@ exports.glyphs['Q_cap'] =
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 27 / 85 ) * opticThickness
+						width: thickness * ( 27 / 85 ) * opticThickness * contrast
 						angle: - 112 + 'deg'
 						distr: 0
 					})
@@ -52,43 +52,44 @@ exports.glyphs['Q_cap'] =
 					y: 35
 					dirOut: 90 + 'deg'
 					type: 'smooth'
-					dirOut: Utils.lineAngle( contours[0].nodes[4].point, contours[0].nodes[5].point )
+					# dirOut: Utils.lineAngle( contours[0].nodes[3].point, contours[0].nodes[5].point )
 					dirOut: 90 + 60 + 'deg'
 					expand: Object({
-						width: thickness * ( 30 / 85 ) * opticThickness
+						width: thickness * ( 35 / 85 ) * opticThickness * contrast
 						angle: 46 + 'deg'
 						distr: 0
 					})
+				# 5:
+				# 	x: contours[0].nodes[0].expandedTo[1].x
+				# 	y: contours[0].nodes[0].expandedTo[1].y
+				# 	# dirOut: 90 + 'deg'
+				# 	type: 'smooth'
+				# 	# dirOut: Utils.lineAngle( contours[0].nodes[4].point, contours[0].nodes[6].point )
+				# 	dirOut: - 30 + 'deg'
+				# 	expand: Object({
+				# 		width: thickness * ( 57 / 85 ) * opticThickness
+				# 		angle: 180 - 117 + 'deg'
+				# 		distr: 1
+				# 	})
 				5:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].expandedTo[1].y
-					# dirOut: 90 + 'deg'
-					type: 'smooth'
-					dirOut: Utils.lineAngle( contours[0].nodes[4].point, contours[0].nodes[6].point )
-					expand: Object({
-						width: thickness * ( 57 / 85 ) * opticThickness
-						angle: 180 - 117 + 'deg'
-						distr: 1
-					})
-				6:
 					x: 760 + (0)
-					y: - 135
+					y: - thickness / 2 - ( 135 - 85 / 2 )
 					dirOut: 0 + 'deg'
 					# tensionOut: 0.2
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 80 / 85 ) * opticThickness
+						width: thickness * ( 60 / 85 ) * opticThickness + thickness * ( 25 / 85 ) * opticThickness * contrast
 						angle: 80 + 'deg'
 						distr: 0
 					})
-				7:
+				6:
 					x: 1135 + (0)
 					y: - 40
 					dirIn: - 155 + 'deg'
 					# tensionIn: 0
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 11 / 85 ) * opticThickness
+						width: thickness * ( 11 / 85 ) * opticThickness * contrast
 						angle: 95 + 'deg'
 						distr: 0
 					})

@@ -22,7 +22,7 @@ exports.glyphs['d'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: anchors[0].y
+					y: ascenderHeight - spurHeight * ( 30 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 45 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -88,37 +88,50 @@ exports.glyphs['d'] =
 					})
 	components:
 		0:
-			base: 'term_TL'
+			base: 't_top'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: anchors[0].y
-					serifWidth: 1.5
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].y
 				1:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: anchors[0].y
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].y
 				2:
-					x: 0
-					y: ascenderHeight
-		1:
-			base: 'term_BR'
-			parentAnchors:
-				0:
-					x: Utils.onLine({
-						y: 90 + serifHeight
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: 90 + serifHeight
-				1:
-					x: Utils.onLine({
-						y: 90 + serifHeight
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: 90 + serifHeight
-					serifWidth: 1.85
+					topLine: ascenderHeight
+					leftWidth: 1.7
+					spurHeight: 1
+		# 0:
+		# 	base: 'term_TL'
+		# 	parentAnchors:
+		# 		0:
+		# 			x: Utils.onLine({
+		# 				y: anchors[0].y
+		# 				on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+		# 			})
+		# 			y: anchors[0].y
+		# 			serifWidth: 1.5
+		# 		1:
+		# 			x: Utils.onLine({
+		# 				y: anchors[0].y
+		# 				on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
+		# 			})
+		# 			y: anchors[0].y
+		# 		2:
+		# 			x: 0
+		# 			y: ascenderHeight
+		# 1:
+		# 	base: 'term_BR'
+		# 	parentAnchors:
+		# 		0:
+		# 			x: Utils.onLine({
+		# 				y: 90 + serifHeight
+		# 				on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+		# 			})
+		# 			y: 90 + serifHeight
+		# 		1:
+		# 			x: Utils.onLine({
+		# 				y: 90 + serifHeight
+		# 				on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
+		# 			})
+		# 			y: 90 + serifHeight
+		# 			serifWidth: 1.85
