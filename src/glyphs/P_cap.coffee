@@ -13,7 +13,7 @@ exports.glyphs['P_cap'] =
 			nodes:
 				0:
 					x: 145
-					y: 0
+					y: 0 + serifHeight + serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -81,3 +81,17 @@ exports.glyphs['P_cap'] =
 						width: contours[1].nodes[3].expand.width
 						distr: 1
 					})
+	components:
+		0:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
+				2:
+					anchorLine: 0
+					leftWidth: 1.6
+					rightWidth: 1.6

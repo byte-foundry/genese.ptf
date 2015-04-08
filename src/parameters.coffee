@@ -168,17 +168,17 @@ exports.parameters = [
 	,
 		name: 'midWidth'
 		label: 'Middle Width'
-		min: -1
-		max: 1
+		min: 0.5
+		max: 1.5
 		step: 0.01
-		init: 0
-		minAdvised: -0.5
-		maxAdvised: 0.5
+		init: 1
+		minAdvised: -0.8
+		maxAdvised: 1.2
 	,
 		name: 'serifHeight'
 		label: 'Serif Height'
 		min: 0
-		max: 150
+		max: 100
 		step: 1
 		init: 20
 		minAdvised: 0
@@ -187,20 +187,20 @@ exports.parameters = [
 		name: 'serifMedian'
 		label: 'Serif Median'
 		min: 0.2
-		max: 2
+		max: 1.5
 		step: 0.01
 		init: 1
 		minAdvised: 0
-		maxAdvised: 2
+		maxAdvised: 1.3
 	,
 		name: 'serifCurve'
 		label: 'Bracket Curve'
 		min: 0
-		max: 2
-		step: 0.01
-		init: 0.75
+		max: 100
+		step: 1
+		init: 15
 		minAdvised: 0
-		maxAdvised: 1.1
+		maxAdvised: 80
 	,
 		name: 'serifRoundness'
 		label: 'Serif Curve Roundness'

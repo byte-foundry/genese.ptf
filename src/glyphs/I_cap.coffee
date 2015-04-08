@@ -13,7 +13,7 @@ exports.glyphs['I_cap'] =
 			nodes:
 				0:
 					x: 145
-					y: 0
+					y: 0 + serifHeight + serifCurve * ( 60 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -22,7 +22,7 @@ exports.glyphs['I_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: capHeight
+					y: capHeight - serifHeight - serifCurve * ( 60 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -31,17 +31,29 @@ exports.glyphs['I_cap'] =
 					})
 	components:
 		0:
-			base: 'serif_Bottom'
+			base: 'serif'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: serifHeight
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: serifHeight
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
 				1:
-					x: Utils.onLine({
-						y: serifHeight
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: serifHeight
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
+				2:
+					anchorLine: 0
+					leftWidth: 1.6
+					rightWidth: 1.6
+		1:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].y
+				1:
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].y
+				2:
+					anchorLine: capHeight
+					leftWidth: 1.6
+					rightWidth: 1.6
+					direction: -1

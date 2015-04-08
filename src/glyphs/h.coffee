@@ -17,7 +17,7 @@ exports.glyphs['h'] =
 			nodes:
 				0:
 					x: anchors[0].x
-					y: 0 + serifHeight * serifCurve
+					y: 0 + serifHeight + serifCurve
 					dirOut: 90 + 'deg'
 					expand: Object({
 						width: thickness
@@ -25,7 +25,7 @@ exports.glyphs['h'] =
 					})
 				1:
 					x: anchors[0].x
-					y: anchors[0].y
+					y: ascenderHeight - spurHeight * ( 60 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 40 / 15 )
 					dirOut: 90 + 'deg'
 					expand: Object({
 						width: thickness
@@ -70,7 +70,7 @@ exports.glyphs['h'] =
 					})
 				3:
 					x: contours[1].nodes[2].x
-					y: 0 + serifHeight * serifCurve
+					y: 0 + serifHeight + serifCurve
 					dirOut: - 90 + 'deg'
 					expand: Object({
 						width: thickness
@@ -78,51 +78,40 @@ exports.glyphs['h'] =
 					})
 	components:
 		0:
-			base: 'serif_Bottom'
+			base: 'serif'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: serifHeight
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: serifHeight
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
 				1:
-					x: Utils.onLine({
-						y: serifHeight
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: serifHeight
-		1:
-			base: 'serif_Bottom'
-			parentAnchors:
-				0:
-					x: Utils.onLine({
-						y: serifHeight
-						on: [ contours[1].nodes[2].expandedTo[1].point, contours[1].nodes[3].expandedTo[1].point ]
-					})
-					y: serifHeight
-				1:
-					x: Utils.onLine({
-						y: serifHeight
-						on: [ contours[1].nodes[2].expandedTo[0].point, contours[1].nodes[3].expandedTo[0].point ]
-					})
-					y: serifHeight
-		2:
-			base: 'term_TL'
-			parentAnchors:
-				0:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: anchors[0].y
-					serifWidth: 1
-				1:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: anchors[0].y
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
 				2:
-					x: 0
-					y: ascenderHeight
+					anchorLine: 0
+					leftWidth: 1
+					rightWidth: 1
+		1:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: contours[1].nodes[3].expandedTo[0].x
+					y: contours[1].nodes[3].y
+				1:
+					x: contours[1].nodes[3].expandedTo[1].x
+					y: contours[1].nodes[3].y
+				2:
+					anchorLine: 0
+					leftWidth: 1
+					rightWidth: 1
+		2:
+			base: 't_top'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].y
+				1:
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].y
+				2:
+					topLine: ascenderHeight
+					leftWidth: 1.25

@@ -80,8 +80,8 @@ exports.presets =
 		axis: 0
 		serifMedian: 0
 		serifWidth: 65
-		serifHeight: 0
-		serifCurve: .75
+		serifHeight: 20
+		serifCurve: 15
 		serifArc: 0
 		serifTerminal: 0
 		serifRotate: 0

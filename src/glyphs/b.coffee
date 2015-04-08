@@ -41,7 +41,7 @@ exports.glyphs['b'] =
 					})
 				3:
 					x: contours[0].nodes[0].x
-					y: ascenderHeight - 160 - ( thickness + 86 ) / 4
+					y: ascenderHeight - spurHeight * ( 60 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 40 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -111,21 +111,14 @@ exports.glyphs['b'] =
 					})
 	components:
 		0:
-			base: 'term_TL'
+			base: 't_top'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[2].expandedTo[0].point, contours[0].nodes[3].expandedTo[0].point ]
-					})
-					y: anchors[0].y
-					serifWidth: 1
+					x: contours[0].nodes[3].expandedTo[0].x
+					y: contours[0].nodes[3].y
 				1:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[2].expandedTo[1].point, contours[0].nodes[3].expandedTo[1].point ]
-					})
-					y: anchors[0].y
+					x: contours[0].nodes[3].expandedTo[1].x
+					y: contours[0].nodes[3].y
 				2:
-					x: 0
-					y: ascenderHeight
+					topLine: ascenderHeight
+					leftWidth: 1.25

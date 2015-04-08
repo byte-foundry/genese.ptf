@@ -116,3 +116,22 @@ exports.glyphs['R_cap'] =
 						angle: 11 + 'deg'
 						distr: 0.25
 					})
+	components:
+		0:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: Utils.onLine({
+						y: serifHeight + serifCurve
+						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
+					})
+					y: serifHeight + serifCurve
+				1:
+					x: Utils.onLine({
+						y: serifHeight + serifCurve
+						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+					})
+					y: serifHeight + serifCurve
+				2:
+					leftWidth: 1.6
+					rightWidth: 1.6

@@ -22,7 +22,7 @@ exports.glyphs['j'] =
 					})
 				1:
 					x: anchors[0].x
-					y: anchors[0].y
+					y: xHeight - spurHeight * ( 60 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 40 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -79,25 +79,17 @@ exports.glyphs['j'] =
 					type: 'smooth'
 	components:
 		0:
-			base: 'term_TL'
+			base: 't_top'
 			parentAnchors:
 				0:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-					})
-					y: anchors[0].y
-					serifWidth: 1
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].y
 				1:
-					x: Utils.onLine({
-						y: anchors[0].y
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-					})
-					y: anchors[0].y
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].y
 				2:
-					x: 0
-					y: xHeight
-
+					topLine: xHeight
+					leftWidth: 1.25
 		1:
 			base: 'title'
 			parentAnchors:
