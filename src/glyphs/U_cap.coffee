@@ -13,7 +13,7 @@ exports.glyphs['U_cap'] =
 			nodes:
 				0:
 					x: 140 + (25)
-					y: capHeight
+					y: capHeight - serifHeight - serifCurve * ( 65 / 15 )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
@@ -63,10 +63,37 @@ exports.glyphs['U_cap'] =
 					})
 				1:
 					x: contours[1].nodes[0].x
-					y: capHeight
+					y: capHeight - serifHeight - serifCurve * ( 65 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
 						distr: 0.25
 					})
+	components:
+		0:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].expandedTo[1].y
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].expandedTo[0].y
+				2:
+					anchorLine: capHeight
+					leftWidth: 1
+					direction: -1
+		1:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[1].nodes[1].expandedTo[1].x
+					y: contours[1].nodes[1].expandedTo[1].y
+				1:
+					x: contours[1].nodes[1].expandedTo[0].x
+					y: contours[1].nodes[1].expandedTo[0].y
+				2:
+					anchorLine: capHeight
+					leftWidth: 1
+					direction: -1

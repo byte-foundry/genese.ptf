@@ -65,3 +65,14 @@ exports.glyphs['L_cap'] =
 					leftWidth: 1.6
 					rightWidth: 1.6
 					direction: -1
+		1:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].expandedTo[1].y + serifHeight + serifCurve * ( 65 /15 )
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].expandedTo[0].y + serifHeight + serifCurve * ( 65 /15 )
+				2:
+					leftWidth: 1

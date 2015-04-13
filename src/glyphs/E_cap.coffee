@@ -94,7 +94,28 @@ exports.glyphs['E_cap'] =
 						width: contours[3].nodes[0].expand.width
 						distr: 1
 					})
-
-
-
-
+	components:
+		0:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].expandedTo[1].y - serifHeight - serifCurve * ( 65 /15 )
+				1:
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].expandedTo[0].y - serifHeight - serifCurve * ( 65 /15 )
+				2:
+					anchorLine: capHeight
+					leftWidth: 1
+					direction: -1
+		1:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].expandedTo[1].y + serifHeight + serifCurve * ( 65 /15 )
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].expandedTo[0].y + serifHeight + serifCurve * ( 65 /15 )
+				2:
+					leftWidth: 1

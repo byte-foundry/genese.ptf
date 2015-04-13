@@ -84,13 +84,14 @@ exports.glyphs['serif'] =
 				8:
 					x: contours[0].nodes[10].x - serifWidth * anchors[2].leftWidth
 					y: contours[0].nodes[2].y
-					dirIn: Utils.lineAngle( contours[0].nodes[8].point ,contours[0].nodes[9].point )
+					# dirIn: Utils.lineAngle( contours[0].nodes[8].point ,contours[0].nodes[9].point )
+					type: 'smooth'
 					tensionIn: serifTerminalCurve
 					typeOut: 'line'
 				9:
 					x: Math.max( contours[0].nodes[8].x + serifWidth / 10, anchors[1].x - serifHeight - serifCurve * anchors[2].leftWidth * anchors[2].leftCurve )
 					y: contours[0].nodes[1].y
-					dirIn: Utils.lineAngle( contours[0].nodes[8].point ,contours[0].nodes[9].point )
+					# dirIn: Utils.lineAngle( contours[0].nodes[8].point, contours[0].nodes[9].point )
 					tensionOut: serifRoundness
 					type: 'smooth'
 					# typeOut: 'line'

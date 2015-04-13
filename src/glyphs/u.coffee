@@ -13,7 +13,7 @@ exports.glyphs['u'] =
 			nodes:
 				0:
 					x: 90
-					y: xHeight
+					y: xHeight - serifHeight - serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -55,7 +55,7 @@ exports.glyphs['u'] =
 			nodes:
 				0:
 					x: contours[0].nodes[3].x - 6
-					y: xHeight
+					y: xHeight - serifHeight - serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -70,3 +70,30 @@ exports.glyphs['u'] =
 						width: thickness
 						distr: 0
 					})
+	components:
+		0:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].expandedTo[1].y
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].expandedTo[0].y
+				2:
+					anchorLine: xHeight
+					leftWidth: 1
+					direction: -1
+		1:
+			base: 'serif_left'
+			parentAnchors:
+				0:
+					x: contours[1].nodes[0].expandedTo[1].x
+					y: contours[1].nodes[0].expandedTo[1].y
+				1:
+					x: contours[1].nodes[0].expandedTo[0].x
+					y: contours[1].nodes[0].expandedTo[0].y
+				2:
+					anchorLine: xHeight
+					leftWidth: 1
+					direction: -1
