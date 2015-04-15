@@ -77,7 +77,7 @@ exports.glyphs['a'] =
 					x: ( 135 + 16 )
 					y: ( 220 / 500 ) * xHeight + ( thickness * ( 10 / 85 ) - 10 )
 					# dirOut: - 157 + 'deg'
-					dirOut: Utils.lineAngle( contours[1].nodes[0].expandedTo[1], contours[1].nodes[1].expandedTo[1] )
+					dirOut: Utils.lineAngle( contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[1].expandedTo[1].point )
 					# type: 'smooth'
 					expand: Object({
 						width: thickness * ( 63 / 85 )

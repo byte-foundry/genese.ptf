@@ -43,25 +43,21 @@ exports.glyphs['v'] =
 						distr: 1
 					})
 				1:
-					expandedTo:
-						[
-							{
-								x: Utils.onLine({
-									y: thickness * ( 95 / 85 )
-									on: [ contours[1].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-								})
-								y: thickness * ( 95 / 85 )
-								typeOut: 'line'
-							}
-							{
-								x: Utils.onLine({
-									y: thickness * ( 95 / 85 )
-									on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
-								})
-								y: thickness * ( 95 / 85 )
-								typeIn: 'line'
-							}
-						]
+					expandedTo: [
+						x: Utils.onLine({
+							y: thickness * ( 95 / 85 )
+							on: [ contours[1].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+						})
+						y: thickness * ( 95 / 85 )
+						typeOut: 'line'
+					,
+						x: Utils.onLine({
+							y: thickness * ( 95 / 85 )
+							on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
+						})
+						y: thickness * ( 95 / 85 )
+						typeIn: 'line'
+					]
 				2:
 					x: contours[0].nodes[1].expandedTo[0].x + contours[0].nodes[1].expand.width
 					y: - overshoot
@@ -78,19 +74,7 @@ exports.glyphs['v'] =
 				0:
 					x: Utils.onLine({
 						y: xHeight - serifHeight - serifCurve
-						# on: [ contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[1].expandedTo[1].point ]
-						## FIXME: we can't make a reference to a point manually expanded
-						## Current hack: we clone this point manually
-						## contours[1].nodes[1].expandedTo[1].point =
-						on: [ contours[1].nodes[0].expandedTo[1].point,
-								{
-									x: Utils.onLine({
-										y: thickness * ( 95 / 85 )
-										on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
-									})
-									y: thickness * ( 95 / 85 )
-								}
-						]
+						on: [ contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[1].expandedTo[1].point ]
 					})
 					y: xHeight - serifHeight - serifCurve
 				1:

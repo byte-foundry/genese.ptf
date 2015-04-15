@@ -7,7 +7,7 @@ exports.glyphs['o'] =
 			x: ( 450 + ( 66 ) ) * width
 			y: xHeight * ( 250 / 500 )
 		1:
-			x: ( 290 - 33 ) * width + 33 
+			x: ( 290 - 33 ) * width + 33
 			y: xHeight + overshoot
 	contours:
 		0:
