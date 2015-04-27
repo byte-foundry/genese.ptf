@@ -21,18 +21,19 @@ exports.glyphs['m'] =
 				0:
 					x: anchors[0].x
 					y: 0 + serifHeight + serifCurve
-					dirOut: 90 + 'deg'
+					typeOut: 'line'
 					expand: Object({
 						width: thickness
 						distr: 0.25
+						angle: 0
 					})
 				1:
 					x: anchors[0].x
 					y: xHeight - spurHeight * ( 60 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 40 / 15 )
-					dirOut: 90 + 'deg'
 					expand: Object({
 						width: thickness
 						distr: 0.25
+						angle: 0
 					})
 		1:
 			skeleton: true
@@ -66,18 +67,19 @@ exports.glyphs['m'] =
 				2:
 					x: anchors[1].x
 					y: anchors[1].y
-					dirOut: - 90 + 'deg'
+					typeOut: 'line'
 					expand: Object({
 						width: thickness
 						distr: 0.25
+						angle: -180 + 'deg'
 					})
 				3:
 					x: contours[1].nodes[2].x
 					y: 0 + serifHeight + serifCurve
-					dirOut: - 90 + 'deg'
 					expand: Object({
 						width: thickness
 						distr: 0.25
+						angle: -180 + 'deg'
 					})
 		2:
 			skeleton: true

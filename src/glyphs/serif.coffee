@@ -62,15 +62,20 @@ exports.glyphs['serif'] =
 					y: anchors[2].anchorLine
 					# typeOut: 'line'
 					dirIn: 0 + 'deg'
+					type: 'smooth'
 					tensionIn: serifTerminalCurve
 				5:
 					x: contours[0].nodes[4].x - ( contours[0].nodes[4].x - contours[0].nodes[6].x ) / 2
 					y: anchors[2].anchorLine + ( serifHeight * serifArc ) * anchors[2].directionY
-					# dirIn: 0 + 'deg'
+					dirIn: 0 + 'deg'
+					dirOut: 180 + 'deg'
 				6:
 					x: contours[0].nodes[10].x - ( contours[0].nodes[10].x - contours[0].nodes[8].x ) * midWidth
 					y: contours[0].nodes[4].y
 					tensionOut: serifTerminalCurve
+					type: 'smooth'
+					dirIn: 0 + 'deg'
+					dirOut: 180 + 'deg'
 				7:
 					x: contours[0].nodes[8].x - ( contours[0].nodes[8].x - contours[0].nodes[6].x ) / 2 - serifTerminal * serifWidth
 					y: contours[0].nodes[3].y
