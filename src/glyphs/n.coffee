@@ -108,7 +108,7 @@ exports.glyphs['n'] =
 					leftWidth: 1.25
 					rightWidth: 1.25
 		2:
-			base: 't_top'
+			base: 'attaque'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[0].expandedTo[0].x
@@ -117,5 +117,5 @@ exports.glyphs['n'] =
 					x: contours[0].nodes[0].expandedTo[1].x
 					y: contours[0].nodes[0].y
 				2:
-					topLine: xHeight
+					anchorLine: xHeight
 					leftWidth: 1.25

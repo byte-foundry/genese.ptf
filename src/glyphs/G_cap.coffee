@@ -137,4 +137,4 @@ exports.glyphs['G_cap'] =
 					anchorLine: 325
 					leftWidth: 1.6
 					rightWidth: 1.6
-					direction: -1
+					directionY: -1

@@ -93,7 +93,7 @@ exports.glyphs['b'] =
 					})
 				4:
 					x: contours[1].nodes[0].x
-					y: xHeight * ( 115 / 500 )
+					y: xHeight * ( 95 / 500 )
 					dirOut: - 64 + 'deg'
 					expand: Object({
 						width: thickness * ( 50 / 86 ) * contrast
@@ -111,7 +111,7 @@ exports.glyphs['b'] =
 					})
 	components:
 		0:
-			base: 't_top'
+			base: 'attaque'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[3].expandedTo[0].x
@@ -120,5 +120,5 @@ exports.glyphs['b'] =
 					x: contours[0].nodes[3].expandedTo[1].x
 					y: contours[0].nodes[3].y
 				2:
-					topLine: ascenderHeight
+					anchorLine: ascenderHeight
 					leftWidth: 1.25

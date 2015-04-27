@@ -9,9 +9,10 @@ exports.glyphs['serif_right'] =
 		2:
 			anchorLine: parentAnchors[2].anchorLine || 0
 			rightCurve: parentAnchors[2].rightCurve || 1
-			rightWidth: parentAnchors[2].rightWidth || 1
+			rightWidth: parentAnchors[2].rightWidth * Math.min( serifWidth / 65, 1 ) || 1
 			angle: parentAnchors[2].angle || - 90 + 'deg'
-			direction: parentAnchors[2].direction || 1
+			directionY: parentAnchors[2].directionY || 1
+			directionX: parentAnchors[2].directionX || 1
 	contours:
 		0:
 			closed: true
@@ -24,7 +25,7 @@ exports.glyphs['serif_right'] =
 					tensionOut: 1.4 * serifRoundness
 				1:
 					x: contours[0].nodes[2].x - ( contours[0].nodes[2].x - contours[0].nodes[0].x ) / 2
-					y: anchors[2].anchorLine + ( serifHeight * serifArc ) * anchors[2].direction
+					y: anchors[2].anchorLine + ( serifHeight * serifArc ) * anchors[2].directionY
 					# typeOut: 'line'
 					# type: 'smooth'
 				2:
@@ -35,19 +36,19 @@ exports.glyphs['serif_right'] =
 					tensionIn: serifTerminalCurve
 				3:
 					x: contours[0].nodes[4].x + ( contours[0].nodes[2].x - contours[0].nodes[4].x ) / 2 + serifTerminal * serifWidth
-					y: anchors[2].anchorLine + (( serifHeight * serifMedian ) / 2 ) * anchors[2].direction
+					y: anchors[2].anchorLine + (( serifHeight * serifMedian ) / 2 ) * anchors[2].directionY
 					dirIn: Utils.lineAngle( contours[0].nodes[4].point ,contours[0].nodes[2].point )
 					type: 'smooth'
 					tensionOut: serifTerminalCurve
 					tensionIn: serifTerminalCurve
 				4:
 					x: contours[0].nodes[6].x + serifWidth * anchors[2].rightWidth
-					y: anchors[2].anchorLine + ( serifHeight * serifMedian ) * anchors[2].direction
+					y: anchors[2].anchorLine + ( serifHeight * serifMedian ) * anchors[2].directionY
 					tensionOut: serifTerminalCurve
 					type: 'smooth'
 				5:
 					x: Math.min( contours[0].nodes[4].x - serifWidth / 10, anchors[0].x + serifHeight + serifCurve * anchors[2].rightWidth * anchors[2].rightCurve ) # serifWidth / 10 to avoid weird behavior with curve/median
-					y: anchors[2].anchorLine + ( serifHeight ) * anchors[2].direction
+					y: anchors[2].anchorLine + ( serifHeight ) * anchors[2].directionY
 					type: 'smooth'
 					typeIn: 'line'
 					tensionIn: serifRoundness

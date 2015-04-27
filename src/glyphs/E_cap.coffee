@@ -13,11 +13,11 @@ exports.glyphs['E_cap'] =
 			nodes:
 				0:
 					x: 145
-					y: 0
+					y: 0 + serifHeight + serifCurve * ( 65 /15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 				1:
@@ -26,7 +26,7 @@ exports.glyphs['E_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 		1:
@@ -39,7 +39,7 @@ exports.glyphs['E_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 20 / 100 )
+						width: thickness * opticThickness * ( 25 / 100 )
 						distr: 0
 					})
 				1:
@@ -56,16 +56,16 @@ exports.glyphs['E_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[1].nodes[0].x
-					y: capHeight * ( 372 / 750 ) * crossbar
+					x: 480 + ( thickness / 2 - 43 )
+					y: capHeight * ( 385 / 750 ) * crossbar
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 25 / 100 )
+						width: thickness * opticThickness * ( 28 / 100 )
 						distr: 0
 					})
 				1:
-					x: 485 + ( thickness / 2 - 43 )
+					x: contours[1].nodes[0].x
 					y: contours[2].nodes[0].y
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
@@ -83,7 +83,8 @@ exports.glyphs['E_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 20 / 100 )
+						# width: Math.max( serifHeight, thickness * opticThickness * ( 20 / 100 ) ) // Fit the thickness to the serifHeight
+						width: thickness * opticThickness * ( 25 / 100 )
 						distr: 1
 					})
 				1:
@@ -94,6 +95,27 @@ exports.glyphs['E_cap'] =
 						width: contours[3].nodes[0].expand.width
 						distr: 1
 					})
+		4:
+			skeleton: false
+			closed: true
+			nodes:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x + ( serifHeight + serifCurve ) * ( 80 / 35 )
+					y: contours[3].nodes[0].expand.width
+					tensionOut: 1.5
+				1:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: ( serifHeight + serifCurve ) * ( 80 / 35 )
+					dirIn: - 90 + 'deg'
+					typeOut: 'line'
+				2:
+					x: contours[4].nodes[1].x
+					y: contours[4].nodes[0].y
+					typeOut: 'line'
+				3:
+					x: contours[4].nodes[0].x
+					y: contours[4].nodes[0].y
+					typeOut: 'line'
 	components:
 		0:
 			base: 'serif_left'
@@ -106,16 +128,32 @@ exports.glyphs['E_cap'] =
 					y: contours[0].nodes[1].expandedTo[0].y - serifHeight - serifCurve * ( 65 /15 )
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					direction: -1
+					leftWidth: 40
+					directionY: -1
 		1:
 			base: 'serif_left'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].expandedTo[1].y + serifHeight + serifCurve * ( 65 /15 )
+					y: serifHeight + serifCurve * ( 65 /15 )
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].expandedTo[0].y + serifHeight + serifCurve * ( 65 /15 )
+					y: serifHeight + serifCurve * ( 65 /15 )
 				2:
-					leftWidth: 1
+					leftWidth: 40
+		2:
+			base: 'serif-v'
+			parentAnchors:
+				0:
+					x: Math.max(contours[2].nodes[1].expandedTo[1].x, contours[2].nodes[0].expandedTo[1].x - serifHeight - serifCurve * ( 100 /15 ) )
+					y: contours[2].nodes[0].expandedTo[1].y
+				1:
+					x: Math.max(contours[2].nodes[1].expandedTo[0].x, contours[2].nodes[0].expandedTo[0].x - serifHeight - serifCurve * ( 100 /15 ) )
+					y: contours[2].nodes[0].expandedTo[0].y
+				2:
+					anchorLine: contours[2].nodes[0].expandedTo[0].x
+					bottomWidth: 75
+					topWidth: 72
+					bottomMedian: 0.94
+					topMedian: 0.94
+					serifHeight: 0.8

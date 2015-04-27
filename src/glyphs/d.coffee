@@ -88,7 +88,7 @@ exports.glyphs['d'] =
 					})
 	components:
 		0:
-			base: 't_top'
+			base: 'attaque'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[1].expandedTo[0].x
@@ -97,9 +97,24 @@ exports.glyphs['d'] =
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: contours[0].nodes[1].y
 				2:
-					topLine: ascenderHeight
+					anchorLine: ascenderHeight
 					leftWidth: 1.7
 					spurHeight: 1
+		1:
+			base: 'attaque'
+			parentAnchors:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].y
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].y
+				2:
+					anchorLine: 0
+					rightWidth: 1.7
+					spurHeight: 1
+					directionY: - 1
+					directionX: - 1
 		# 0:
 		# 	base: 'term_TL'
 		# 	parentAnchors:

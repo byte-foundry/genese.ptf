@@ -148,7 +148,7 @@ exports.glyphs['m'] =
 					leftWidth: 1
 					rightWidth: 1
 		2:
-			base: 't_top'
+			base: 'attaque'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[1].expandedTo[0].x
@@ -157,7 +157,7 @@ exports.glyphs['m'] =
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: contours[0].nodes[1].y
 				2:
-					topLine: xHeight
+					anchorLine: xHeight
 					leftWidth: 1.25
 		3:
 			base: 'serif'

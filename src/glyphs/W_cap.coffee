@@ -157,7 +157,7 @@ exports.glyphs['W_cap'] =
 					})
 	# components:
 	# 	0:
-	# 		base: 'serif_Top'
+	# 		base: 'serif'
 	# 		parentAnchors:
 	# 			0:
 	# 				x: Utils.onLine({
@@ -176,7 +176,7 @@ exports.glyphs['W_cap'] =
 	# 				dirOut: Utils.lineAngle( contours[1].nodes[2].expandedTo[1].point, contours[1].nodes[0].expandedTo[1].point )
 	# 				serifWidth: 0.45
 	# 	1:
-	# 		base: 'serif_Top'
+	# 		base: 'serif'
 	# 		parentAnchors:
 	# 			0:
 	# 				x: Utils.onLine({
@@ -195,7 +195,7 @@ exports.glyphs['W_cap'] =
 	# 				dirOut: Utils.lineAngle( contours[3].nodes[2].expandedTo[1].point, contours[3].nodes[0].expandedTo[1].point )
 	# 				serifWidth: 0.2
 	# 	2:
-	# 		base: 'serif_Top'
+	# 		base: 'serif'
 	# 		parentAnchors:
 	# 			0:
 	# 				x: Utils.onLine({

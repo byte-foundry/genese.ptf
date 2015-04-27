@@ -166,7 +166,7 @@ exports.glyphs['M_cap'] =
 					anchorLine: capHeight
 					leftWidth: 1
 					rightWidth: 1
-					direction: -1
+					directionY: -1
 					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
 		3:
 			base: 'serif_left'
@@ -184,5 +184,5 @@ exports.glyphs['M_cap'] =
 					anchorLine: capHeight
 					leftWidth: 1
 					rightWidth: 1
-					direction: -1
+					directionY: -1
 					angle: Utils.lineAngle( contours[3].nodes[0].expandedTo[0].point, contours[3].nodes[2].expandedTo[0].point )

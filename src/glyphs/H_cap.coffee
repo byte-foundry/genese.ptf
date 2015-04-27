@@ -1,7 +1,7 @@
 exports.glyphs['H_cap'] =
 	unicode: 'H'
 	ot:
-		advanceWidth: contours[2].nodes[0].expandedTo[0].x + serifWidth + 40 * spacing
+		advanceWidth: contours[2].nodes[0].expandedTo[0].x + serifWidth * 1.6 + 40 * spacing + 40
 	anchors:
 		0:
 			x: 580
@@ -98,7 +98,7 @@ exports.glyphs['H_cap'] =
 					anchorLine: capHeight
 					leftWidth: 1.6
 					rightWidth: 1.6
-					direction: -1
+					directionY: -1
 		2:
 			base: 'serif'
 			parentAnchors:
@@ -125,4 +125,4 @@ exports.glyphs['H_cap'] =
 					anchorLine: capHeight
 					leftWidth: 1.6
 					rightWidth: 1.6
-					direction: -1
+					directionY: -1

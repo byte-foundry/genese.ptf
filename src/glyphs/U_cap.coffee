@@ -5,7 +5,7 @@ exports.glyphs['U_cap'] =
 	anchors:
 		0:
 			x: 550 + 0
-			y: ( ( 180 + (0) ) / 750 ) * capHeight
+			y: ( ( 190 + (0) ) / 750 ) * capHeight
 	contours:
 		0:
 			skeleton: true
@@ -54,7 +54,7 @@ exports.glyphs['U_cap'] =
 			nodes:
 				0:
 					x: 550 + (25)
-					y: 0
+					y: 90 + serifHeight
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -82,8 +82,8 @@ exports.glyphs['U_cap'] =
 					y: contours[0].nodes[0].expandedTo[0].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					direction: -1
+					leftWidth: 1.6
+					directionY: -1
 		1:
 			base: 'serif_left'
 			parentAnchors:
@@ -95,5 +95,19 @@ exports.glyphs['U_cap'] =
 					y: contours[1].nodes[1].expandedTo[0].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					direction: -1
+					leftWidth: 1.6
+					directionY: -1
+		2:
+			base: 'attaque'
+			parentAnchors:
+				0:
+					x: contours[1].nodes[0].expandedTo[1].x
+					y: contours[1].nodes[0].y
+				1:
+					x: contours[1].nodes[0].expandedTo[0].x
+					y: contours[1].nodes[0].y
+				2:
+					anchorLine: 0
+					rightWidth: 1.6
+					directionY: - 1
+					directionX: - 1

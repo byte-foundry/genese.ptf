@@ -1,7 +1,7 @@
 exports.glyphs['I_cap'] =
 	unicode: 'I'
 	ot:
-		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth + 40 * spacing
+		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth * 1.6 + 40 * spacing
 	anchors:
 		0:
 			x: 580
@@ -17,7 +17,7 @@ exports.glyphs['I_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 				1:
@@ -26,7 +26,7 @@ exports.glyphs['I_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 	components:
@@ -40,9 +40,8 @@ exports.glyphs['I_cap'] =
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: contours[0].nodes[0].y
 				2:
-					anchorLine: 0
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40
 		1:
 			base: 'serif'
 			parentAnchors:
@@ -54,6 +53,7 @@ exports.glyphs['I_cap'] =
 					y: contours[0].nodes[1].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.6
-					rightWidth: 1.6
-					direction: -1
+					leftWidth: 40
+					rightWidth: 40
+					leftCurve: 50
+					directionY: -1

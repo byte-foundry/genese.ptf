@@ -51,4 +51,4 @@ exports.glyphs['J_cap'] =
 					anchorLine: capHeight
 					leftWidth: 1.6
 					rightWidth: 1.6
-					direction: -1
+					directionY: -1

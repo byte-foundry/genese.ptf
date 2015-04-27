@@ -85,7 +85,7 @@ exports.glyphs['k'] =
 					leftWidth: 1
 					rightWidth: 1
 		1:
-			base: 't_top'
+			base: 'attaque'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[1].expandedTo[0].x
@@ -94,7 +94,7 @@ exports.glyphs['k'] =
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: contours[0].nodes[1].y
 				2:
-					topLine: ascenderHeight
+					anchorLine: ascenderHeight
 					leftWidth: 1.25
 		2:
 			base: 'serif'
@@ -135,4 +135,4 @@ exports.glyphs['k'] =
 					leftWidth: 1.2
 					rightWidth: 1.1
 					angle: Utils.lineAngle( contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point )
-					direction: -1
+					directionY: -1

@@ -24,31 +24,31 @@ exports.glyphs['C_cap'] =
 					expandedTo:
 						[
 							{
-								x: 590
-								y: 670
+								x: 630
+								y: 680
 								dirOut: 180 + 'deg'
 								tensionOut: 0.3
 							}
 							{
-								x: 630
+								x: 670
 								y: 505
-								dirIn: 113 + 'deg'
+								dirIn: 115 + 'deg'
 							}
 						]
 				1:
-					x: 370
+					x: 395
 					y: capHeight + overshoot
 					dirOut: 0 + 'deg'
 					dirIn: 0 + 'deg'
 					type: 'smooth'
-					tensionIn: 1.5
+					tensionIn: 1.45
 					expand: Object({
 						width: thickness * ( 27 / 85 ) * opticThickness
 						angle: - 68 + 'deg'
 						distr: 0
 					})
 				2:
-					x: 35
+					x: 35 + (27)
 					y: capHeight * ( 375 / 750 )
 					type: 'smooth'
 					expand: Object({
@@ -57,7 +57,7 @@ exports.glyphs['C_cap'] =
 						distr: 0.25
 					})
 				3:
-					x: 355
+					x: 380
 					y: - overshoot
 					type: 'smooth'
 					dirIn: 0 + 'deg'
@@ -65,21 +65,21 @@ exports.glyphs['C_cap'] =
 					expand: Object({
 						width: thickness * ( 33 / 85 ) * opticThickness
 						angle: 63 + 'deg'
-						distr: 0.25
+						distr: 0
 					})
 				4:
 					expandedTo:
 						[
 							{
-								x: 545
-								y: 65
+								x: 605
+								y: 55
 								dirOut: 180 + 'deg'
 								tensionIn: 0.3
 							}
 							{
-								x: 630
+								x: 670
 								y: 250
-								dirOut: - 120 + 'deg'
+								dirOut: - 108 + 'deg'
 							}
 						]
 		1:
@@ -92,8 +92,8 @@ exports.glyphs['C_cap'] =
 					# typeOut: 'line'
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x + 30
-					y: contours[0].nodes[0].expandedTo[0].y + 60
-					dirIn: - 102 + 'deg'
+					y: contours[0].nodes[0].expandedTo[0].y + 50
+					dirIn: - 95 + 'deg'
 				2:
 					x: contours[1].nodes[1].x + 15
 					y: contours[1].nodes[1].y
@@ -123,7 +123,7 @@ exports.glyphs['C_cap'] =
 					typeOut: 'line'
 				3:
 					x: contours[0].nodes[4].expandedTo[1].x + 20
-					y: contours[2].nodes[2].y + 220
+					y: contours[2].nodes[2].y + 230
 					typeOut: 'line'
 				4:
 					x: contours[0].nodes[4].expandedTo[1].x

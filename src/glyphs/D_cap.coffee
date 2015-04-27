@@ -2,10 +2,6 @@ exports.glyphs['D_cap'] =
 	unicode: 'D'
 	ot:
 		advanceWidth: contours[1].nodes[2].expandedTo[0].x + 45 * spacing
-	anchors:
-		0:
-			x: 740 - 0
-			y: 375
 	contours:
 		0:
 			skeleton: true
@@ -43,19 +39,21 @@ exports.glyphs['D_cap'] =
 						distr: 0
 					})
 				1:
-					x: contours[1].nodes[0].x + 120 + (10)
+					x: contours[1].nodes[0].x + 120
 					y: contours[0].nodes[0].expandedTo[1].y
 					dirOut: 0 + 'deg'
+					tensionOut: 1.1
 					expand: Object({
 						width: thickness * ( 82 / 85 ) * opticThickness
 						angle: - 166 + 'deg'
 						distr: 0
 					})
 				2:
-					x: anchors[0].x
-					y: anchors[0].y
+					x: 740
+					y: 375
 					# dirIn: 90 + 'deg'
 					type: 'smooth'
+					tensionOut: 1.1
 					expand: Object({
 						width: thickness * ( 110 / 85 ) * opticThickness
 						angle: 180 + 'deg'
@@ -72,12 +70,12 @@ exports.glyphs['D_cap'] =
 					})
 		2:
 			skeleton: false
-			closed: false
+			closed: true
 			nodes:
 				0:
 					x: contours[1].nodes[3].expandedTo[1].x
 					y: contours[1].nodes[3].expandedTo[1].y
-					# typeOut: 'line'
+					tensionOut: 1.5
 				1:
 					x: contours[0].nodes[0].expandedTo[1].x
 					y: ( serifHeight + serifCurve ) * ( 80 / 35 )
@@ -103,8 +101,8 @@ exports.glyphs['D_cap'] =
 					y: contours[0].nodes[0].expandedTo[0].y - serifHeight - serifCurve * ( 65 /15 )
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					direction: -1
+					leftWidth: 40
+					directionY: -1
 		1:
 			base: 'serif_left'
 			parentAnchors:
@@ -115,4 +113,4 @@ exports.glyphs['D_cap'] =
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y + serifHeight + serifCurve * ( 65 /15 )
 				2:
-					leftWidth: 1
+					leftWidth: 40

@@ -121,7 +121,7 @@ exports.glyphs['Y_cap'] =
 					leftWidth: 1.6
 					rightWidth: 1.6
 					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[2].expandedTo[0].point )
-					direction: -1
+					directionY: -1
 		2:
 			base: 'serif'
 			parentAnchors:
@@ -142,4 +142,4 @@ exports.glyphs['Y_cap'] =
 					leftWidth: 1.6
 					rightWidth: Math.max( 1.6, 1.6 * serifCurve / 100 )
 					angle: Utils.lineAngle( contours[2].nodes[1].expandedTo[0].point, contours[2].nodes[0].expandedTo[0].point )
-					direction: -1
+					directionY: -1

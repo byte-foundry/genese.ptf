@@ -139,7 +139,7 @@ exports.glyphs['X_cap'] =
 					y: capHeight - serifHeight - serifCurve * ( 60 / 15 )
 				2:
 					anchorLine: capHeight
-					direction: -1
+					directionY: -1
 					leftCurve: 5
 					leftWidth: 2
 					rightWidth: 1
@@ -161,7 +161,7 @@ exports.glyphs['X_cap'] =
 					y: capHeight - serifHeight - serifCurve * ( 60 / 15 )
 				2:
 					anchorLine: capHeight
-					direction: -1
+					directionY: -1
 					rightCurve: 5
 					leftWidth: 1
 					rightWidth: 2

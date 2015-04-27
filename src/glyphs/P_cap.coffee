@@ -107,4 +107,4 @@ exports.glyphs['P_cap'] =
 				2:
 					anchorLine: capHeight
 					leftWidth: 1
-					direction: -1			
+					directionY: -1			

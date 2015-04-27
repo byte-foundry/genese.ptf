@@ -1,10 +1,13 @@
 exports.glyphs['A_cap'] =
 	unicode: 'A'
 	ot:
-		advanceWidth: contours[0].nodes[1].expandedTo[1].x + serifWidth * 1.6 + 25 * spacing
+		advanceWidth: contours[0].nodes[1].expandedTo[1].x + ( serifWidth + 50 ) + 25 * spacing
 	anchors:
 		0:
 			x: ( 495 + 20 ) * width
+			y: 0
+		1:
+			x: 50 + (9)
 			y: 0
 	contours:
 		0:
@@ -12,7 +15,7 @@ exports.glyphs['A_cap'] =
 			closed: false
 			nodes:
 				1:
-					x: anchors[0].x * ( ( 295 + 10 ) / 495 )
+					x: ( 495 + 20 ) * width * ( ( 295 + 10 ) / 495 )
 					y: capHeight - capHeight * ( 30 / 750 ) * thickness / 85 * ( serifCurve / 15 )
 					typeOut: 'line'
 					expand: Object({
@@ -21,8 +24,11 @@ exports.glyphs['A_cap'] =
 						distr: 0.25
 					})
 				0:
-					x: anchors[0].x
-					y: 0
+					x: Utils.onLine({
+						y: 0 + serifHeight + serifCurve
+						on: [ contours[0].nodes[1].point, anchors[0].point ]
+					})
+					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 105 / 85 ) * opticThickness
@@ -34,8 +40,11 @@ exports.glyphs['A_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 50 + 9
-					y: 0
+					x: Utils.onLine({
+						y: 0 + serifHeight + serifCurve
+						on: [ contours[0].nodes[1].point, anchors[1].point ]
+					})
+					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 30 / 85 ) * opticThickness
@@ -63,7 +72,7 @@ exports.glyphs['A_cap'] =
 						y: capHeight * ( 280 / 750 ) * crossbar
 						on: [ contours[0].nodes[0].point, contours[0].nodes[1].point ]
 					})
-					y: capHeight * ( 280 / 750 ) * crossbar
+					y: capHeight * ( 298 / 750 ) * crossbar
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 26 / 85 ) * opticThickness
@@ -98,7 +107,7 @@ exports.glyphs['A_cap'] =
 					y: capHeight + overshoot * 2
 					typeOut: 'line'
 				2:
-					x: contours[3].nodes[1].x - thickness * ( 10 / 85 ) * ( serifCurve / 15 )
+					x: contours[3].nodes[1].x - thickness * ( 10 / 85 ) * ( serifCurve / 15 ) 
 					y: contours[3].nodes[1].y
 					dirOut: - 116 + 'deg'
 				3:
@@ -123,26 +132,28 @@ exports.glyphs['A_cap'] =
 					y: serifHeight + serifCurve * ( 65 / 15 )
 				2:
 					anchorLine: 0
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 45
+					rightWidth: 48
 					angle: Utils.lineAngle( contours[0].nodes[0].point ,contours[0].nodes[1].point )
 		1:
 			base: 'serif'
 			parentAnchors:
 				0:
 					x: Utils.onLine({
-						y: serifHeight + serifCurve * ( 65 / 15 )
+						y: serifHeight + serifCurve + 115
 						on: [ contours[1].nodes[1].expandedTo[1].point, contours[1].nodes[0].expandedTo[1].point ]
 					})
-					y: serifHeight + serifCurve * ( 65 / 15 )
+					y: serifHeight + serifCurve + 115
 				1:
 					x: Utils.onLine({
-						y: serifHeight + serifCurve * ( 65 / 15 )
+						y: serifHeight + serifCurve + 115
 						on: [ contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point ]
 					})
-					y: serifHeight + serifCurve * ( 65 / 15 )
+					y: serifHeight + serifCurve + 115
 				2:
 					anchorLine: 0
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 78
+					rightWidth: 48
+					rightCurve: 5
+					leftCurve: 5
 					angle: Utils.lineAngle( contours[1].nodes[1].point ,contours[1].nodes[0].point )

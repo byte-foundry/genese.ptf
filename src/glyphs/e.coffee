@@ -57,9 +57,9 @@ exports.glyphs['e'] =
 					y: xHeight * ( 130 / 500 )
 					# dirOut: 65 + 'deg'
 					expand: Object({
-						angle: 146 + 180 + 'deg'
+						angle: 166 + 180 + 'deg'
 						distr: 1
-						width: thickness * ( 18 / 86 )
+						width: thickness * ( 11 / 86 )
 					})
 		1:
 			skeleton: true
@@ -82,8 +82,3 @@ exports.glyphs['e'] =
 						width: thickness * ( 25 / 86 )
 						distr: 0
 					})
-
-
-
-
-

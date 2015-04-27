@@ -104,7 +104,7 @@ exports.glyphs['v'] =
 					leftWidth: 0.9
 					rightWidth: 0.9
 					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[2].expandedTo[0].point )
-					direction: -1
+					directionY: -1
 		1:
 			base: 'serif'
 			parentAnchors:
@@ -125,4 +125,4 @@ exports.glyphs['v'] =
 					leftWidth: 0.9
 					rightWidth: 0.9
 					angle: Utils.lineAngle( contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point )
-					direction: -1
+					directionY: -1
