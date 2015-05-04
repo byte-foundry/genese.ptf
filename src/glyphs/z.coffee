@@ -8,7 +8,7 @@ exports.glyphs['z'] =
 			closed: false
 			nodes:
 				0:
-					x: 415 + (0)
+					x: 435 + (0)
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
@@ -77,6 +77,7 @@ exports.glyphs['z'] =
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y
 					dirOut: 180 + 'deg'
+					tensionOut: 1.8
 				1:
 					x: contours[3].nodes[0].x - 40
 					y: contours[3].nodes[0].y + 35

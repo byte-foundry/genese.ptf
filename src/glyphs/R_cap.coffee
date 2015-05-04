@@ -1,7 +1,7 @@
 exports.glyphs['R_cap'] =
 	unicode: 'R'
 	ot:
-		advanceWidth: contours[2].nodes[0].expandedTo[0].x - 60 * spacing
+		advanceWidth: contours[2].nodes[0].expandedTo[0].x + 10 * spacing
 	anchors:
 		0:
 			x: 0
@@ -13,7 +13,7 @@ exports.glyphs['R_cap'] =
 			nodes:
 				0:
 					x: 145
-					y: 0
+					y: 0 + serifHeight + serifCurve * ( 65 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -22,7 +22,7 @@ exports.glyphs['R_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: capHeight
+					y: capHeight - serifHeight - serifCurve * ( 65 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -125,26 +125,26 @@ exports.glyphs['R_cap'] =
 						y: serifHeight + serifCurve
 						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
 					})
-					y: serifHeight + serifCurve
+					y: serifHeight + serifCurve * ( 65 /15 )
 				1:
 					x: Utils.onLine({
 						y: serifHeight + serifCurve
 						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
 					})
-					y: serifHeight + serifCurve
+					y: serifHeight + serifCurve * ( 65 /15 )
 				2:
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40
 		1:
 			base: 'serif_left'
 			parentAnchors:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x
-					y: contours[0].nodes[1].expandedTo[1].y - serifHeight - serifCurve * ( 65 /15 )
+					y: contours[0].nodes[1].expandedTo[1].y
 				1:
 					x: contours[0].nodes[1].expandedTo[0].x
-					y: contours[0].nodes[1].expandedTo[0].y - serifHeight - serifCurve * ( 65 /15 )
+					y: contours[0].nodes[1].expandedTo[0].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					directionY: -1			
+					leftWidth: 40
+					directionY: -1

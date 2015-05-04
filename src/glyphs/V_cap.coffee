@@ -1,7 +1,7 @@
 exports.glyphs['V_cap'] =
 	unicode: 'V'
 	ot:
-		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth - 40 * spacing
+		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth - 40 * spacing + (150)
 	contours:
 		0:
 			skeleton: true
@@ -73,21 +73,64 @@ exports.glyphs['V_cap'] =
 			parentAnchors:
 				0:
 					x: Utils.onLine({
-						y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
-						on: [ contours[0].nodes[1].expandedTo[1].point, contours[0].nodes[0].expandedTo[1].point ]
+						y: capHeight - serifHeight - serifCurve
+						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
 					})
-					y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
+					y: capHeight - serifHeight - serifCurve
 				1:
 					x: Utils.onLine({
-						y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
-						on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
+						y: capHeight - serifHeight - serifCurve
+						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
 					})
-					y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
+					y: capHeight - serifHeight - serifCurve
 				2:
 					anchorLine: capHeight
-					directionY: -1
-					leftCurve: 5
-					rightCurve: 5
-					leftWidth: 2
-					rightWidth: 2
+					leftWidth: 0.9
+					rightWidth: 0.9
 					angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+					directionY: -1
+		1:
+			base: 'serif'
+			parentAnchors:
+				0:
+					x: Utils.onLine({
+						y: capHeight - serifHeight - serifCurve
+						on: [ contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[1].expandedTo[1].point ]
+					})
+					y: capHeight - serifHeight - serifCurve
+				1:
+					x: Utils.onLine({
+						y: capHeight - serifHeight - serifCurve
+						on: [ contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point ]
+					})
+					y: capHeight - serifHeight - serifCurve
+				2:
+					anchorLine: capHeight
+					leftWidth: 0.9
+					rightWidth: 0.9
+					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
+					directionY: -1
+	# components:
+	# 	0:
+	# 		base: 'serif'
+	# 		parentAnchors:
+	# 			0:
+	# 				x: Utils.onLine({
+	# 					y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
+	# 					on: [ contours[0].nodes[1].expandedTo[1].point, contours[0].nodes[0].expandedTo[1].point ]
+	# 				})
+	# 				y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
+	# 			1:
+	# 				x: Utils.onLine({
+	# 					y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
+	# 					on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
+	# 				})
+	# 				y: capHeight - serifHeight - serifCurve * ( 150 / 15 )
+	# 			2:
+	# 				anchorLine: capHeight
+	# 				directionY: -1
+	# 				leftCurve: 5
+	# 				rightCurve: 5
+	# 				leftWidth: 2
+	# 				rightWidth: 2
+	# 				angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )

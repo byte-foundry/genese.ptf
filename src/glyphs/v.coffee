@@ -1,7 +1,7 @@
 exports.glyphs['v'] =
 	unicode: 'v'
 	ot:
-		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth + 25 * spacing
+		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth + 25 * spacing + (50)
 	anchors:
 		0:
 			x: 395

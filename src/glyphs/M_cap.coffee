@@ -61,11 +61,11 @@ exports.glyphs['M_cap'] =
 						distr: 0
 					})
 				1:
-					x: 485 - (30)
-					y: 30
+					x: 440 - (0)
+					y: 0
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 26 / 85 ) * opticThickness
+						width: thickness * ( 15 / 85 ) * opticThickness
 						angle: 0 + 'deg'
 						distr: 0
 					})
@@ -104,10 +104,10 @@ exports.glyphs['M_cap'] =
 						]
 				2:
 					x: contours[2].nodes[1].expandedTo[0].x + contours[2].nodes[1].expand.width
-					y: 30
+					y: contours[2].nodes[1].y
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 25 / 85 ) * opticThickness
+						width: contours[2].nodes[1].expand.width
 						angle: 0 + 'deg'
 						distr: 1
 					})
@@ -128,8 +128,8 @@ exports.glyphs['M_cap'] =
 					})
 					y: 0 + serifHeight + serifCurve
 				2:
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 40
+					rightWidth: 40
 					angle: Utils.lineAngle( contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point )
 		1:
 			base: 'serif'
@@ -147,8 +147,8 @@ exports.glyphs['M_cap'] =
 					})
 					y: 0 + serifHeight + serifCurve
 				2:
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 40
+					rightWidth: 40
 					angle: Utils.lineAngle( contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point )
 		2:
 			base: 'serif_right'
@@ -164,8 +164,7 @@ exports.glyphs['M_cap'] =
 					y: contours[1].nodes[1].expandedTo[0].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					rightWidth: 1
+					rightWidth: 1.6
 					directionY: -1
 					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
 		3:
@@ -182,7 +181,7 @@ exports.glyphs['M_cap'] =
 					y: capHeight - serifHeight - serifCurve
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 40
+					rightWidth: 40
 					directionY: -1
 					angle: Utils.lineAngle( contours[3].nodes[0].expandedTo[0].point, contours[3].nodes[2].expandedTo[0].point )

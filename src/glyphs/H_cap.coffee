@@ -17,7 +17,7 @@ exports.glyphs['H_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 				1:
@@ -26,7 +26,7 @@ exports.glyphs['H_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 		1:
@@ -59,7 +59,7 @@ exports.glyphs['H_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 				1:
@@ -68,7 +68,7 @@ exports.glyphs['H_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0
 					})
 	components:
@@ -83,8 +83,8 @@ exports.glyphs['H_cap'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: 0
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40
 		1:
 			base: 'serif'
 			parentAnchors:
@@ -96,8 +96,8 @@ exports.glyphs['H_cap'] =
 					y: contours[0].nodes[1].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40
 					directionY: -1
 		2:
 			base: 'serif'
@@ -110,8 +110,8 @@ exports.glyphs['H_cap'] =
 					y: contours[2].nodes[0].y
 				2:
 					anchorLine: 0
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40
 		3:
 			base: 'serif'
 			parentAnchors:
@@ -123,6 +123,6 @@ exports.glyphs['H_cap'] =
 					y: contours[2].nodes[1].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40
 					directionY: -1

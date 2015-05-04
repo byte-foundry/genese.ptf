@@ -7,11 +7,11 @@ exports.glyphs['m'] =
 			x: 120 + ( 21 )
 			y: xHeight - ( 160 / 500 ) * xHeight
 		1:
-			x: ( 445 + 64 ) * width
+			x: ( 425 + 64 ) * width
 			# y: xHeight * ( 340 / 500 ) - ( thickness + 85 ) / 4
 			y: xHeight - 160 - ( thickness + 85 ) / 4
 		2:
-			x: ( 720 + 64 ) * width
+			x: ( 730 + 64 ) * width
 			y: xHeight * ( 340 / 500 )
 	contours:
 		0:
@@ -87,7 +87,7 @@ exports.glyphs['m'] =
 			nodes:
 				0:
 					x: contours[1].nodes[2].x - thickness * ( 4 / 86 )
-					y: xHeight * ( 370 / 500 )
+					y: xHeight * ( 340 / 500 )
 					dirOut: 66 + 'deg'
 					expand: Object({
 						width: thickness * ( 25 / 86 ) * contrast

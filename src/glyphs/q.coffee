@@ -94,7 +94,7 @@ exports.glyphs['q'] =
 					})
 				4:
 					x: contours[0].nodes[0].expandedTo[0].x + thickness * ( 10 / 85 )
-					y: 385
+					y: xHeight - 115
 					# dirOut: - 116 + 'deg'
 					dirOut: 90 + 'deg'
 					tensionIn: 0.9

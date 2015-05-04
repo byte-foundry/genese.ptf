@@ -1,7 +1,7 @@
 exports.glyphs['K_cap'] =
 	unicode: 'K'
 	ot:
-		advanceWidth: contours[2].nodes[0].expandedTo[1].x + serifWidth - 50 * spacing
+		advanceWidth: contours[2].nodes[1].expandedTo[1].x + serifWidth - 50 * spacing + (50)
 	contours:
 		0:
 			skeleton: true
@@ -13,7 +13,7 @@ exports.glyphs['K_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0.25
 					})
 				1:
@@ -22,7 +22,7 @@ exports.glyphs['K_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 						distr: 0.25
 					})
 		1:
@@ -30,7 +30,7 @@ exports.glyphs['K_cap'] =
 			closed: false
 			nodes:
 				1:
-					x: contours[0].nodes[0].expandedTo[1].x + 15
+					x: contours[0].nodes[0].expandedTo[1].x
 					y: capHeight * ( 375 / 750 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -39,7 +39,7 @@ exports.glyphs['K_cap'] =
 						distr: 0
 					})
 				0:
-					x: 545 + (53) + thickness - 85
+					x: 545 - (10) + thickness - 85
 					y: capHeight
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -51,8 +51,8 @@ exports.glyphs['K_cap'] =
 			skeleton: true
 			closed: false
 			nodes:
-				0:
-					x: 579 + (55) + thickness - 85
+				1:
+					x: 579 + (20) + thickness - 85
 					y: 0
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -61,7 +61,7 @@ exports.glyphs['K_cap'] =
 						angle: 0 + 'deg'
 						distr: 0.5
 					})
-				1:
+				0:
 					x: contours[1].nodes[1].expandedTo[0].x
 					y: capHeight * ( 375 / 750 )
 					dirOut: 90 + 'deg'
@@ -82,8 +82,8 @@ exports.glyphs['K_cap'] =
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: contours[0].nodes[0].y
 				2:
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 40
+					rightWidth: 40
 		1:
 			base: 'serif'
 			parentAnchors:
@@ -95,8 +95,8 @@ exports.glyphs['K_cap'] =
 					y: contours[0].nodes[1].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 40
+					rightWidth: 40
 					directionY: -1
 		2:
 			base: 'serif'
@@ -115,8 +115,27 @@ exports.glyphs['K_cap'] =
 					y: capHeight - serifHeight - serifCurve
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.2
-					rightWidth: 2
+					leftWidth: 40
+					rightWidth: 40
 					rightCurve: 3
 					angle: Utils.lineAngle( contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point )
 					directionY: -1
+		3:
+			base: 'serif_right'
+			parentAnchors:
+				0:
+					x: Utils.onLine({
+						y: 0 + serifHeight + serifCurve * ( 65 /15 )
+						on: [ contours[2].nodes[1].expandedTo[1].point, contours[2].nodes[0].expandedTo[1].point ]
+					})
+					y: 0 + serifHeight + serifCurve * ( 65 /15 )
+				1:
+					x: Utils.onLine({
+						y: 0 + serifHeight + serifCurve * ( 65 /15 )
+						on: [ contours[2].nodes[1].expandedTo[0].point, contours[2].nodes[0].expandedTo[0].point ]
+					})
+					y: 0 + serifHeight + serifCurve * ( 65 /15 )
+				2:
+					rightWidth: 2.2
+					rightCurve: 5
+					angle: Utils.lineAngle( contours[2].nodes[1].expandedTo[0].point, contours[2].nodes[0].expandedTo[0].point )

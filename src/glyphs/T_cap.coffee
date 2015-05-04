@@ -17,7 +17,7 @@ exports.glyphs['T_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 					})
 				1:
 					x: contours[0].nodes[0].x
@@ -25,7 +25,7 @@ exports.glyphs['T_cap'] =
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness
+						width: thickness * opticThickness * ( 100 / 85 )
 					})
 		1:
 			skeleton: false
@@ -123,5 +123,5 @@ exports.glyphs['T_cap'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: 0
-					leftWidth: 1.6
-					rightWidth: 1.6
+					leftWidth: 40
+					rightWidth: 40

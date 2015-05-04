@@ -1,7 +1,7 @@
 exports.glyphs['I_cap'] =
 	unicode: 'I'
 	ot:
-		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth * 1.6 + 40 * spacing
+		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth * 1.6 + 40 * spacing + (50)
 	anchors:
 		0:
 			x: 580

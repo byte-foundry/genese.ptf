@@ -41,8 +41,8 @@ exports.glyphs['l'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: 0
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 15
+					rightWidth: 18
 		1:
 			base: 'attaque'
 			parentAnchors:

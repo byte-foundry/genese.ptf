@@ -1,4 +1,5 @@
-exports.glyphs['_two'] =
+exports.glyphs['two'] =
+	# unicode: 50
 	unicode: '2'
 	ot:
 		advanceWidth: 200 * spacing

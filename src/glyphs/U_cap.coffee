@@ -1,7 +1,7 @@
 exports.glyphs['U_cap'] =
 	unicode: 'U'
 	ot:
-		advanceWidth: contours[1].nodes[0].expandedTo[0].x + serifWidth + 30 * spacing
+		advanceWidth: contours[1].nodes[0].expandedTo[0].x + serifWidth + 30 * spacing + (50)
 	anchors:
 		0:
 			x: 550 + 0
@@ -82,7 +82,7 @@ exports.glyphs['U_cap'] =
 					y: contours[0].nodes[0].expandedTo[0].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.6
+					leftWidth: 40
 					directionY: -1
 		1:
 			base: 'serif_left'
@@ -95,7 +95,7 @@ exports.glyphs['U_cap'] =
 					y: contours[1].nodes[1].expandedTo[0].y
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.6
+					leftWidth: 40
 					directionY: -1
 		2:
 			base: 'attaque'

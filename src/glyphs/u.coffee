@@ -1,7 +1,7 @@
 exports.glyphs['u'] =
 	unicode: 'u'
 	ot:
-		advanceWidth: width * 500 + thickness * 2 - ( 86 * 2 )
+		advanceWidth: contours[0].nodes[3].expandedTo[1].x + serifWidth + 20 * spacing + (50)
 	anchors:
 		0:
 			x: 0

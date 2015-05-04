@@ -41,6 +41,7 @@ exports.glyphs['a'] =
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 85 / 85 )
+						angle: 0 + 'deg'
 						distr: 0.25
 					})
 				3:
@@ -72,6 +73,7 @@ exports.glyphs['a'] =
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 15 / 85 ) * contrast
+						angle: 0 + 'deg'
 					})
 				1:
 					x: ( 135 + 16 )

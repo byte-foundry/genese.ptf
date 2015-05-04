@@ -1,7 +1,7 @@
 exports.glyphs['A_cap'] =
 	unicode: 'A'
 	ot:
-		advanceWidth: contours[0].nodes[1].expandedTo[1].x + ( serifWidth + 50 ) + 25 * spacing
+		advanceWidth: contours[0].nodes[1].expandedTo[1].x + ( serifWidth + 50 ) + 25 * spacing + (150)
 	anchors:
 		0:
 			x: ( 495 + 20 ) * width
@@ -107,7 +107,7 @@ exports.glyphs['A_cap'] =
 					y: capHeight + overshoot * 2
 					typeOut: 'line'
 				2:
-					x: contours[3].nodes[1].x - thickness * ( 10 / 85 ) * ( serifCurve / 15 ) 
+					x: contours[3].nodes[1].x - thickness * ( 10 / 85 ) * ( serifCurve / 15 )
 					y: contours[3].nodes[1].y
 					dirOut: - 116 + 'deg'
 				3:

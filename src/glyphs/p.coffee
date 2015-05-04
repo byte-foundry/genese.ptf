@@ -4,7 +4,7 @@ exports.glyphs['p'] =
 		advanceWidth: contours[1].nodes[2].expandedTo[1].x + 35 * spacing
 	anchors:
 		0:
-			x: 475 - 86 + thickness
+			x: 475 + (10)
 			y: xHeight * ( 250 / 500 )
 	contours:
 		0:
@@ -36,7 +36,7 @@ exports.glyphs['p'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[1].x - ( 10 / 86 ) * thickness
 					y: xHeight * ( 435 / 500 )
-					dirOut: 60 + 'deg'
+					dirOut: 55 + 'deg'
 					expand: Object({
 						width: thickness * ( 45 / 86 )
 						angle: 90 + 'deg'
@@ -69,18 +69,18 @@ exports.glyphs['p'] =
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * contrast * ( 27 / 86 )
+						width: thickness * contrast * ( 22 / 86 )
 						angle: 180 + 112 + 'deg'
 						distr: 1
 					})
 				4:
 					x: contours[1].nodes[0].x
-					y: xHeight * ( 145 / 500 )
-					dirOut: - 64 + 'deg'
+					y: xHeight * ( 120 / 500 )
+					dirIn: - 65 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 51 / 86 ) * contrast
-						angle: 180 + 29 + 'deg'
+						width: thickness * ( 54 / 86 ) * contrast
+						angle: 180 + 34 + 'deg'
 						distr: 0
 					})
 	components:

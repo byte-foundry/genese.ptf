@@ -40,8 +40,8 @@ exports.glyphs['i'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: 0
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 15
+					rightWidth: 18
 		1:
 			base: 'attaque'
 			parentAnchors:
@@ -58,5 +58,5 @@ exports.glyphs['i'] =
 			base: 'title'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[1].expandedTo[0].x + thickness / 2
-					y: Math.max( capHeight + overshoot, xHeight + thickness * ( 100 / 86 ) + 50 )
+					x: contours[0].nodes[1].expandedTo[0].x + thickness * ( 35 / 85 )
+					y: Math.max( xHeight + overshoot + thickness * ( 100 / 86 ), capHeight - 20 )

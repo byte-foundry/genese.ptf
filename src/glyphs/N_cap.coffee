@@ -107,8 +107,8 @@ exports.glyphs['N_cap'] =
 					})
 					y: 0 + serifHeight + serifCurve * ( 100 / 15 )
 				2:
-					leftWidth: 1.9
-					rightWidth: 2.1
+					leftWidth: 40
+					rightWidth: 40
 					leftCurve: 5
 					rightCurve: 5
 					angle: Utils.lineAngle( contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point )
@@ -129,8 +129,8 @@ exports.glyphs['N_cap'] =
 					y: capHeight - serifHeight - serifCurve * ( 100 / 15 )
 				2:
 					anchorLine: capHeight
-					leftWidth: 1.9
-					rightWidth: 1.9
+					leftWidth: 40
+					rightWidth: 40
 					leftCurve: 5
 					rightCurve: 5
 					directionY: -1

@@ -4,7 +4,7 @@ exports.glyphs['O_cap'] =
 		advanceWidth: width * 800 + thickness * 2 - ( 86 * 2 )
 	anchors:
 		0:
-			x: ( 665 + 96 ) * width
+			x: ( 665 + (100) ) * width
 			y: capHeight * ( 375 / 750 )
 	contours:
 		0:
