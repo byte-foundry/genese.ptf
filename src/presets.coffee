@@ -69,7 +69,7 @@ exports.presets =
 		xHeight: 500
 		capDelta: 250
 		ascender: 250
-		descender: -210
+		descender: -250
 		crossbar: 1
 		width: 1
 		roundness: 0.65
@@ -80,8 +80,8 @@ exports.presets =
 		axis: 0
 		serifMedian: 0
 		serifWidth: 65
-		serifHeight: 0
-		serifCurve: .75
+		serifHeight: 20
+		serifCurve: 15
 		serifArc: 0
 		serifTerminal: 0
 		serifRotate: 0
