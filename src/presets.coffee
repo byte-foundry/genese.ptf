@@ -69,7 +69,7 @@ exports.presets =
 		xHeight: 500
 		capDelta: 250
 		ascender: 250
-		descender: -210
+		descender: -250
 		crossbar: 1
 		width: 1
 		roundness: 0.65
