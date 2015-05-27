@@ -135,3 +135,6 @@ exports.glyphs['F_cap'] =
 					leftCurve: 1.2
 			parentParameters:
 				serifMedian: serifMedian * 0.75
+				midWidth: midWidth * 0.98
+			transformOrigin: Array( contours[1].nodes[1].expandedTo[1].x, contours[1].nodes[1].expandedTo[0].y )
+			transforms: Array( [ 'skewX', serifRotate * (-8) + 'deg' ] )

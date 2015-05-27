@@ -249,12 +249,12 @@ exports.parameters = [
 	,
 		name: 'serifRotate'
 		label: 'Serif Rotation'
-		min: -35
-		max: 15
-		step: 1
-		init: 0
-		minAdvised: -35
-		maxAdvised: 15
+		min: -4
+		max: 4
+		step: 0.1
+		init: 1
+		minAdvised: -0.5
+		maxAdvised: 1.5
 	]
 ];
 

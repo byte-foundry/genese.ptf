@@ -84,7 +84,7 @@ exports.presets =
 		serifCurve: 15
 		serifArc: 0
 		serifTerminal: 0
-		serifRotate: 0
+		serifRotate: 1
 		serifRoundness : 1
 
 	'Blackletter':
