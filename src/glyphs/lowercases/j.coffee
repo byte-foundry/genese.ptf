@@ -76,7 +76,7 @@ exports.glyphs['j'] =
 				8:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: contours[0].nodes[0].expandedTo[0].y
-					type: 'smooth'
+					# type: 'smooth'
 	components:
 		0:
 			base: 'attaque'

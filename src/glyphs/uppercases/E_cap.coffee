@@ -196,4 +196,4 @@ exports.glyphs['E_cap'] =
 					rightWidth: 60
 					left: false
 			transformOrigin: Array( contours[3].nodes[0].expandedTo[0].x, contours[3].nodes[0].expandedTo[0].y )
-			transforms: Array( [ 'skewX', serifRotate * (15) + 'deg' ] )
+			transforms: Array( [ 'skewX', serifRotate * (8) + 'deg' ] )

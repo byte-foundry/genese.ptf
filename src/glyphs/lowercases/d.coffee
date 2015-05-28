@@ -103,6 +103,7 @@ exports.glyphs['d'] =
 					# spurHeight: 1
 					directionY: -1
 					right: false
+					# attaque: true
 		# 1:
 		# 	base: 'attaque'
 		# 	parentAnchors:

@@ -74,7 +74,11 @@ exports.glyphs['serif'] =
 					# type: 'smooth'
 					typeOut: 'line'
 					tensionIn: serifRoundness
-					dirIn: Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
+					# dirIn: Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
+					dirIn:
+						if anchors[2].attaque == true
+						then Utils.lineAngle( contours[0].nodes[4].point ,contours[0].nodes[5].point )
+						else Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
 					# transforms:
 					# 	if anchors[2].vertical == true
 					# 		Array(
@@ -172,7 +176,10 @@ exports.glyphs['serif'] =
 						then anchors[1].x + ( 10 / 85 ) * thickness
 						else contours[0].nodes[4].x - ( contours[0].nodes[4].x - contours[0].nodes[6].x ) / 2
 					y: anchors[2].anchorLine + ( serifHeight * serifArc ) * anchors[2].directionY
-					dirIn: 0 + 'deg'
+					dirIn:
+						if anchors[2].attaque == true
+						then Utils.lineAngle( contours[0].nodes[4].point ,contours[0].nodes[5].point )
+						else 0 + 'deg'
 					dirOut: 180 + 'deg'
 					# transforms:
 					# 	if anchors[2].vertical == true

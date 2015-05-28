@@ -114,3 +114,19 @@ exports.glyphs['Z_cap'] =
 				3:
 					x: contours[1].nodes[1].expandedTo[1].x
 					y: contours[1].nodes[1].expandedTo[1].y
+	# components:
+	# 	0:
+	# 		base: 'serif_v'
+	# 		parentAnchors:
+	# 			1:
+	# 				x: Math.max(contours[2].nodes[1].expandedTo[0].x, contours[2].nodes[1].expandedTo[0].x - serifHeight - serifCurve * ( 100 / 15 ) )
+	# 				y: contours[2].nodes[1].expandedTo[0].y
+	# 			0:
+	# 				x: Math.max(contours[2].nodes[1].expandedTo[1].x, contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve * ( 100 / 15 ) )
+	# 				y: contours[2].nodes[1].expandedTo[1].y
+	# 			2:
+	# 				anchorLine: contours[2].nodes[1].expandedTo[0].x
+	# 				rightWidth: 60
+	# 				left: false
+	# 		transformOrigin: Array( contours[2].nodes[1].expandedTo[0].x, contours[2].nodes[1].expandedTo[0].y )
+	# 		transforms: Array( [ 'skewX', serifRotate * (8) + 'deg' ] )
