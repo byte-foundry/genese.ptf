@@ -43,15 +43,6 @@ exports.glyphs['serif'] =
 						# else anchors[2].angle
 					dirOut: anchors[2].angle
 					tensionOut: 1.4 * serifRoundness * anchors[2].rightCurve
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'scale', 1, -1 ]
-					# 			[ 'translate', contours[0].nodes[0].x, contours[0].nodes[0].y ]
-					# 			[ 'rotate', '90deg' ]
-					# 			[ 'translate', - contours[0].nodes[0].x, - contours[0].nodes[0].y ]
-					# 			[ 'scale', 1, -1 ]
-					# 		)
 				1:
 					x:
 						if anchors[2].right == false
@@ -79,14 +70,6 @@ exports.glyphs['serif'] =
 						if anchors[2].attaque == true
 						then Utils.lineAngle( contours[0].nodes[4].point ,contours[0].nodes[5].point )
 						else Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, -serifHeight - serifCurve],
-					# 		)
 				2:
 					x:
 						if anchors[2].right == false
@@ -107,17 +90,13 @@ exports.glyphs['serif'] =
 					y:
 						if anchors[2].right == false
 						then anchors[2].baseRight.y
-						else contours[0].nodes[4].y + ( serifHeight * serifMedian ) * anchors[2].directionY
+						else
+							if anchors[2].attaque == true
+							then contours[0].nodes[4].y + ( serifHeight * serifMedian ) + ( (serifWidth + anchors[2].rightWidth) * (anchors[2].anchorLine + ( spurHeight * 50 - 50 ) * anchors[2].directionY) / (anchors[2].baseRight.x + serifWidth * midWidth + anchors[2].rightWidth) )
+							else contours[0].nodes[4].y + ( serifHeight * serifMedian ) * anchors[2].directionY
+						# else contours[0].nodes[4].y + ( serifHeight * serifMedian ) * anchors[2].directionY
 					tensionOut: serifTerminalCurve
 					type: 'smooth'
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, -serifHeight - serifCurve],
-					# 		)
 				3:
 					x:
 						if anchors[2].right == false
@@ -131,14 +110,6 @@ exports.glyphs['serif'] =
 					type: 'smooth'
 					tensionOut: serifTerminalCurve
 					tensionIn: serifTerminalCurve
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, -serifHeight - serifCurve],
-					# 		)
 				4:
 					x:
 						if anchors[2].right == false
@@ -162,14 +133,6 @@ exports.glyphs['serif'] =
 					dirIn: 0 + 'deg'
 					type: 'smooth'
 					tensionIn: serifTerminalCurve
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, 106-serifHeight - serifCurve * anchors[2].rightCurve],
-					# 		)
 				5:
 					x:
 						if anchors[2].attaque == true
@@ -181,14 +144,6 @@ exports.glyphs['serif'] =
 						then Utils.lineAngle( contours[0].nodes[4].point ,contours[0].nodes[5].point )
 						else 0 + 'deg'
 					dirOut: 180 + 'deg'
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, 106-serifHeight - serifCurve * anchors[2].rightCurve],
-					# 		)
 				6:
 					x:
 						if anchors[2].left == false
@@ -205,14 +160,6 @@ exports.glyphs['serif'] =
 					type: 'smooth'
 					dirIn: 0 + 'deg'
 					dirOut: 180 + 'deg'
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, 106- serifHeight - serifCurve * anchors[2].leftCurve],
-					# 		)
 				7:
 					x:
 						if anchors[2].left == false
@@ -226,14 +173,6 @@ exports.glyphs['serif'] =
 					type: 'smooth'
 					tensionOut: serifTerminalCurve
 					tensionIn: serifTerminalCurve
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, - serifHeight - serifCurve],
-					# 		)
 				8:
 					x:
 						if anchors[2].left == false
@@ -254,14 +193,6 @@ exports.glyphs['serif'] =
 					type: 'smooth'
 					tensionIn: serifTerminalCurve
 					typeOut: 'line'
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, -serifHeight - serifCurve],
-					# 		)
 				9:
 					x:
 						if anchors[2].left == false
@@ -282,14 +213,6 @@ exports.glyphs['serif'] =
 						else anchors[2].anchorLine + serifHeight * anchors[2].directionY
 					tensionOut: serifRoundness
 					type: 'smooth'
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			[ 'rotate', '90deg' ],
-					# 			[ 'translate', anchors[0].x, (anchors[0].y + anchors[1].y) / 2 ],
-					# 			# [ 'translate', 0, -serifHeight - serifCurve],
-					# 		)
 				10:
 					x: Math.max( anchors[1].x, anchors[2].max1.x )
 					y: Math.max( anchors[1].y, anchors[2].max1.y )
@@ -300,12 +223,3 @@ exports.glyphs['serif'] =
 					dirIn: anchors[2].angle
 					typeOut: 'line'
 					tensionIn: 1.4 * serifRoundness * anchors[2].leftCurve
-					# transforms:
-					# 	if anchors[2].vertical == true
-					# 		Array(
-					# 			[ 'scale', 1, -1 ]
-					# 			[ 'translate', contours[0].nodes[10].x, contours[0].nodes[10].y ]
-					# 			[ 'rotate', '90deg' ]
-					# 			[ 'translate', - contours[0].nodes[10].x, - contours[0].nodes[10].y ]
-					# 			[ 'scale', 1, -1 ]
-					# 		)
