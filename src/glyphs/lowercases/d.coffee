@@ -133,6 +133,11 @@ exports.glyphs['d'] =
 					rightWidth: 20
 					attaque: true
 					left: false
+			# parentParameters:
+			# 	serifMedian: serifMedian
+			# 	midWidth: midWidth
+			# transformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
+			# transforms: Array( [ 'skewY', serifRotate * (-10) + 'deg' ] )
 		# 0:
 		# 	base: 'term_TL'
 		# 	parentAnchors:
