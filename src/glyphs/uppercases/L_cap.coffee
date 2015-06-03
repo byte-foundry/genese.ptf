@@ -34,7 +34,7 @@ exports.glyphs['L_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 575 + ( thickness / 2 - 43 )
+					x: 575 * width + ( thickness / 2 - 43 )
 					y: 0
 					dirOut: 0 + 'deg'
 					expand: Object({

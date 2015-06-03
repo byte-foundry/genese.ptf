@@ -39,8 +39,8 @@ exports.glyphs['h'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[1].x
 					# y: xHeight * ( 370 / 500 )
-					y: xHeight - 130 + ( thickness - 85 ) / 4
-					dirOut: if width <= 1.2 then 65 - 65 * width + 65 + 'deg' else 65 - 15 * width + 'deg'
+					y: xHeight - 140 + ( thickness - 85 ) / 4 + (25)
+					dirOut: if width <= 1.2 then 60 - 60 * width + 60 + 'deg' else 65 - 15 * width + 'deg'
 					# angle: - 90 + axis + 'deg'
 					type: 'smooth'
 					expand: Object({
@@ -49,7 +49,7 @@ exports.glyphs['h'] =
 						distr: 0
 					})
 				1:
-					x: anchors[1].x * ( ( 390 - 200 ) / ( 445 - 200 ) )
+					x: contours[1].nodes[2].x * ( ( 390 - 200 ) / ( 445 - 200 ) )
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					# angle: Math.max( - thickness - 77 * contrast, Math.max( - 129 * width, - 129 ) ) + 'deg'
@@ -62,21 +62,22 @@ exports.glyphs['h'] =
 						distr: 0
 					})
 				2:
-					x: anchors[1].x
-					y: anchors[1].y
+					x: ( 445 + (64) ) * width
+					y: xHeight - 170 - thickness + 85
+					dirOut: - 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
 						distr: 0.25
-						angle: -180 + 'deg'
 					})
 				3:
 					x: contours[1].nodes[2].x
 					y: 0 + serifHeight + serifCurve
+					dirOut: - 90 + 'deg'
+					typeOut: 'line'
 					expand: Object({
 						width: thickness
 						distr: 0.25
-						angle: -180 + 'deg'
 					})
 	components:
 		0:

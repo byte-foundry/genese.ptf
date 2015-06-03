@@ -1,10 +1,10 @@
-exports.glyphs['a_cap_acute'] =
-	unicode: 'Á'
+exports.glyphs['e_cap_acute'] =
+	unicode: 'É'
 	ot:
 		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
 	components:
 		0:
-			base: 'A_cap'
+			base: 'E_cap'
 			parentAnchors:
 				0:
 					x: 0

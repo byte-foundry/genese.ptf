@@ -2,21 +2,13 @@ exports.glyphs['n'] =
 	unicode: 'n'
 	ot:
 		advanceWidth: width * 550 + thickness * 2 - ( 85 * 2 ) + serifWidth
-	anchors:
-		0:
-			x: 120 + ( 21 )
-			y: xHeight - ( 160 / 500 ) * xHeight
-		1:
-			x: ( 445 + 64 ) * width
-			# y: xHeight * ( 340 / 500 ) - ( thickness + 85 ) / 4
-			y:330
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x
+					x: 120 + (21)
 					y: xHeight - spurHeight * ( 60 ) - serifHeight * ( 10 / 20 ) - serifCurve * ( 40 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -25,7 +17,7 @@ exports.glyphs['n'] =
 						distr: 0.25
 					})
 				1:
-					x: anchors[0].x
+					x: contours[0].nodes[0].x
 					y: 0 + serifHeight + serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -40,17 +32,17 @@ exports.glyphs['n'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[1].x
 					# y: xHeight * ( 370 / 500 )
-					y: xHeight - 130 + ( thickness - 85 ) / 4 + (25)
+					y: xHeight - 140 + ( thickness - 85 ) / 4 + (25) + 30 / width - 30
 					dirOut: if width <= 1.2 then 60 - 60 * width + 60 + 'deg' else 65 - 15 * width + 'deg'
 					# angle: - 90 + axis + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 25 / 85 ) * contrast * width
+						width: thickness * ( 25 / 85 ) * contrast
 						angle: - 90 + 'deg'
 						distr: 0
 					})
 				1:
-					x: anchors[1].x * ( ( 390 - 200 ) / ( 445 - 200 ) )
+					x: contours[1].nodes[2].x * ( ( 390 - 200 ) / ( 445 - 200 ) )
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					# angle: Math.max( - thickness - 77 * contrast, Math.max( - 129 * width, - 129 ) ) + 'deg'
@@ -58,13 +50,13 @@ exports.glyphs['n'] =
 					tensionOut: 1.1
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 77 / 85 )
-						angle: - 129 + 'deg'
+						width: thickness * ( 77 / 85 ) / 2 + thickness * ( 77 / 85 ) / 2 * contrast
+						angle: Math.max( - 129 , - 129 - 10 * contrast + 10 ) + 'deg'
 						distr: 0
 					})
 				2:
-					x: anchors[1].x
-					y: anchors[1].y
+					x: ( 445 + (64) ) * width
+					y: xHeight - 170 - thickness + 85 + 60 / width - 60
 					dirOut: - 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({

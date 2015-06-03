@@ -49,7 +49,7 @@ exports.glyphs['E_cap'] =
 						distr: 0
 					})
 				1:
-					x: 545 + ( thickness / 2 - 43 )
+					x: 545 * width + ( thickness / 2 - 43 )
 					y: contours[1].nodes[0].y
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
@@ -71,7 +71,7 @@ exports.glyphs['E_cap'] =
 						distr: 0
 					})
 				1:
-					x: 480 + ( thickness / 2 - 43 )
+					x: 480 * width + ( thickness / 2 - 43 )
 					y: capHeight * ( 385 / 750 ) * crossbar
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
@@ -94,7 +94,7 @@ exports.glyphs['E_cap'] =
 						distr: 1
 					})
 				1:
-					x: 575 + ( thickness / 2 - 43 )
+					x: 575 * width + ( thickness / 2 - 43 )
 					y: contours[3].nodes[0].y
 					dirOut: 0 + 'deg'
 					expand: Object({

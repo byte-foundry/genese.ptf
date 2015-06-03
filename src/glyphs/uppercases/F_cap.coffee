@@ -34,7 +34,7 @@ exports.glyphs['F_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 535 + ( thickness / 2 - 43 )
+					x: 535 * width + ( thickness / 2 - 43 )
 					y: capHeight
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
@@ -65,7 +65,7 @@ exports.glyphs['F_cap'] =
 						distr: 0
 					})
 				1:
-					x: 485
+					x: 485 * width
 					y: capHeight * ( 400 / 750 ) * crossbar
 					dirOut: 0 + 'deg'
 					typeOut: 'line'

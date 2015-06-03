@@ -43,7 +43,7 @@ exports.glyphs['P_cap'] =
 						distr: 0
 					})
 				1:
-					x: contours[0].nodes[0].expandedTo[1].x + 100
+					x: contours[0].nodes[0].expandedTo[1].x + 100 * width
 					y: capHeight
 					dirOut: 180 + 'deg'
 					type: 'smooth'
@@ -53,7 +53,7 @@ exports.glyphs['P_cap'] =
 						distr: 0
 					})
 				2:
-					x: contours[0].nodes[0].expandedTo[1].x + 245 + (70)
+					x: contours[0].nodes[0].expandedTo[1].x + ( 245+ (70) ) * width
 					y: capHeight * ( ( 555 - (12) ) / 750 )
 					dirOut: - 90 + 'deg'
 					tensionOut: 1.15
@@ -64,7 +64,7 @@ exports.glyphs['P_cap'] =
 						distr: 0.25
 					})
 				3:
-					x: contours[0].nodes[0].expandedTo[1].x + (50)
+					x: contours[0].nodes[0].expandedTo[1].x + 50 * width
 					y: capHeight * ( 365 / 750 )
 					dirOut: 180 + 'deg'
 					type: 'smooth'
