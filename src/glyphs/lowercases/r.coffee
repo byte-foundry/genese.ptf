@@ -35,16 +35,16 @@ exports.glyphs['r'] =
 			nodes:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x - thickness * ( 5 / 85 )
-					y: ( 385 / 500 ) * xHeight
-					dirOut: 70 + 'deg'
+					y: ( ( 375 + 50 ) / 500 ) * xHeight - 50
+					dirOut: 74 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 25 / 85 )
+						width: thickness * ( 45 / 85 ) * contrast
 						angle: - 90 + 'deg'
 						distr: 0.25
 					})
 				1:
-					x: 350
+					x: contours[0].nodes[0].expandedTo[1].x + 145 * width
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -55,7 +55,7 @@ exports.glyphs['r'] =
 					})
 				2:
 					x: 345 + 25
-					y: 435
+					y: contours[1].nodes[1].expandedTo[1].y - 35
 					dirOut: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({

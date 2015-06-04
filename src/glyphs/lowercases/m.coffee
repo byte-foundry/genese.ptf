@@ -43,7 +43,10 @@ exports.glyphs['m'] =
 					x: contours[0].nodes[0].expandedTo[1].x
 					# y: xHeight * ( 370 / 500 )
 					y: xHeight - 160 + ( thickness - 85 ) / 4 + (25)
-					dirOut: if width <= 1.2 then 65 - 65 * width + 65 + 'deg' else 65 - 15 * width + 'deg'
+					dirOut:
+						if width <= 1.2
+						then 70 - 70 * width + 70 + 'deg' 
+						else 70 - 15 * width + 'deg'
 					# angle: - 90 + axis + 'deg'
 					type: 'smooth'
 					expand: Object({
@@ -60,8 +63,8 @@ exports.glyphs['m'] =
 					tensionOut: 1.2
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 77 / 85 )
-						angle: - 129 + 'deg'
+						width: thickness * ( 72 / 85 )
+						angle: - 119 + 'deg'
 						distr: 0
 					})
 				2:

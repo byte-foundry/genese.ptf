@@ -1,7 +1,7 @@
 exports.glyphs['o'] =
 	unicode: 'o'
 	ot:
-		advanceWidth: width * 545 + thickness * 2 - ( 85 * 2 )
+		advanceWidth: contours[0].nodes[2].expandedTo[0].x + 40 * spacing
 	anchors:
 		0:
 			x: ( 450 + ( 66 ) ) * width
