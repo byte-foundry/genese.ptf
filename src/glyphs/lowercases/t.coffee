@@ -14,10 +14,10 @@ exports.glyphs['t'] =
 				0:
 					x: anchors[0].x
 					y: anchors[0].y
-					dirOut: - 109 + 'deg'
+					dirOut: Math.min( - 140 + ( 31 / 500 ) * xHeight , - 90 ) + 'deg'
 					expand: Object({
 						width: thickness * ( 11 / 86 )
-						angle: - 26 + 'deg'
+						angle: contours[0].nodes[0].dirOut + Math.PI / 2
 						distr: 0
 					})
 				1:
@@ -33,10 +33,14 @@ exports.glyphs['t'] =
 				2:
 					x: 100 * width
 					y: xHeight * ( 160 / 500 )
+					y: 160
 					dirOut: - 90 + 'deg'
+					type: 'smooth'
 					typeOut: 'line'
+					tensionIn: 1.2
 					expand: Object({
 						width: thickness
+						angle: 180 - 13 + 'deg'
 						distr: 1
 					})
 				3:
@@ -80,7 +84,7 @@ exports.glyphs['t'] =
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x - 25 
+					x: anchors[0].x - 25
 					y: xHeight
 					dirOut: 0 + 'deg'
 					typeOut: 'line'

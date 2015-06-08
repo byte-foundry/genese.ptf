@@ -2,17 +2,13 @@ exports.glyphs['v'] =
 	unicode: 'v'
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth + 25 * spacing + (50)
-	anchors:
-		0:
-			x: 395
-			y: xHeight
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: 395 + 17
+					x: 395 + (17)
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
@@ -45,17 +41,17 @@ exports.glyphs['v'] =
 				1:
 					expandedTo: [
 						x: Utils.onLine({
-							y: thickness * ( 95 / 85 )
+							y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
 							on: [ contours[1].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
 						})
-						y: thickness * ( 95 / 85 )
+						y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
 						typeOut: 'line'
 					,
 						x: Utils.onLine({
-							y: thickness * ( 95 / 85 )
+							y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
 							on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
 						})
-						y: thickness * ( 95 / 85 )
+						y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
 						typeIn: 'line'
 					]
 				2:

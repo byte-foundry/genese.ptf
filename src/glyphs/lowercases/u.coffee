@@ -23,6 +23,7 @@ exports.glyphs['u'] =
 				1:
 					x: contours[0].nodes[0].x
 					y: xHeight * ( 160 / 500 )
+					y: xHeight * ( 30 / 500 ) + 130
 					dirOut: 90 + 'deg'
 					# type: 'smooth'
 					expand: Object({
@@ -42,10 +43,12 @@ exports.glyphs['u'] =
 				3:
 					x: 411
 					y: xHeight * ( ( 130 + 10 ) / 500 )
-					dirIn: - 120 + 'deg'
+					y: xHeight * ( 30 / 500 ) + 110
+					dirIn: Math.max( - 110 , Math.min( - 95 , - ( 120 / 500 ) * xHeight ) ) + 'deg'
+					# dirIn: - 115 - ( 5 / 500 ) * xHeight + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 25 / 86 )
+						width: thickness * ( 15 / 86 ) + ( ( 10 / 500 ) * xHeight / 85 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0.25
 					})
