@@ -12,27 +12,19 @@ exports.glyphs['C_cap'] =
 			closed: false
 			nodes:
 				0:
-					# x: 590 + 0
-					# y: capHeight * ( 670 / 750 )
-					# dirOut: 113 + 'deg'
-					# dirIn: 180 + 'deg'
-					# expand: Object({
-					# 	width: thickness * ( 170 / 85 ) * opticThickness
-					# 	angle: - 76 + 'deg'
-					# 	distr: 0
-					# })
 					expandedTo:
 						[
 							{
 								x: 630
-								y: 680
+								y: ( 680 / 750 ) * capHeight
 								dirOut: 180 + 'deg'
 								tensionOut: 0.3
 							}
 							{
 								x: 670
-								y: 505
-								dirIn: 115 + 'deg'
+								y: ( 505 / 750 ) * capHeight
+								dirIn: 108 + 'deg'
+								tensionIn: 0.5
 							}
 						]
 				1:
@@ -100,7 +92,7 @@ exports.glyphs['C_cap'] =
 					typeOut: 'line'
 				3:
 					x: contours[1].nodes[2].x + 15
-					y: contours[1].nodes[2].y - 220
+					y: contours[0].nodes[0].expandedTo[1].y + 5
 					typeOut: 'line'
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x

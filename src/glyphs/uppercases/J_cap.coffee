@@ -18,19 +18,20 @@ exports.glyphs['J_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: 0
+					y: 0 + (22)
 					dirOut: 90 + 'deg'
-					# typeOut: 'line'
+					type: 'smooth'
+					tensionOut: 1.4
 					expand: Object({
-						width: thickness * ( 134 / 85 ) * opticThickness
-						angle: 180 - 138 + 'deg'
+						width: thickness * ( (134 + (80)) / 85 ) * opticThickness
+						angle: 180 - 138 + 20 + 'deg'
 						distr: 0.25
 					})
 				2:
 					x: 60
-					y: - 180
+					y: - 185
 					dirIn: 0 + 'deg'
-					dirOut: 0 + 'deg'
+					# dirOut: 0 + 'deg'
 					tensionIn: 0.7
 					type: 'smooth'
 					expand: Object({
@@ -48,13 +49,13 @@ exports.glyphs['J_cap'] =
 					dirOut: 180 + 'deg'
 					type: 'smooth'
 				1:
-					x: contours[1].nodes[0].x - 75
-					y: contours[1].nodes[0].y + 80
+					x: contours[1].nodes[0].x - ( 75 / 85 ) * thickness
+					y: contours[1].nodes[0].y + ( 80 / 85 ) * thickness
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 				2:
-					x: contours[1].nodes[1].x - 45
-					y: contours[1].nodes[1].y - 45
+					x: contours[1].nodes[1].x - ( 45 / 85 ) * thickness
+					y: contours[1].nodes[1].y - ( 45 / 85 ) * thickness
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
 				3:

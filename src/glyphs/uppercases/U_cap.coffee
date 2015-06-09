@@ -22,7 +22,7 @@ exports.glyphs['U_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: ( 225 / 750 ) * capHeight
+					y: Math.max( 170, ( 220 / 750 ) * capHeight )
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
 						angle: 0 + 'deg'

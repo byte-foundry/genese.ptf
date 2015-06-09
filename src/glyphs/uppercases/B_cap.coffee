@@ -10,7 +10,7 @@ exports.glyphs['B_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 145 + 25
+					x: 145 + (25)
 					y: capHeight - serifHeight - serifCurve * ( 65 /15 )
 					typeOut: 'line'
 					expand: Object({
@@ -41,29 +41,29 @@ exports.glyphs['B_cap'] =
 						distr: 0
 					})
 				1:
-					x: contours[1].nodes[0].x + 85
+					x: contours[1].nodes[0].expandedTo[0].x + 85
 					y: contours[1].nodes[0].y
 					dirOut: 0 + 'deg'
-					tensionOut: 1.25
+					tensionOut: 1.35
 					expand: Object({
 						width: thickness * ( 45 / 85 ) * opticThickness
 						angle: - 153 + 'deg'
 						distr: 0
 					})
 				2:
-					x: 600 - (10)
-					y: 565
-					# dirIn: 90 + 'deg'
-					tensionOut: 1
+					x: contours[1].nodes[1].expandedTo[0].x + 200 + (62)
+					# x: ( 515 + (75) ) * width
+					y: contours[1].nodes[3].y + ( contours[1].nodes[1].y - contours[1].nodes[3].y ) / 2
+					dirIn: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
-						angle: 180 + 'deg'
+						angle: 180 + 6 + 'deg'
 						distr: 0.25
 					})
 				3:
-					x: 325
-					y: 385
+					x: contours[1].nodes[0].expandedTo[0].x + 100
+					y: ( 385 / 750 ) * capHeight
 					typeOut: 'line'
 					dirIn: 0 + 'deg'
 					expand: Object({
@@ -93,7 +93,7 @@ exports.glyphs['B_cap'] =
 						distr: 1
 					})
 				1:
-					x: 375
+					x: contours[1].nodes[0].expandedTo[0].x + 145
 					y: contours[1].nodes[3].expandedTo[1].y
 					dirOut: 0 + 'deg'
 					expand: Object({
@@ -103,9 +103,9 @@ exports.glyphs['B_cap'] =
 					})
 				2:
 					x: contours[1].nodes[2].expandedTo[0].x
-					y: 195
+					y: contours[2].nodes[3].y + ( contours[2].nodes[1].y - contours[2].nodes[3].y ) / 2
 					type: 'smooth'
-					tensionOut: 1.2
+					tensionOut: 1.35
 					expand: Object({
 						width: thickness * ( 110 / 85 ) * opticThickness
 						angle: 180 + 'deg'

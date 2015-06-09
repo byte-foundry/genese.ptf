@@ -14,7 +14,7 @@ exports.glyphs['y'] =
 					expand: Object({
 						width: thickness * ( 39 / 85 )
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0.75
 					})
 				1:
 					x: 214 + (6)
@@ -23,7 +23,7 @@ exports.glyphs['y'] =
 					expand: Object({
 						width: thickness * ( 25 / 85 )
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0.75
 					})
 		1:
 			skeleton: true
@@ -68,18 +68,22 @@ exports.glyphs['y'] =
 			closed: false
 			nodes:
 				0:
-					x: 214 + (6)
+					x: contours[0].nodes[1].expandedTo[1].x
 					y: - overshoot
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 25 / 85 )
 						angle: 180 + 'deg'
-						distr: 0.75
+						distr: 0
 					})
 				1:
-					x: 176 + (0)
+					x: Utils.onLine({
+						y: - 110
+						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+					})
 					y: - 110
-					dirOut: Utils.lineAngle( contours[2].nodes[0].point, contours[2].nodes[1].point )
+					# dirOut: Utils.lineAngle( contours[2].nodes[0].point, contours[2].nodes[1].point )
+					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 28 / 85 )
 						angle: 180 - 56 + 'deg'

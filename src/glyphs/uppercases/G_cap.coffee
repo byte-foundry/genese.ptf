@@ -12,36 +12,28 @@ exports.glyphs['G_cap'] =
 			closed: false
 			nodes:
 				0:
-					# x: 590 + 0
-					# y: capHeight * ( 670 / 750 )
-					# dirOut: 113 + 'deg'
-					# dirIn: 180 + 'deg'
-					# expand: Object({
-					# 	width: thickness * ( 170 / 85 ) * opticThickness
-					# 	angle: - 76 + 'deg'
-					# 	distr: 0
-					# })
 					expandedTo:
 						[
 							{
-								x: 600
-								y: 700
+								x: 630
+								y: ( 680 / 750 ) * capHeight
 								dirOut: 180 + 'deg'
 								tensionOut: 0.3
 							}
 							{
-								x: 615
-								y: 520
-								dirIn: 113 + 'deg'
+								x: 670
+								y: ( 505 / 750 ) * capHeight
+								dirIn: 108 + 'deg'
+								tensionIn: 0.5
 							}
 						]
 				1:
-					x: 380
+					x: 395
 					y: capHeight + overshoot
 					dirOut: 0 + 'deg'
 					dirIn: 0 + 'deg'
 					type: 'smooth'
-					tensionIn: 1.5
+					tensionIn: 1.45
 					expand: Object({
 						width: thickness * ( 27 / 85 ) * opticThickness
 						angle: - 68 + 'deg'
@@ -57,7 +49,7 @@ exports.glyphs['G_cap'] =
 						distr: 0.25
 					})
 				3:
-					x: 390
+					x: 425
 					y: - overshoot
 					type: 'smooth'
 					dirIn: 0 + 'deg'
@@ -68,10 +60,10 @@ exports.glyphs['G_cap'] =
 						distr: 0
 					})
 				4:
-					x: 670 - 1
-					y: 65 + 4
+					x: 750
+					y: 95
 					type: 'smooth'
-					dirIn: - 151 + 'deg'
+					dirIn: - 143 + 'deg'
 					expand: Object({
 						width: thickness * ( 16 / 85 ) * opticThickness
 						angle: 108 + 'deg'
@@ -86,16 +78,16 @@ exports.glyphs['G_cap'] =
 					y: contours[0].nodes[0].expandedTo[0].y
 					# typeOut: 'line'
 				1:
-					x: contours[0].nodes[0].expandedTo[0].x + 20
-					y: contours[0].nodes[0].expandedTo[0].y + 35
+					x: contours[0].nodes[0].expandedTo[0].x + 30
+					y: contours[0].nodes[0].expandedTo[0].y + 50
 					dirIn: - 102 + 'deg'
 				2:
 					x: contours[1].nodes[1].x + 15
 					y: contours[1].nodes[1].y
 					typeOut: 'line'
 				3:
-					x: contours[1].nodes[2].x - 5
-					y: contours[1].nodes[2].y - 210
+					x: contours[0].nodes[0].expandedTo[1].x + 20
+					y: contours[0].nodes[0].expandedTo[1].y + 5
 					typeOut: 'line'
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x
@@ -106,8 +98,8 @@ exports.glyphs['G_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 485 + 25
-					y: 325 - serifHeight - serifCurve * ( 60 / 15 )
+					x: 565 + 25
+					y: ( 325 / 750 ) * capHeight - serifHeight - serifCurve * ( 60 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -116,7 +108,7 @@ exports.glyphs['G_cap'] =
 					})
 				1:
 					x: contours[2].nodes[0].x
-					y: 5
+					y: contours[0].nodes[3].expandedTo[1].y
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 104 / 85 ) * opticThickness
@@ -134,7 +126,7 @@ exports.glyphs['G_cap'] =
 					x: contours[2].nodes[0].expandedTo[0].x
 					y: contours[2].nodes[0].y
 				2:
-					anchorLine: 325
-					leftWidth: 1.6
-					rightWidth: 1.6
+					anchorLine: ( 325 / 750 ) * capHeight
+					leftWidth: 35
+					rightWidth: 20
 					directionY: -1

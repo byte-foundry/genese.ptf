@@ -50,7 +50,7 @@ exports.glyphs['D_cap'] =
 					})
 				2:
 					x: 740
-					y: 375
+					y: ( 375 / 750 ) * capHeight
 					# dirIn: 90 + 'deg'
 					type: 'smooth'
 					tensionOut: 1.1
