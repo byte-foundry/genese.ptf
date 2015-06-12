@@ -100,11 +100,11 @@ exports.parameters = [
 	,
 		name: 'aperture'
 		label: 'Aperture'
-		min: 0.2
-		max: 1.9
+		min: 0.5
+		max: 1.5
 		step: 0.01
 		init: 1
-		minAdvised: 0.4
+		minAdvised: 0.9
 		maxAdvised: 1.2
 	,
 		name: 'opticThickness'
@@ -255,6 +255,15 @@ exports.parameters = [
 		init: 1
 		minAdvised: -0.5
 		maxAdvised: 1.5
+	,
+		name: 'serifBall'
+		label: 'Terminal Ball'
+		min: -40
+		max: 40
+		step: 0.01
+		init: 0
+		minAdvised: -5
+		maxAdvised: 5
 	]
 ];
 

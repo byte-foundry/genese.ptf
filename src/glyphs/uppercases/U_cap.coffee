@@ -2,10 +2,6 @@ exports.glyphs['U_cap'] =
 	unicode: 'U'
 	ot:
 		advanceWidth: contours[1].nodes[0].expandedTo[0].x + serifWidth + 30 * spacing + (50)
-	anchors:
-		0:
-			x: 550 + 0
-			y: ( ( 190 + (0) ) / 750 ) * capHeight
 	contours:
 		0:
 			skeleton: true
@@ -22,7 +18,8 @@ exports.glyphs['U_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: Math.max( 170, ( 220 / 750 ) * capHeight )
+					y: Math.min( 170, ( 220 / 750 ) * capHeight )
+					y: 180 + ( 40 / 750 ) * capHeight
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
 						angle: 0 + 'deg'
@@ -40,7 +37,7 @@ exports.glyphs['U_cap'] =
 					})
 				3:
 					x: contours[1].nodes[0].expandedTo[0].x
-					y: anchors[0].y
+					y: 150 - (4) + ( 40 / 750 ) * capHeight
 					type: 'smooth'
 					dirIn: - 108 + 'deg'
 					expand: Object({

@@ -55,7 +55,7 @@ exports.glyphs['r'] =
 					})
 				2:
 					x: 345 + 25
-					y: contours[1].nodes[1].expandedTo[1].y - 35
+					y: contours[1].nodes[1].expandedTo[1].y - 35 + Math.min( - 20 * aperture + 20, - 125 * aperture + 125 )
 					dirOut: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({

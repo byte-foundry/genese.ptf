@@ -1,7 +1,7 @@
 exports.glyphs['quoteright'] =
 	unicode: '’'
 	ot:
-		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
+		advanceWidth: width * 120 + thickness * 2 - ( 86 * 2 )
 	components:
 		0:
 			base: '_quoteright'

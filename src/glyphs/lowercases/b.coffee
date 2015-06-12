@@ -2,10 +2,6 @@ exports.glyphs['b'] =
 	unicode: 'b'
 	ot:
 		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
-	anchors:
-		0:
-			x: 550 - 86 + thickness
-			y: xHeight * ( 250 / 500 )
 	contours:
 		0:
 			skeleton: true
@@ -21,7 +17,7 @@ exports.glyphs['b'] =
 						distr: 0
 					})
 				1:
-					x: 95
+					x: contours[0].nodes[0].x
 					# y: xHeight * ( 195 / 500 )
 					y: 195
 					dirOut: 90 + 'deg'
@@ -32,9 +28,9 @@ exports.glyphs['b'] =
 						distr: 0
 					})
 				2:
-					x: 95
+					x: contours[0].nodes[0].x
 					# y: xHeight * ( 195 / 500 )
-					y: 195
+					y: contours[0].nodes[1].y
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -55,37 +51,39 @@ exports.glyphs['b'] =
 			closed: false
 			nodes:
 				0:
-					x: 95 + thickness
+					x: contours[0].nodes[3].expandedTo[1].x - ( 10 / 85 ) * thickness
 					# y: xHeight * ( 350 / 500 )
-					y: xHeight - 150
-					dirOut: 84 + 'deg'
+					y: xHeight - 100
+					# dirOut: 55 + 'deg'
+					dirOut: if width <= 1.2 then 55 - 55 * width + 55 + 'deg' else 60 - 15 * width + 'deg'
 					expand: Object({
-						width: thickness * .2 * contrast
-						angle: - 10 + 180 + 'deg'
+						width: ( 25 / 85 ) * thickness
+						angle: 90 + 'deg'
 						distr: 0
 					})
 				1:
-					x: anchors[0].x * ( 330 / 455 ) - 69
-					y: xHeight + overshoot
+					x: contours[1].nodes[2].x * ( 330 / 455 ) - (69)
+					x: contours[1].nodes[0].x + ( contours[1].nodes[2].expandedTo[1].x - contours[1].nodes[0].x ) * 0.45
+					y: xHeight + overshoot / 2
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 58 / 86 )
-						angle: 180 + 240 + 'deg'
+						width: thickness * ( 50 / 86 )
+						angle: 180 - 135 + 'deg'
 						distr: 1
 					})
 				2:
-					x: anchors[0].x
-					y: anchors[0].y
+					x: ( 550 - (21) ) * width
+					y: xHeight * ( 250 / 500 )
 					dirOut: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 97 / 86 )
-						angle: 22 + 'deg'
-						distr: 1
+						angle: 180 - 174 + 'deg'
+						distr: 0.75
 					})
 				3:
-					x: anchors[0].x * ( 310 / 455 ) - 65
+					x: contours[1].nodes[2].x * ( 310 / 455 ) - (65)
 					y: - overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -95,21 +93,39 @@ exports.glyphs['b'] =
 						distr: 1
 					})
 				4:
-					x: contours[1].nodes[0].x
+					x: contours[0].nodes[3].expandedTo[1].x
 					# y: xHeight * ( 95 / 500 )
 					y: 95
-					dirOut: - 64 + 'deg'
+					dirIn: if width <= 1.2 then - 64 + 64 * width - 64 + 'deg' else - 64 + 15 * width + 'deg'
+					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 50 / 86 ) * contrast
 						angle: 180 + 29 + 'deg'
-						distr: 0
+						distr: 1
 					})
+				4:
+					# dirIn: if width <= 1.2 then - 65 + 65 * width - 65 + 'deg' else - 65 + 15 * width + 'deg'
+					# dirIn: 100 + 'deg'
+					expandedTo: [
+						x: contours[0].nodes[3].expandedTo[1].x
+						y: 95
+						# dirIn: - 165 + 'deg'
+						dirIn: if width <= 1.2 then - 65 + 65 * width - 65 + 'deg' else - 65 + 15 * width + 'deg'
+					,
+						x: Utils.onLine({
+							y: 60 + 10 * width
+							on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
+						})
+						y: 60 + 10 * width
+						dirOut: - 53 + 'deg'
+						dirOut: if width <= 1.2 then - 53 + 53 * width - 53 + 'deg' else - 53 + 15 * width + 'deg'
+					]
 				5:
-					x: contours[1].nodes[0].x
+					x: contours[0].nodes[3].expandedTo[1].x
 					# y: xHeight * ( 195 / 500 )
 					y: 195
 					dirOut: - 90 + 'deg'
-					typeOut: 'line'
+					typeIn: 'line'
 					expand: Object({
 						width: thickness * ( 50 / 86 ) * contrast
 						distr: 0

@@ -17,7 +17,7 @@ exports.glyphs['Y_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: capHeight * ( 340 / 750 )
+					y: capHeight * ( 340 / 750 ) + thickness - 85
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
@@ -98,12 +98,12 @@ exports.glyphs['Y_cap'] =
 		1:
 			base: 'serif'
 			parentAnchors:
-				0:
-					x: contours[1].nodes[2].expandedTo[1].x
-					y: contours[1].nodes[2].y
-				1:
-					x: contours[1].nodes[2].expandedTo[0].x
-					y: contours[1].nodes[2].y
+				# 0:
+				# 	x: contours[1].nodes[2].expandedTo[1].x
+				# 	y: contours[1].nodes[2].y
+				# 1:
+				# 	x: contours[1].nodes[2].expandedTo[0].x
+				# 	y: contours[1].nodes[2].y
 				0:
 					x: Utils.onLine({
 						y: capHeight - serifHeight - serifCurve

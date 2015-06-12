@@ -27,7 +27,7 @@ exports.glyphs['five'] =
 					})
 				2:
 					x: 40 + (30)
-					y: 280 + (40)
+					y: ( ( 280 + (40) ) / 500 ) * xHeight
 					dirIn: - 10 + 'deg'
 					tensionIn: .9
 					expand: Object({
@@ -80,7 +80,7 @@ exports.glyphs['five'] =
 					})
 				0:
 					x: 343
-					y: 370
+					y: ( 370 / 500 ) * xHeight
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 93 / 85 )

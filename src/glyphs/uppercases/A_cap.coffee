@@ -16,24 +16,26 @@ exports.glyphs['A_cap'] =
 			skeleton: true
 			closed: false
 			nodes:
+				0:
+					x: Utils.onLine({
+						y: 0
+						on: [ contours[0].nodes[1].point, anchors[0].point ]
+					})
+					y: 0
+					typeOut: 'line'
+					expand: Object({
+						width: thickness * ( 105 / 85 ) * opticThickness
+						angle: 0 + 'deg'
+						distr: 0.25
+					})
 				1:
 					x: ( 495 + 20 ) * width * ( ( 295 + 10 ) / 495 )
+					# A like avant-garde:
+					# x: ( 495 + 20 ) * width
 					y: capHeight - capHeight * ( 30 / 750 ) * thickness / 85 * ( serifCurve / 15 )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
-						angle: 0 + 'deg'
-						distr: 0.25
-					})
-				0:
-					x: Utils.onLine({
-						y: 0 + serifHeight + serifCurve
-						on: [ contours[0].nodes[1].point, anchors[0].point ]
-					})
-					y: 0 + serifHeight + serifCurve
-					typeOut: 'line'
-					expand: Object({
-						width: thickness * ( 105 / 85 ) * opticThickness
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
@@ -136,6 +138,8 @@ exports.glyphs['A_cap'] =
 					anchorLine: 0
 					leftWidth: 45
 					rightWidth: 48
+					baseRight: contours[0].nodes[0].expandedTo[1].point
+					baseLeft: contours[0].nodes[0].expandedTo[0].point
 					angle: Utils.lineAngle( contours[0].nodes[0].point ,contours[0].nodes[1].point )
 		1:
 			base: 'serif'
@@ -158,4 +162,6 @@ exports.glyphs['A_cap'] =
 					rightWidth: 48
 					rightCurve: 0.0
 					leftCurve: 0.0
+					baseRight: contours[1].nodes[0].expandedTo[1].point
+					baseLeft: contours[1].nodes[0].expandedTo[0].point
 					angle: Utils.lineAngle( contours[1].nodes[1].point ,contours[1].nodes[0].point )

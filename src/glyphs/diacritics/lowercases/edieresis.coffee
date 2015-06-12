@@ -15,19 +15,9 @@ exports.glyphs['edieresis'] =
 				0:
 					x: 260 + thickness / 4 - 42 - thickness / 2
 					y: xHeight + 70
-			parentParameters:
-				thickness:
-					if thickness < 40
-					then 40
-					else thickness
 		2:
 			base: 'dot'
 			parentAnchors:
 				0:
 					x: 260 + thickness / 4 + 42 + thickness / 2
 					y: xHeight + 70
-			parentParameters:
-				thickness:
-					if thickness < 40
-					then 40
-					else thickness

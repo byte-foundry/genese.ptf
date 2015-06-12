@@ -12,17 +12,20 @@ exports.glyphs['c'] =
 			closed: false
 			nodes:
 				0:
-					x: 465
-					y: 135
+					x: 465 * width
+					# y: ( 135 / 500 ) * xHeight
+					y: Math.max( contours[0].nodes[1].expandedTo[1].y + thickness / 10, 135 * aperture )
 					dirOut: - 109 + 'deg'
+					dirOut: Math.min( - 140 + ( 31 / 500 ) * xHeight * aperture , - 90 ) + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 18 / 86 )
-						angle: 146 + 'deg'
+						# angle: 146 + 'deg'
+						angle: contours[0].nodes[0].dirOut - Math.PI / 2
 						distr: 0
 					})
 				1:
-					x: 275
+					x: 275 * width
 					y: - overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -42,7 +45,7 @@ exports.glyphs['c'] =
 						distr: 0.25
 					})
 				3:
-					x: 285
+					x: 285 * width
 					y: xHeight + overshoot
 					dirOut: 90 + 'deg'
 					dirIn: 0 + 'deg'
@@ -68,17 +71,16 @@ exports.glyphs['c'] =
 					dirIn: 90 + 'deg'
 					# type: 'smooth'
 				2:
-					x: 425
-					y: xHeight - ( 500 - 365 )
+					x: contours[1].nodes[1].x - Math.max( 5, thickness * ( 40 / 85 ) + serifBall )
+					y: contours[1].nodes[1].y - Math.max( 5, thickness * ( 40 / 85 ) + serifBall )
 					dirOut: 0 + 'deg'
 					dirIn: 0 + 'deg'
 					# type: 'smooth'
 				3:
-					x: 380
-					y: xHeight - ( 500 - 405 )
-					dirOut: 111 + 'deg'
-					dirIn: 111 + 'deg'
-					# type: 'smooth'
+					x: contours[1].nodes[2].x - Math.max( 5, thickness * ( 40 / 85 ) + serifBall )
+					y: contours[1].nodes[1].y
+					dirOut: if thickness > 85 then 111 + 21 - ( 21 / 85 ) * thickness + 'deg' else 111 - 21 + ( 21 / 85 ) * thickness + 'deg'
+					type: 'smooth'
 				4:
 					x: contours[0].nodes[3].expandedTo[1].x
 					y: contours[0].nodes[3].expandedTo[1].y

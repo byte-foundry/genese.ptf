@@ -2,18 +2,14 @@ exports.glyphs['t'] =
 	unicode: 't'
 	ot:
 		advanceWidth: width * 400 + thickness * 2 - ( 86 * 2 )
-	anchors:
-		0:
-			x: 370 * width + thickness - 86
-			y: xHeight * ( 100 / 500 )
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x
-					y: anchors[0].y
+					x: 370 * width + thickness - 86
+					y: xHeight * ( 100 / 500 )
 					dirOut: Math.min( - 140 + ( 31 / 500 ) * xHeight , - 90 ) + 'deg'
 					expand: Object({
 						width: thickness * ( 11 / 86 )
@@ -21,7 +17,7 @@ exports.glyphs['t'] =
 						distr: 0
 					})
 				1:
-					x: anchors[0].x * ( 240 / 370 )
+					x: contours[0].nodes[0].x * ( 240 / 370 )
 					y: - overshoot
 					dirOut: 180 + 'deg'
 					type: 'smooth'
@@ -84,7 +80,7 @@ exports.glyphs['t'] =
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x - 25
+					x: contours[0].nodes[0].x - 25
 					y: xHeight
 					dirOut: 0 + 'deg'
 					typeOut: 'line'

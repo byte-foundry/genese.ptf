@@ -55,10 +55,13 @@ exports.glyphs['e'] =
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x - ( 20 / 85 ) * thickness
 					y: xHeight * ( 135 / 500 ) + ( 20 / 85 ) * thickness - 20
-					dirIn: Math.min( - 116, Math.max( - 100 , - ( 100 / 500 ) * xHeight ) ) + 'deg'
-					dirIn: - 110 + 'deg'
+					y: Math.max( contours[0].nodes[3].expandedTo[0].y + thickness / 10, 135 * aperture )
+					# dirIn: Math.min( - 116, Math.max( - 100 , - ( 100 / 500 ) * xHeight * aperture ) ) + 'deg'
+					# dirIn: - 110 + 'deg'
+					dirIn: Math.min( - 140 + ( 30 / 500 ) * xHeight * aperture , - 90 ) + 'deg'
 					expand: Object({
 						angle: 163 + 180 + 'deg'
+						angle: contours[0].nodes[4].dirIn + Math.PI / 2
 						distr: 0.25
 						width: thickness * ( 11 / 86 )
 					})

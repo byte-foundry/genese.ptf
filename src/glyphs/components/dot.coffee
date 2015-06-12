@@ -14,17 +14,47 @@ exports.glyphs['dot'] =
 					dirOut: 180 + 'deg'
 					type: 'smooth'
 				1:
-					x: anchors[0].x - thickness * ( 120 / 85 ) / 2
-					y: anchors[0].y + thickness * ( 120 / 85 ) / 2
+					x: anchors[0].x - Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 120 / 85 )
+						)
+					) / 2
+					y: anchors[0].y + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 120 / 85 )
+						)
+					) / 2
 					dirOut: 90 + 'deg'
 					type: 'smooth'
 				2:
 					x: anchors[0].x
-					y: anchors[0].y + thickness * ( 120 / 85 )
+					y: anchors[0].y + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 120 / 85 )
+						)
+					)
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 				3:
-					x: anchors[0].x + thickness * ( 120 / 85 ) / 2
-					y: anchors[0].y + thickness * ( 120 / 85 ) / 2
+					x: anchors[0].x + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 120 / 85 )
+						)
+					) / 2
+					y: anchors[0].y + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 120 / 85 )
+						)
+					) / 2
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
