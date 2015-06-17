@@ -1,7 +1,7 @@
 exports.glyphs['f'] =
 	unicode: 'f'
 	ot:
-		advanceWidth: contours[2].nodes[2].expandedTo[0].x
+		advanceWidth: contours[2].nodes[0].expandedTo[0].x
 	anchors:
 		0:
 			x: 115 + ( 21 )
@@ -74,7 +74,7 @@ exports.glyphs['f'] =
 			skeleton: true
 			closed: false
 			nodes:
-				0:
+				2:
 					x: 30
 					y: contours[2].nodes[1].expandedTo[0].y
 					typeOut: 'line'
@@ -92,7 +92,7 @@ exports.glyphs['f'] =
 						angle: 90 + 'deg'
 						distr: 1
 					})
-				2:
+				0:
 					x: contours[0].nodes[2].expandedTo[0].x - thickness * ( 5 / 85 )
 					y: xHeight
 					typeOut: 'line'

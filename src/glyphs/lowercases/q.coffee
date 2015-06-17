@@ -57,7 +57,7 @@ exports.glyphs['q'] =
 					dirOut: - 125 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 40 / 85 )
+						width: ( thickness * ( 40 / 85 ) / 500 ) * xHeight
 						angle: 90 + 'deg'
 						distr: 0.25
 					})
@@ -93,17 +93,27 @@ exports.glyphs['q'] =
 						distr: 0
 					})
 				4:
-					x: contours[0].nodes[0].expandedTo[0].x + thickness * ( 10 / 85 )
-					y: xHeight - 115
-					# dirOut: - 116 + 'deg'
-					dirOut: 90 + 'deg'
-					tensionIn: 0.9
-					type: 'smooth'
-					expand: Object({
-						width: thickness * ( 54 / 86 )
-						angle: 180 + 34 + 'deg'
-						distr: 1
-					})
+					# x: contours[0].nodes[0].expandedTo[0].x + thickness * ( 10 / 85 )
+					# y: xHeight - 115
+					# dirIn: Math.max( 146 - ( 30 / 500 ) * xHeight, 90 ) + 'deg'
+					# tensionIn: 0.9
+					# type: 'smooth'
+					# expand: Object({
+					# 	width: Math.min( thickness * ( 54 / 86 ), ( thickness * ( 54 / 86 ) / 500 ) * xHeight )
+					# 	angle: 180 + 34 + 'deg'
+					# 	distr: 1
+					# })
+					expandedTo: [
+						x: contours[0].nodes[2].expandedTo[0].x
+						y: contours[0].nodes[2].expandedTo[0].y
+						dirIn: Math.min( 146 - ( 30 / 500 ) * xHeight, 90 ) + 'deg'
+						dirIn: 116 + 'deg'
+					,
+						x: contours[0].nodes[1].expandedTo[0].x
+						y: contours[0].nodes[1].expandedTo[0].y
+						dirOut: Math.min( 146 - ( 30 / 500 ) * xHeight, 90 ) + 'deg'
+						dirOut: 116 + 'deg'
+					]
 	components:
 		0:
 			base: 'serif'

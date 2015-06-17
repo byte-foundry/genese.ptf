@@ -17,11 +17,12 @@ exports.glyphs['A_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: Utils.onLine({
-						y: 0
-						on: [ contours[0].nodes[1].point, anchors[0].point ]
-					})
-					y: 0
+					# x: Utils.onLine({
+					# 	y: 0
+					# 	on: [ contours[0].nodes[1].point, anchors[0].point ]
+					# })
+					x: ( 490 + 20 ) * width
+					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 105 / 85 ) * opticThickness
@@ -136,8 +137,8 @@ exports.glyphs['A_cap'] =
 					y: serifHeight + serifCurve * ( 65 / 15 )
 				2:
 					anchorLine: 0
-					leftWidth: 45
-					rightWidth: 48
+					leftWidth: 55
+					rightWidth: 20
 					baseRight: contours[0].nodes[0].expandedTo[1].point
 					baseLeft: contours[0].nodes[0].expandedTo[0].point
 					angle: Utils.lineAngle( contours[0].nodes[0].point ,contours[0].nodes[1].point )
@@ -158,10 +159,12 @@ exports.glyphs['A_cap'] =
 					y: serifHeight + serifCurve + 115
 				2:
 					anchorLine: 0
-					leftWidth: 78
-					rightWidth: 48
-					rightCurve: 0.0
-					leftCurve: 0.0
+					leftWidth: 40
+					rightWidth: 80
+					# rightCurve: 0.0
+					# leftCurve: 0.5
 					baseRight: contours[1].nodes[0].expandedTo[1].point
 					baseLeft: contours[1].nodes[0].expandedTo[0].point
 					angle: Utils.lineAngle( contours[1].nodes[1].point ,contours[1].nodes[0].point )
+			parentParameters:
+				serifCurve: serifCurve * 20

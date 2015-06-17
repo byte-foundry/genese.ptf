@@ -13,8 +13,8 @@ exports.glyphs['e'] =
 			nodes:
 				0:
 					x: ( 404 + (42) ) * width
-					y: xHeight * ( 340 / 500 )
-					dirOut: Math.max( 90, Math.min( 120, 180 - ( 80 / 500 ) * xHeight ) ) + 'deg'
+					y: xHeight * ( 340 / 500 ) * crossbar
+					dirOut: Math.max( 90, 150 - ( 50 / 500 ) * xHeight ) + 'deg'
 					tensionOut: 1.2
 					expand: Object({
 						width: thickness * ( 94 / 86 )
@@ -55,7 +55,7 @@ exports.glyphs['e'] =
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x - ( 20 / 85 ) * thickness
 					y: xHeight * ( 135 / 500 ) + ( 20 / 85 ) * thickness - 20
-					y: Math.max( contours[0].nodes[3].expandedTo[0].y + thickness / 10, 135 * aperture )
+					y: Math.max( contours[0].nodes[3].expandedTo[0].y + thickness / 10, 40 + xHeight * ( 95 / 500 ) * aperture )
 					# dirIn: Math.min( - 116, Math.max( - 100 , - ( 100 / 500 ) * xHeight * aperture ) ) + 'deg'
 					# dirIn: - 110 + 'deg'
 					dirIn: Math.min( - 140 + ( 30 / 500 ) * xHeight * aperture , - 90 ) + 'deg'

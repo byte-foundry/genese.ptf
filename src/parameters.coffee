@@ -258,12 +258,12 @@ exports.parameters = [
 	,
 		name: 'serifBall'
 		label: 'Terminal Ball'
-		min: -40
-		max: 40
+		min: 0.01
+		max: 3
 		step: 0.01
-		init: 0
-		minAdvised: -5
-		maxAdvised: 5
+		init: 1
+		minAdvised: 0
+		maxAdvised: 1.1
 	]
 ];
 

@@ -38,7 +38,7 @@ exports.glyphs['p'] =
 					y: xHeight - ( 65 / 500 ) * xHeight
 					dirOut: Math.min( ( 55 / 500 ) * xHeight, 75 ) + 'deg'
 					expand: Object({
-						width: thickness * ( 45 / 86 )
+						width: Math.min( thickness, ( thickness * ( 45 / 86 ) / 500 ) * xHeight )
 						angle: 90 + 'deg'
 						distr: 1
 					})
@@ -76,11 +76,11 @@ exports.glyphs['p'] =
 				4:
 					x: contours[1].nodes[0].x
 					# y: xHeight * ( 120 / 500 )
-					y: 120
+					y: 40 + ( 80 / 500 ) * xHeight
 					dirIn: - 65 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 54 / 86 ) * contrast
+						width: Math.min( thickness * ( 54 / 86 ) * contrast, ( thickness * ( 54 / 86 ) * contrast / 500 ) * xHeight )
 						angle: 180 + 34 + 'deg'
 						distr: 0
 					})

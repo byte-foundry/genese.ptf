@@ -14,7 +14,7 @@ exports.glyphs['c'] =
 				0:
 					x: 465 * width
 					# y: ( 135 / 500 ) * xHeight
-					y: Math.max( contours[0].nodes[1].expandedTo[1].y + thickness / 10, 135 * aperture )
+					y: Math.max( contours[0].nodes[1].expandedTo[1].y + thickness / 10, 40 + xHeight * ( 95 / 500 ) * aperture )
 					dirOut: - 109 + 'deg'
 					dirOut: Math.min( - 140 + ( 31 / 500 ) * xHeight * aperture , - 90 ) + 'deg'
 					type: 'smooth'
