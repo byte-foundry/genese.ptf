@@ -12,14 +12,14 @@ exports.glyphs['c'] =
 			closed: false
 			nodes:
 				0:
-					x: 465 * width
+					x: 470 * width + ( 10 / 85 ) * thickness * aperture - 10
 					# y: ( 135 / 500 ) * xHeight
-					y: Math.max( contours[0].nodes[1].expandedTo[1].y + thickness / 10, 40 + xHeight * ( 95 / 500 ) * aperture )
+					y: Math.max( contours[0].nodes[1].expandedTo[1].y + thickness / 10, 40 + xHeight * ( 88 / 500 ) * aperture )
 					dirOut: - 109 + 'deg'
 					dirOut: Math.min( - 140 + ( 31 / 500 ) * xHeight * aperture , - 90 ) + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 18 / 86 )
+						width: thickness * ( 13 / 86 )
 						# angle: 146 + 'deg'
 						angle: contours[0].nodes[0].dirOut - Math.PI / 2
 						distr: 0

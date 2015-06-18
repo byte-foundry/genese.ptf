@@ -34,11 +34,11 @@ exports.glyphs['p'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x - ( 10 / 86 ) * thickness
-					y: xHeight - ( 65 / 500 ) * xHeight
-					dirOut: Math.min( ( 55 / 500 ) * xHeight, 75 ) + 'deg'
+					x: contours[0].nodes[0].expandedTo[1].x - ( 10 / 85 ) * thickness
+					y: xHeight - ( 75 / 500 ) * xHeight * aperture
+					dirOut: Math.min( ( 60 / 500 ) * xHeight * aperture, 75 ) + 'deg'
 					expand: Object({
-						width: Math.min( thickness, ( thickness * ( 45 / 86 ) / 500 ) * xHeight )
+						width: Math.min( thickness * ( 35 / 85 ), ( thickness * ( 35 / 85 ) / 500 ) * xHeight )
 						angle: 90 + 'deg'
 						distr: 1
 					})
@@ -48,7 +48,7 @@ exports.glyphs['p'] =
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 53 / 86 )
+						width: thickness * ( 53 / 85 )
 						angle: 180 + 222 + 'deg'
 						distr: 1
 					})
@@ -59,7 +59,7 @@ exports.glyphs['p'] =
 					tensionOut: 0.9
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 97 / 86 )
+						width: thickness * ( 97 / 85 )
 						angle: 12 + 'deg'
 						distr: 0
 					})
@@ -69,18 +69,18 @@ exports.glyphs['p'] =
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * contrast * ( 22 / 86 )
+						width: thickness * contrast * ( 22 / 85 )
 						angle: 180 + 112 + 'deg'
 						distr: 1
 					})
 				4:
 					x: contours[1].nodes[0].x
 					# y: xHeight * ( 120 / 500 )
-					y: 40 + ( 80 / 500 ) * xHeight
-					dirIn: - 65 + 'deg'
+					y: 40 + ( 80 / 500 ) * xHeight * aperture
+					dirIn: - 65 * aperture + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: Math.min( thickness * ( 54 / 86 ) * contrast, ( thickness * ( 54 / 86 ) * contrast / 500 ) * xHeight )
+						width: Math.min( thickness * ( 54 / 85 ) * contrast, ( thickness * ( 35 / 85 ) * contrast / 500 ) * xHeight )
 						angle: 180 + 34 + 'deg'
 						distr: 0
 					})

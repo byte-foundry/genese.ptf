@@ -2,20 +2,13 @@ exports.glyphs['a'] =
 	unicode: 'a'
 	ot:
 		advanceWidth: width * 470 + thickness - 85
-	anchors:
-		0:
-			x: ( 295 + 21 ) * width
-			y: 113
-		1:
-			x: 38
-			y: 365
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x + ( 195 - 11 )
+					x: contours[0].nodes[2].x + ( 195 - 11 )
 					y: Math.min( 115, ( 115 / 500 ) * xHeight )
 					dirOut: -100 + 'deg'
 					type: 'smooth'
@@ -25,7 +18,7 @@ exports.glyphs['a'] =
 						distr: 0
 					})
 				1:
-					x: Math.max( contours[0].nodes[2].expandedTo[1].x - thickness / 3, anchors[0].x + ( contours[0].nodes[0].x - anchors[0].x ) * ( 45 / 110 ) )
+					x: Math.max( contours[0].nodes[2].expandedTo[1].x - thickness / 3, contours[0].nodes[2].x + ( contours[0].nodes[0].x - contours[0].nodes[2].x ) * ( 45 / 110 ) )
 					y: - overshoot / 2
 					dirOut: 180 + 'deg'
 					type: 'smooth'
@@ -35,7 +28,7 @@ exports.glyphs['a'] =
 						distr: 0
 					})
 				2:
-					x: anchors[0].x
+					x: ( 295 + 21 ) * width
 					y: Math.min( 102, ( 102 / 500 ) * xHeight )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -66,7 +59,7 @@ exports.glyphs['a'] =
 					})
 				5:
 					x: 40
-					y: Math.max( xHeight - 100 - 40 * aperture, contours[1].nodes[3].y + ( thickness * ( 60 / 85 ) * serifBall ) / 2 )
+					y: Math.max( xHeight - 100 - 40 * aperture, contours[1].nodes[3].y )
 					dirIn: 70 + 20 * aperture + 'deg'
 					type: 'smooth'
 					tensionIn: 0.6
@@ -82,10 +75,12 @@ exports.glyphs['a'] =
 				0:
 					x: contours[0].nodes[2].expandedTo[0].x + thickness * (13/86)
 					y: 95
-					dirOut: 46 + 'deg'
+					dirOut: 46 * width + 'deg'
+					dirOut: 70 - 24 * width + 24 + 'deg'
+					# dirOut: Math.min( Math.max( 60, 46 * width), 35 ) + 'deg'
 					type: 'smooth'
-					tensionOut: 1.2 * width
-					tensionIn: 1.2 * width
+					tensionOut: 1.2
+					tensionIn: 1.2
 					expand: Object({
 						width: thickness * ( 15 / 85 ) * contrast
 						angle: 116 + 'deg'
@@ -117,8 +112,8 @@ exports.glyphs['a'] =
 				3:
 					x: contours[0].nodes[2].expandedTo[0].x + thickness * (8/86)
 					y: ( 275 / 500 ) * xHeight * crossbar - (8)
-					dirIn: - 163 + 'deg'
-					tensionIn: 1.35
+					dirIn: Math.max( Math.min( - 150, - 163 * width), - 170 ) + 'deg'
+					tensionIn: Math.min( 1.35 * width, 1.35 )
 					# typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 20 / 85 ) * contrast
@@ -133,16 +128,17 @@ exports.glyphs['a'] =
 					y: contours[0].nodes[5].expandedTo[1].y
 					dirOut: contours[0].nodes[5].dirIn
 				1:
-					x: contours[0].nodes[5].expandedTo[1].x + ( contours[0].nodes[5].expandedTo[0].x - contours[0].nodes[5].expandedTo[1].x ) * ( 50 / 75 ) * serifBall
+					x: contours[0].nodes[5].expandedTo[1].x + ( contours[0].nodes[5].expandedTo[0].x - contours[0].nodes[5].expandedTo[1].x ) * ( 50 / 75 )
 					# y: Math.max( contours[0].nodes[5].expandedTo[1].y - thickness * ( 60 / 85 ) - serifBall, contours[1].nodes[3].y - serifBall )
 					y: contours[0].nodes[5].expandedTo[1].y - thickness * ( 60 / 85 ) * serifBall
+					y: contours[0].nodes[5].expandedTo[1].y - 60 * serifBall
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 				2:
 					x: Math.min( contours[0].nodes[5].expandedTo[0].x + 20 * serifBall, contours[0].nodes[4].expandedTo[0].x )
 					# x: 135
 					# y: xHeight - ( 500 - 340 )
-					y: contours[2].nodes[1].y + ( contours[2].nodes[3].y - contours[2].nodes[1].y ) * ( 45 / 105 ) * serifBall
+					y: contours[2].nodes[1].y + ( contours[2].nodes[3].y - contours[2].nodes[1].y ) * ( (10+30*serifBall) / 105 )
 					y: contours[0].nodes[5].expandedTo[1].y + ( contours[2].nodes[1].y - contours[0].nodes[5].expandedTo[1].y ) * ( 30 / 105 )
 					dirOut: contours[0].nodes[5].dirIn
 					dirIn: contours[0].nodes[5].dirIn

@@ -110,15 +110,15 @@ exports.glyphs['s'] =
 					dirIn: - 100 + 'deg'
 					typeOut: 'line'
 				3:
-					x:contours[1].nodes[2].x + 15
-					y:contours[1].nodes[2].y
+					x: contours[1].nodes[2].x + 15
+					y: contours[1].nodes[2].y
 					typeOut: 'line'
 				4:
-					x:contours[1].nodes[3].x
-					y:contours[1].nodes[3].y - 165
+					x: contours[1].nodes[3].x
+					y: Math.max( contours[1].nodes[3].y - 165, contours[0].nodes[2].y + 20 ) 
 				5:
-					x:contours[1].nodes[4].x - 15
-					y:contours[1].nodes[4].y
+					x: contours[1].nodes[4].x - 15
+					y: contours[1].nodes[4].y
 					dirOut: 95 + 'deg'
 					tensionOut: 1.2
 				6:
@@ -133,7 +133,7 @@ exports.glyphs['s'] =
 					y: contours[0].nodes[5].expandedTo[0].y
 				1:
 					x: 50
-					y: 175
+					y: Math.min( 175, contours[0].nodes[3].y )
 					dirIn: - 77 + 'deg'
 					tensionIn: 1.1
 					typeOut: 'line'
@@ -147,12 +147,12 @@ exports.glyphs['s'] =
 					y: 0
 					typeOut: 'line'
 				4:
-					x:contours[2].nodes[3].x + 15
-					y:contours[2].nodes[3].y
+					x: contours[2].nodes[3].x + 15
+					y: contours[2].nodes[3].y
 					dirOut: 77 + 'deg'
 				5:
-					x:contours[2].nodes[4].x + 20
-					y:contours[2].nodes[4].y + 35
+					x: contours[2].nodes[4].x + 20
+					y: contours[2].nodes[4].y + 35
 					tensionOut: 0.5
 				6:
 					x: contours[0].nodes[5].expandedTo[1].x

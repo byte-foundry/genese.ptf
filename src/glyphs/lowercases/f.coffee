@@ -29,14 +29,15 @@ exports.glyphs['f'] =
 						distr: 0.25
 					})
 				2:
-					x: 395
+					x: 335 * width
 					y: capHeight + overshoot / 2
 					dirOut: 0 + 'deg'
 					dirIn: 0 + 'deg'
+					tensionIn: 1.1
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 67 / 85 )
-						angle: - 153 + 'deg'
+						width: thickness * ( 40 / 85 )
+						angle: - 139 + 'deg'
 						distr: 0
 					})
 		1:
@@ -48,27 +49,29 @@ exports.glyphs['f'] =
 					y: contours[0].nodes[2].expandedTo[0].y
 					dirOut: 0 + 'deg'
 				1:
-					x: contours[0].nodes[2].expandedTo[0].x + 150
+					x: contours[0].nodes[2].expandedTo[0].x + 135
 					y: capHeight - 70
 					dirOut: 90 + 'deg'
 					dirIn: 90 + 'deg'
 					# type: 'smooth'
 				2:
-					x: 500
-					y: capHeight - 115
+					# x: 425
+					x: contours[1].nodes[1].x - 45 * serifBall
+					y: contours[1].nodes[1].y - 45 * serifBall
 					dirOut: 0 + 'deg'
 					dirIn: 0 + 'deg'
 					# type: 'smooth'
+				# 3:
+				# 	x: 430
+				# 	y: capHeight - 65
+				# 	dirOut: 135 + 'deg'
+				# 	dirIn: 135 + 'deg'
+				# 	# type: 'smooth'
 				3:
-					x: 430
-					y: capHeight - 65
-					dirOut: 135 + 'deg'
-					dirIn: 135 + 'deg'
-					# type: 'smooth'
-				4:
 					x: contours[0].nodes[2].expandedTo[1].x
 					y: contours[0].nodes[2].expandedTo[1].y
 					dirIn: 0 + 'deg'
+					tensionIn: 1.2
 					# type: 'smooth'
 		2:
 			skeleton: true
@@ -93,7 +96,7 @@ exports.glyphs['f'] =
 						distr: 1
 					})
 				0:
-					x: contours[0].nodes[2].expandedTo[0].x - thickness * ( 5 / 85 )
+					x: contours[0].nodes[2].expandedTo[0].x + thickness * ( 5 / 85 )
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({

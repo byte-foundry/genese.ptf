@@ -100,11 +100,13 @@ exports.glyphs['d'] =
 					y: contours[0].nodes[1].y
 				2:
 					anchorLine: ascenderHeight
-					# leftWidth: 1.7
+					leftWidth: 80
 					# spurHeight: 1
 					directionY: -1
 					right: false
 					# attaque: true
+			transformOrigin: Array( contours[0].nodes[1].expandedTo[1].x, contours[0].nodes[1].expandedTo[0].y )
+			transforms: Array( [ 'skewY', 10 * serifRotate + 'deg' ] )
 		# 1:
 		# 	base: 'attaque'
 		# 	parentAnchors:
@@ -131,14 +133,15 @@ exports.glyphs['d'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: 0
-					rightWidth: 20
+					rightWidth: 60
 					attaque: true
 					left: false
-			# parentParameters:
-			# 	serifMedian: serifMedian
-			# 	midWidth: midWidth
-			# transformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
-			# transforms: Array( [ 'skewY', serifRotate * (-10) + 'deg' ] )
+					# serifRotate: 14
+			parentParameters:
+				serifMedian: serifMedian
+				midWidth: midWidth
+			transformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
+			transforms: Array( [ 'skewY', 14 * serifRotate + 'deg' ] )
 		# 0:
 		# 	base: 'term_TL'
 		# 	parentAnchors:

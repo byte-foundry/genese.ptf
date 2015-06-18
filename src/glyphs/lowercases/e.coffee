@@ -53,7 +53,7 @@ exports.glyphs['e'] =
 						distr: 1
 					})
 				4:
-					x: contours[0].nodes[0].expandedTo[1].x - ( 20 / 85 ) * thickness
+					x: contours[0].nodes[0].expandedTo[1].x - ( 20 / 85 ) * thickness + ( 10 / 85 ) * thickness * aperture - 10
 					y: xHeight * ( 135 / 500 ) + ( 20 / 85 ) * thickness - 20
 					y: Math.max( contours[0].nodes[3].expandedTo[0].y + thickness / 10, 40 + xHeight * ( 95 / 500 ) * aperture )
 					# dirIn: Math.min( - 116, Math.max( - 100 , - ( 100 / 500 ) * xHeight * aperture ) ) + 'deg'

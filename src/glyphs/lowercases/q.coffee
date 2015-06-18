@@ -57,7 +57,7 @@ exports.glyphs['q'] =
 					dirOut: - 125 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: ( thickness * ( 40 / 85 ) / 500 ) * xHeight
+						width:  Math.min( thickness * ( 40 / 85 ), ( thickness * ( 40 / 85 ) / 500 ) * xHeight )
 						angle: 90 + 'deg'
 						distr: 0.25
 					})
@@ -107,12 +107,12 @@ exports.glyphs['q'] =
 						x: contours[0].nodes[2].expandedTo[0].x
 						y: contours[0].nodes[2].expandedTo[0].y
 						dirIn: Math.min( 146 - ( 30 / 500 ) * xHeight, 90 ) + 'deg'
-						dirIn: 116 + 'deg'
+						dirIn: 118 + 'deg'
 					,
 						x: contours[0].nodes[1].expandedTo[0].x
 						y: contours[0].nodes[1].expandedTo[0].y
 						dirOut: Math.min( 146 - ( 30 / 500 ) * xHeight, 90 ) + 'deg'
-						dirOut: 116 + 'deg'
+						dirOut: 118 + 'deg'
 					]
 	components:
 		0:

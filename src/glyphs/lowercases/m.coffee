@@ -45,7 +45,7 @@ exports.glyphs['m'] =
 					y: xHeight - 160 + ( thickness - 85 ) / 4 + (25)
 					dirOut:
 						if width <= 1.2
-						then 70 - 70 * width + 70 + 'deg' 
+						then 70 - 70 * width + 70 + 'deg'
 						else 70 - 15 * width + 'deg'
 					# angle: - 90 + axis + 'deg'
 					type: 'smooth'

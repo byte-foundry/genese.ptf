@@ -50,8 +50,9 @@ exports.glyphs['n'] =
 					tensionOut: 1.1
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 77 / 85 ) / 2 + thickness * ( 77 / 85 ) / 2 * contrast
-						angle: Math.max( - 129 , - 129 - 10 * contrast + 10 ) + 'deg'
+						# width: thickness * ( 80 / 85 ) / 2 + thickness * ( 80 / 85 ) / 2 * contrast
+						width: thickness * ( 80 / 85 )
+						angle: Math.max( - 129 , - 129 - 10 * contrast * width + 10 ) + 'deg'
 						distr: 0
 					})
 				2:

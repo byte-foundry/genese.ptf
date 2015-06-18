@@ -51,11 +51,11 @@ exports.parameters = [
 		name: 'width'
 		label: 'Width'
 		min: 0.75
-		max: 2
+		max: 1.7
 		step: 0.01
 		init: 1
 		minAdvised: 0.85
-		maxAdvised: 1.4
+		maxAdvised: 1.3
 	,
 		name: 'slant'
 		label: 'Slant'
@@ -101,7 +101,7 @@ exports.parameters = [
 		name: 'aperture'
 		label: 'Aperture'
 		min: 0.5
-		max: 1.5
+		max: 2
 		step: 0.01
 		init: 1
 		minAdvised: 0.9
@@ -249,12 +249,12 @@ exports.parameters = [
 	,
 		name: 'serifRotate'
 		label: 'Serif Rotation'
-		min: -4
-		max: 4
+		min: 0
+		max: 2.5
 		step: 0.1
 		init: 1
-		minAdvised: -0.5
-		maxAdvised: 1.5
+		minAdvised: 0.4
+		maxAdvised: 1.2
 	,
 		name: 'serifBall'
 		label: 'Terminal Ball'

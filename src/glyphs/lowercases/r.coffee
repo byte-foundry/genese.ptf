@@ -56,7 +56,7 @@ exports.glyphs['r'] =
 				2:
 					x: 345 + 25
 					y: contours[1].nodes[1].expandedTo[1].y - 35 + Math.min( - 20 * aperture + 20, - 125 * aperture + 125 )
-					dirOut: 90 + 'deg'
+					dirIn: 110 - 20 * aperture + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 100 / 85 )
@@ -70,7 +70,7 @@ exports.glyphs['r'] =
 				0:
 					x: contours[1].nodes[2].expandedTo[0].x
 					y: contours[1].nodes[2].expandedTo[0].y
-					dirOut: - 90 + 'deg'
+					dirOut: contours[1].nodes[2].dirIn
 					# type: 'smooth'
 				1:
 					x: contours[1].nodes[2].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[0].x - contours[1].nodes[2].expandedTo[1].x ) / 2
@@ -82,7 +82,7 @@ exports.glyphs['r'] =
 				2:
 					x: contours[1].nodes[2].expandedTo[1].x
 					y: contours[1].nodes[2].expandedTo[1].y
-					dirIn: - 90 + 'deg'
+					dirIn: contours[1].nodes[2].dirIn
 					# type: 'smooth'
 	components:
 		0:
