@@ -39,7 +39,7 @@ exports.glyphs['H_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 26 / 86 )
+						width: thickness * ( 26 / 86 ) * contrast
 					})
 				1:
 					x: anchors[0].x + thickness * ( 15 / 86 )
@@ -47,7 +47,7 @@ exports.glyphs['H_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 26 / 86 )
+						width: thickness * ( 26 / 86 ) * contrast
 					})
 		2:
 			skeleton: true

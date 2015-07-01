@@ -23,6 +23,7 @@ exports.glyphs['A_cap'] =
 					# })
 					x: ( 490 + 20 ) * width
 					y: 0 + serifHeight + serifCurve
+					y: 0
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 105 / 85 ) * opticThickness
@@ -33,7 +34,7 @@ exports.glyphs['A_cap'] =
 					x: ( 495 + 20 ) * width * ( ( 295 + 10 ) / 495 )
 					# A like avant-garde:
 					# x: ( 495 + 20 ) * width
-					y: capHeight - capHeight * ( 30 / 750 ) * thickness / 85 * ( serifCurve / 15 )
+					y: capHeight - capHeight * ( 30 / 750 ) * thickness / 85
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
@@ -50,9 +51,10 @@ exports.glyphs['A_cap'] =
 						on: [ contours[0].nodes[1].point, anchors[1].point ]
 					})
 					y: 0 + serifHeight + serifCurve
+					y: 0
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 30 / 85 ) * opticThickness
+						width: thickness * ( 30 / 85 ) * opticThickness * contrast
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
@@ -64,7 +66,7 @@ exports.glyphs['A_cap'] =
 					y: contours[0].nodes[1].y - 10
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 20 / 85 ) * opticThickness
+						width: thickness * ( 20 / 85 ) * opticThickness * contrast
 						angle: 0 + 'deg'
 						distr: 0
 					})
@@ -80,7 +82,7 @@ exports.glyphs['A_cap'] =
 					y: capHeight * ( 298 / 750 ) * crossbar
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 26 / 85 ) * opticThickness
+						width: thickness * ( 26 / 85 ) * opticThickness * contrast
 						angle: 90 + 'deg'
 						distr: 0.75
 					})
@@ -92,7 +94,7 @@ exports.glyphs['A_cap'] =
 					y: contours[2].nodes[0].y
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 26 / 85 ) * opticThickness
+						width: thickness * ( 26 / 85 ) * opticThickness * contrast
 						angle: 90 + 'deg'
 						distr: 0.75
 					})
@@ -112,13 +114,17 @@ exports.glyphs['A_cap'] =
 					y: capHeight + overshoot * 2
 					typeOut: 'line'
 				2:
-					x: contours[3].nodes[1].x - thickness * ( 10 / 85 ) * ( serifCurve / 15 )
+					x: contours[3].nodes[1].x - Math.min( 15, thickness * ( 10 / 85 ) )
 					y: contours[3].nodes[1].y
-					dirOut: - 116 + 'deg'
+					dirOut: Math.min(
+						- 116,
+						- 100 - serifCurve ) + 'deg'
+					tensionOut: serifRoundness
 				3:
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y
 					dirIn: 8 + 'deg'
+					tensionIn: serifRoundness
 	components:
 		0:
 			base: 'serif'
@@ -139,24 +145,24 @@ exports.glyphs['A_cap'] =
 					anchorLine: 0
 					leftWidth: 55
 					rightWidth: 20
-					baseRight: contours[0].nodes[0].expandedTo[1].point
-					baseLeft: contours[0].nodes[0].expandedTo[0].point
+					# baseRight: contours[0].nodes[0].expandedTo[1].point
+					# baseLeft: contours[0].nodes[0].expandedTo[0].point
 					angle: Utils.lineAngle( contours[0].nodes[0].point ,contours[0].nodes[1].point )
 		1:
 			base: 'serif'
 			parentAnchors:
 				0:
 					x: Utils.onLine({
-						y: serifHeight + serifCurve + 115
+						y: serifHeight + serifCurve * ( 65 / 15 )
 						on: [ contours[1].nodes[1].expandedTo[1].point, contours[1].nodes[0].expandedTo[1].point ]
 					})
-					y: serifHeight + serifCurve + 115
+					y: serifHeight + serifCurve * ( 65 / 15 )
 				1:
 					x: Utils.onLine({
-						y: serifHeight + serifCurve + 115
+						y: serifHeight + serifCurve * ( 65 / 15 )
 						on: [ contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point ]
 					})
-					y: serifHeight + serifCurve + 115
+					y: serifHeight + serifCurve * ( 65 / 15 )
 				2:
 					anchorLine: 0
 					leftWidth: 40
@@ -165,6 +171,8 @@ exports.glyphs['A_cap'] =
 					# leftCurve: 0.5
 					baseRight: contours[1].nodes[0].expandedTo[1].point
 					baseLeft: contours[1].nodes[0].expandedTo[0].point
-					angle: Utils.lineAngle( contours[1].nodes[1].point ,contours[1].nodes[0].point )
+					anchor_0: contours[1].nodes[0].expandedTo[1].x
+					anchor_1: contours[1].nodes[0].expandedTo[0].x
+					angle: Utils.lineAngle( contours[1].nodes[0].point ,contours[1].nodes[1].point )
 			parentParameters:
 				serifCurve: serifCurve * 20

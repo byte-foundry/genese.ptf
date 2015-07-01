@@ -11,6 +11,7 @@ exports.parameters = [
 		init: 500
 		minAdvised: 300
 		maxAdvised: 800
+		disabled: false
 	,
 		name: 'capDelta'
 		label: 'Capital Height'
@@ -20,6 +21,7 @@ exports.parameters = [
 		init: 250
 		minAdvised: 0
 		maxAdvised: 350
+		disabled: false
 	,
 		name: 'ascender'
 		label: 'Ascender'
@@ -29,6 +31,7 @@ exports.parameters = [
 		init: 250
 		minAdvised: 50
 		maxAdvised: 500
+		disabled: false
 	,
 		name: 'descender'
 		label: 'Descender'
@@ -38,6 +41,7 @@ exports.parameters = [
 		init: -250
 		minAdvised: -350
 		maxAdvised: -100
+		disabled: false
 	,
 		name: 'crossbar'
 		label: 'Crossbar'
@@ -47,6 +51,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0.88
 		maxAdvised: 1.05
+		disabled: false
 	,
 		name: 'width'
 		label: 'Width'
@@ -56,6 +61,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0.85
 		maxAdvised: 1.3
+		disabled: false
 	,
 		name: 'slant'
 		label: 'Slant'
@@ -65,6 +71,7 @@ exports.parameters = [
 		init: 0
 		minAdvised: -5
 		maxAdvised: 8
+		disabled: true
 	,
 		name: 'overshoot'
 		label: 'Overshoot'
@@ -74,6 +81,7 @@ exports.parameters = [
 		init: 10
 		minAdvised: 0
 		maxAdvised: 20
+		disabled: false
 	]
 ,
 	tab: true
@@ -88,15 +96,17 @@ exports.parameters = [
 		init: 85
 		minAdvised: 60
 		maxAdvised: 130
+		disabled: false
 	,
 		name: '_contrast'
 		label: 'Contrast'
-		min: -4
-		max: -0.05
+		min: -2.5
+		max: -0.15
 		step: 0.01
 		init: -1
 		minAdvised: -1
 		maxAdvised: -0.3
+		disabled: false
 	,
 		name: 'aperture'
 		label: 'Aperture'
@@ -106,6 +116,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0.9
 		maxAdvised: 1.2
+		disabled: false
 	,
 		name: 'opticThickness'
 		label: 'Optic thickness'
@@ -115,6 +126,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 1
 		maxAdvised: 1.2
+		disabled: true
 	,
 		name: 'curviness'
 		label: 'Curviness'
@@ -124,6 +136,7 @@ exports.parameters = [
 		init: 0.6
 		minAdvised: 0.4
 		maxAdvised: 0.8
+		disabled: false
 	,
 		name: 'breakPath'
 		label: 'Break Path'
@@ -133,6 +146,7 @@ exports.parameters = [
 		init: 0
 		minAdvised: 0
 		maxAdvised: 0.5
+		disabled: true
 	# ,
 	# 	name: 'term'
 	# 	label: 'Term'
@@ -142,6 +156,7 @@ exports.parameters = [
 	# 	init: 1
 	# 	minAdvised: 0.8
 	# 	maxAdvised: 1.1
+	#	disabled: false
 	,
 		name: 'axis'
 		label: 'axis'
@@ -151,6 +166,7 @@ exports.parameters = [
 		init: 0
 		minAdvised: -15
 		maxAdvised: 15
+		disabled: true
 	]
 ,
 	tab: true
@@ -159,12 +175,13 @@ exports.parameters = [
 	parameters: [
 		name: 'serifWidth'
 		label: 'Serif Width'
-		min: 0
+		min: 0.001 #temporary FIX (instead 0)
 		max: 200
 		step: 1
 		init: 65
 		minAdvised: 0
 		maxAdvised: 80
+		disabled: false
 	,
 		name: 'midWidth'
 		label: 'Middle Width'
@@ -174,6 +191,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: -0.8
 		maxAdvised: 1.2
+		disabled: false
 	,
 		name: 'serifHeight'
 		label: 'Serif Height'
@@ -183,6 +201,7 @@ exports.parameters = [
 		init: 20
 		minAdvised: 0
 		maxAdvised: 80
+		disabled: false
 	,
 		name: 'serifMedian'
 		label: 'Serif Median'
@@ -192,6 +211,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0
 		maxAdvised: 1.3
+		disabled: false
 	,
 		name: 'serifCurve'
 		label: 'Bracket Curve'
@@ -201,15 +221,17 @@ exports.parameters = [
 		init: 15
 		minAdvised: 0
 		maxAdvised: 80
+		disabled: false
 	,
 		name: 'serifRoundness'
-		label: 'Serif Curve Roundness'
+		label: 'Serif Roundness'
 		min: 0
 		max: 1.8
 		step: 0.01
 		init: 1
 		minAdvised: 0
 		maxAdvised: 1.5
+		disabled: false
 	,
 		name: 'serifArc'
 		label: 'Serif Arc'
@@ -219,6 +241,7 @@ exports.parameters = [
 		init: 0
 		minAdvised: -0.2
 		maxAdvised: 0.5
+		disabled: false
 	,
 		name: 'serifTerminal'
 		label: 'Serif Terminal'
@@ -228,6 +251,7 @@ exports.parameters = [
 		init: 0
 		minAdvised: -0.2
 		maxAdvised: 0.8
+		disabled: false
 	,
 		name: 'serifTerminalCurve'
 		label: 'Serif Terminal Curve'
@@ -237,6 +261,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0
 		maxAdvised: 1.5
+		disabled: false
 	,
 		name: 'spurHeight'
 		label: 'Spur Height'
@@ -246,6 +271,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0
 		maxAdvised: 1.5
+		disabled: false
 	,
 		name: 'serifRotate'
 		label: 'Serif Rotation'
@@ -255,6 +281,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0.4
 		maxAdvised: 1.2
+		disabled: false
 	,
 		name: 'serifBall'
 		label: 'Terminal Ball'
@@ -264,6 +291,7 @@ exports.parameters = [
 		init: 1
 		minAdvised: 0
 		maxAdvised: 1.1
+		disabled: false
 	]
 ];
 

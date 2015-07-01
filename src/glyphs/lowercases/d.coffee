@@ -2,17 +2,13 @@ exports.glyphs['d'] =
 	unicode: 'd'
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[1].x + serifWidth + 25 * spacing
-	anchors:
-		0:
-			x: 415 + 21
-			y: ascenderHeight - ( 160 / 500 ) * ascenderHeight
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x
+					x: 415 * width + (21)
 					y: 90 + serifHeight
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -45,6 +41,7 @@ exports.glyphs['d'] =
 					})
 				1:
 					x: 265
+					x: contours[1].nodes[2].expandedTo[0].x + ( contours[0].nodes[1].expandedTo[0].x - contours[1].nodes[2].expandedTo[0].x ) * 0.6
 					y: - overshoot / 2
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -75,7 +72,7 @@ exports.glyphs['d'] =
 						distr: 0
 					})
 				4:
-					x: 420
+					x: contours[0].nodes[0].expandedTo[0].x + thickness * ( 5 / 85 )
 					y: xHeight - xHeight * ( ( 500 - 385 ) / 500 )
 					y: xHeight - xHeight * ( 115 / 500 )
 					dirIn: 116 + 'deg'

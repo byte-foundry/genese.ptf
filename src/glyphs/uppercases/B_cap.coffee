@@ -36,7 +36,7 @@ exports.glyphs['B_cap'] =
 					y: capHeight
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 20 / 85 ) * opticThickness
+						width: thickness * ( 20 / 85 ) * opticThickness * contrast
 						angle: - 90 + 'deg'
 						distr: 0
 					})
@@ -46,7 +46,7 @@ exports.glyphs['B_cap'] =
 					dirOut: 0 + 'deg'
 					tensionOut: 1.35
 					expand: Object({
-						width: thickness * ( 45 / 85 ) * opticThickness
+						width: thickness * ( 45 / 85 ) * opticThickness * contrast
 						angle: - 153 + 'deg'
 						distr: 0
 					})
@@ -67,7 +67,7 @@ exports.glyphs['B_cap'] =
 					typeOut: 'line'
 					dirIn: 0 + 'deg'
 					expand: Object({
-						width: thickness * ( 20 / 85 ) * opticThickness
+						width: thickness * ( 20 / 85 ) * opticThickness * contrast
 						angle: 119 + 'deg'
 					})
 				4:
@@ -75,10 +75,18 @@ exports.glyphs['B_cap'] =
 					y: contours[1].nodes[3].expandedTo[1].y
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 13 / 85 ) * opticThickness
+						width: thickness * ( 20 / 85 ) * opticThickness * contrast
 						angle: 90 + 'deg'
 						distr: 1
 					})
+				4:
+					expandedTo: [
+						x: contours[0].nodes[0].expandedTo[1].x
+						y: contours[1].nodes[3].expandedTo[1].y
+					,
+						x: contours[0].nodes[0].expandedTo[1].x
+						y: contours[1].nodes[3].expandedTo[0].y
+					]
 		2:
 			skeleton: true
 			closed: false
@@ -88,16 +96,24 @@ exports.glyphs['B_cap'] =
 					y: contours[2].nodes[1].expandedTo[1].y
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 18 / 85 ) * opticThickness
+						width: thickness * ( 18 / 85 ) * opticThickness * contrast
 						angle: 180 + 90 + 'deg'
 						distr: 1
 					})
+				0:
+					expandedTo: [
+						x: contours[0].nodes[0].expandedTo[1].x
+						y: contours[1].nodes[3].expandedTo[1].y
+					,
+						x: contours[0].nodes[0].expandedTo[1].x
+						y: contours[1].nodes[3].expandedTo[0].y
+					]
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x + 145
 					y: contours[1].nodes[3].expandedTo[1].y
 					dirOut: 0 + 'deg'
 					expand: Object({
-						width: thickness * ( 67 / 85 ) * opticThickness
+						width: thickness * ( 67 / 85 ) * opticThickness * contrast
 						angle: 180 + 15 + 'deg'
 						distr: 0
 					})
@@ -116,7 +132,7 @@ exports.glyphs['B_cap'] =
 					y: 0
 					dirIn: 0 + 'deg'
 					expand: Object({
-						width: thickness * ( 32 / 85 ) * opticThickness
+						width: thickness * ( 32 / 85 ) * opticThickness * contrast
 						angle: - 38 + 180 + 'deg'
 						distr: 0
 					})
