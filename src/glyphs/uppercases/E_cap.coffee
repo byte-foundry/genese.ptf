@@ -45,7 +45,7 @@ exports.glyphs['E_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 25 / 100 )
+						width: thickness * opticThickness * ( 25 / 100 ) * contrast
 						distr: 0
 					})
 				1:
@@ -67,7 +67,7 @@ exports.glyphs['E_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 28 / 100 )
+						width: thickness * opticThickness * ( 28 / 100 ) * contrast
 						distr: 0
 					})
 				1:
@@ -90,7 +90,7 @@ exports.glyphs['E_cap'] =
 					typeOut: 'line'
 					expand: Object({
 						# width: Math.max( serifHeight, thickness * opticThickness * ( 20 / 100 ) ) // Fit the thickness to the serifHeight
-						width: thickness * opticThickness * ( 25 / 100 )
+						width: thickness * opticThickness * ( 25 / 100 ) * contrast
 						distr: 1
 					})
 				1:

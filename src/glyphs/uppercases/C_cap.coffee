@@ -16,13 +16,14 @@ exports.glyphs['C_cap'] =
 						[
 							{
 								x: 630
-								y: ( 680 / 750 ) * capHeight
+								y: capHeight - ( 70 / 750 ) * capHeight
 								dirOut: 180 + 'deg'
 								tensionOut: 0.3
 							}
 							{
 								x: 670
-								y: ( 505 / 750 ) * capHeight
+								y: capHeight - ( 245 / 750 ) * capHeight
+								y: contours[0].nodes[0].expandedTo[0].y - 175
 								dirIn: 108 + 'deg'
 								tensionIn: 0.5
 							}
@@ -35,7 +36,7 @@ exports.glyphs['C_cap'] =
 					type: 'smooth'
 					tensionIn: 1.45
 					expand: Object({
-						width: thickness * ( 27 / 85 ) * opticThickness
+						width: thickness * ( 27 / 85 ) * opticThickness * contrast
 						angle: - 68 + 'deg'
 						distr: 0
 					})
@@ -55,7 +56,7 @@ exports.glyphs['C_cap'] =
 					dirIn: 0 + 'deg'
 					tensionOut: 1.3
 					expand: Object({
-						width: thickness * ( 33 / 85 ) * opticThickness
+						width: thickness * ( 33 / 85 ) * opticThickness * contrast
 						angle: 63 + 'deg'
 						distr: 0
 					})

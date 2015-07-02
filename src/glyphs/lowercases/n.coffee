@@ -37,7 +37,7 @@ exports.glyphs['n'] =
 					# angle: - 90 + axis + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 25 / 85 ) * contrast
+						width: thickness * ( 10 / 85 ) + thickness * ( 15 / 85 ) * contrast
 						angle: - 90 + 'deg'
 						distr: 0
 					})
@@ -51,7 +51,7 @@ exports.glyphs['n'] =
 					type: 'smooth'
 					expand: Object({
 						# width: thickness * ( 80 / 85 ) / 2 + thickness * ( 80 / 85 ) / 2 * contrast
-						width: thickness * ( 80 / 85 )
+						width: thickness * ( 40 / 85 ) + thickness * ( 40 / 85 ) * contrast
 						angle: Math.max( - 129 , - 129 - 10 * contrast * width + 10 ) + 'deg'
 						distr: 0
 					})

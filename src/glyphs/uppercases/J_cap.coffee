@@ -35,9 +35,9 @@ exports.glyphs['J_cap'] =
 					tensionIn: 0.7
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 43 / 85 ) * opticThickness
+						width: thickness * ( 43 / 85 ) * opticThickness * contrast
 						angle: - 125 + 'deg'
-						distr: 0
+						distr: 1
 					})
 		1:
 			skeleton: false

@@ -39,7 +39,7 @@ exports.glyphs['F_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 20 / 100 )
+						width: thickness * opticThickness * ( 20 / 100 ) * contrast
 						distr: 0
 					})
 				1:
@@ -61,7 +61,7 @@ exports.glyphs['F_cap'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * opticThickness * ( 28 / 100 )
+						width: thickness * opticThickness * ( 28 / 100 ) * contrast
 						distr: 0
 					})
 				1:

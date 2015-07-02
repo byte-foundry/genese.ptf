@@ -17,12 +17,14 @@ exports.glyphs['G_cap'] =
 							{
 								x: 630
 								y: ( 680 / 750 ) * capHeight
+								y: capHeight - ( 70 / 750 ) * capHeight
 								dirOut: 180 + 'deg'
 								tensionOut: 0.3
 							}
 							{
 								x: 670
 								y: ( 505 / 750 ) * capHeight
+								y: contours[0].nodes[0].expandedTo[0].y - 175
 								dirIn: 108 + 'deg'
 								tensionIn: 0.5
 							}
@@ -35,7 +37,7 @@ exports.glyphs['G_cap'] =
 					type: 'smooth'
 					tensionIn: 1.45
 					expand: Object({
-						width: thickness * ( 27 / 85 ) * opticThickness
+						width: thickness * ( 27 / 85 ) * opticThickness * contrast
 						angle: - 68 + 'deg'
 						distr: 0
 					})
@@ -44,7 +46,7 @@ exports.glyphs['G_cap'] =
 					y: capHeight * ( 375 / 750 )
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 110 / 85 ) * opticThickness
+						width: thickness * ( 100 / 85 ) * opticThickness
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
@@ -55,8 +57,8 @@ exports.glyphs['G_cap'] =
 					dirIn: 0 + 'deg'
 					tensionOut: 1.3
 					expand: Object({
-						width: thickness * ( 50 / 85 ) * opticThickness
-						angle: 37 + 'deg'
+						width: thickness * ( 40 / 85 ) * opticThickness
+						angle: 40 + 'deg'
 						distr: 0
 					})
 				4:
@@ -65,7 +67,7 @@ exports.glyphs['G_cap'] =
 					type: 'smooth'
 					dirIn: - 143 + 'deg'
 					expand: Object({
-						width: thickness * ( 16 / 85 ) * opticThickness
+						width: thickness * ( 16 / 85 ) * opticThickness * contrast
 						angle: 108 + 'deg'
 						distr: 0.25
 					})
@@ -98,22 +100,23 @@ exports.glyphs['G_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 565 + 25
+					x: 665 - (10)
 					y: ( 325 / 750 ) * capHeight - serifHeight - serifCurve * ( 60 / 15 )
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 100 / 85 ) * opticThickness
-						distr: 0.25
+						distr: 0.9
 					})
 				1:
 					x: contours[2].nodes[0].x
-					y: contours[0].nodes[3].expandedTo[1].y
+					y: contours[0].nodes[3].expandedTo[0].y
+					y: 50
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 104 / 85 ) * opticThickness
+						width: thickness * ( 94 / 85 ) * opticThickness
 						angle: Utils.lineAngle( contours[0].nodes[3].point, contours[0].nodes[4].point )
-						distr: 0.25
+						distr: 0.9
 					})
 	components:
 		0:
