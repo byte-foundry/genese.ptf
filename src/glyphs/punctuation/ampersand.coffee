@@ -2,6 +2,11 @@ exports.glyphs['ampersand'] =
 	unicode: '&'
 	ot:
 		advanceWidth: contours[0].nodes[3].expandedTo[1].x + serifWidth + 10 * spacing
+	tags: [
+		'all',
+		'latin',
+		'punctuation'
+	]
 	contours:
 		0:
 			skeleton: true

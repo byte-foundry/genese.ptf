@@ -6,6 +6,11 @@ exports.glyphs['zero'] =
 		0:
 			x: ( 495 + (37) ) * width
 			y: xHeight * ( 250 / 500 )
+	tags: [
+		'all',
+		'latin',
+		'figures'
+	]
 	contours:
 		0:
 			skeleton: true

@@ -2,6 +2,11 @@ exports.glyphs['bracketright'] =
 	unicode: 93
 	ot:
 		advanceWidth: contours[0].nodes[1].expandedTo[1].x + 100 * spacing
+	tags: [
+		'all',
+		'latin',
+		'punctuation'
+	]
 	contours:
 		0:
 			skeleton: true

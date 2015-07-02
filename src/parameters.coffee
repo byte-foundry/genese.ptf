@@ -118,16 +118,6 @@ exports.parameters = [
 		maxAdvised: 1.2
 		disabled: false
 	,
-		name: 'opticThickness'
-		label: 'Optic thickness'
-		min: 0.8
-		max: 1.5
-		step: 0.01
-		init: 1
-		minAdvised: 1
-		maxAdvised: 1.2
-		disabled: true
-	,
 		name: 'curviness'
 		label: 'Curviness'
 		min: 0.1
@@ -137,6 +127,16 @@ exports.parameters = [
 		minAdvised: 0.4
 		maxAdvised: 0.8
 		disabled: false
+	,
+		name: 'opticThickness'
+		label: 'Optic thickness'
+		min: 0.8
+		max: 1.5
+		step: 0.01
+		init: 1
+		minAdvised: 1
+		maxAdvised: 1.2
+		disabled: true
 	,
 		name: 'breakPath'
 		label: 'Break Path'

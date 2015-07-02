@@ -4,6 +4,11 @@ exports.glyphs['B_cap'] =
 		capHeight: 5000
 	ot:
 		advanceWidth: contours[2].nodes[2].expandedTo[0].x + 45 * spacing
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

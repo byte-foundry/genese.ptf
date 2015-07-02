@@ -2,6 +2,11 @@ exports.glyphs['parenleft'] =
 	unicode: '('
 	ot:
 		advanceWidth: width * 470 + thickness - 85
+	tags: [
+		'all',
+		'latin',
+		'punctuation'
+	]
 	contours:
 		0:
 			skeleton: true

@@ -2,6 +2,11 @@ exports.glyphs['F_sc'] =
 	unicode: 'ꜰ'
 	ot:
 		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'smallcap'
+	]
 	components:
 		0:
 			base: 'F_cap'

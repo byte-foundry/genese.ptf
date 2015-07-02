@@ -2,6 +2,16 @@ exports.glyphs['v'] =
 	unicode: 'v'
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth + 25 * spacing + (50)
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

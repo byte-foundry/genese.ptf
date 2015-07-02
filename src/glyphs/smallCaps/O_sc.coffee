@@ -2,6 +2,11 @@ exports.glyphs['O_sc'] =
 	unicode: 'ᴏ'
 	ot:
 		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'smallcap'
+	]
 	components:
 		0:
 			base: 'O_cap'

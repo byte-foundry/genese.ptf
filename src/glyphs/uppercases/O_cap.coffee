@@ -6,6 +6,11 @@ exports.glyphs['O_cap'] =
 		0:
 			x: ( 665 + (100) ) * width
 			y: capHeight * ( 375 / 750 )
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

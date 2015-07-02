@@ -6,6 +6,11 @@ exports.glyphs['G_cap'] =
 		0:
 			x: 600 - 28
 			y: 565
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

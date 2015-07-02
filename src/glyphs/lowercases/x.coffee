@@ -2,6 +2,11 @@ exports.glyphs['x'] =
 	unicode: 'x'
 	ot:
 		advanceWidth: contours[0].nodes[1].expandedTo[1].x + serifWidth + 24 * spacing
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

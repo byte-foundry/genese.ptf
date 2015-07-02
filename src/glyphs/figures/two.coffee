@@ -3,6 +3,11 @@ exports.glyphs['two'] =
 	unicode: '2'
 	ot:
 		advanceWidth: contours[2].nodes[1].x + 23 * spacing
+	tags: [
+		'all',
+		'latin',
+		'figures'
+	]
 	contours:
 		0:
 			skeleton: true

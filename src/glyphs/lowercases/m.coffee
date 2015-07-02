@@ -13,6 +13,11 @@ exports.glyphs['m'] =
 		2:
 			x: ( 730 + 64 ) * width
 			y: xHeight * ( 340 / 500 )
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

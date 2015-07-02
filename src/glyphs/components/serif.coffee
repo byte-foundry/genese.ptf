@@ -30,6 +30,9 @@ exports.glyphs['serif'] =
 			right: if typeof parentAnchors[2].right != 'undefined' then parentAnchors[2].right else true
 			attaque: if typeof parentAnchors[2].attaque != 'undefined' then parentAnchors[2].attaque else false
 			vertical: if typeof parentAnchors[2].vertical != 'undefined' then parentAnchors[2].vertical else false
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			closed: true

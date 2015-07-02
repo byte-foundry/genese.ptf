@@ -12,6 +12,11 @@ exports.glyphs['E_cap'] =
 				width: thickness * opticThickness * ( 100 / 85 )
 				distr: 0
 			})
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

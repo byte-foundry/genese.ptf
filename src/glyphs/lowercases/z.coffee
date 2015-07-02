@@ -2,6 +2,11 @@ exports.glyphs['z'] =
 	unicode: 'z'
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[0].x + 60 * spacing
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

@@ -2,6 +2,11 @@ exports.glyphs['n'] =
 	unicode: 'n'
 	ot:
 		advanceWidth: width * 550 + thickness * 2 - ( 85 * 2 ) + serifWidth
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

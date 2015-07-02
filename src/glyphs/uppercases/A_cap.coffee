@@ -11,6 +11,11 @@ exports.glyphs['A_cap'] =
 		1:
 			x: 50 + (9)
 			y: 0
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

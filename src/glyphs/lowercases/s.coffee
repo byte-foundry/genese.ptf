@@ -6,6 +6,11 @@ exports.glyphs['s'] =
 		0:
 			x: 0
 			y: 0
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true
@@ -115,7 +120,7 @@ exports.glyphs['s'] =
 					typeOut: 'line'
 				4:
 					x: contours[1].nodes[3].x
-					y: Math.max( contours[1].nodes[3].y - 165, contours[0].nodes[2].y + 20 ) 
+					y: Math.max( contours[1].nodes[3].y - 165, contours[0].nodes[2].y + 20 )
 				5:
 					x: contours[1].nodes[4].x - 15
 					y: contours[1].nodes[4].y

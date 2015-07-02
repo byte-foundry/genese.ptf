@@ -2,6 +2,11 @@ exports.glyphs['K_cap'] =
 	unicode: 'K'
 	ot:
 		advanceWidth: contours[2].nodes[1].expandedTo[1].x + serifWidth - 50 * spacing + (50)
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

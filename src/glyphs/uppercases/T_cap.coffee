@@ -6,6 +6,11 @@ exports.glyphs['T_cap'] =
 		0:
 			x: 580
 			y: capHeight * ( 383 / 750 )
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true
