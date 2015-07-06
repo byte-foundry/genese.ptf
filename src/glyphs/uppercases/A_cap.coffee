@@ -1,7 +1,5 @@
 exports.glyphs['A_cap'] =
 	unicode: 'A'
-	parameters:
-		capHeight: 500
 	ot:
 		advanceWidth: contours[0].nodes[1].expandedTo[1].x + ( serifWidth + 50 ) + 25 * spacing + (150)
 	anchors:

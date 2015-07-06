@@ -1,4 +1,4 @@
-exports.parameters = [
+exports.controls = [
 	tab: true
 	label: 'Func'
 	icon: '...'
