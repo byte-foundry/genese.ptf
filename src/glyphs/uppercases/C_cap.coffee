@@ -80,50 +80,50 @@ exports.glyphs['C_cap'] =
 								dirOut: - 108 + 'deg'
 							}
 						]
-		# 1:
-		# 	skeleton: false
-		# 	closed: false
-		# 	nodes:
-		# 		0:
-		# 			x: contours[0].nodes[0].expandedTo[0].x
-		# 			y: contours[0].nodes[0].expandedTo[0].y
-		# 			# typeOut: 'line'
-		# 		1:
-		# 			x: contours[0].nodes[0].expandedTo[0].x + 30
-		# 			y: contours[0].nodes[0].expandedTo[0].y + 50
-		# 			dirIn: - 95 + 'deg'
-		# 		2:
-		# 			x: contours[1].nodes[1].x + 15
-		# 			y: contours[1].nodes[1].y
-		# 			typeOut: 'line'
-		# 		3:
-		# 			x: contours[1].nodes[2].x + 15
-		# 			y: contours[0].nodes[0].expandedTo[1].y + 5
-		# 			typeOut: 'line'
-		# 		4:
-		# 			x: contours[0].nodes[0].expandedTo[1].x
-		# 			y: contours[0].nodes[0].expandedTo[1].y
-		# 			typeOut: 'line'
-		# 2:
-		# 	skeleton: false
-		# 	closed: false
-		# 	nodes:
-		# 		0:
-		# 			x: contours[0].nodes[4].expandedTo[0].x
-		# 			y: contours[0].nodes[4].expandedTo[0].y
-		# 		1:
-		# 			x: contours[2].nodes[0].x + 15
-		# 			y: contours[2].nodes[0].y - 40
-		# 			dirIn: 90 + 'deg'
-		# 		2:
-		# 			x: contours[2].nodes[1].x + 15
-		# 			y: contours[2].nodes[1].y
-		# 			typeOut: 'line'
-		# 		3:
-		# 			x: contours[0].nodes[4].expandedTo[1].x + 20
-		# 			y: contours[2].nodes[2].y + 230
-		# 			typeOut: 'line'
-		# 		4:
-		# 			x: contours[0].nodes[4].expandedTo[1].x
-		# 			y: contours[0].nodes[4].expandedTo[1].y
-		# 			typeOut: 'line'
+		1:
+			skeleton: false
+			closed: false
+			nodes:
+				0:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: contours[0].nodes[0].expandedTo[0].y
+					# typeOut: 'line'
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x + 30
+					y: contours[0].nodes[0].expandedTo[0].y + 50
+					dirIn: - 95 + 'deg'
+				2:
+					x: contours[1].nodes[1].x + 15
+					y: contours[1].nodes[1].y
+					typeOut: 'line'
+				3:
+					x: contours[1].nodes[2].x + 15
+					y: contours[0].nodes[0].expandedTo[1].y + 5
+					typeOut: 'line'
+				4:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[0].nodes[0].expandedTo[1].y
+					typeOut: 'line'
+		2:
+			skeleton: false
+			closed: false
+			nodes:
+				0:
+					x: contours[0].nodes[4].expandedTo[0].x
+					y: contours[0].nodes[4].expandedTo[0].y
+				1:
+					x: contours[2].nodes[0].x + 15
+					y: contours[2].nodes[0].y - 40
+					dirIn: 90 + 'deg'
+				2:
+					x: contours[2].nodes[1].x + 15
+					y: contours[2].nodes[1].y
+					typeOut: 'line'
+				3:
+					x: contours[0].nodes[4].expandedTo[1].x + 20
+					y: contours[2].nodes[2].y + 230
+					typeOut: 'line'
+				4:
+					x: contours[0].nodes[4].expandedTo[1].x
+					y: contours[0].nodes[4].expandedTo[1].y
+					typeOut: 'line'

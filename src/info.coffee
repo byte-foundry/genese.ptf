@@ -1,4 +1,4 @@
-exports.info =
+exports.fontinfo =
 	familyName: 'genese'
 	version: '0.1.0'
 	description: 'The first parametric typeface'
@@ -13,8 +13,10 @@ exports.info =
 		'diacritic',
 		'smallcap'
 	]
-	'cap-height': 750
-	'descendent-height': 210
+	ascender: Math.max( ascenderHeight, capHeight ) * 1.3
+	descender: descender - 50
+	'cap-height': Math.max( ascenderHeight, capHeight ) * 1.3
+	'descendent-height': descender - 50
 	'glyph-order':
 		'a': 'a'
 		'b': 'b'
