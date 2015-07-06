@@ -131,5 +131,5 @@ exports.glyphs['q'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: descender
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 20
+					rightWidth: 20

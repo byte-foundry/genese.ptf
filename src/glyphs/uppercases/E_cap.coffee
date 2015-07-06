@@ -164,10 +164,13 @@ exports.glyphs['E_cap'] =
 					x: Math.max(contours[2].nodes[0].expandedTo[1].x, contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve * ( 100 / 15 ) )
 					y: contours[2].nodes[0].expandedTo[1].y
 				2:
-					# anchorLine: Math.max( contours[2].nodes[0].expandedTo[0].x + serifHeight + serifCurve  * ( 100 / 15 ), contours[2].nodes[0].expandedTo[0].x )
 					anchorLine: contours[2].nodes[1].expandedTo[0].x
-					leftWidth: 70
-					rightWidth: 70
+					leftWidth: 75
+					rightWidth: 75
+			parentParameters:
+				serifMedian: serifMedian * 75/100
+				serifHeight: serifHeight * 16/20
+				serifCurve: serifCurve * 30/15
 		3:
 			base: 'serif_v'
 			parentAnchors:

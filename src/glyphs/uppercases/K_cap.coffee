@@ -122,10 +122,10 @@ exports.glyphs['K_cap'] =
 					anchorLine: capHeight
 					leftWidth: 65
 					rightWidth: 5
-					anchor_0: contours[1].nodes[0].expandedTo[0].x
-					anchor_1: contours[1].nodes[0].expandedTo[1].x
+					anchor_0: contours[1].nodes[0].expandedTo[1].x
+					anchor_1: contours[1].nodes[0].expandedTo[0].x
 					# rightCurve: 0.6
-					leftCurve: 1.1
+					# leftCurve: 1.1
 					angle: Utils.lineAngle( contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point )
 					directionY: -1
 					baseRight: contours[1].nodes[0].expandedTo[1].point

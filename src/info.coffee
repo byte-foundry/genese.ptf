@@ -2,6 +2,17 @@ exports.info =
 	familyName: 'genese'
 	version: '0.1.0'
 	description: 'The first parametric typeface'
+	tags: [
+		'all',
+		'component',
+		'latin',
+		'lowercase',
+		'uppercase',
+		'punctuation',
+		'figures',
+		'diacritic',
+		'smallcap'
+	]
 	'cap-height': 750
 	'descendent-height': 210
 	'glyph-order':
