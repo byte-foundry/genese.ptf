@@ -2,6 +2,11 @@ exports.glyphs['exclam'] =
 	unicode: '!'
 	ot:
 		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'punctuation'
+	]
 	contours:
 		0:
 			skeleton: true

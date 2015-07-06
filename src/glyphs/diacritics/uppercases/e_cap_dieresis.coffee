@@ -2,6 +2,12 @@ exports.glyphs['e_cap_dieresis'] =
 	unicode: 'Ë'
 	ot:
 		advanceWidth: width * 580 + thickness * 2 - ( 86 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'uppercase',
+		'diacritic'
+	]
 	components:
 		0:
 			base: 'E_cap'

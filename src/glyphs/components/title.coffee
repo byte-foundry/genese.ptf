@@ -3,6 +3,10 @@ exports.glyphs['title'] =
 		0:
 			x: parentAnchors[0].x + serifWidth
 			y: parentAnchors[0].y * serifMedian
+	tags: [
+		'component',
+		'diacritic'
+	]
 	contours:
 		0:
 			closed: true

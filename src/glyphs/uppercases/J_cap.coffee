@@ -2,6 +2,11 @@ exports.glyphs['J_cap'] =
 	unicode: 'J'
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[0].x + serifWidth + 40 * spacing + (120)
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

@@ -2,6 +2,11 @@ exports.glyphs['hyphen'] =
 	unicode: '-'
 	ot:
 		advanceWidth: contours[0].nodes[1].expandedTo[1].x + 80 * spacing
+	tags: [
+		'all',
+		'latin',
+		'punctuation'
+	]
 	contours:
 		0:
 			skeleton: true

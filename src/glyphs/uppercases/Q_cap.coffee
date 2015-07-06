@@ -2,6 +2,11 @@ exports.glyphs['Q_cap'] =
 	unicode: 'Q'
 	ot:
 		advanceWidth: contours[0].nodes[1].expandedTo[0].x + 10 * spacing
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

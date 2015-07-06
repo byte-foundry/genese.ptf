@@ -6,6 +6,11 @@ exports.glyphs['q'] =
 		0:
 			x: 0
 			y: 0
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true
@@ -126,5 +131,5 @@ exports.glyphs['q'] =
 					y: contours[0].nodes[0].y
 				2:
 					anchorLine: descender
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 20
+					rightWidth: 20

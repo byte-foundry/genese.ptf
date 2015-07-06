@@ -3,6 +3,9 @@ exports.glyphs['_quotesingle'] =
 		0:
 			x: parentAnchors[0].x
 			y: parentAnchors[0].y
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			skeleton: true

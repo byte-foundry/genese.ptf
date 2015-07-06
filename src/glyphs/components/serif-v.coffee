@@ -18,6 +18,9 @@ exports.glyphs['serif-v'] =
 			bottomMedian: parentAnchors[2].bottomMedian || 1
 			topMedian: parentAnchors[2].topMedian || 1
 			serifHeight: parentAnchors[2].serifHeight || 1
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			closed: true

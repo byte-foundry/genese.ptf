@@ -19,6 +19,9 @@ exports.glyphs['serif_top'] =
 			topMedian: parentAnchors[2].topMedian || 1
 			serifHeight: parentAnchors[2].serifHeight || 1
 			shift: parentAnchors[2].shift || 0
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			closed: true

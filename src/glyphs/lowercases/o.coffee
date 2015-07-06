@@ -9,6 +9,11 @@ exports.glyphs['o'] =
 		1:
 			x: ( 290 - 33 ) * width + 33
 			y: xHeight + overshoot
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

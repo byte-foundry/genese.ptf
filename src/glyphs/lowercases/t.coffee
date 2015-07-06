@@ -2,6 +2,16 @@ exports.glyphs['t'] =
 	unicode: 't'
 	ot:
 		advanceWidth: width * 400 + thickness * 2 - ( 86 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

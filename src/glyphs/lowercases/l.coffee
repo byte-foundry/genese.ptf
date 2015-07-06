@@ -6,6 +6,11 @@ exports.glyphs['l'] =
 		0:
 			x: 115 + ( 21 )
 			y: ascenderHeight - ( 160 / 500 ) * ascenderHeight
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

@@ -2,6 +2,12 @@ exports.glyphs['u_cap_acute'] =
 	unicode: 'Ú'
 	ot:
 		advanceWidth: width * 750 + thickness * 2 - ( 86 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'uppercase',
+		'diacritic'
+	]
 	components:
 		0:
 			base: 'U_cap'

@@ -15,6 +15,9 @@ exports.glyphs['attaque'] =
 			angle: parentAnchors[2].angle || - 90 + 'deg'
 			directionX: parentAnchors[2].directionX || 1
 			directionY: parentAnchors[2].directionY || 1
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			closed: true

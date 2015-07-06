@@ -2,6 +2,11 @@ exports.glyphs['W_cap'] =
 	unicode: 'W'
 	ot:
 		advanceWidth: contours[2].nodes[0].expandedTo[0].x + serifWidth + 25 * spacing
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

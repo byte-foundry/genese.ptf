@@ -13,6 +13,9 @@ exports.glyphs['serif_left'] =
 			angle: parentAnchors[2].angle || - 90 + 'deg'
 			directionY: parentAnchors[2].directionY || 1
 			directionX: parentAnchors[2].directionX || 1
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			closed: true

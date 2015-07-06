@@ -6,6 +6,11 @@ exports.glyphs['F_cap'] =
 		0:
 			x: 0
 			y: 0
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true
@@ -112,13 +117,11 @@ exports.glyphs['F_cap'] =
 					y: contours[2].nodes[0].expandedTo[1].y
 				2:
 					anchorLine: contours[2].nodes[1].expandedTo[0].x
-					leftWidth: 65
-					leftCurve: 1.2
-					rightWidth: 65
-					rightCurve: 1.2
+					leftWidth: 80
+					rightWidth: 80
 			parentParameters:
-				serifMedian: serifMedian * 0.75
-				serifHeight: serifHeight * 0.95
+				serifMedian: serifMedian * 75/100
+				serifHeight: serifHeight * 16/20
 		3:
 			base: 'serif_v'
 			parentAnchors:
@@ -132,7 +135,6 @@ exports.glyphs['F_cap'] =
 					anchorLine: contours[1].nodes[0].expandedTo[0].x
 					right: false
 					leftWidth: 60
-					leftCurve: 1.2
 			parentParameters:
 				serifMedian: serifMedian * 0.75
 				midWidth: midWidth * 0.98

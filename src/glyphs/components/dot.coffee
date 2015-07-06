@@ -3,6 +3,9 @@ exports.glyphs['dot'] =
 		0:
 			x: parentAnchors[0].x
 			y: parentAnchors[0].y
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			skeleton: false

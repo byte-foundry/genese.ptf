@@ -6,6 +6,11 @@ exports.glyphs['w'] =
 		0:
 			x: 395
 			y: xHeight
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true

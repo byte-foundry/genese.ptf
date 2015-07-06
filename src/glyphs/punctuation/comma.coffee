@@ -7,6 +7,11 @@ exports.glyphs['comma'] =
 		0:
 			x: 550 - 86 + thickness
 			y: xHeight * ( 250 / 500 )
+	tags: [
+		'all',
+		'latin',
+		'punctuation'
+	]
 	contours:
 		0:
 			skeleton: true

@@ -2,6 +2,11 @@ exports.glyphs['Z_cap'] =
 	unicode: 'Z'
 	ot:
 		advanceWidth: contours[2].nodes[1].x + 15 * spacing
+	tags: [
+		'all',
+		'latin',
+		'uppercase'
+	]
 	contours:
 		0:
 			skeleton: true

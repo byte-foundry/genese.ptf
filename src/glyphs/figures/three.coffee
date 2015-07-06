@@ -2,6 +2,11 @@ exports.glyphs['three'] =
 	unicode: '3'
 	ot:
 		advanceWidth: width * 545 + thickness * 2 - ( 85 * 2 )
+	tags: [
+		'all',
+		'latin',
+		'figures'
+	]
 	contours:
 		0:
 			skeleton: true

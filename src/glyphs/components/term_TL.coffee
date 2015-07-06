@@ -9,6 +9,9 @@ exports.glyphs['term_TL'] =
 	# 	2:
 	# 		x: parentAnchors[2].x
 	# 		y: parentAnchors[2].y
+	tags: [
+		'component'
+	]
 	contours:
 		0:
 			closed: false

@@ -2,10 +2,11 @@ exports.glyphs['p'] =
 	unicode: 'p'
 	ot:
 		advanceWidth: contours[1].nodes[2].expandedTo[1].x + 35 * spacing
-	anchors:
-		0:
-			x: 475 + (10)
-			y: xHeight * ( 250 / 500 )
+	tags: [
+		'all',
+		'latin',
+		'lowercase'
+	]
 	contours:
 		0:
 			skeleton: true
@@ -43,7 +44,7 @@ exports.glyphs['p'] =
 						distr: 1
 					})
 				1:
-					x: anchors[0].x * ( 345 / 475 )
+					x: contours[0].nodes[0].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[1].x ) * ( 150 / 280 )
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -53,15 +54,15 @@ exports.glyphs['p'] =
 						distr: 1
 					})
 				2:
-					x: anchors[0].x
-					y: anchors[0].y
+					x: 475 * width + (34)
+					y: xHeight * ( 250 / 500 )
 					dirOut: 90 + 'deg'
 					tensionOut: 0.9
 					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 97 / 85 )
 						angle: 12 + 'deg'
-						distr: 0
+						distr: 0.25
 					})
 				3:
 					x: contours[1].nodes[1].x
@@ -90,14 +91,14 @@ exports.glyphs['p'] =
 			parentAnchors:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x
-					y: contours[0].nodes[1].y
+					y: contours[0].nodes[1].y + serifHeight + serifCurve
 				1:
 					x: contours[0].nodes[1].expandedTo[0].x
-					y: contours[0].nodes[1].y
+					y: contours[0].nodes[1].y + serifHeight + serifCurve
 				2:
 					anchorLine: descender
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 20
+					rightWidth: 20
 		1:
 			base: 'attaque'
 			parentAnchors:
