@@ -56,7 +56,7 @@ exports.controls = [
 		name: 'width'
 		label: 'Width'
 		min: 0.75
-		max: 1.7
+		max: 1.6
 		step: 0.01
 		init: 1
 		minAdvised: 0.85
@@ -71,7 +71,7 @@ exports.controls = [
 		init: 0
 		minAdvised: -5
 		maxAdvised: 8
-		disabled: true
+		disabled: false
 	,
 		name: 'overshoot'
 		label: 'Overshoot'

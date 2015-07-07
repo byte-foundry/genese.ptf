@@ -67,6 +67,7 @@ exports.glyphs['d'] =
 					})
 				3:
 					x: 275
+					x: contours[1].nodes[2].expandedTo[0].x + ( contours[0].nodes[1].expandedTo[0].x - contours[1].nodes[2].expandedTo[0].x ) * 0.6
 					y: xHeight + overshoot
 					dirIn: 0 + 'deg'
 					tensionIn: 1.1

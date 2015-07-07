@@ -35,6 +35,7 @@ exports.glyphs['f'] =
 					})
 				2:
 					x: 335 * width
+					x: 335 + 100 * width - 100
 					y: capHeight + overshoot / 2
 					dirOut: 0 + 'deg'
 					dirIn: 0 + 'deg'
@@ -54,7 +55,7 @@ exports.glyphs['f'] =
 					y: contours[0].nodes[2].expandedTo[0].y
 					dirOut: 0 + 'deg'
 				1:
-					x: contours[0].nodes[2].expandedTo[0].x + 135
+					x: contours[0].nodes[2].expandedTo[0].x + 135 * width
 					y: capHeight - 70
 					dirOut: 90 + 'deg'
 					dirIn: 90 + 'deg'
