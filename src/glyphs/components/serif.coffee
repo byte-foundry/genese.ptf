@@ -58,10 +58,10 @@ exports.glyphs['serif'] =
 								y: contours[0].nodes[1].y
 								on: [ anchors[2].baseRight, contours[0].nodes[0].point ]
 							}) + (serifCurve + serifHeight + anchors[2].rightWidth * anchors[2].rightCurve),
-							contours[0].nodes[2].x + 10 / (serifCurve + serifHeight + anchors[2].rightWidth * anchors[2].rightCurve) * -(contours[0].nodes[2].x - Utils.onLine({
+							contours[0].nodes[2].x + 20 / (serifCurve + serifHeight + anchors[2].rightWidth * anchors[2].rightCurve) * -(contours[0].nodes[2].x - Utils.onLine({
 								y: contours[0].nodes[1].y
 								on: [ anchors[2].baseRight, contours[0].nodes[0].point ]
-							}))) else Math.min( contours[0].nodes[2].x - serifWidth / 10, anchors[0].x + serifHeight + serifCurve + anchors[2].rightWidth * anchors[2].rightCurve )
+							}))) else Math.min( contours[0].nodes[2].x - serifWidth / 5, anchors[0].x + serifHeight + serifCurve + anchors[2].rightWidth * anchors[2].rightCurve )
 					y:
 						if anchors[2].right == false
 						then anchors[2].baseRight.y
@@ -254,10 +254,10 @@ exports.glyphs['serif'] =
 								y: contours[0].nodes[9].y
 								on: [ anchors[2].baseLeft, contours[0].nodes[10].point ]
 							}) - (serifCurve + serifHeight + anchors[2].leftWidth * anchors[2].leftCurve),
-							contours[0].nodes[8].x + 10 / (serifCurve+serifHeight + anchors[2].leftWidth * anchors[2].leftCurve) * -(contours[0].nodes[8].x - Utils.onLine({
+							contours[0].nodes[8].x + 20 / (serifCurve+serifHeight + anchors[2].leftWidth * anchors[2].leftCurve) * -(contours[0].nodes[8].x - Utils.onLine({
 								y: contours[0].nodes[9].y
 								on: [ anchors[2].baseLeft, contours[0].nodes[10].point ]
-							}))) else Math.max( contours[0].nodes[8].x + serifWidth / 10, anchors[1].x - serifHeight - serifCurve - anchors[2].leftWidth * anchors[2].leftCurve )
+							}))) else Math.max( contours[0].nodes[8].x + serifWidth / 5, anchors[1].x - serifHeight - serifCurve - anchors[2].leftWidth * anchors[2].leftCurve )
 					y:
 						if anchors[2].left == false
 						then anchors[2].baseLeft.y

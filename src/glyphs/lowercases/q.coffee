@@ -17,7 +17,7 @@ exports.glyphs['q'] =
 			closed: false
 			nodes:
 				0:
-					x: 415 + 20
+					x: 415 * width + 20
 					y: descender + serifHeight + serifCurve
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
@@ -60,6 +60,7 @@ exports.glyphs['q'] =
 					x: contours[0].nodes[0].expandedTo[0].x + thickness * ( 10 / 85 )
 					y: 75
 					dirOut: - 125 + 'deg'
+					dirOut: if width <= 1.2 then - 125 + 125 * width - 125 + 'deg' else  - 140 + 15 * width + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width:  Math.min( thickness * ( 40 / 85 ), ( thickness * ( 40 / 85 ) / 500 ) * xHeight )
@@ -68,6 +69,7 @@ exports.glyphs['q'] =
 					})
 				1:
 					x: 270
+					x: contours[1].nodes[2].expandedTo[1].x + ( contours[0].nodes[0].expandedTo[0].x - contours[1].nodes[2].expandedTo[1].x ) * 0.4 - 10
 					y: - overshoot / 2
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -88,6 +90,7 @@ exports.glyphs['q'] =
 					})
 				3:
 					x: 280
+					x: contours[1].nodes[2].expandedTo[1].x + ( contours[0].nodes[0].expandedTo[0].x - contours[1].nodes[2].expandedTo[1].x ) * 0.4 + 10
 					y: xHeight + overshoot
 					dirIn: 0 + 'deg'
 					tensionIn: 1.1

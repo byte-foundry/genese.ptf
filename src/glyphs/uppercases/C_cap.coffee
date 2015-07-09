@@ -5,8 +5,10 @@ exports.glyphs['C_cap'] =
 		advanceWidth: contours[0].nodes[0].x + 40 * spacing
 	anchors:
 		0:
-			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + serifCurve * ( 65 / 15 ) )
+			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + serifCurve * ( 65 / 15 ), true )
 			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + serifCurve * ( 65 / 15 ) )
+			baseSerifTop_: Utils.pointOnCurve( contours[0].nodes[4].expandedTo[1], contours[0].nodes[3].expandedTo[1], serifHeight + serifCurve * ( 65 / 15 ) )
+			baseSerifBottom_: Utils.pointOnCurve( contours[0].nodes[3].expandedTo[0], contours[0].nodes[4].expandedTo[0], serifHeight + serifCurve * ( 65 / 15 ), true )
 	tags: [
 		'all',
 		'latin',
@@ -148,20 +150,46 @@ exports.glyphs['C_cap'] =
 		# 			x: contours[0].nodes[4].expandedTo[1].x
 		# 			y: contours[0].nodes[4].expandedTo[1].y
 		# 			typeOut: 'line'
-	# components:
-	# 	0:
-	# 		base: 'serif-v'
-	# 		parentAnchors:
-	# 			0:
-	# 				# x: contours[0].nodes[0].expandedTo[1].x - serifHeight - serifCurve * ( 65 / 15 )
-	# 				x: anchors[0].baseSerifTop.x
-	# 				y: anchors[0].baseSerifTop.y
-	# 			1:
-	# 				x: anchors[0].baseSerifBottom.x
-	# 				y: anchors[0].baseSerifBottom.y
-	# 			2:
-	# 				anchorLine: contours[0].nodes[0].expandedTo[0].x
-	# 				leftWidth: 0
-	# 				directionY: -1
-	# 				angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
-	# 				# right: false
+	components:
+		0:
+			base: 'serif-v-test'
+			parentAnchors:
+				0:
+					x: anchors[0].baseSerifBottom.x
+					y: anchors[0].baseSerifBottom.y
+				1:
+					# x: contours[0].nodes[0].expandedTo[1].x - serifHeight - serifCurve * ( 65 / 15 )
+					x: anchors[0].baseSerifTop.x
+					y: anchors[0].baseSerifTop.y
+				2:
+					anchorLine: contours[0].nodes[0].expandedTo[0].x
+					# leftWidth: 0
+					# directionY: -1
+					# directionX: -1
+					angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+					# right: false
+					maxWidth: capHeight
+					# right: false
+					baseRight: contours[0].nodes[0].expandedTo[0].point
+					baseLeft: contours[0].nodes[0].expandedTo[1].point
+		# 1:
+		# 	base: 'serif-v-test'
+		# 	parentAnchors:
+		# 		0:
+		# 			# x: contours[0].nodes[0].expandedTo[1].x - serifHeight - serifCurve * ( 65 / 15 )
+		# 			x: anchors[0].baseSerifTop_.x
+		# 			y: anchors[0].baseSerifTop_.y
+		# 		1:
+		# 			x: anchors[0].baseSerifBottom_.x
+		# 			y: anchors[0].baseSerifBottom_.y
+		# 		2:
+		# 			anchorLine: contours[0].nodes[4].expandedTo[0].x
+		# 			# leftWidth: 0
+		# 			# directionY: -1
+		# 			# directionX: -1
+		# 			angle: Utils.lineAngle( contours[0].nodes[4].expandedTo[1].point, contours[0].nodes[3].expandedTo[0].point )
+		# 			# right: false
+		# 			maxWidth: capHeight
+		# 			# right: false
+		# 			baseRight: contours[0].nodes[4].expandedTo[0].point
+		# 			baseLeft: contours[0].nodes[4].expandedTo[1].point

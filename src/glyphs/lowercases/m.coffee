@@ -73,7 +73,7 @@ exports.glyphs['m'] =
 						distr: 0
 					})
 				2:
-					x: ( 425 + (64) ) * width
+					x: 425 * width + (64)
 					y: xHeight - 170 - thickness + 85
 					dirOut: - 90 + 'deg'
 					typeOut: 'line'
@@ -98,7 +98,7 @@ exports.glyphs['m'] =
 					x: contours[1].nodes[2].expandedTo[0].x - ( 5 / 85 ) * thickness
 					# y: xHeight * ( 370 / 500 )
 					y: xHeight - 160 + ( thickness - 85 ) / 4 + (25)
-					dirOut: if width <= 1.2 then 65 - 65 * width + 65 + 'deg' else 65 - 15 * width + 'deg'
+					dirOut: if width <= 1.2 then 70 - 70 * width + 70 + 'deg' else 70 - 15 * width + 'deg'
 					# angle: - 90 + axis + 'deg'
 					type: 'smooth'
 					expand: Object({
@@ -122,7 +122,7 @@ exports.glyphs['m'] =
 						distr: 0
 					})
 				2:
-					x: ( 730 + (64) ) * width
+					x: contours[1].nodes[2].x + 300 * width
 					y: xHeight - 170 - thickness + 85
 					dirOut: - 90 + 'deg'
 					typeOut: 'line'
@@ -145,27 +145,27 @@ exports.glyphs['m'] =
 			parentAnchors:
 				0:
 					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].y
+					y: contours[0].nodes[0].y + serifCurve * ( 20 / 15 )
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].y
+					y: contours[0].nodes[0].y + serifCurve * ( 20 / 15 )
 				2:
 					anchorLine: 0
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 20
+					rightWidth: 5
 		1:
 			base: 'serif'
 			parentAnchors:
 				0:
 					x: contours[1].nodes[3].expandedTo[0].x
-					y: contours[1].nodes[3].y
+					y: contours[1].nodes[3].y + serifCurve * ( 20 / 15 )
 				1:
 					x: contours[1].nodes[3].expandedTo[1].x
-					y: contours[1].nodes[3].y
+					y: contours[1].nodes[3].y + serifCurve * ( 20 / 15 )
 				2:
 					anchorLine: 0
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 10
+					# rightWidth: 1
 		2:
 			base: 'attaque'
 			parentAnchors:
@@ -183,11 +183,11 @@ exports.glyphs['m'] =
 			parentAnchors:
 				0:
 					x: contours[2].nodes[3].expandedTo[0].x
-					y: contours[2].nodes[3].y
+					y: contours[2].nodes[3].y + serifCurve * ( 20 / 15 )
 				1:
 					x: contours[2].nodes[3].expandedTo[1].x
-					y: contours[2].nodes[3].y
+					y: contours[2].nodes[3].y + serifCurve * ( 20 / 15 )
 				2:
 					anchorLine: 0
-					leftWidth: 1
-					rightWidth: 1
+					leftWidth: 10
+					rightWidth: 20

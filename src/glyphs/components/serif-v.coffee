@@ -18,6 +18,7 @@ exports.glyphs['serif-v'] =
 			bottomMedian: parentAnchors[2].bottomMedian || 1
 			topMedian: parentAnchors[2].topMedian || 1
 			serifHeight: parentAnchors[2].serifHeight || 1
+			maxWidth: parentAnchors[2].maxWidth || 1
 	tags: [
 		'component'
 	]
@@ -71,7 +72,7 @@ exports.glyphs['serif-v'] =
 					x: contours[0].nodes[3].x
 					y: contours[0].nodes[8].y + ( contours[0].nodes[6].y - contours[0].nodes[8].y ) / 2 + serifTerminal * serifWidth
 					# y: contours[0].nodes[8].y
-					dirOut: Utils.lineAngle( contours[0].nodes[6].point ,contours[0].nodes[8].point )
+					dirOut: Utils.lineAngle( contours[0].nodes[6].point, contours[0].nodes[8].point )
 					type: 'smooth'
 					tensionOut: serifTerminalCurve
 					tensionIn: serifTerminalCurve
@@ -79,6 +80,10 @@ exports.glyphs['serif-v'] =
 				8:
 					x: contours[0].nodes[2].x
 					y: contours[0].nodes[10].y + serifWidth + anchors[2].topWidth
+					y:
+						if parentAnchors[2].maxWidth
+						then Math.min( parentAnchors[2].maxWidth, anchors[2].baseRight + serifWidth )
+						else contours[0].nodes[10].y + serifWidth + anchors[2].topWidth
 					type: 'smooth'
 					tensionIn: serifTerminalCurve
 					typeOut: 'line'
