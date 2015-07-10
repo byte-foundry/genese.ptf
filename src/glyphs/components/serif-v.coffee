@@ -1,4 +1,4 @@
-exports.glyphs['serif-v-test'] =
+exports.glyphs['serif-v'] =
 	anchors:
 		0:
 			x: parentAnchors[0].x
