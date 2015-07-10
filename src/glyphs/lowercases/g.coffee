@@ -4,8 +4,7 @@ exports.glyphs['g'] =
 		advanceWidth: contours[2].nodes[0].expandedTo[0].x - thickness * ( 50 / 85 ) * spacing
 	anchors:
 		0:
-			x: 0
-			y: 0
+			junctionBottom: Utils.pointOnCurve( contours[0].nodes[3].expandedTo[1], contours[0].nodes[0].expandedTo[1], 50 )
 	tags: [
 		'all',
 		'latin',
@@ -27,7 +26,7 @@ exports.glyphs['g'] =
 						distr: 0
 					})
 				1:
-					x: 340 + 65
+					x: 340 * width + 65
 					y: contours[0].nodes[3].y
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
@@ -62,6 +61,8 @@ exports.glyphs['g'] =
 				0:
 					x: 170
 					y: contours[0].nodes[0].expandedTo[1].y
+					# x: anchors[0].junctionBottom.x
+					# y: anchors[0].junctionBottom.y
 					dirOut: - 176 + 'deg'
 					# dirOut: Utils.lineAngle( contours[1].nodes[2].point, contours[1].nodes[3].point ) - Math.PI / 2 * 90 * 4
 					type: 'smooth'
@@ -99,6 +100,7 @@ exports.glyphs['g'] =
 					})
 				3:
 					x: 285
+					x: contours[1].nodes[4].x - 120
 					y:
 						if xHeight > 42
 						then 4 + 21 + (21/500) * xHeight
@@ -112,7 +114,7 @@ exports.glyphs['g'] =
 						distr: 0.5
 					})
 				4:
-					x: 405 + (21)
+					x: 405 * width + (21)
 					y: ( 85 / 250 ) * descender
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -123,6 +125,7 @@ exports.glyphs['g'] =
 					})
 				5:
 						x: 255
+						x: contours[1].nodes[2].x + ( contours[1].nodes[3].x - contours[1].nodes[2].x ) * 0.5
 						y: ( 230 / 250 ) * descender
 						dirOut: 0 + 'deg'
 						type: 'smooth'
@@ -156,7 +159,7 @@ exports.glyphs['g'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[1].nodes[4].expandedTo[1].x + 100
+					x: contours[0].nodes[1].expandedTo[0].x + 150
 					y: contours[2].nodes[1].y - 55
 					dirOut: 90 + 'deg'
 					dirIn: 90 + 'deg'

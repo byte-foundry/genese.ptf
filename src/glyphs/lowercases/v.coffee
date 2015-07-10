@@ -18,7 +18,8 @@ exports.glyphs['v'] =
 			closed: false
 			nodes:
 				0:
-					x: 395 + (17)
+					x: 385 * width + (17)
+					# x: contours[0].nodes[1].x + 280 * width + (17)
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
@@ -28,50 +29,40 @@ exports.glyphs['v'] =
 					})
 				1:
 					x: 214 + 6
+					# x: 214 * width + 6
+					x: contours[1].nodes[0].expandedTo[1].x + ( contours[0].nodes[0].expandedTo[0].x - contours[1].nodes[0].expandedTo[1].x ) * 0.5 - thickness * ( (25 + 12) / 85 )
 					y: - overshoot
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 25 / 85 )
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0.5
 					})
 		1:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: 30 + (93)
+					x: 20 + (21)
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
 						width: thickness * ( 93 / 85 )
 						angle: 0 + 'deg'
-						distr: 1
+						distr: 0.25
 					})
 				1:
-					expandedTo: [
-						x: Utils.onLine({
-							y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
-							on: [ contours[1].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-						})
-						y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
-						typeOut: 'line'
-					,
-						x: Utils.onLine({
-							y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
-							on: [ contours[0].nodes[1].expandedTo[0].point, contours[0].nodes[0].expandedTo[0].point ]
-						})
-						y: ( thickness * ( 95 / 85 ) / 500 ) * xHeight
-						typeIn: 'line'
-					]
-				2:
 					x: contours[0].nodes[1].expandedTo[0].x + contours[0].nodes[1].expand.width
+					x: contours[0].nodes[1].expandedTo[0].x
 					y: - overshoot
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 25 / 85 )
-						angle: 0 + 'deg'
-						distr: 1
+						width:
+							if width < 1
+							then ( thickness * ( 120 / 85 ) / 500 ) * xHeight
+							else ( thickness * ( ( 120 - 35 * width + 35 ) / 85 ) / 500 ) * xHeight
+						angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ) + Math.PI
+						distr: 0
 					})
 	components:
 		0:
@@ -93,7 +84,7 @@ exports.glyphs['v'] =
 					anchorLine: xHeight
 					leftWidth: 0.9
 					rightWidth: 0.9
-					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[2].expandedTo[0].point )
+					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
 					directionY: -1
 		1:
 			base: 'serif'

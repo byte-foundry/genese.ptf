@@ -13,7 +13,7 @@ exports.glyphs['z'] =
 			closed: false
 			nodes:
 				0:
-					x: 435 + (0)
+					x: 435 * width + (0)
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
@@ -44,7 +44,7 @@ exports.glyphs['z'] =
 						distr: 0
 					})
 				1:
-					x: 430 + (0)
+					x: 430 * width + (0)
 					y: 0
 					typeOut: 'line'
 					expand: Object({

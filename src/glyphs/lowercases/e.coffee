@@ -22,7 +22,7 @@ exports.glyphs['e'] =
 					dirOut: Math.max( 90, 150 - ( 50 / 500 ) * xHeight ) + 'deg'
 					tensionOut: 1.2
 					expand: Object({
-						width: thickness * ( 94 / 86 )
+						width: thickness * ( 94 / 85 )
 						angle: 0 + 'deg'
 						distr: 0.75
 					})
@@ -32,7 +32,7 @@ exports.glyphs['e'] =
 					dirOut: 180 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 20 / 86 )
+						width: thickness * ( 20 / 85 )
 						angle: - 104 + 180 + 'deg'
 						distr: 1
 					})
@@ -42,19 +42,20 @@ exports.glyphs['e'] =
 					dirOut: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({
-						width: thickness * ( 96 / 86 )
+						width: thickness * ( 96 / 85 )
 						angle: 21 + 180 + 'deg'
 						distr: 0.75
 					})
 				3:
 					x: 270
+					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[0].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.5
 					y: - overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
 					# dirIn: 0 + 'deg'
 					expand: Object({
 						angle: 70 + 180 + 'deg'
-						width: thickness * ( 67 / 86 )
+						width: thickness * ( 60 / 85 )
 						distr: 1
 					})
 				4:
@@ -68,7 +69,7 @@ exports.glyphs['e'] =
 						angle: 163 + 180 + 'deg'
 						angle: contours[0].nodes[4].dirIn + Math.PI / 2
 						distr: 0.25
-						width: thickness * ( 11 / 86 )
+						width: thickness * ( 11 / 85 )
 					})
 		1:
 			skeleton: true
@@ -80,7 +81,7 @@ exports.glyphs['e'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 20 / 86 )
+						width: thickness * ( 20 / 85 )
 						distr: 1
 					})
 				1:
@@ -89,6 +90,6 @@ exports.glyphs['e'] =
 					dirOut: 0 + 'deg'
 					expand: Object({
 						angle: - 90 + 'deg'
-						width: thickness * ( 25 / 86 )
+						width: thickness * ( 25 / 85 )
 						distr: 1
 					})

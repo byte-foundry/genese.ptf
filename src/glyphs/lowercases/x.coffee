@@ -23,7 +23,7 @@ exports.glyphs['x'] =
 						distr: 0.25
 					})
 				1:
-					x: 391 + (26)
+					x: 391 * width + (26)
 					y: 0
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
@@ -37,7 +37,7 @@ exports.glyphs['x'] =
 			closed: false
 			nodes:
 				0:
-					x: 421 + (0)
+					x: 421 * width + (0)
 					y: xHeight
 					dirOut: - 109 + 'deg'
 					typeOut: 'line'
@@ -55,7 +55,7 @@ exports.glyphs['x'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 23 / 85 )
+						width: thickness * ( 23 / 85 ) * width
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
@@ -72,7 +72,7 @@ exports.glyphs['x'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 23 / 85 )
+						width: thickness * ( 23 / 85 ) * width
 						angle: 0 + 'deg'
 						distr: 0.75
 					})

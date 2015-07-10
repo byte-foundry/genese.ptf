@@ -28,7 +28,7 @@ exports.glyphs['u'] =
 				1:
 					x: contours[0].nodes[0].x
 					y: xHeight * ( 160 / 500 )
-					y: xHeight * ( 30 / 500 ) + 130
+					y: xHeight * ( 30 / 500 ) * width + 130
 					dirOut: 90 + 'deg'
 					# type: 'smooth'
 					expand: Object({
@@ -37,6 +37,7 @@ exports.glyphs['u'] =
 					})
 				2:
 					x: 231
+					x: contours[0].nodes[1].x + ( contours[0].nodes[3].x - contours[0].nodes[1].x ) * 0.4
 					y: - overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -46,7 +47,7 @@ exports.glyphs['u'] =
 						distr: 0
 					})
 				3:
-					x: 411
+					x: 411 * width
 					y: xHeight * ( ( 130 + 10 ) / 500 )
 					y: xHeight * ( 30 / 500 ) + 110
 					dirIn: Math.max( - 110 , Math.min( - 95 , - ( 120 / 500 ) * xHeight ) ) + 'deg'
