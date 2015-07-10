@@ -155,7 +155,7 @@ exports.glyphs['E_cap'] =
 					leftWidth: 40
 					right: false
 		2:
-			base: 'serif-v-test'
+			base: 'serif-v'
 			parentAnchors:
 				0:
 					x: Math.max(contours[2].nodes[0].expandedTo[1].x, contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve * ( 100 / 15 ) )
@@ -172,7 +172,7 @@ exports.glyphs['E_cap'] =
 			# 	serifHeight: serifHeight * 16/20
 			# 	serifCurve: serifCurve * 30/15
 		3:
-			base: 'serif-v-test'
+			base: 'serif-v'
 			parentAnchors:
 				1:
 					x: Math.max(contours[1].nodes[0].expandedTo[1].x, contours[1].nodes[1].expandedTo[1].x - serifHeight - serifCurve * ( 100 / 15 ) )

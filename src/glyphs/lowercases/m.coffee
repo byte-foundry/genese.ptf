@@ -24,7 +24,7 @@ exports.glyphs['m'] =
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].x
+					x: 120 + ( 21 )
 					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
@@ -73,7 +73,7 @@ exports.glyphs['m'] =
 						distr: 0
 					})
 				2:
-					x: 425 * width + (64)
+					x: contours[0].nodes[1].expandedTo[1].x + 220 * width + (64)
 					y: xHeight - 170 - thickness + 85
 					dirOut: - 90 + 'deg'
 					typeOut: 'line'
@@ -123,6 +123,7 @@ exports.glyphs['m'] =
 					})
 				2:
 					x: contours[1].nodes[2].x + 300 * width
+					x: contours[1].nodes[2].expandedTo[0].x + 220 * width + (64)
 					y: xHeight - 170 - thickness + 85
 					dirOut: - 90 + 'deg'
 					typeOut: 'line'

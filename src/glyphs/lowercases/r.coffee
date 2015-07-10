@@ -41,7 +41,7 @@ exports.glyphs['r'] =
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x - thickness * ( 5 / 85 )
 					y: ( ( 375 + 50 ) / 500 ) * xHeight - 50
-					dirOut: 74 + 'deg'
+					dirOut: if width <= 1.2 then 74 - 74 * width + 74 + 'deg' else 79 - 15 * width + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: thickness * ( 45 / 85 ) * contrast
@@ -59,7 +59,7 @@ exports.glyphs['r'] =
 						distr: 0
 					})
 				2:
-					x: 345 + 25
+					x: 100 + 245 * width + (25)
 					y: contours[1].nodes[1].expandedTo[1].y - 35 + Math.min( - 20 * aperture + 20, - 125 * aperture + 125 )
 					dirIn: 110 - 20 * aperture + 'deg'
 					type: 'smooth'
